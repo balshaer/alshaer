@@ -11,6 +11,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import './Header.css';
 import 'animate.css';
 import { useTranslation } from 'react-i18next';
+import React from 'react';
 
 const languageOptions = [
   { value: 'ar', label: 'عربي', direction: 'rtl', icon: <LanguageIcon /> },
@@ -58,7 +59,7 @@ function Header() {
   const handleLanguageChange = (event) => {
     const selectedValue = event.target.value;
     const selectedOption = languageOptions.find((option) => option.value === selectedValue);
-    setSelectedLanguage(selectedOption);
+    setSelectedLanguage(selectedOption as any);
   };
 
   return (

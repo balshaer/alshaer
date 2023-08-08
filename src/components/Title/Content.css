@@ -1,1 +1,22 @@
-.item a{text-decoration:none!important}.Avatar{border:2px solid #16161a;cursor:pointer}#contactForm{display:flex;justify-content:center;align-items:center;flex-direction:column;gap:2rem;height:100%;position:relative}#contactForm .nextui-c-iwmZdB-iiIdOsz-css{width:100%}.nextui-c-iDzHRq{padding:2rem}#contactForm button{background-color:var(--color-highlight-dark)!important;position:absolute;left:0}.nextui-c-hdxYb{background-color:rgba(255,73,27,.784)!important;height:25px!important;width:25px!important;border-radius:50%!important;transition:all .3s ease 0s}.nextui-c-hdxYb:hover{background-color:rgb(255,73,27)!important}@media screen and (min-width:633px){.nextui-c-hdxYb{display:none!important}}#contactForm button{gap:8px;font-size:13px;background:royalblue;color:white;padding:1rem;padding-left:.9em;display:flex;align-items:center;border:none;border-radius:48px;overflow:hidden;transition:all .2s;height:2rem;cursor:pointer;width:6rem;justify-content:center}#contactForm button span{display:block;margin-left:.3em;transition:all .3s ease-in-out}#contactForm button svg{display:block;transform-origin:center center;transition:transform .3s ease-in-out}#contactForm button:hover .svg-wrapper{animation:fly-1 .6s ease-in-out infinite alternate}#contactForm button:hover svg{transform:translateX(1.2em) rotate(45deg) scale(1.1)}#contactForm button:hover span{transform:translateX(12em)}#contactForm button:active{transform:scale(.95)}@keyframes fly-1{from{transform:translateY(.1em)}to{transform:translateY(-.1em)}}
+.item a{text-decoration:none!important}
+.Avatar{border:2px solid #16161a;cursor:pointer}
+#contactForm{display:flex;justify-content:center;align-items:center;flex-direction:column;gap:2rem;height:100%;position:relative}
+#contactForm .nextui-c-iwmZdB-iiIdOsz-css{width:100%}
+.nextui-c-iDzHRq{padding:2rem}
+#contactForm button{background-color:var(--color-highlight-dark)!important;position:absolute;left:0}
+.nextui-c-hdxYb{background-color:rgba(255,73,27,.784)!important;height:25px!important;width:25px!important;border-radius:50%!important;transition:all .3s ease 0s}
+.nextui-c-hdxYb:hover{background-color:#ff491b!important}
+@media screen and (min-width:633px){
+.nextui-c-hdxYb{display:none!important}
+}
+#contactForm button{gap:8px;font-size:13px;background:#4169e1;color:#fff;padding:1rem;padding-left:.9em;display:flex;align-items:center;border:none;border-radius:48px;overflow:hidden;transition:all .2s;height:2rem;cursor:pointer;width:6rem;justify-content:center}
+#contactForm button span{display:block;margin-left:.3em;transition:all .3s ease-in-out}
+#contactForm button svg{display:block;transform-origin:center center;transition:transform .3s ease-in-out}
+#contactForm button:hover .svg-wrapper{animation:fly-1 .6s ease-in-out infinite alternate}
+#contactForm button:hover svg{transform:translateX(1.2em) rotate(45deg) scale(1.1)}
+#contactForm button:hover span{transform:translateX(12em)}
+#contactForm button:active{transform:scale(.95)}
+@keyframes fly-1{
+from{transform:translateY(.1em)}
+to{transform:translateY(-.1em)}
+}

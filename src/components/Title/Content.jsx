@@ -11,6 +11,7 @@ import Stack from '@mui/material/Stack';
 import emailjs from 'emailjs-com';
 import { Input, Modal, Text, Textarea } from '@nextui-org/react';
 import toast, { Toaster } from 'react-hot-toast';
+import Projects from '../Projects/Projects';
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
     backgroundColor: '#44b700',
@@ -161,68 +162,7 @@ export default function Content() {
           {t('Follow Description')}
         </Typography>
         <br />
-        <div className='items'>
-          <li className='item'>
-            {!isArabic && (
-              <Tooltip placement="right" title={"📅 Web application for creating and arranging important appointments "}>
-                <a id='linkItem' target='_blank' rel='noopener noreferrer' href="https://timescape-liart.vercel.app/">
-                  {t('Timescape')}
-                </a>
-              </Tooltip>
-            )}
-            {isArabic && (
-              <a id='linkItem' target='_blank' rel='noopener noreferrer' href="https://timescape-liart.vercel.app/">
-                {t('Timescape')}
-              </a>
-            )}
-          </li>
-          <li className='item'>
-            {!isArabic && (
-              <Tooltip placement="right" title={"🗒️ Effortlessly Preserve and Organize Your Notes"}>
-                <a id='linkItem' target='_blank' rel='noopener noreferrer' href="https://theshortnote.netlify.app/">
-                  {t('SNote')}
-                </a>
-              </Tooltip>
-            )}
-            {isArabic && (
-              <a id='linkItem' target='_blank' rel='noopener noreferrer' href="https://theshortnote.netlify.app/">
-                {t('SNote')}
-              </a>
-            )}
-          </li>
-          <li className='item'>
-            {!isArabic && (
-              <Tooltip placement="right" title={"🟣 UI to generate linear gradients"}>
-                <a id='linkItem' target='_blank' rel='noopener noreferrer' href="https://gradientscss.vercel.app/">
-                  {t('Gradients CSS')}
-                </a>
-              </Tooltip>
-            )}
-            {isArabic && (
-              <a id='linkItem' target='_blank' rel='noopener noreferrer' href="https://gradientscss.vercel.app/">
-                {t('Gradients CSS')}
-              </a>
-            )}
-          </li>
-
-
-          <li className='item'>
-            {!isArabic && (
-              <Tooltip placement="right" title={"Web app to mange Github repositories"}>
-                <a id='linkItem' target='_blank' rel='noopener noreferrer' href="https://gitlinker.vercel.app/">
-                  {t('GitLinker')}
-                </a>
-              </Tooltip>
-            )}
-            {isArabic && (
-              <a id='linkItem' target='_blank' rel='noopener noreferrer' href="https://gitlinker.vercel.app/">
-                  {t('GitLinker')}
-              </a>
-            )}
-          </li>
-
-
-        </div>
+    <Projects/>
         <br />
         <Typography variant="body2" gutterBottom>
           {t('mailto')}

@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import YouTubeIcon from '@mui/icons-material/YouTube';
-import { Box, Typography } from '@mui/material';
-import { useTranslation } from 'react-i18next';
-import './Contact.css';
-
+import { useState, useEffect } from "react";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import YouTubeIcon from "@mui/icons-material/YouTube";
+import { Box, Typography } from "@mui/material";
+import { useTranslation } from "react-i18next";
+import "./Contact.css";
+import React from "react";
 export default function Contact() {
   const [repoCount, setRepoCount] = useState(null);
   const [hoverStates, setHoverStates] = useState({
@@ -13,29 +13,25 @@ export default function Contact() {
     linkedinIcon: false,
     youtubeIcon: false,
   });
-
   const { t, i18n } = useTranslation();
-
   useEffect(() => {
     const fetchRepoCount = async () => {
       try {
-        const response = await fetch('https://api.github.com/users/Baraasher');
+        const response = await fetch("https://api.github.com/users/Baraasher");
         const data = await response.json();
         setRepoCount(data.public_repos);
       } catch (error) {
-        console.error('Error fetching repository count:', error);
+        console.error("Error fetching repository count:", error);
       }
     };
     fetchRepoCount();
   }, []);
-
   const handleIconHover = (iconId) => {
     setHoverStates((prevHoverStates) => ({
       ...prevHoverStates,
       [iconId]: !hoverStates[iconId],
     }));
   };
-
   return (
     <Box className="contact-timeline flexColumnCenter">
       <a
@@ -44,43 +40,46 @@ export default function Contact() {
         target="_blank"
         rel="noopener noreferrer"
         className="contact-icon"
-        onMouseEnter={() => handleIconHover('githubIcon')}
-        onMouseLeave={() => handleIconHover('githubIcon')}
+        onMouseEnter={() => handleIconHover("githubIcon")}
+        onMouseLeave={() => handleIconHover("githubIcon")}
       >
-        <GitHubIcon className={`ContactIcon ${hoverStates.githubIcon ? 'hovered' : ''}`} />
+        <GitHubIcon
+          className={`ContactIcon ${hoverStates.githubIcon ? "hovered" : ""}`}
+        />
         <Typography display="block" gutterBottom>
-          {t('github')}
+          {t("github")}
         </Typography>
       </a>
-
       <a
         id="linkedinIcon"
         href="https://www.linkedin.com/in/baraa-alsher/"
         target="_blank"
         rel="noopener noreferrer"
         className="contact-icon"
-        onMouseEnter={() => handleIconHover('linkedinIcon')}
-        onMouseLeave={() => handleIconHover('linkedinIcon')}
+        onMouseEnter={() => handleIconHover("linkedinIcon")}
+        onMouseLeave={() => handleIconHover("linkedinIcon")}
       >
-        <LinkedInIcon className={`ContactIcon ${hoverStates.linkedinIcon ? 'hovered' : ''}`} />
+        <LinkedInIcon
+          className={`ContactIcon ${hoverStates.linkedinIcon ? "hovered" : ""}`}
+        />
         <Typography display="block" gutterBottom>
-          {t('linkedin')}
+          {t("linkedin")}
         </Typography>
       </a>
-
-
       <a
         id="youtubeIcon"
         href="https://www.youtube.com/@CodeWithBaraa"
         target="_blank"
         rel="noopener noreferrer"
         className="contact-icon"
-        onMouseEnter={() => handleIconHover('youtubeIcon')}
-        onMouseLeave={() => handleIconHover('youtubeIcon')}
+        onMouseEnter={() => handleIconHover("youtubeIcon")}
+        onMouseLeave={() => handleIconHover("youtubeIcon")}
       >
-        <YouTubeIcon className={`ContactIcon ${hoverStates.youtubeIcon ? 'hovered' : ''}`} />
+        <YouTubeIcon
+          className={`ContactIcon ${hoverStates.youtubeIcon ? "hovered" : ""}`}
+        />
         <Typography display="block" gutterBottom>
-          {t('youtube')}
+          {t("youtube")}
         </Typography>
       </a>
     </Box>

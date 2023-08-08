@@ -1,0 +1,36 @@
+[
+    {
+        "title": "Sustainable Star LLC",
+        "description": "The landing page for Sustainable Star",
+        "link": "https://sustainablestar.com.sa/",
+        "key": "Sustainable"
+      },
+    
+    {
+      "title": "Timescape",
+      "description": "📅 Web application for creating and arranging important appointments",
+      "link": "https://timescape-liart.vercel.app/",
+      "key": "timescape"
+    },
+    {
+      "title": "SNote",
+      "description": "🗒️Effortlessly Preserve and Organize Your Notes",
+      "link": "https://theshortnote.netlify.app/",
+      "key": "sNote"
+    },
+    {
+      "title": "Gradients CSS",
+      "description": "UI to generate linear gradients",
+      "link": "https://gradientscss.vercel.app/",
+      "key": "gradientsCss"
+    },
+    {
+      "title": "GitLinker",
+      "description": "Web app to manage Github repositories",
+      "link": "https://gitlinker.vercel.app/",
+      "key": "gitLinker"
+    }
+
+    
+  ]
+  
