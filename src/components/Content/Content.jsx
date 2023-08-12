@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import './Content.css';
 import { Box, Typography, Tooltip } from '@mui/material';
 import { useTranslation } from 'react-i18next';
@@ -13,6 +13,7 @@ import { Input, Modal, Text, Textarea } from '@nextui-org/react';
 import toast, { Toaster } from 'react-hot-toast';
 import Projects from '../ProjectsComponent/ProjectsComponent';
 import MainButtons from '../MainButtons/MainButtons';
+
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
     backgroundColor: '#44b700',
@@ -48,55 +49,58 @@ export default function Content() {
   const language = isArabic ? 'arabic' : 'english';
   const form = useRef();
   const [visible, setVisible] = useState(false);
-  const contactForm = document.getElementById('contactForm');
+  const [toastVisible, setToastVisible] = useState(false);
+
   const openModal = () => {
     setVisible(true);
-
   };
+
   const closeModal = () => {
     setVisible(false);
   };
-  const closeModelNotification = () => {
-    console.log("closed");
-    var messageInput = document.getElementById('messageInput');
-    var emailInput = document.getElementById('emailInput');
-    if (messageInput.value === '' && emailInput.value === '') {
-      toast(t('emptyFieldsMessage'), {
-        icon: '⚠️',
-      });
-    } else if (messageInput.value === '') {
-      toast(t('emptyMessageMessage'), {
-        icon: '⚠️',
-      });
-    } else if (emailInput.value === '') {
-      toast(t('emptyEmailMessage'), {
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    const messageInput = document.getElementById('messageInput');
+    const emailInput = document.getElementById('emailInput');
+
+    if (messageInput.value === '' || emailInput.value === '') {
+      toast.error(t('emptyFieldsMessage'), {
         icon: '⚠️',
       });
     } else {
-      toast(t('successMessage'), {
-        icon: '✉️',
-      });
-      setVisible(false);
+      emailjs
+        .sendForm(
+          'service_mq2gcw8',
+          'template_dwfj8vb',
+          form.current,
+          '3-e_d2w2luJgghqXO'
+        )
+        .then(
+          (result) => {
+            console.log(result.text);
+            toast.success(t('successMessage'), {
+              icon: '✉️',
+            });
+            closeModal();
+          },
+          (error) => {
+            console.log(error.text);
+          }
+        );
     }
   };
-  const sendEmail = (e) => {
-    e.preventDefault();
-    emailjs
-      .sendForm(
-        'service_mq2gcw8',
-        'template_dwfj8vb',
-        form.current,
-        '3-e_d2w2luJgghqXO'
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
-  };
+
+  useEffect(() => {
+    if (toastVisible) {
+      toast.success(t('successMessage'), {
+        icon: '✉️',
+        duration: 3000,
+        onClosed: () => setToastVisible(false),
+      });
+    }
+  }, [toastVisible]);
+
   return (
     <>
       <Box sx={{ margin: '4rem 0 ' }}>
@@ -107,35 +111,48 @@ export default function Content() {
             aria-labelledby="modal-title"
             open={visible}
             onClose={closeModal}
-            style={{ direction: isArabic ? 'rtl' : 'ltr' }} 
-
+            style={{ direction: isArabic ? 'rtl' : 'ltr' }}
           >
             <Modal.Header>
               <Text id="modal-title" size={18}>
                 <Text b size={18}>
                   {t('formTitle')}
                 </Text>
-
               </Text>
             </Modal.Header>
             <Modal.Body>
-              <form  id='contactForm' ref={form} onSubmit={sendEmail}>
+              <form id="contactForm" ref={form} onSubmit={sendEmail}>
                 <Input name="name" placeholder={t('name')} />
-                {/* <Input name="subject" placeholder="Subject" /> */}
-                <Input name="email" id='emailInput' placeholder={t('email')} />
-                <Textarea name="message" id='messageInput' placeholder={t('typeYourMessage')} />
+                <Input
+                  name="email"
+                  id="emailInput"
+                  placeholder={t('email')}
+                />
+                <Textarea
+                  name="message"
+                  id="messageInput"
+                  placeholder={t('typeYourMessage')}
+                />
                 <Modal.Footer>
-                <button>
-                <div className="svg-wrapper-1">
-                  <div className="svg-wrapper">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                      <path fill="none" d="M0 0h24v24H0z"></path>
-                      <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
-                    </svg>
-                  </div>
-                </div>
-                <span>Send</span>
-              </button>
+                  <button type="submit">
+                    <div className="svg-wrapper-1">
+                      <div className="svg-wrapper">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          width="24"
+                          height="24"
+                        >
+                          <path fill="none" d="M0 0h24v24H0z"></path>
+                          <path
+                            fill="currentColor"
+                            d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+                          ></path>
+                        </svg>
+                      </div>
+                    </div>
+                    <span>{t('sendButton')}</span>
+                  </button>
                 </Modal.Footer>
               </form>
             </Modal.Body>
@@ -148,36 +165,67 @@ export default function Content() {
           {t('Job Title')}
         </Typography>
         <br />
-        <Box sx={{ display: "flex", justifyContent: "start", alignItems: "center", gap: "2rem", flexDirection: "row" }}>
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'start',
+            alignItems: 'center',
+            gap: '2rem',
+            flexDirection: 'row',
+          }}
+        >
           <Stack onClick={openModal} direction="row" spacing={2}>
-            <StyledBadge overlap="circular" anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }} variant="dot">
-              <Tooltip title={t('send email')} placement={language === 'arabic' ? 'right' : 'left'}>
-                <Avatar className="Avatar" alt="Baraa Alshaer" src={'https://cdn.dribbble.com/userupload/7461041/file/original-bc0db5f06f174efb4bcfdbe1d7f78f86.png?compress=1&resize=400x400'} style={{ width: 70, height: 70 }} />
+            <StyledBadge
+              overlap="circular"
+              anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+              variant="dot"
+            >
+              <Tooltip
+                title={t('send email')}
+                placement={language === 'arabic' ? 'right' : 'left'}
+              >
+                <Avatar
+                  className="Avatar"
+                  alt="Baraa Alshaer"
+                  src={
+                    'https://cdn.dribbble.com/userupload/7461041/file/original-bc0db5f06f174efb4bcfdbe1d7f78f86.png?compress=1&resize=400x400'
+                  }
+                  style={{ width: 70, height: 70 }}
+                />
               </Tooltip>
             </StyledBadge>
           </Stack>
-
         </Box>
         <br />
         <Typography variant="body2" gutterBottom>
           {t('Description')}
         </Typography>
         <br />
-        <Typography className='FollowDescription' variant="body2" display="block" gutterBottom>
+        <Typography
+          className="FollowDescription"
+          variant="body2"
+          display="block"
+          gutterBottom
+        >
           {t('Follow Description')}
         </Typography>
         <br />
-<MainButtons/>
-
+        <MainButtons />
         <br />
         <Typography variant="body2" gutterBottom>
           {t('mailto')}
-          <a className='mailLink' id="mailLink" target='_blank' rel='noopener noreferrer' href="mailto:alsher.info@gmail.com">
+          <a
+            className="mailLink"
+            id="mailLink"
+            target="_blank"
+            rel="noopener noreferrer"
+            href="mailto:alsher.info@gmail.com"
+          >
             alsher.info@gmail.com
           </a>
         </Typography>
         <br />
-      </Box >
+      </Box>
     </>
   );
 }
