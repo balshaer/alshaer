@@ -37,7 +37,6 @@ function Header() {
     const theme = createTheme({
       palette: {
         mode: isDarkMode ? 'dark' : 'light',
-        // Set primary and secondary colors for dark mode here if needed
       },
       components: {
         MuiIconButton: {
@@ -79,12 +78,8 @@ function Header() {
   };
 
   return (
-    <ThemeProvider theme={createTheme({
-      palette: {
-        mode: 'dark', // Set the default mode to dark here
-      },
-    })}>
-      <header className={`top-bar flexRowSpaceBetween animate__animated animate__fadeIn ${isDarkMode ? 'darkMode' : 'lightMode'}`} dir="ltr">
+    <ThemeProvider theme={createTheme({ palette: { mode: 'dark' } })}>
+      <header className="top-bar flexRowSpaceBetween animate__animated animate__fadeIn" dir="ltr">
         <aside>
           <Tooltip title={isDarkMode ? t('dark mode') : t('light mode')}>
             <div
