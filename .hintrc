@@ -3,6 +3,9 @@
     "development"
   ],
   "hints": {
-    "axe/structure": "off"
+    "axe/structure": "off",
+    "no-inline-styles": "off",
+    "axe/name-role-value": "off",
+    "disown-opener": "off"
   }
 }

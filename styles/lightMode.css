@@ -1,4 +1,4 @@
-:root{--color-background-light:#fffffe;--color-headline-light:#000;--color-paragraph-light:#3f4953;--color-button-light:#3da9fc;--color-button-light-text:#fffffe;--color-illustration-stroke-light:#2b2c34;--color-main-light:#fffffe;--color-highlight-light:#4691ea;--color-secondary-light:#d1d1e9;--color-tertiary-light:#e45858;--color-link-light:#6246ea}
+:root{--color-background-light:#fffffe;--color-headline-light:#000;--color-paragraph-light:#3f4953;--color-button-light:#3da9fc;--color-button-light-text:#fffffe;--color-illustration-stroke-light:#2b2c34;--color-main-light:#fffffe;--color-highlight-light:#4691ea;--color-secondary-light:#d1d1e9;--color-tertiary-light:#e45858;--color-link-light:#004dff}
 .lightMode{background-color:var(--color-background-light)!important}
 .lightMode,.lightMode h2,.lightMode h3,.lightMode h4,.lightMode h5,.lightMode h6,h1{color:var(--color-headline-light)!important;font-weight:600!important}
 .lightMode p{color:var(--color-paragraph-light)!important}
@@ -23,3 +23,8 @@
 .lightMode .css-12wi0s0-MuiButtonBase-root-MuiMenuItem-root.Mui-selected:hover{background-color:rgba(2,56,74,.09)!important}
 .lightMode .css-at26bj-MuiPaper-root-MuiMenu-paper-MuiPopover-paper{background-color:#fff;box-shadow:rgba(100,100,111,.2) 0 7px 29px 0!important;border-radius:8px!important}
 .lightMode .top-bar aside:nth-child(2){background-color:rgba(0,0,0,.08)!important;border-radius:8px;cursor:pointer;padding:0!important}
+.lightMode #mailLink{color:#3f91d6!important;font-weight:700}
+.lightMode .nav-link button{color:#3f4953!important}
+.lightMode .image-container{box-shadow:rgba(0,0,0,.1) 0 4px 12px!important}
+.lightMode .css-i4bv87-MuiSvgIcon-root{color:#000!important}
+.lightMode .css-i4bv87-MuiSvgIcon-root:hover{color:#000}

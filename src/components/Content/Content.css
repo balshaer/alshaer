@@ -1,0 +1,17 @@
+.item a{text-decoration:none!important;height:100%;width:100%}
+.items{display:grid;grid-template-columns:repeat(auto-fit ,minmax(300px ,1fr));grid-gap:1rem}
+.item li{list-style:none}
+.item{background-color:#a0acbb2c;padding:1rem;margin:1rem 0;border-radius:8px;border:1px solid #5159639c;cursor:pointer;transition:all .3s ease 0s;display:flex;flex-direction:row;align-items:center;justify-content:center;height:150px}
+.item:hover{color:#fff!important;transform:scale(1.05)}
+.Avatar{border:2px solid #16161a;cursor:pointer}
+#contactForm{display:flex;justify-content:center;align-items:center;flex-direction:column;gap:2rem;height:100%;position:relative}
+#contactForm .nextui-c-iwmZdB-iiIdOsz-css{width:100%}
+.nextui-c-iDzHRq{padding:2rem}
+#contactForm button{font-size:18px;background:linear-gradient(to bottom,#4dc7d9 0,#66a6ff 100%);color:#fff;padding:.8em 1.2em;display:flex;align-items:center;justify-content:center;border:none;border-radius:25px;transition:all .3s;cursor:pointer;gap:1rem}
+#contactForm button:hover{transform:translateY(-3px);box-shadow:0 8px 15px rgba(0,0,0,.149)}
+#contactForm button:active{transform:scale(.95);box-shadow:0 2px 5px rgba(0,0,0,.2)}
+#contactForm button span{display:block;margin-left:.4em;transition:all .3s}
+#contactForm button svg{width:18px;height:18px;fill:#fff;transition:all .3s}
+#contactForm button .svg-wrapper{display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background-color:rgba(255,255,255,.2);margin-right:.5em;transition:all .3s}
+#contactForm button:hover .svg-wrapper{background-color:rgba(255,255,255,.5)}
+#contactForm button:hover svg{transform:rotate(45deg)}

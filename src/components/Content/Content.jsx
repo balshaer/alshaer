@@ -11,7 +11,8 @@ import Stack from '@mui/material/Stack';
 import emailjs from 'emailjs-com';
 import { Input, Modal, Text, Textarea } from '@nextui-org/react';
 import toast, { Toaster } from 'react-hot-toast';
-import Projects from '../Projects/Projects';
+import Projects from '../ProjectsComponent/ProjectsComponent';
+import MainButtons from '../MainButtons/MainButtons';
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
     backgroundColor: '#44b700',
@@ -47,8 +48,10 @@ export default function Content() {
   const language = isArabic ? 'arabic' : 'english';
   const form = useRef();
   const [visible, setVisible] = useState(false);
+  const contactForm = document.getElementById('contactForm');
   const openModal = () => {
     setVisible(true);
+
   };
   const closeModal = () => {
     setVisible(false);
@@ -104,33 +107,35 @@ export default function Content() {
             aria-labelledby="modal-title"
             open={visible}
             onClose={closeModal}
-            style={{ direction: 'rtl' }}
+            style={{ direction: isArabic ? 'rtl' : 'ltr' }} 
+
           >
             <Modal.Header>
               <Text id="modal-title" size={18}>
                 <Text b size={18}>
                   {t('formTitle')}
                 </Text>
+
               </Text>
             </Modal.Header>
             <Modal.Body>
-              <form id='contactForm' ref={form} onSubmit={sendEmail}>
+              <form  id='contactForm' ref={form} onSubmit={sendEmail}>
                 <Input name="name" placeholder={t('name')} />
                 {/* <Input name="subject" placeholder="Subject" /> */}
                 <Input name="email" id='emailInput' placeholder={t('email')} />
                 <Textarea name="message" id='messageInput' placeholder={t('typeYourMessage')} />
                 <Modal.Footer>
-                  <button id='contactFormSubmit' type='submit' auto onClick={closeModelNotification}>
-                    <div className="svg-wrapper-1">
-                      <div className="svg-wrapper">
-                        <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M0 0h24v24H0z" fill="none"></path>
-                          <path d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z" fill="currentColor"></path>
-                        </svg>
-                      </div>
-                    </div>
-                    <span>{t('send')}</span>
-                  </button>
+                <button>
+                <div className="svg-wrapper-1">
+                  <div className="svg-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                      <path fill="none" d="M0 0h24v24H0z"></path>
+                      <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
+                    </svg>
+                  </div>
+                </div>
+                <span>Send</span>
+              </button>
                 </Modal.Footer>
               </form>
             </Modal.Body>
@@ -147,11 +152,11 @@ export default function Content() {
           <Stack onClick={openModal} direction="row" spacing={2}>
             <StyledBadge overlap="circular" anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }} variant="dot">
               <Tooltip title={t('send email')} placement={language === 'arabic' ? 'right' : 'left'}>
-                <Avatar className="Avatar" alt="Baraa Alsher" src={'https://cdn.dribbble.com/userupload/7461041/file/original-bc0db5f06f174efb4bcfdbe1d7f78f86.png?compress=1&resize=400x400'} style={{ width: 70, height: 70 }} />
+                <Avatar className="Avatar" alt="Baraa Alshaer" src={'https://cdn.dribbble.com/userupload/7461041/file/original-bc0db5f06f174efb4bcfdbe1d7f78f86.png?compress=1&resize=400x400'} style={{ width: 70, height: 70 }} />
               </Tooltip>
             </StyledBadge>
           </Stack>
-          <Contact />
+
         </Box>
         <br />
         <Typography variant="body2" gutterBottom>
@@ -162,7 +167,8 @@ export default function Content() {
           {t('Follow Description')}
         </Typography>
         <br />
-    <Projects/>
+<MainButtons/>
+
         <br />
         <Typography variant="body2" gutterBottom>
           {t('mailto')}

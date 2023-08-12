@@ -1,17 +1,19 @@
-import React from 'react';
-import CssBaseline from '@mui/material/CssBaseline';
-import Container from '@mui/material/Container';
-import Header from './components/Header/Header';
-import Content from './components/Title/Content';
-import './App.css'; 
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import "./App.css";
+import Home from "./pages/Home/Home";
+import About from "./pages/About/About";
+import Projects from "./pages/Projects/Projects";
 
 function App() {
   return (
-    <Container maxWidth="sm">
-      <CssBaseline />
-      <Header />
-      <Content />
-    </Container>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/About" element={<About />} />
+          <Route path="/Projects" element={<Projects />} />
+        </Routes>
+      </Router>
   );
 }
 

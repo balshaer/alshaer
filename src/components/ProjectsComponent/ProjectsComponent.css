@@ -1,0 +1,3 @@
+.item{transition:opacity .3s ease-in-out}
+.item.fade{opacity:.5}
+.item:hover{opacity:1}

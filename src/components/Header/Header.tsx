@@ -21,8 +21,17 @@ const languageOptions = [
 function Header() {
   const { t, i18n } = useTranslation();
 
-  const [isDarkMode, setIsDarkMode] = useState(true);
-  const [selectedLanguage, setSelectedLanguage] = useState(languageOptions[1]);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const savedMode = localStorage.getItem('themeMode');
+    return savedMode === 'dark' ? true : false;
+  });
+
+  const [selectedLanguage, setSelectedLanguage] = useState(() => {
+    const savedLanguage = localStorage.getItem('selectedLanguage');
+    return (
+      languageOptions.find((option) => option.value === savedLanguage) || languageOptions[1]
+    );
+  });
 
   useEffect(() => {
     const theme = createTheme({
@@ -43,6 +52,9 @@ function Header() {
     document.body.style.backgroundColor = theme.palette.background.default;
     document.body.classList.add(isDarkMode ? 'darkMode' : 'lightMode');
     document.body.classList.remove(isDarkMode ? 'lightMode' : 'darkMode');
+
+    // Save theme mode to localStorage
+    localStorage.setItem('themeMode', isDarkMode ? 'dark' : 'light');
   }, [isDarkMode]);
 
   useEffect(() => {
@@ -50,6 +62,9 @@ function Header() {
       i18n.changeLanguage(selectedLanguage.value);
       document.body.dir = selectedLanguage.direction;
     }
+
+    // Save selected language to localStorage
+    localStorage.setItem('selectedLanguage', selectedLanguage.value);
   }, [selectedLanguage, i18n]);
 
   const handleDarkModeToggle = () => {
@@ -59,7 +74,7 @@ function Header() {
   const handleLanguageChange = (event) => {
     const selectedValue = event.target.value;
     const selectedOption = languageOptions.find((option) => option.value === selectedValue);
-    setSelectedLanguage(selectedOption as any);
+    setSelectedLanguage(selectedOption || languageOptions[0]);
   };
 
   return (

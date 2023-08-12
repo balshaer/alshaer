@@ -29,3 +29,8 @@ html{font-size:16px}
 .css-12wi0s0-MuiButtonBase-root-MuiMenuItem-root.Mui-selected{position:relative}
 .css-12wi0s0-MuiButtonBase-root-MuiMenuItem-root.Mui-selected::after{content:"✔";position:absolute;left:10px}
 .top-bar aside:nth-child(2){transition:all .1s!important}
+.row-buttons{display:flex;flex-direction:row;gap:1rem}
+button{border:none;box-shadow:none}
+#arrowButtonStyles{transition:all .3s ease 0s;height:18px;width:18px;color:#94a1b2}
+#arrowButtonStyles:hover{color:#fff}
+.css-i4bv87-MuiSvgIcon-root:hover{transform:scale(1.05)}

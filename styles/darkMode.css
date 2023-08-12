@@ -11,7 +11,7 @@
 .darkMode::-webkit-scrollbar-track:active{background-color:#fff}
 .darkMode::-webkit-scrollbar-thumb{border-radius:20px;background-color:#fff}
 .darkMode #linkItem,.darkMode .contact-icon{color:var(--color-paragraph-dark)!important;-webkit-transition:all .3s ease 0s!important;-o-transition:all .3s ease 0s!important;transition:all .3s ease 0s!important;justify-content:start!important;width:100%!important}
-.darkMode #linkItem:hover,.darkMode .contact-icon:hover{color:#fff!important}
+.darkMode .contact-icon:hover{color:#fff!important}
 .darkMode .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input{color:#fff!important}
 .darkMode .miui-footer{border-top:1px solid #ffffff1a!important}
 .darkMode .css-6hp17o-MuiList-root-MuiMenu-list{background-color:#09090c!important;border:none!important;color:#94a1b2!important;-webkit-box-shadow:none!important;box-shadow:none!important}
@@ -26,3 +26,6 @@
 .darkMode .css-at26bj-MuiPaper-root-MuiMenu-paper-MuiPopover-paper{background-image:none!important}
 .darkMode .top-bar aside:nth-child(2){background-color:rgba(255,255,255,.08)!important;border-radius:8px;cursor:pointer;padding:0!important}
 .darkMode .nextui-c-grJsex-ikUaMfZ-css{background-color:#16161a!important}
+.darkMode #MainButtons button{color:#94a1b2!important}
+.darkMode #MainButtons button:hover{color:#fff!important}
+.darkMode .item:hover{color:#fff!important}

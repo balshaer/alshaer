@@ -1,0 +1,40 @@
+{
+  "title": "About Me",
+  "description": "Experienced senior developer with a passion for crafting innovative web applications using React. Proficient in front-end and back-end technologies, I specialize in creating seamless user experiences. With a keen attention to detail and a commitment to best practices, I excel in designing responsive user interfaces, optimizing performance, and integrating APIs. Let's collaborate to turn your ideas into exceptional digital experiences.",
+  
+  
+  "workExperience": [
+    {
+      "companyName": "Sustainable Star LLC",
+      "companyLogo": "/path/to/companyA-logo.png",
+      "jobTitle": "React Developer",
+      "jobDate": "jul 2023 - Present"
+    },
+    {
+      "companyName": "PTIT",
+      "companyLogo": "/path/to/companyB-logo.png",
+      "jobTitle": "React Developer",
+      "jobDate": "jul 2023 - Present"
+
+    },
+
+    {
+      "companyName": "PTIT",
+      "companyLogo": "/path/to/companyB-logo.png",
+      "jobTitle": "FrontEnd Developer",
+      "jobDate": "Nov 2022 - jan 2023"
+
+    }
+    ,
+
+    {
+      "companyName": "GEDCO · Internship",
+      "companyLogo": "/path/to/companyB-logo.png",
+      "jobTitle": "Software Engineer",
+      "jobDate": "Apr 2022 - Jun 2022"
+
+    }
+    
+    
+  ]
+}
