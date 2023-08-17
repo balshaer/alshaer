@@ -74,11 +74,11 @@ function Header() {
   const handleLanguageChange = (event) => {
     const selectedValue = event.target.value;
     const selectedOption = languageOptions.find((option) => option.value === selectedValue);
-    setSelectedLanguage(selectedOption || languageOptions[0]);
+    setSelectedLanguage(selectedOption || languageOptions[1]);
   };
 
   return (
-    <ThemeProvider theme={createTheme({ palette: { mode: 'dark' } })}>
+    <ThemeProvider theme={createTheme({ palette: { mode: isDarkMode ? 'dark' : 'light' } })}>
       <header className="top-bar flexRowSpaceBetween animate__animated animate__fadeIn" dir="ltr">
         <aside>
           <Tooltip title={isDarkMode ? t('dark mode') : t('light mode')}>

@@ -82,12 +82,13 @@ export default function Content() {
             toast.success(t('successMessage'), {
               icon: '✉️',
             });
-            closeModal();
           },
           (error) => {
             console.log(error.text);
           }
         );
+        closeModal();
+
     }
   };
 

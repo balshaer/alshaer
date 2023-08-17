@@ -1,8 +1,8 @@
-import { CssBaseline } from "@mui/material";
 import React from "react";
-import Container from "@mui/material/Container";
+import { CssBaseline, Container } from "@mui/material";
 import SecondHeader from "../../components/SecondHeader/SecondHeader";
 import ProjectsComponent from "../../components/ProjectsComponent/ProjectsComponent";
+import { Breadcrumbs } from "@material-tailwind/react";
 
 export default function Projects() {
   return (
@@ -10,7 +10,11 @@ export default function Projects() {
       <Container maxWidth="sm">
         <CssBaseline />
         <SecondHeader />
+        
+
         <ProjectsComponent />
+
+        
       </Container>
     </div>
   );

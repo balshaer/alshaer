@@ -1,10 +1,9 @@
-import { CssBaseline } from "@mui/material";
 import React from "react";
+import { CssBaseline, Container } from "@mui/material";
 import Header from "../../components/Header/Header";
 import Content from "../../components/Content/Content";
-import Container from "@mui/material/Container";
-import DevToPosts from '../../components/DevToPosts/DevToPosts'
-
+import DevToPosts from "../../components/DevToPosts/DevToPosts";
+import { SimpleFooter } from "../../components/SimpleFooter/SimpleFooter";
 
 export default function Home() {
   return (
@@ -13,7 +12,11 @@ export default function Home() {
         <CssBaseline />
         <Header />
         <Content />
+        <br />
         <DevToPosts />
+        <br />
+
+
       </Container>
     </div>
   );

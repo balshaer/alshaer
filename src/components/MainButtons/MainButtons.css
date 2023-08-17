@@ -1,2 +1,1 @@
-#MainButtons button{background:0 0;display:flex;justify-content:center;align-items:center;gap:1rem;cursor:pointer;padding:0;margin:0;height:max-content;font-size:14px!important;transition:all .3s ease 0s}
-#MainButtons button span{display:flex;justify-content:center;align-items:center}
+#MainButtons button{background:0 0;display:flex;justify-content:center;align-items:center;gap:1rem;cursor:pointer;padding:0;margin:0;height:max-content;font-size:14px!important;transition:all .3s ease 0s}#MainButtons button span{display:flex;justify-content:center;align-items:center}

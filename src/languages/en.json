@@ -44,5 +44,8 @@
     "seeLess" : "see less" , 
     "Education" : "Education",
     "EducationCollege": "Alazhar University | Gaza",
-    "EducationDescription": "Software engineering  | 2020 - 2022"
+    "EducationDescription": "Software engineering  | 2020 - 2022",
+    "Home" : "Home",
+    "Projects" : "Projects",
+    "contact with" : "contact with"
 }

@@ -1,18 +1,19 @@
-import { Container, CssBaseline } from "@mui/material";
 import React, { useState } from "react";
+import { Container, CssBaseline } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import SecondHeader from "../../components/SecondHeader/SecondHeader";
 import "./About.css";
 import AboutContact from "../../components/AboutContact/AboutContact";
+import { Breadcrumbs } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 
 const About = () => {
   const { t } = useTranslation();
 
   const aboutInfo = {
     title: t("about.title"),
-    description: `${t("about.description1")}
-    `,
+    description: `${t("about.description1")}`,
     workExperience: [
       {
         companyName: t("work.reactDeveloperDescription"),
@@ -41,7 +42,7 @@ const About = () => {
     ],
   };
 
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
   const [showAllWork, setShowAllWork] = useState(false);
 
   const visibleWork = showAllWork
@@ -57,9 +58,30 @@ const About = () => {
       <Container id="AboutContainer" maxWidth="sm">
         <CssBaseline />
         <SecondHeader />
+   
         <section className="about-section">
           <h2>{aboutInfo.title}</h2>
+        <br/>
+
           <p>{aboutInfo.description}</p>
+
+
+          <br/>
+          <Breadcrumbs id="Breadcrumbs" fullWidth>
+          <Link to="/" className="opacity-60">
+            {t('Home')}
+          </Link>
+          <Link to="/about" className="opacity-60">
+            
+            {t('About me')}
+    
+          </Link>
+        </Breadcrumbs>
+    
+    
+        <br/>
+
+
           <h2>{t("about.workExperience")}</h2>
           <ul className="work-experience-list">
             {visibleWork.map((experience, index) => (
@@ -70,7 +92,9 @@ const About = () => {
                 exit={{ opacity: 0, y: 20 }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
                 className={`work-entry ${
-                  hoveredIndex !== null && hoveredIndex !== index ? "fade" : ""
+                  hoveredIndex !== null && hoveredIndex !== index
+                    ? "fade"
+                    : ""
                 }`}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
@@ -87,6 +111,8 @@ const About = () => {
                       alt={`${experience.companyName} Logo`}
                     />
                   </div>
+        <br/>
+
                   <div className="work-details">
                     <h3>{experience.jobTitle}</h3>
                     <p>{experience.companyName}</p>
@@ -105,6 +131,8 @@ const About = () => {
 
           <div className="Education">
             <h2>{t("Education")}</h2>
+        <br/>
+
             <a target="_blank" href="https://www.alazhar.edu.ps/eng/">
               <p>
                 {t("EducationCollege")} <br />
@@ -112,13 +140,17 @@ const About = () => {
               </p>
             </a>
           </div>
+        <br/>
+
 
           <div className="contact">
             <h2>{t("Contact")}</h2>
+
             <p>
-              {t("ContactDescription")}{" "}
-              <a href="mailto:alsher.info@gmail.com">{t("email me")}</a>.
+            {t("contact with")} <a href="mailto:alsher.info@gmail.com"> {t("email")}</a>.
             </p>
+        <br/>
+
             <AboutContact />
           </div>
         </section>

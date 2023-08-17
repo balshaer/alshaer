@@ -1,18 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./DevToPosts.css";
 import { motion } from "framer-motion";
-import { t } from "i18next";
+import { useTranslation } from "react-i18next"; // Assuming you want to use the useTranslation hook
 
-interface DevToPost {
-  title: string;
-  link: string;
-  content: string;
-  pubDate: string;
-}
-
-const DevToPosts: React.FC = () => {
-  const [posts, setPosts] = useState<DevToPost[]>([]);
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+export default function DevToPosts() {
+  const { t } = useTranslation(); // Using the useTranslation hook
+  const [posts, setPosts] = useState([]);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -38,7 +32,6 @@ const DevToPosts: React.FC = () => {
     fetchPosts();
   }, []);
 
-
   return (
     <div className="dev-to-posts">
       <p className="lastBlogs">{t('Latest Posts')}</p>
@@ -46,7 +39,9 @@ const DevToPosts: React.FC = () => {
         {posts.map((post, index) => (
           <div
             key={index}
-            className={`post-card ${hoveredIndex !== null && hoveredIndex !== index ? "fade" : ""}`}
+            className={`post-card ${
+              hoveredIndex !== null && hoveredIndex !== index ? "fade" : ""
+            }`}
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(null)}
           >
@@ -57,14 +52,13 @@ const DevToPosts: React.FC = () => {
               rel="noopener noreferrer"
             >
               <div className="postShow">
-              <div className="post-date">
-  {new Date(post.pubDate).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'short',
-    day: '2-digit'
-  })}
-</div>
-
+                <div className="post-date">
+                  {new Date(post.pubDate).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "short",
+                    day: "2-digit"
+                  })}
+                </div>
                 <p className="post-title">{post.title}</p>
               </div>
             </a>
@@ -73,6 +67,4 @@ const DevToPosts: React.FC = () => {
       </div>
     </div>
   );
-};
-
-export default DevToPosts;
+}

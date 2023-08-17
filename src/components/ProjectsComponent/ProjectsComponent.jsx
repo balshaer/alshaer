@@ -4,6 +4,8 @@ import { Tooltip } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import projectsData from "./projects.json";
+import { Breadcrumbs } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 
 export default function ProjectsComponent() {
   const { t, i18n } = useTranslation();
@@ -21,10 +23,12 @@ export default function ProjectsComponent() {
     },
   };
 
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [hoveredIndex, setHoveredIndex] = useState(null); // Removed the type annotation here
   const [showAllProjects, setShowAllProjects] = useState(false);
 
-  const visibleProjects = showAllProjects ? projectsData : projectsData.slice(0, 3);
+  const visibleProjects = showAllProjects
+    ? projectsData
+    : projectsData.slice(0, 3);
 
   const toggleProjects = () => {
     setShowAllProjects((prevShowAllProjects) => !prevShowAllProjects);
@@ -32,9 +36,27 @@ export default function ProjectsComponent() {
 
   return (
     <div id="projectCard">
-      <h2>{t("project")}</h2>
-
+      <h2>{t("projects")}</h2>
       <p>{t("projectDescription")}</p>
+
+
+      <br/>
+      <Breadcrumbs id="Breadcrumbs" fullWidth>
+      <Link to="/" className="opacity-60">
+        {t('Home')}
+      </Link>
+      <Link to="/Projects" className="opacity-60">
+        
+        {t('Projects')}
+
+      </Link>
+    </Breadcrumbs>
+
+
+    <br/>
+
+
+
       <motion.div
         className="items"
         initial="hidden"
@@ -55,7 +77,9 @@ export default function ProjectsComponent() {
               target="_blank"
               rel="noopener noreferrer"
               href={project.link}
-              className={hoveredIndex !== null && hoveredIndex !== index ? "fade" : ""}
+              className={
+                hoveredIndex !== null && hoveredIndex !== index ? "fade" : ""
+              }
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >

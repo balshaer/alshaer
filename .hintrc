@@ -6,6 +6,20 @@
     "axe/structure": "off",
     "no-inline-styles": "off",
     "axe/name-role-value": "off",
-    "disown-opener": "off"
-  }
+    "disown-opener": "off",
+    "css-prefix-order": "off"
+  },
+  "browserslist": [
+    "defaults",
+    "not ie 11",
+    "not and_ff <= 115",
+    "not firefox <= 115",
+    "not and_chr <= 114",
+    "not chrome <= 114",
+    "not edge <= 114",
+    "not ios_saf <= 16.5",
+    "not opera <= 100",
+    "not safari <= 16.5",
+    "not samsung <= 21"
+  ]
 }

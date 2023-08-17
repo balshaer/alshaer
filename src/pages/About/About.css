@@ -1,11 +1,1 @@
-.image-container{width:65px;height:65px;object-fit:contain;background-color:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:50%}
-.image-container img{width:100%;height:100%;object-fit:contain;padding:1rem}
-#AboutContainer li{list-style:none!important}
-.work-experience-list{width:100%;gap:2rem;flex-direction:column;padding:0!important;margin:0!important;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));grid-gap:1rem}
-.work-experience-list li a{flex-direction:row;align-items:start;justify-content:start;width:100%;max-width:100vw!important;height:150px;gap:2rem}
-.work-experience-list li{background-color:#a0acbb2c;padding:1rem;margin:1rem 0;border-radius:8px;border:1px solid #5159639c;cursor:pointer;transition:all .3s ease 0s}
-.work-entry{transition:opacity .3s ease-in-out}
-.fade{opacity:.5}
-.work-entry:hover{opacity:1}
-#seeAll{color:#3f91d6;font-size:1rem;padding:2rem 0;display:flex;justify-content:start;align-items:start;width:max-content;cursor:pointer}
-.contact p a{color:#3f91d6!important}
+.image-container{width:65px;height:65px;object-fit:contain;background-color:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:50%}.image-container img{width:100%;height:100%;object-fit:contain;padding:1rem}#AboutContainer li{list-style:none!important}.work-experience-list{width:100%;gap:2rem;flex-direction:column;padding:0!important;margin:0!important;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));grid-gap:1rem}.work-experience-list li a{flex-direction:row;align-items:start;justify-content:start;width:100%;max-width:100vw!important;height:150px;gap:2rem}.work-experience-list li{background-color:#a0acbb2c;padding:1rem;margin:1rem 0;border-radius:8px;border:1px solid #5159639c;cursor:pointer;transition:all .3s ease 0s}.work-entry{transition:opacity .3s ease-in-out}.fade{opacity:.5}.work-entry:hover{opacity:1}#seeAll{color:#3f91d6;font-size:1rem;padding:2rem 0;display:flex;justify-content:start;align-items:start;width:max-content;cursor:pointer}.contact p a{color:#3f91d6!important}
