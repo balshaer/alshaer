@@ -21,10 +21,8 @@ const languageOptions = [
 function Header() {
   const { t, i18n } = useTranslation();
 
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    const savedMode = localStorage.getItem('themeMode');
-    return savedMode === 'dark' ? true : false;
-  });
+  const [isDarkMode, setIsDarkMode] = useState(true); 
+
 
   const [selectedLanguage, setSelectedLanguage] = useState(() => {
     const savedLanguage = localStorage.getItem('selectedLanguage');
@@ -32,6 +30,8 @@ function Header() {
       languageOptions.find((option) => option.value === savedLanguage) || languageOptions[1]
     );
   });
+
+  
 
   useEffect(() => {
     const theme = createTheme({

@@ -6,6 +6,8 @@ import { motion } from "framer-motion";
 import projectsData from "./projects.json";
 import { Breadcrumbs } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore"; // Add import for arrow icon
+import ExpandLessIcon from "@mui/icons-material/ExpandLess"; // Add import for arrow icon
 
 export default function ProjectsComponent() {
   const { t, i18n } = useTranslation();
@@ -23,7 +25,7 @@ export default function ProjectsComponent() {
     },
   };
 
-  const [hoveredIndex, setHoveredIndex] = useState(null); // Removed the type annotation here
+  const [hoveredIndex, setHoveredIndex] = useState(null);
   const [showAllProjects, setShowAllProjects] = useState(false);
 
   const visibleProjects = showAllProjects
@@ -39,23 +41,17 @@ export default function ProjectsComponent() {
       <h2>{t("projects")}</h2>
       <p>{t("projectDescription")}</p>
 
-
-      <br/>
+      <br />
       <Breadcrumbs id="Breadcrumbs" fullWidth>
-      <Link to="/" className="opacity-60">
-        {t('Home')}
-      </Link>
-      <Link to="/Projects" className="opacity-60">
-        
-        {t('Projects')}
+        <Link to="/" className="opacity-60">
+          {t("Home")}
+        </Link>
+        <Link to="/Projects" className="opacity-60">
+          {t("Projects")}
+        </Link>
+      </Breadcrumbs>
 
-      </Link>
-    </Breadcrumbs>
-
-
-    <br/>
-
-
+      <br />
 
       <motion.div
         className="items"
@@ -105,7 +101,15 @@ export default function ProjectsComponent() {
           whileHover={{ scale: 1.05 }}
           onClick={toggleProjects}
         >
-          {showAllProjects ? "See Less" : "See More"}
+          {showAllProjects ? (
+            <React.Fragment>
+              See Less <ExpandLessIcon style={{ marginLeft: "0.5rem" }} />
+            </React.Fragment>
+          ) : (
+            <React.Fragment>
+              See More <ExpandMoreIcon style={{ marginLeft: "0.5rem" }} />
+            </React.Fragment>
+          )}
         </motion.a>
       )}
     </div>

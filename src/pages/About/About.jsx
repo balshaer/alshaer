@@ -58,29 +58,24 @@ const About = () => {
       <Container id="AboutContainer" maxWidth="sm">
         <CssBaseline />
         <SecondHeader />
-   
+
         <section className="about-section">
           <h2>{aboutInfo.title}</h2>
-        <br/>
+          <br />
 
           <p>{aboutInfo.description}</p>
 
-
-          <br/>
+          <br />
           <Breadcrumbs id="Breadcrumbs" fullWidth>
-          <Link to="/" className="opacity-60">
-            {t('Home')}
-          </Link>
-          <Link to="/about" className="opacity-60">
-            
-            {t('About me')}
-    
-          </Link>
-        </Breadcrumbs>
-    
-    
-        <br/>
+            <Link to="/" className="opacity-60">
+              {t("Home")}
+            </Link>
+            <Link to="/about" className="opacity-60">
+              {t("About me")}
+            </Link>
+          </Breadcrumbs>
 
+          <br />
 
           <h2>{t("about.workExperience")}</h2>
           <ul className="work-experience-list">
@@ -92,9 +87,7 @@ const About = () => {
                 exit={{ opacity: 0, y: 20 }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
                 className={`work-entry ${
-                  hoveredIndex !== null && hoveredIndex !== index
-                    ? "fade"
-                    : ""
+                  hoveredIndex !== null && hoveredIndex !== index ? "fade" : ""
                 }`}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
@@ -111,7 +104,7 @@ const About = () => {
                       alt={`${experience.companyName} Logo`}
                     />
                   </div>
-        <br/>
+                  <br />
 
                   <div className="work-details">
                     <h3>{experience.jobTitle}</h3>
@@ -131,7 +124,7 @@ const About = () => {
 
           <div className="Education">
             <h2>{t("Education")}</h2>
-        <br/>
+            <br />
 
             <a target="_blank" href="https://www.alazhar.edu.ps/eng/">
               <p>
@@ -140,16 +133,16 @@ const About = () => {
               </p>
             </a>
           </div>
-        <br/>
-
+          <br />
 
           <div className="contact">
             <h2>{t("Contact")}</h2>
 
             <p>
-            {t("contact with")} <a href="mailto:alsher.info@gmail.com"> {t("email")}</a>.
+              {t("contact with")}{" "}
+              <a href="mailto:alsher.info@gmail.com"> {t("email")}</a>.
             </p>
-        <br/>
+            <br />
 
             <AboutContact />
           </div>

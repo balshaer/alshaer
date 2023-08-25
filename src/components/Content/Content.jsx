@@ -9,10 +9,11 @@ import Badge from '@mui/material/Badge';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import emailjs from 'emailjs-com';
-import { Input, Modal, Text, Textarea } from '@nextui-org/react';
+import { Modal, Text } from '@nextui-org/react';
 import toast, { Toaster } from 'react-hot-toast';
 import Projects from '../ProjectsComponent/ProjectsComponent';
 import MainButtons from '../MainButtons/MainButtons';
+import { Input, Textarea } from '@material-tailwind/react';
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -103,6 +104,7 @@ export default function Content() {
   }, [toastVisible]);
 
   return (
+    
     <>
       <Box sx={{ margin: '4rem 0 ' }}>
         <Toaster />
@@ -116,23 +118,23 @@ export default function Content() {
           >
             <Modal.Header>
               <Text id="modal-title" size={18}>
-                <Text b size={18}>
+                <Text style={{cursor:'text'}} b size={18}>
                   {t('formTitle')}
                 </Text>
               </Text>
             </Modal.Header>
             <Modal.Body>
               <form id="contactForm" ref={form} onSubmit={sendEmail}>
-                <Input name="name" placeholder={t('name')} />
+                <Input  name="name" label={t('name')} />
                 <Input
                   name="email"
                   id="emailInput"
-                  placeholder={t('email')}
+                  label={t('email')}
                 />
                 <Textarea
                   name="message"
                   id="messageInput"
-                  placeholder={t('typeYourMessage')}
+                  label={t('typeYourMessage')}
                 />
                 <Modal.Footer>
                   <button type="submit">
