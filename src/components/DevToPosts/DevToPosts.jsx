@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./DevToPosts.css";
 import { motion } from "framer-motion";
-import { useTranslation } from "react-i18next"; // Assuming you want to use the useTranslation hook
+import { useTranslation } from "react-i18next"; 
 
 export default function DevToPosts() {
-  const { t } = useTranslation(); // Using the useTranslation hook
+  const { t } = useTranslation(); 
   const [posts, setPosts] = useState([]);
   const [hoveredIndex, setHoveredIndex] = useState(null);
 

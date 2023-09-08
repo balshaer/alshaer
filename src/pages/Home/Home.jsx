@@ -3,7 +3,6 @@ import { CssBaseline, Container } from "@mui/material";
 import Header from "../../components/Header/Header";
 import Content from "../../components/Content/Content";
 import DevToPosts from "../../components/DevToPosts/DevToPosts";
-import { SimpleFooter } from "../../components/SimpleFooter/SimpleFooter";
 import Preloader from "../../components/Preloader/Preloader";
 
 export default function Home() {

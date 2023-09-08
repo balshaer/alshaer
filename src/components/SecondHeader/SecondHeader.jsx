@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { ThemeProvider } from "@mui/system";
 
 const arrowButtonStyles = {
-  // Add your custom styles here
 };
 
 function SecondHeader() {

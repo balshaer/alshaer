@@ -11,8 +11,6 @@ This project utilizes the following technologies:
 
 - [i18next](https://react.i18next.com/guides/quick-start): A powerful internationalization framework for React applications, allowing for easy translation and localization.
 
-- [vitejs](https://vitejs.dev/): A fast and efficient development environment for building modern web applications. It offers features like instant server startup, hot module replacement, and optimized production builds.
-
 - [animate](https://animate.style/): A library that provides a collection of CSS animations that can be easily applied to elements on a webpage.
 
 ---

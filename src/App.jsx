@@ -1,22 +1,13 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import "./App.css";
-import Home from "./pages/Home/Home";
-import About from "./pages/About/About";
-import Projects from "./pages/Projects/Projects";
-import "./index.css";
-
-
+import { BrowserRouter as Router } from "react-router-dom";
+import AppRoutes from "./Routes";
+import './styles/darkMode.css'
+import './styles/lightMode.css'
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/projects" element={<Projects />} />
-      </Routes>
+      <AppRoutes />
     </Router>
   );
 }
-
 export default App;

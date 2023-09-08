@@ -53,7 +53,6 @@ function Header() {
     document.body.classList.add(isDarkMode ? 'darkMode' : 'lightMode');
     document.body.classList.remove(isDarkMode ? 'lightMode' : 'darkMode');
 
-    // Save theme mode to localStorage
     localStorage.setItem('themeMode', isDarkMode ? 'dark' : 'light');
   }, [isDarkMode]);
 
@@ -63,7 +62,6 @@ function Header() {
       document.body.dir = selectedLanguage.direction;
     }
 
-    // Save selected language to localStorage
     localStorage.setItem('selectedLanguage', selectedLanguage.value);
   }, [selectedLanguage, i18n]);
 
