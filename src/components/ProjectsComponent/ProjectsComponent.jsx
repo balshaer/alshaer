@@ -1,13 +1,14 @@
-import React, { useState } from "react";
-import "../Content/Content.css";
-import { Tooltip } from "@mui/material";
-import { useTranslation } from "react-i18next";
-import { motion } from "framer-motion";
-import projectsData from "./projects.json";
 import { Breadcrumbs } from "@material-tailwind/react";
+import ExpandLessIcon from "@mui/icons-material/ExpandLess";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore"; // Add import for arrow icon
-import ExpandLessIcon from "@mui/icons-material/ExpandLess"; // Add import for arrow icon
+import "../Content/Content.css";
+import projectsData from "./projects";
+
+const notFound = "https://img.icons8.com/external-filled-outline-perfect-kalash/64/external-not-found-web-development-and-programming-filled-outline-perfect-kalash.png"
 
 export default function ProjectsComponent() {
   const { t, i18n } = useTranslation();
@@ -72,6 +73,7 @@ export default function ProjectsComponent() {
               id="linkItem"
               target="_blank"
               rel="noopener noreferrer"
+              style={{ position: 'relative' }}
               href={project.link}
               className={
                 hoveredIndex !== null && hoveredIndex !== index ? "fade" : ""
@@ -80,7 +82,9 @@ export default function ProjectsComponent() {
               onMouseLeave={() => setHoveredIndex(null)}
             >
               <h2>{t(project.title)}</h2>
-              <p>{t(project.description)}</p>
+              <p style={{ maxWidth: '60%' }}>{t(project.description)}</p>
+              <img style={{ objectFit: 'contain', margin: 'auto', top: '0', right: '0', bottom: '0', height: '60%', position: 'absolute', borderRadius: '12px' }} src={project.img} alt={project.title} />
+
             </a>
           </motion.li>
         ))}
