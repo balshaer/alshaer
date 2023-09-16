@@ -8,11 +8,13 @@ import { Link } from "react-router-dom";
 import "../Content/Content.css";
 import projectsData from "./projects";
 
-const notFound = "https://img.icons8.com/external-filled-outline-perfect-kalash/64/external-not-found-web-development-and-programming-filled-outline-perfect-kalash.png"
+const notFound =
+  "https://img.icons8.com/external-filled-outline-perfect-kalash/64/external-not-found-web-development-and-programming-filled-outline-perfect-kalash.png";
 
 export default function ProjectsComponent() {
   const { t, i18n } = useTranslation();
   const isArabic = i18n.language === "ar";
+  const currentLanguage = i18n.language; // Get the current language
 
   const itemVariants = {
     hidden: { opacity: 0, x: -50 },
@@ -83,8 +85,21 @@ export default function ProjectsComponent() {
             >
               <h2>{t(project.title)}</h2>
               <p style={{ maxWidth: '60%' }}>{t(project.description)}</p>
-              <img style={{ objectFit: 'contain', margin: 'auto', top: '0', right: '0', bottom: '0', height: '60%', position: 'absolute', borderRadius: '12px' }} src={project.img} alt={project.title} />
-
+              <img
+                style={{
+                  objectFit: 'contain',
+                  margin: 'auto',
+                  top: '0',
+                  borderRadius: '12px',
+                  position: 'absolute',
+                  height: '60%',
+                  // Conditionally set 'right' and 'left' based on the current language
+                  right: currentLanguage === "ar" ? "auto" : "0",
+                  left: currentLanguage === "en" ? "auto" : "0",
+                }}
+                src={project.img}
+                alt={project.title}
+              />
             </a>
           </motion.li>
         ))}
@@ -107,11 +122,11 @@ export default function ProjectsComponent() {
         >
           {showAllProjects ? (
             <React.Fragment>
-              See Less <ExpandLessIcon style={{ marginLeft: "0.5rem" }} />
+              {t('see less')} <ExpandLessIcon style={{ marginLeft: "0.5rem" }} />
             </React.Fragment>
           ) : (
             <React.Fragment>
-              See More <ExpandMoreIcon style={{ marginLeft: "0.5rem" }} />
+              {t('see more')} <ExpandMoreIcon style={{ marginLeft: "0.5rem" }} />
             </React.Fragment>
           )}
         </motion.a>

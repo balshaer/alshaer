@@ -42,10 +42,11 @@
   "work.softwareEngineerDescription": "GEDCO · تدريب | أبريل 2022 - يونيو 2022",
   "EducationCollege": "جامعه الأزهر | غزة",
   "EducationDescription": "",
-  "Education" : "التعليم",
-  "Home" : "الرئيسيه",
-  "Projects" : "المشاريع",
-    "contact with" : "تواصل عن طريق",
-    "sendButton" : "ارسال الرساله"
-
+  "Education": "التعليم",
+  "Home": "الرئيسيه",
+  "Projects": "المشاريع",
+  "contact with": "تواصل عن طريق",
+  "sendButton": "ارسال الرساله",
+  "see more": "المزيد",
+  "see less": "عرض أقل"
 }

@@ -2,36 +2,36 @@
   {
     "title": "naj shamilapp",
     "description": "The landing page for Sustainable Star",
-    "link": "",
+    "link": "https://naj.shamilapp.com/",
     "key": "naj",
-    "img": "/src/Assets/naj.png"
+    "img": "https://cdn.dribbble.com/userupload/10112365/file/original-45594b9eb2e2b3f7eb1128a931243903.png?resize=1024x449&vertical=center"
   },
   {
     "title": "Sustainable Star LLC",
     "description": "The landing page for Sustainable Star",
     "link": "https://sustainablestar.com.sa/",
     "key": "Sustainable",
-    "img": "/src/Assets/sustainable.png"
+    "img": "https://cdn.dribbble.com/userupload/10112366/file/original-ec15130d2ca030b21e48b64071eb9f6f.png?resize=1024x449&vertical=center"
   },
   {
     "title": "Timescape",
     "description": "📅 Web application for creating and arranging important appointments",
     "link": "https://timescape-liart.vercel.app/",
     "key": "timescape",
-    "img": "/src/Assets/timescape.png"
+    "img": "https://cdn.dribbble.com/userupload/10112367/file/original-6ebbfeed1414b44658ca86c2d2c62f3f.png?resize=1024x451&vertical=center"
   },
   {
     "title": "SNote",
     "description": "🗒️Effortlessly Preserve and Organize Your Notes",
     "link": "https://theshortnote.netlify.app/",
     "key": "sNote",
-    "img": "/src/Assets/snote.png"
+    "img": "https://cdn.dribbble.com/userupload/10112364/file/original-1dbf7e9777e69364765d355482deabb9.png?resize=1024x450&vertical=center"
   },
   {
     "title": "Gradients CSS",
     "description": "UI to generate linear gradients",
-    "link": "/src/Assets/gradientcss.png",
+    "link": "https://gradientscss.vercel.app/",
     "key": "gradientsCss",
-    "img": "/src/Assets/gradientcss.png"
+    "img": "https://cdn.dribbble.com/userupload/10112368/file/original-101a6638f1a401aee94dafd56cf2581d.png?resize=1200x533"
   }
 ]

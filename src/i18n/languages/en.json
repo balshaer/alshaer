@@ -46,6 +46,8 @@
     "EducationDescription": "Software engineering  | 2020 - 2022",
     "Home": "Home",
     "Projects": "Projects",
-    "sendButton" : "send message",
-    "contact with": "contact with"
+    "sendButton": "send message",
+    "contact with": "contact with",
+    "see more": "see more",
+    "see less": "see less"
 }
