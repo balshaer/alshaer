@@ -1,1 +1,36 @@
-.postShow{display:flex;justify-content:start;align-items:center;flex-direction:row;gap:1rem;width:100%;padding:1rem 0}.darkMode .lastBlogs,.darkMode .post-title{color:#fff!important}.post-link{color:#94a1b2!important}.postShow{transition:opacity .3s ease-in-out}.fade{opacity:.5}.post-card:hover{opacity:1}.post-date{display:flex;flex-direction:row;width:20%}.post-title{width:80%;display:flex;flex-direction:row;flex-wrap:wrap}
+.postShow {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: row;
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem 0;
+}
+.darkMode .lastBlogs,
+.darkMode .post-title {
+  color: #fff !important;
+}
+.post-link {
+  color: #94a1b2 !important;
+}
+.postShow {
+  transition: opacity 0.3s ease-in-out;
+}
+.fade {
+  opacity: 0.5;
+}
+.post-card:hover {
+  opacity: 1;
+}
+.post-date {
+  display: flex;
+  flex-direction: row;
+  width: 20%;
+}
+.post-title {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

@@ -1,4 +1,3 @@
-
 <div align="left">
     <img src="https://cdn.dribbble.com/userupload/7461041/file/original-bc0db5f06f174efb4bcfdbe1d7f78f86.png?compress=1&resize=50x50" alt="Logo" />
 </div>
@@ -15,6 +14,5 @@ This project utilizes the following technologies:
 
 ---
 
-Created by 
+Created by
 <a style="color: #edf0f1; transition: all 0.3s ease 0s; font-weight: bold; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"  href="https://alsher.vercel.app/">Baraa</a>
-

@@ -9,11 +9,8 @@ export default function Projects() {
       <Container maxWidth="sm">
         <CssBaseline />
         <SecondHeader />
-        
 
         <ProjectsComponent />
-
-        
       </Container>
     </div>
   );

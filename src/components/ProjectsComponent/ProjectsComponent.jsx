@@ -75,7 +75,7 @@ export default function ProjectsComponent() {
               id="linkItem"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ position: 'relative' }}
+              style={{ position: "relative" }}
               href={project.link}
               className={
                 hoveredIndex !== null && hoveredIndex !== index ? "fade" : ""
@@ -84,15 +84,15 @@ export default function ProjectsComponent() {
               onMouseLeave={() => setHoveredIndex(null)}
             >
               <h2>{t(project.title)}</h2>
-              <p style={{ maxWidth: '60%' }}>{t(project.description)}</p>
+              <p style={{ maxWidth: "60%" }}>{t(project.description)}</p>
               <img
                 style={{
-                  objectFit: 'contain',
-                  margin: 'auto',
-                  top: '0',
-                  borderRadius: '12px',
-                  position: 'absolute',
-                  height: '60%',
+                  objectFit: "contain",
+                  margin: "auto",
+                  top: "0",
+                  borderRadius: "12px",
+                  position: "absolute",
+                  height: "60%",
                   // Conditionally set 'right' and 'left' based on the current language
                   right: currentLanguage === "ar" ? "auto" : "0",
                   left: currentLanguage === "en" ? "auto" : "0",
@@ -122,11 +122,13 @@ export default function ProjectsComponent() {
         >
           {showAllProjects ? (
             <React.Fragment>
-              {t('see less')} <ExpandLessIcon style={{ marginLeft: "0.5rem" }} />
+              {t("see less")}{" "}
+              <ExpandLessIcon style={{ marginLeft: "0.5rem" }} />
             </React.Fragment>
           ) : (
             <React.Fragment>
-              {t('see more')} <ExpandMoreIcon style={{ marginLeft: "0.5rem" }} />
+              {t("see more")}{" "}
+              <ExpandMoreIcon style={{ marginLeft: "0.5rem" }} />
             </React.Fragment>
           )}
         </motion.a>

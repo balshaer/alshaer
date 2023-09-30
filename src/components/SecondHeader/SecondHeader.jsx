@@ -4,8 +4,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ThemeProvider } from "@mui/system";
 
-const arrowButtonStyles = {
-};
+const arrowButtonStyles = {};
 
 function SecondHeader() {
   return (

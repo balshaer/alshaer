@@ -1,14 +1,15 @@
 // About.jsx
-import React, { useState } from "react";
+import { Breadcrumbs } from "@material-tailwind/react";
 import { Container, CssBaseline } from "@mui/material";
-import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
+import AboutContact from "../../components/AboutContact/AboutContact";
 import SecondHeader from "../../components/SecondHeader/SecondHeader";
 import "./About.css";
-import AboutContact from "../../components/AboutContact/AboutContact";
-import { Breadcrumbs } from "@material-tailwind/react";
-import { Link } from "react-router-dom";
 import aboutInfo from "./aboutData";
+import { Image } from "@nextui-org/react";
 const About = () => {
   const { t } = useTranslation();
   const { title, description, workExperience } = aboutInfo;
@@ -59,7 +60,7 @@ const About = () => {
                   className="work-card"
                 >
                   <div className="image-container">
-                    <img
+                    <Image
                       src={experience.companyLogo}
                       alt={`${experience.companyName} Logo`}
                     />

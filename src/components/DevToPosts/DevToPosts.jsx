@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./DevToPosts.css";
 import { motion } from "framer-motion";
-import { useTranslation } from "react-i18next"; 
+import { useTranslation } from "react-i18next";
 
 export default function DevToPosts() {
-  const { t } = useTranslation(); 
+  const { t } = useTranslation();
   const [posts, setPosts] = useState([]);
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
@@ -14,8 +14,8 @@ export default function DevToPosts() {
         const rssFeedUrl = "https://dev.to/feed/baraa";
         const response = await fetch(
           `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(
-            rssFeedUrl
-          )}`
+            rssFeedUrl,
+          )}`,
         );
 
         if (response.ok) {
@@ -34,7 +34,7 @@ export default function DevToPosts() {
 
   return (
     <div className="dev-to-posts">
-      <p className="lastBlogs">{t('Latest Posts')}</p>
+      <p className="lastBlogs">{t("Latest Posts")}</p>
       <div className="post-container">
         {posts.map((post, index) => (
           <div
@@ -56,7 +56,7 @@ export default function DevToPosts() {
                   {new Date(post.pubDate).toLocaleDateString("en-US", {
                     year: "numeric",
                     month: "short",
-                    day: "2-digit"
+                    day: "2-digit",
                   })}
                 </div>
                 <p className="post-title">{post.title}</p>

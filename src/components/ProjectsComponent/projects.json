@@ -1,7 +1,7 @@
 [
   {
     "title": "naj shamilapp",
-    "description": "The landing page for Sustainable Star",
+    "description": "",
     "link": "https://naj.shamilapp.com/",
     "key": "naj",
     "img": "https://cdn.dribbble.com/userupload/10112365/file/original-45594b9eb2e2b3f7eb1128a931243903.png?resize=1024x449&vertical=center"
@@ -15,14 +15,14 @@
   },
   {
     "title": "Timescape",
-    "description": "📅 Web application for creating and arranging important appointments",
+    "description": "Web application for creating and arranging important appointments",
     "link": "https://timescape-liart.vercel.app/",
     "key": "timescape",
     "img": "https://cdn.dribbble.com/userupload/10112367/file/original-6ebbfeed1414b44658ca86c2d2c62f3f.png?resize=1024x451&vertical=center"
   },
   {
     "title": "SNote",
-    "description": "🗒️Effortlessly Preserve and Organize Your Notes",
+    "description": "Effortlessly Preserve and Organize Your Notes",
     "link": "https://theshortnote.netlify.app/",
     "key": "sNote",
     "img": "https://cdn.dribbble.com/userupload/10112364/file/original-1dbf7e9777e69364765d355482deabb9.png?resize=1024x450&vertical=center"
