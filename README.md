@@ -1,4 +1,4 @@
-# Baraa Alshaer's Portfolio
+# My Portfolio
 
 Explore my portfolio, featuring projects developed with cutting-edge technologies.
 
