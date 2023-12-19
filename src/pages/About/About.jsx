@@ -95,7 +95,7 @@ const About = () => {
           <div className="contact">
             <h2>{t("Contact")}</h2>
             <p>
-              {t("contact with")}{" "}
+              {t("contact with")}
               <a href="mailto:alsher.info@gmail.com"> {t("email")}</a>.
             </p>
             <br />
