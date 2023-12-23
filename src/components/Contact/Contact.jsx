@@ -18,7 +18,7 @@ export default function Contact() {
   useEffect(() => {
     const fetchRepoCount = async () => {
       try {
-        const response = await fetch("https://api.github.com/users/Baraasher");
+        const response = await fetch("https://api.github.com/users/balshaer");
         const data = await response.json();
         setRepoCount(data.public_repos);
       } catch (error) {
@@ -39,7 +39,7 @@ export default function Contact() {
     <Box className="contact-timeline flexColumnCenter">
       <a
         id="githubIcon"
-        href="https://github.com/Baraasher/"
+        href="https://github.com/balshaer/"
         target="_blank"
         rel="noopener noreferrer"
         className="contact-icon"
