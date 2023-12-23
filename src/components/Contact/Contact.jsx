@@ -55,7 +55,7 @@ export default function Contact() {
       </a>
       <a
         id="linkedinIcon"
-        href="https://www.linkedin.com/in/baraa-alsher/"
+        href="https://www.linkedin.com/in/balshaer/"
         target="_blank"
         rel="noopener noreferrer"
         className="contact-icon"

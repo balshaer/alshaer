@@ -61,7 +61,7 @@
   "main": "vite.config.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Baraasher/Baraa.git"
+    "url": "git+https://github.com/balshaer/Baraa.git"
   },
   "keywords": [
     "Baraa",
@@ -70,7 +70,7 @@
   "author": "Baraa Alshaer",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Baraasher/Baraa/issues"
+    "url": "https://github.com/balshaer/Baraa/issues"
   },
-  "homepage": "https://github.com/Baraasher/Baraa#readme"
+  "homepage": "https://github.com/balshaer/Baraa#readme"
 }
