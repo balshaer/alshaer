@@ -1,9 +1,0 @@
-.item {
-  transition: opacity 0.3s ease-in-out;
-}
-.item.fade {
-  opacity: 0.5;
-}
-.item:hover {
-  opacity: 1;
-}

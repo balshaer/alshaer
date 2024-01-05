@@ -1,0 +1,44 @@
+{
+  "Header": {
+    "Name": "Baraa Alshaer",
+    "Job": "Product-focused Software Engineer"
+  },
+  "Description": {
+    "Description": "I enjoy building dynamic, creative products from start to finish. Focused on developing intuitive experiences that constantly grow and improve based on user metrics. Always shipping. "
+  },
+  "Links": {
+    "Note": "I'm a big fan of side-projects. You can find some of my projects below :",
+    "Projects": "Projects",
+    "AboutMe": "About me",
+    "Experience": "Experience"
+  },
+  "Contact": {
+    "Note": "If you have any questions or want to discuss a project, feel free to email me at :",
+    "MessageNote": " Message sent successfully",
+    "PleaseEnterYourName": " Please Enter Your Name",
+    "PleaseEnterYourEmail": " Please Enter Your Email",
+    "PleaseEnterWriteYourMessage": "Please Write Your Message",
+    "Send": "Send",
+    "Cancel": "Cancel"
+  },
+  "Posts": {
+    "LatestPosts": "Latest Posts :"
+  },
+  "SocialLinks": {
+    "Note": "Links :"
+  },
+  "LanguageSelect": {
+    "English": "English",
+    "Arabic": "العربية"
+  },
+
+  "Experience" : {
+    "WorkExperience" : "Work Experience"
+  },
+
+  "Projects" :{
+    "Projects" : "Projects"
+  }
+
+  
+}
