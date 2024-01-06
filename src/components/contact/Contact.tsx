@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import ParagraphComponent from "../text/ParagraphComponent";
+
 
 import { DrawerDialogDemo } from "./DrawerDialogDemo";
 
@@ -13,8 +13,8 @@ export default function Contact() {
 
 
 
+<p className="text-sm text-[var(--paragraph)]">{t("Contact.Note")} </p>
 
-          <ParagraphComponent text={t("Contact.Note")} />
 
 <DrawerDialogDemo/>
  

@@ -1,6 +1,4 @@
 import { useTranslation } from 'react-i18next';
-import H1Component from '../text/H1Component';
-import ParagraphComponent from '../text/ParagraphComponent';
 
 
 export default function Header() {
@@ -13,12 +11,14 @@ const animateFaster = "animate__animated animate__fadeIn animate__faster";
     <div className="bg-[--foreground]">
       <div className={animateFaster}>
 
-      <H1Component  text={t('Header.Name')} />
+
+<h1 className='text-[var(--headline)]'>{t('Header.Name')}</h1>
+
       </div>
 
       <div className={animate}>
+      <p className="text-sm">{t("Header.Job")} </p>
 
-      <ParagraphComponent text={t('Header.Job')} />
       </div>
 
     </div>

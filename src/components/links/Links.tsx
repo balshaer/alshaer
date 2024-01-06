@@ -1,5 +1,4 @@
 import { t } from "i18next";
-import ParagraphComponent from "../text/ParagraphComponent";
 
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import { Link } from "react-router-dom";
@@ -13,8 +12,8 @@ export default function Links() {
     <div className={`Links ${animate}`}>
 
 
-      <ParagraphComponent text={t("Links.Note")} />
 
+      <p className="text-sm text-[var(--paragraph)]">{t("Links.Note")} </p>
 
       <div className="flex items-start w-full gap-5  ">
 

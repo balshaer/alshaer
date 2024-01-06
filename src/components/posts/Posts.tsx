@@ -1,5 +1,5 @@
 import { t } from "i18next";
-import ParagraphComponent from "../text/ParagraphComponent";
+
 import React, { useEffect, useState } from "react";
 
 interface Post {
@@ -42,10 +42,10 @@ const Posts: React.FC<PostsProps> = () => {
   return (
     <div className={`Posts text-sm text-[var(--headline)] ${animate}`}>
       
-      <ParagraphComponent text={t("Posts.LatestPosts")} />
+      <p className="text-sm text-[var(--paragraph)]">{t("Posts.LatestPosts")} </p>
 
       <div className="dev-to-posts">
-        <div className="post-container flex flex-col gap-10 my-5 ">
+        <div className="post-container flex flex-col gap-5 my-5 ">
           {posts.map((post, index) => (
             <div
               key={index}

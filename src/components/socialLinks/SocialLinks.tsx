@@ -1,5 +1,5 @@
 import { t } from "i18next";
-import ParagraphComponent from "../text/ParagraphComponent";
+
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { socialLinksData } from "@/data/socialLinksData";
@@ -9,7 +9,7 @@ const animateClass = "animate__animated animate__fadeIn animate__slow";
 export default function SocialLinks() {
   return (
     <div className={`SocialLinks text-sm  ${animateClass}`}>
-      <ParagraphComponent text={t("SocialLinks.Note")} />
+      <p className="text-sm text-[var(--paragraph)]">{t("SocialLinks.Note")} </p>
 
       <div className="flex gap-5" >
         {socialLinksData.map((socialLink, index) => (

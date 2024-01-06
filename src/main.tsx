@@ -7,7 +7,7 @@ import './index.css';
 import '../app/globals.css';
 import i18n from './i18n.ts';
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.render(
   <React.StrictMode>
     
     <I18nextProvider i18n={i18n}>
@@ -15,5 +15,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <App />
       </BrowserRouter>
     </I18nextProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
+    document.getElementById('root')
 );
