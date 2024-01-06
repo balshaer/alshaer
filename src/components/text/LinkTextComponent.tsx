@@ -6,7 +6,7 @@ interface LinkTextComponentProps {
 }
 
 const LinkTextComponent: React.FC<LinkTextComponentProps> = ({ text }) => {
-  return <span className=" text-sm  cursor-pointer text-[var(--headline)]">{text}</span>;
+  return <span className="  cursor-pointer text-[var(--headline)]">{text}</span>;
 };
 
 export default LinkTextComponent;

@@ -243,7 +243,7 @@ export function DrawerDialogDemo() {
   const isDesktop = useMediaQuery('(min-width: 768px)');
 
 
-  const commonContent = <span className=' text-[var(--link-color)] hover:text-[var(--link-color)] text-sm my-email' style={{ transition: 'all 0.3s ease 0s' }}>alshaer.contact@gmail.com</span>;
+  const commonContent = <span className=' text-[var(--link-color)] hover:text-[var(--link-color)]  my-email'>alshaer.contact@gmail.com</span>;
 
   const closeDialog = () => {
     setOpen(false);

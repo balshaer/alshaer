@@ -6,14 +6,13 @@ import { DrawerDialogDemo } from "./DrawerDialogDemo";
 
 export default function Contact() {
   const { t } = useTranslation();
-  const animate = "animate__animated animate__fadeIn animate__slow";
 
   return (
-    <div className={`Contact ${animate}`}>
+    <div className={`Contact }`}>
 
 
 
-<p className="text-sm text-[var(--paragraph)]">{t("Contact.Note")} </p>
+<p className="text-[var(--headline)]">{t("Contact.Note")} </p>
 
 
 <DrawerDialogDemo/>

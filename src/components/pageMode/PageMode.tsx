@@ -25,10 +25,10 @@ const PageMode: React.FC = () => {
       {mode === 'light' ? <DarkMode /> : <LightMode />}
       <span onClick={toggleMode} className="h-full">
         {mode === 'light' ? (
-          <HiSun className="cursor-pointer animate__animated animate__fadeIn animate__faster" size={25} />
+          <HiSun className="cursor-pointer " size={25} />
 
         ) : (
-          <HiMiniMoon className="cursor-pointer animate__animated animate__fadeIn animate__faster" size={25} />
+          <HiMiniMoon className="cursor-pointer " size={25} />
 
         )}
       </span>

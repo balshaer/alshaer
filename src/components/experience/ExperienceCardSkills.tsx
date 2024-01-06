@@ -9,7 +9,7 @@ interface ExperienceCard {
 
 const ExperienceCardSkills: React.FC<{ experience: ExperienceCard }> = ({ experience }) => {
   return (
-    <div className="flex space-x-2 text-sm">
+    <div className="flex space-x-2  ">
       {experience.skills?.map((skill, index) => (
         <p key={index} className={`bg-[var(--background)] p-2 w-max text-[var(--button-text)] animate`}>
           {skill}

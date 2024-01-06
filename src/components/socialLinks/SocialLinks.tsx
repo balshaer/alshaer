@@ -4,12 +4,11 @@ import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { socialLinksData } from "@/data/socialLinksData";
 
-const animateClass = "animate__animated animate__fadeIn animate__slow";
 
 export default function SocialLinks() {
   return (
-    <div className={`SocialLinks text-sm  ${animateClass}`}>
-      <p className="text-sm text-[var(--paragraph)]">{t("SocialLinks.Note")} </p>
+    <div className={`SocialLinks  `}>
+      <p className="  text-[var(--headline)]">{t("SocialLinks.Note")} </p>
 
       <div className="flex gap-5" >
         {socialLinksData.map((socialLink, index) => (
@@ -20,17 +19,21 @@ export default function SocialLinks() {
             className="flex items-center justify-center gap-1"
           >
             <div>
-              <span style={{ color: "var(--link-color)" }}>{socialLink.label}</span>
-            </div>
+            <div className="text-[var(--link-color)] hover:text-[var(--main)] flex items-center justify-center gap-2 link-effect "> 
+
+              <span>{socialLink.label}</span>
 
             <div >
               <div>
-                <span className="text-[var(--link-color)]">{socialLink.username}</span>
+                <span>{socialLink.username}</span>
               </div>
-              <span className="text-[var(--link-color)]">
+              <span >
                 <FaArrowUpRightFromSquare size={10} className="mr-1" />
               </span>
             </div>
+            </div>
+            </div>
+
           </Link>
         ))}
       </div>

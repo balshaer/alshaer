@@ -29,7 +29,7 @@ const Experience: React.FC = () => {
       <Navbar />
 
       <>
-        <h2 className="text-xl font-bold mb-4 text-[var(--headline)]">{t('Experience.WorkExperience')}</h2>
+        <p className="text-xl font-bold mb-4 text-[var(--headline)]">{t('Experience.WorkExperience')}</p>
 
         <ScrollArea className="h-[100%] w-[100%] rounded-md mb-5 ">
           <div>
@@ -41,12 +41,12 @@ const Experience: React.FC = () => {
                   </div>
                 ) : (
                   <div className='card-content flex flex-col gap-3 h-full w-full '>
-                    <h3
+                    <p
                       className={`text-xl font-semibold text-[var(--headline)] cursor-pointer ${animate}`}
                       onClick={() => openWebsite(experience.links.website)}
                     >
                       {experience.company}
-                    </h3>
+                    </p>
                     <div>
                       <p className={`text-paragraph text-[var(--paragraph)] ${animate}`}>{experience.position}</p>
                       <p className={`text-paragraph text-[var(--paragraph)] ${animate}`}>{experience.description}</p>

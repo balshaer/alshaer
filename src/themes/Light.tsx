@@ -17,7 +17,7 @@ const LightMode: React.FC = () => {
           --tertiary: #2cb67d;
           --highlight-blue: #4691ea;
           --card-background: #242629;
-          --link-color: #edf0f1;
+          --link-color: #94a1b2;
 
 
         }

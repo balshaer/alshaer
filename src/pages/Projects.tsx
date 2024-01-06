@@ -29,7 +29,7 @@ const Projects: React.FC = () => {
       <Navbar />
 
       <>
-        <h2 className="text-2xl font-bold mb-4 text-[var(--headline)]">{t('Projects.Projects')}</h2>
+        <p className="text-2xl font-bold mb-4 text-[var(--headline)]">{t('Projects.Projects')}</p>
         <ScrollArea className="h-[100%] w-[100%] rounded-md mb-5 ">
 
           <div>
@@ -41,12 +41,12 @@ const Projects: React.FC = () => {
                   </div>
                 ) : (
                   <div className='card-content flex flex-col gap-3 h-full w-full '>
-                    <h3
+                    <p
                       className={`text-xl font-semibold text-[var(--headline)] cursor-pointer ${animate}`}
                       onClick={() => openWebsite(project.links.website)}
                     >
                       {project.name}
-                    </h3>
+                    </p>
                     <div>
                       <p className={`text-paragraph text-[var(--paragraph)] ${animate}`}>{project.description}</p>
                     </div>

@@ -1,59 +1,35 @@
 import { t } from "i18next";
-
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-
 export default function Links() {
-
-  const animate = "animate__animated animate__fadeIn animate__slow";
-
-
   return (
-    <div className={`Links ${animate}`}>
-
-
-
-      <p className="text-sm text-[var(--paragraph)]">{t("Links.Note")} </p>
-
+    <div className={`Links`}>
+      <p className="  text-[var(--headline)]">{t("Links.Note")} </p>
       <div className="flex items-start w-full gap-5  ">
-
         <div className="hover:text-[var(--highlight)]">
+          <Link   to={"/experience"}>
+          <div className="text-[var(--link-color)] hover:text-[var(--main)] flex items-center justify-center gap-2 link-effect "> 
 
-
-          <Link to={"/experience"} className="flex items-center justify-center gap-1">
-
-
-
-
-
-            <span className="text-sm text-[var(--link-color)] ">{t("Links.Experience")}</span>
-
-            <span className="text-[var(--link-color)]">
+            <span>{t("Links.Experience")}</span>
+            <span>
               <FaArrowUpRightFromSquare size={10} />
-
             </span>
 
+          </div>
+
           </Link>
-
         </div>
+        <Link to={"/projects"} >
+          <div className="text-[var(--link-color)] hover:text-[var(--main)] flex items-center justify-center gap-2 link-effect "> 
 
-
-        <Link to={"/projects"} className="flex items-center justify-center gap-2">
-
-          <span className="text-sm text-[var(--link-color)]">{t("Links.Projects")}</span>
-
-          <span className="text-[var(--link-color)]">
+          <span >{t("Links.Projects")}</span>
+          <span>
             <FaArrowUpRightFromSquare size={10} />
-
           </span>
+          </div>
 
         </Link>
-
-
-
-
       </div>
-
     </div>
   )
 }

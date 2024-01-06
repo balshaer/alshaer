@@ -13,7 +13,6 @@ interface PostsProps {}
 const Posts: React.FC<PostsProps> = () => {
   const [posts, setPosts] = useState<Post[]>([]);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const animate = "animate__animated animate__fadeIn animate__slow";
  
   useEffect(() => {
     const fetchPosts = async () => {
@@ -40,9 +39,9 @@ const Posts: React.FC<PostsProps> = () => {
   }, []);
 
   return (
-    <div className={`Posts text-sm text-[var(--headline)] ${animate}`}>
+    <div className={`Posts   text-[var(--headline)] `}>
       
-      <p className="text-sm text-[var(--paragraph)]">{t("Posts.LatestPosts")} </p>
+      <p className="  text-[var(--headline)]">{t("Posts.LatestPosts")} </p>
 
       <div className="dev-to-posts">
         <div className="post-container flex flex-col gap-5 my-5 ">
