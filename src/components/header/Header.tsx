@@ -10,16 +10,15 @@ export default function Header() {
       <div >
 
 
-<h1 className='text-[var(--headline)] font-bold select-none'>{t('Header.Name')}</h1>
+        <h1 className='text-[var(--headline)] font-bold select-none'>{t('Header.Name')}</h1>
 
       </div>
 
       <div >
-      <p className="  text-[var(--paragraph)]">{t("Header.Job")} </p>
+        <p className="  text-[var(--paragraph)]">{t("Header.Job")} </p>
 
       </div>
 
     </div>
   );
 }
- 
