@@ -1,6 +1,7 @@
 import { t } from "i18next";
 
 import React, { useEffect, useState } from "react";
+import PostsSkeleton from "../skeleton/PostsSkeleton";
 
 interface Post {
   title: string;
@@ -13,7 +14,15 @@ interface PostsProps {}
 const Posts: React.FC<PostsProps> = () => {
   const [posts, setPosts] = useState<Post[]>([]);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
- 
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timeoutId);
+  }, []);
   useEffect(() => {
     const fetchPosts = async () => {
       try {
@@ -40,40 +49,43 @@ const Posts: React.FC<PostsProps> = () => {
 
   return (
     <div className={`Posts   text-[var(--headline)] `}>
-      
       <p className="  text-[var(--headline)]">{t("Posts.LatestPosts")} </p>
 
       <div className="dev-to-posts">
-        <div className="post-container flex flex-col gap-5 my-5 ">
-          {posts.map((post, index) => (
-            <div
-              key={index}
-              className={`post-card ${
-                hoveredIndex !== null && hoveredIndex !== index ? "fade" : ""
-              }`}
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
-            >
-              <a
-                className="post-link "
-                href={post.link}
-                target="_blank"
-                rel="noopener noreferrer"
+        {isLoading ? (
+          <div className="post-container flex flex-col gap-5 my-5 ">
+            {posts.map((post, index) => (
+              <div
+                key={index}
+                className={`post-card ${
+                  hoveredIndex !== null && hoveredIndex !== index ? "fade" : ""
+                }`}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
               >
-                <div className="postShow flex justify-between w-full">
-                  <div className="post-date w-[20%]">
-                    {new Date(post.pubDate).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "short",
-                      day: "2-digit",
-                    })}
+                <a
+                  className="post-link "
+                  href={post.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <div className="postShow flex justify-between w-full">
+                    <div className="post-date w-[20%]">
+                      {new Date(post.pubDate).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "short",
+                        day: "2-digit",
+                      })}
+                    </div>
+                    <p className="post-title w-[80%] ">{post.title}</p>
                   </div>
-                  <p className="post-title w-[80%] ">{post.title}</p>
-                </div>
-              </a>
-            </div>
-          ))}
-        </div>
+                </a>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <PostsSkeleton />
+        )}
       </div>
     </div>
   );
