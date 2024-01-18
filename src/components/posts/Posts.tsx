@@ -1,5 +1,4 @@
 import { t } from "i18next";
-
 import React, { useEffect, useState } from "react";
 import PostsSkeleton from "../skeleton/PostsSkeleton";
 
@@ -23,6 +22,7 @@ const Posts: React.FC<PostsProps> = () => {
 
     return () => clearTimeout(timeoutId);
   }, []);
+
   useEffect(() => {
     const fetchPosts = async () => {
       try {
@@ -53,6 +53,8 @@ const Posts: React.FC<PostsProps> = () => {
 
       <div className="dev-to-posts">
         {isLoading ? (
+          <PostsSkeleton />
+        ) : (
           <div className="post-container flex flex-col gap-5 my-5 ">
             {posts.map((post, index) => (
               <div
@@ -83,8 +85,6 @@ const Posts: React.FC<PostsProps> = () => {
               </div>
             ))}
           </div>
-        ) : (
-          <PostsSkeleton />
         )}
       </div>
     </div>
