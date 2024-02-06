@@ -1,28 +1,26 @@
-import React from 'react';
+import React from "react";
 
-const DarkMode: React.FC = () => {
+const LightMode: React.FC = () => {
   return (
     <style>
       {`
         :root {
-          --background: #edf0f1;            
-          --headline: #000000;              
-          --paragraph: #717171;             
-          --button: #4fc4cf;                
-          --button-text: #181818;           
-          --illustration-stroke: #181818;   
-          --main: #000000;                 
-          --highlight: #4fc4cf;           
-          --secondary: #994ff3;            
-          --tertiary: #fbdd74; 
-          --highlight-blue: #4691ea;
-          --card-background: #f2f4f6;
-    --link-color: #717171;
-     
+          --background: #171923;
+          --headline: #F7F9FC;
+          --paragraph: #a0aec0;
+          --button: #166BFF;
+          --button-text: #ffffff;
+          --card-background: #171923;
+          --link-color: #2997ff;
+          --nav-item: #a0aec0;
+
+      
+
+
         }
       `}
     </style>
   );
 };
 
-export default DarkMode;
+export default LightMode;
