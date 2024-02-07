@@ -28,9 +28,11 @@ import { toast } from "sonner";
 import { HiOutlineExclamationCircle } from "react-icons/hi2";
 import { HiOutlineCheckCircle } from "react-icons/hi2";
 import { t } from "i18next";
+import ButtonDefault from "../custom/ButtonDefault";
+import { GrSend } from "react-icons/gr";
 
 const styles = {
-  form: "grid items-start gap-4",
+  form: "grid items-start gap-4 ",
   inputGrid: "grid gap-2",
   button: "text-sm focus:outline-none ",
   dialogContent: "sm:max-w-[425px]",
@@ -120,32 +122,32 @@ function ProfileForm({
 
   return (
     <form
-      className={cn(styles.form, "bg-[var(--background)]", className)}
+      className={cn(styles.form, "bg-[var(--background)]   ", className)}
       onSubmit={handleSubmit}
     >
       <div className={styles.inputGrid}>
         <Input
           type="text"
-          className="bg-[var(--main)] text-[var(--illustration-stroke)]"
+          className="bg-[var(--input-background)] text-[#a0aec0] placeholder-[var(--paragraph)] border-0"
           id="Name"
           placeholder="Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
         {email === "" && accept && (
-          <div className="text-red-300 flex justify-start items-center gap-3">
-            <span className="text-2xl">
+          <div className="text-red-300 flex justify-start items-center gap-1">
+            <span className="text-sm">
               <HiOutlineExclamationCircle />
             </span>
 
-            <span className=" text-xs">{t("Contact.PleaseEnterYourName")}</span>
+            <span className=" text-sm">{t("Contact.PleaseEnterYourName")}</span>
           </div>
         )}
       </div>
 
       <div className={styles.inputGrid}>
         <Input
-          className="bg-[var(--main)] text-[var(--illustration-stroke)]"
+          className="bg-[var(--input-background)] text-[#a0aec0] placeholder-[var(--paragraph)] border-0"
           type="email"
           id="email"
           placeholder="Email@example.com"
@@ -154,11 +156,11 @@ function ProfileForm({
         />
 
         {email === "" && accept && (
-          <div className="text-red-300 flex justify-start items-center gap-3">
-            <span className="text-2xl">
+          <div className="text-red-300 flex justify-start items-center gap-1">
+            <span className="text-sm">
               <HiOutlineExclamationCircle />
             </span>
-            <span className="text-red-300 text-xs">
+            <span className="text-red-300 text-sm">
               {t("Contact.PleaseEnterYourEmail")}
             </span>
           </div>
@@ -167,7 +169,7 @@ function ProfileForm({
 
       <div className={styles.inputGrid}>
         <Textarea
-          className="bg-[var(--main)] text-[var(--illustration-stroke)]"
+          className="bg-[var(--input-background)] text-[#a0aec0] placeholder-[var(--paragraph)] border-0"
           id="message"
           placeholder="Your Message"
           value={message}
@@ -175,11 +177,11 @@ function ProfileForm({
         />
 
         {email === "" && accept && (
-          <div className="flex items-center justify-start gap-2 w-full text-red-300 ">
-            <span className="">
+          <div className="flex items-center justify-start gap-1 w-full text-red-300 ">
+            <span className="text-sm">
               <HiOutlineExclamationCircle />
             </span>
-            <span className="text-xs">
+            <span className="text-sm">
               {t("Contact.PleaseEnterWriteYourMessage")}
             </span>
           </div>
@@ -187,12 +189,12 @@ function ProfileForm({
       </div>
 
       {!loading && (
-        <Button
-          className="bg-[var(--button)] text-[var(--button-text)] hover:bg-[var(--button)] "
-          type="submit"
-        >
-          {t("Contact.Send")}
-        </Button>
+        <ButtonDefault
+          isSubmit
+          text={"Send message"}
+          iconPosition="right"
+          icon={GrSend}
+        />
       )}
 
       {loading && (
@@ -217,9 +219,12 @@ export function DrawerDialogDemo() {
   const isDesktop = useMediaQuery("(min-width: 768px)");
 
   const commonContent = (
-    <div className="text-[var(--link-color)] hover:text-[var(--main)] flex items-center justify-center gap-2 link-effect ">
-      <span className=" my-email">alshaer.contact@gmail.com</span>
-    </div>
+    <ButtonDefault
+      isSubmit
+      text={"Add message"}
+      iconPosition="right"
+      icon={GrSend}
+    />
   );
   const closeDialog = () => {
     setOpen(false);
@@ -235,7 +240,9 @@ export function DrawerDialogDemo() {
           className={`${styles.dialogContent} bg-[var(--background)] border-none`}
         >
           <DialogHeader>
-            <DialogTitle>{commonContent}</DialogTitle>
+            <DialogTitle className="text-[var(--headline)]">
+              {t("Contact.DialogTitle")}
+            </DialogTitle>
             <DialogDescription></DialogDescription>
           </DialogHeader>
           <ProfileForm closeDialog={closeDialog} />
@@ -250,7 +257,7 @@ export function DrawerDialogDemo() {
         <DrawerTrigger asChild>
           <span className="cursor-pointer">{commonContent}</span>
         </DrawerTrigger>
-        <DrawerContent className="bg-[var(--background)] border-none p-[1rem]">
+        <DrawerContent className="bg-[var(--background)]  border-none p-[1rem]">
           <DrawerHeader className={styles.drawerHeader}>
             <DrawerTitle className="cursor-pointer">
               {commonContent}

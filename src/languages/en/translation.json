@@ -1,11 +1,11 @@
 {
   "Header": {
     "Name": "Baraa Alshaer",
-    "Job": "Product-focused Software Engineer"
+    "Job": "Product-focused Software Engineer",
+
+    "Description": "I'm Baraa Alshaer, an experienced frontend developer passionate about learning and building open-source software that is beneficial to developers and the world at large."
   },
-  "Description": {
-    "Description": "I enjoy building dynamic, creative products from start to finish. Focused on developing intuitive experiences that constantly grow and improve based on user metrics. Always shipping. "
-  },
+
   "Links": {
     "Note": "I'm a big fan of side-projects. You can find some of my projects below :",
     "Projects": "Projects",
@@ -18,6 +18,7 @@
     "PleaseEnterYourName": " Please Enter Your Name",
     "PleaseEnterYourEmail": " Please Enter Your Email",
     "PleaseEnterWriteYourMessage": "Please Write Your Message",
+    "DialogTitle": "Fill Form please",
     "Send": "Send",
     "Cancel": "Cancel"
   },
@@ -32,17 +33,11 @@
     "Arabic": "العربية"
   },
 
-  "Experience" : {
-    "WorkExperience" : "Work Experience"
+  "Experience": {
+    "WorkExperience": "Work Experience"
   },
 
-  "Projects" :{
-    "Projects" : "Projects"
+  "Projects": {
+    "Projects": "Projects"
   }
-
-
-
-  
-
-  
 }

@@ -1,5 +1,5 @@
 import Contact from "@/components/contact/Contact";
-import Description from "@/components/description/Description";
+import ExperienceDescription from "@/components/experienceDescription/ExperienceDescription";
 import Header from "@/components/header/Header";
 import Links from "@/components/links/Links";
 import Navbar from "@/components/navbar/Navbar";
@@ -13,10 +13,8 @@ export default function Home() {
       <div className="container h-[100vh] flex flex-col gap-[1.5rem]   ">
         <Navbar />
         <Header />
-        <Description />
-        <Links />
-        <SocialLinks />
-        <Contact />
+        <ExperienceDescription />
+
         <Posts />
       </div>
     </ScrollArea>

@@ -2,7 +2,6 @@ import React from "react";
 import { ButtonHTMLAttributes } from "react";
 import { Button } from "@/components/ui/button";
 import { IconType } from "react-icons";
-import { FiLoader } from "react-icons/fi";
 
 interface ButtonDefaultProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;

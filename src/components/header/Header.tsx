@@ -1,31 +1,30 @@
 import { useTranslation } from "react-i18next";
-import { Input } from "@/components/ui/input";
-import ButtonDefault from "../custom/ButtonDefault";
-import { GrSend } from "react-icons/gr";
+import { DrawerDialogDemo } from "../contact/DrawerDialogDemo";
 
 export default function Header() {
   const { t } = useTranslation();
 
   return (
-    <div className="  flex items-start justify-start flex-col w-full gap-4 py-40 max-md:py-20">
+    <div className="  flex items-start justify-center flex-col w-full gap-4 min-h-[100vh] pb-10">
       <div>
         <h1 className="text-[var(--headline)] text-5xl font-bold select-none flex flex-col gap-4">
-          <span className="max-md:text-3xl">
-            Software engineer, technical writer <br /> & open-source maintainer
+          <span className="max-md:text-3xl max-w-[60%] max-md:max-w-none">
+            Software engineer, technical writer & open-source maintainer
           </span>
         </h1>
       </div>
 
       <div>
-        <p className="text-[var(--paragraph)]  text-xl max-md:text-lg max-md:w-full">
-          I'm Baraa Alshaer, an experienced frontend developer passionate about
-          learning and building open-source software that is beneficial to
-          developers and the world at large.
+        <p className="text-[var(--paragraph)]  text-xl max-md:text-lg max-md:w-full max-w-[50%] max-md:max-w-none">
+          {t("Header.Description")}
         </p>
       </div>
 
-      <form className="flex gap-4 max-md:flex-col">
-        <div className="h-full flex items-center w-full">
+      <form
+        onSubmit={(e) => e.preventDefault()}
+        className="flex gap-4 max-md:flex-col"
+      >
+        {/* <div className="h-full flex items-center w-full">
           <Input
             className="bg-[var(--input-background)] text-[#a0aec0] placeholder-[var(--paragraph)]
             w-max
@@ -34,18 +33,12 @@ export default function Header() {
             border-[var(--input-border-color)]
             flex items-center border  rounded-md font-mono  px-4 py-3 text-md"
             type="text"
-            required
             placeholder="Lets Connect , Enter your email"
           />
-        </div>
+        </div> */}
 
-        <div className="h-full flex items-center">
-          <ButtonDefault
-            isSubmit
-            text={"Add message"}
-            iconPosition="right"
-            icon={GrSend}
-          />
+        <div className="h-full flex items-center w-full">
+          <DrawerDialogDemo />
         </div>
       </form>
     </div>
