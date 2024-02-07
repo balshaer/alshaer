@@ -25,7 +25,7 @@ const Experience: React.FC = () => {
   };
 
   return (
-    <div className="container h-[100vh] flex flex-col gap-[1rem]  max-w-2xl  ">
+    <div className="container h-[100vh] flex flex-col gap-[1rem]    ">
       <Navbar />
 
       <>

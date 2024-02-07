@@ -1,23 +1,45 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const githubUsername = "Balshaer"; 
-
 export default function Logo() {
-  const githubAvatarUrl = `https://github.com/${githubUsername}.png`;
+  const [isHovered, setIsHovered] = useState(false);
 
-  
+  const handleMouseEnter = () => setIsHovered(true);
+  const handleMouseLeave = () => setIsHovered(false);
+
+  const logoClasses = `bg-[var(--logo-background)] text-[var(--background)] font-bold px-3 py-[2px] text-lg rounded-lg ${
+    isHovered
+      ? "bg-gradient-to-r from-[var(--gradient-color-1)] to-[var(--gradient-color-2)] text-white hovered"
+      : ""
+  }`;
+
+  const nameClasses = ` text-[var(--logo-text-color)]  font-[600] text-xl ${
+    isHovered
+      ? "bg-gradient-to-r from-[var(--gradient-color-1)] to-[var(--gradient-color-2)] text-transparent bg-clip-text hovered"
+      : ""
+  }`;
 
   return (
-    <>
+    <div>
       <Link to={"/"}>
-        <div className="logo cursor-pointer text-[var(--headline)]">
-          <Avatar>
-            <AvatarImage src={githubAvatarUrl} />
-            <AvatarFallback>{githubUsername.charAt(0).toUpperCase()}</AvatarFallback>
-          </Avatar>
+        <div className="flex items-center justify-start gap-2 cursor-pointer hovered">
+          <span
+            className={logoClasses}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            B
+          </span>
+
+          <span
+            className={nameClasses}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            Baraa
+          </span>
         </div>
       </Link>
-    </>
+    </div>
   );
 }
