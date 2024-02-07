@@ -8,8 +8,8 @@ export default function ExperienceDescription() {
   const companies = useCompaniesDescription();
   return (
     <div className="Description flex items-center flex-col justify-start">
-      <div className="w-full flex justify-start items-center py-4 text-[var(--headline)] text-3xl font-bold">
-        <h1>Work Experience</h1>
+      <div className="w-full flex justify-start items-center py-4 text-[var(--headline)] text-2xl font-bold">
+        <h1>{t("ExperienceDescription.Title")}</h1>
       </div>
 
       <div className="cards flex gap-4 flex-wrap w-full">

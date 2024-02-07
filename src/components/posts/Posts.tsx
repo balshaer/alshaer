@@ -36,11 +36,9 @@ const Posts: React.FC<PostsProps> = () => {
         if (response.ok) {
           const data = await response.json();
           setPosts(data.items);
-        } else {
-          console.error("Error fetching dev.to posts");
         }
       } catch (error) {
-        console.error("Error fetching dev.to posts", error);
+        console.error(error);
       }
     };
 
@@ -48,18 +46,20 @@ const Posts: React.FC<PostsProps> = () => {
   }, []);
 
   return (
-    <div className={`Posts   text-[var(--headline)] `}>
-      <p className="  text-[var(--headline)]">{t("Posts.LatestPosts")} </p>
+    <div className="Posts flex items-center flex-col justify-start">
+      <div className="w-full flex  justify-start items-center py-4 text-[var(--headline)] text-2xl font-bold">
+        <h1>{t("Posts.LatestPosts")}</h1>
+      </div>
 
-      <div className="dev-to-posts">
+      <div className="dev-to-posts h-[300px] w-full flex  wf     ">
         {isLoading ? (
           <PostsSkeleton />
         ) : (
-          <div className="post-container flex flex-col gap-5 my-5 ">
+          <div className="post-container flex flex-col w-full   my-5 gap-5  ">
             {posts.map((post, index) => (
               <div
                 key={index}
-                className={`post-card ${
+                className={`post-card  text-[var(--paragraph)] w-[100%] h-[45px] ${
                   hoveredIndex !== null && hoveredIndex !== index ? "fade" : ""
                 }`}
                 onMouseEnter={() => setHoveredIndex(index)}
@@ -71,8 +71,8 @@ const Posts: React.FC<PostsProps> = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <div className="postShow flex justify-between w-full">
-                    <div className="post-date w-[20%]">
+                  <div className="postShow flex justify-start w-full gap-8 text-base">
+                    <div className="post-date  opacity-60">
                       {new Date(post.pubDate).toLocaleDateString("en-US", {
                         year: "numeric",
                         month: "short",
