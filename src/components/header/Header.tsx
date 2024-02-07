@@ -5,7 +5,7 @@ export default function Header() {
   const { t } = useTranslation();
 
   return (
-    <div className="  flex items-start justify-center flex-col w-full gap-4 min-h-[100vh] pb-10">
+    <div className="  flex items-start justify-center flex-col w-full gap-4 min-h-[100vh] pb-32">
       <div>
         <h1 className="text-[var(--headline)] text-5xl font-bold select-none flex flex-col gap-4">
           <span className="max-md:text-3xl max-w-[60%] max-md:max-w-none">
@@ -24,19 +24,6 @@ export default function Header() {
         onSubmit={(e) => e.preventDefault()}
         className="flex gap-4 max-md:flex-col"
       >
-        {/* <div className="h-full flex items-center w-full">
-          <Input
-            className="bg-[var(--input-background)] text-[#a0aec0] placeholder-[var(--paragraph)]
-            w-max
-            h-max
-            min-w-80
-            border-[var(--input-border-color)]
-            flex items-center border  rounded-md font-mono  px-4 py-3 text-md"
-            type="text"
-            placeholder="Lets Connect , Enter your email"
-          />
-        </div> */}
-
         <div className="h-full flex items-center w-full">
           <DrawerDialogDemo />
         </div>

@@ -1,10 +1,8 @@
-import Contact from "@/components/contact/Contact";
 import ExperienceDescription from "@/components/experienceDescription/ExperienceDescription";
+import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
-import Links from "@/components/links/Links";
 import Navbar from "@/components/navbar/Navbar";
 import Posts from "@/components/posts/Posts";
-import SocialLinks from "@/components/socialLinks/SocialLinks";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 export default function Home() {
@@ -16,6 +14,8 @@ export default function Home() {
         <ExperienceDescription />
 
         <Posts />
+
+        <Footer />
       </div>
     </ScrollArea>
   );
