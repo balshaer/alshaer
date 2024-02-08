@@ -2,7 +2,6 @@ import ExperienceDescription from "@/components/experienceDescription/Experience
 import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
 import Navbar from "@/components/navbar/Navbar";
-import Posts from "@/components/posts/Posts";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 export default function Home() {
@@ -12,9 +11,6 @@ export default function Home() {
         <Navbar />
         <Header />
         <ExperienceDescription />
-
-        <Posts />
-
         <Footer />
       </div>
     </ScrollArea>

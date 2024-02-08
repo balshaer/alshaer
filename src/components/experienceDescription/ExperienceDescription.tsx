@@ -4,10 +4,9 @@ import { useTranslation } from "react-i18next";
 export default function ExperienceDescription() {
   const { t } = useTranslation();
 
-  // Define an array of company information
   const companies = useCompaniesDescription();
   return (
-    <div className="Description flex items-center flex-col justify-start">
+    <div className="Description flex items-center flex-col justify-start ">
       <div className="w-full flex justify-start items-center py-4 text-[var(--headline)] text-2xl font-bold">
         <h1>{t("ExperienceDescription.Title")}</h1>
       </div>
