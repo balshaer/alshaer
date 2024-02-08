@@ -51,7 +51,7 @@ const Posts: React.FC = () => {
           <HiNewspaper />
         </span>
 
-        <span>Explore All</span>
+        <span>{t("Public.ExploreAll")}</span>
       </div>
 
       <div className="dev-to-posts h-full w-full flex">

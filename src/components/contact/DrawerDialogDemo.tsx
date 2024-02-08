@@ -30,6 +30,7 @@ import { HiOutlineCheckCircle } from "react-icons/hi2";
 import { t } from "i18next";
 import ButtonDefault from "../custom/ButtonDefault";
 import { GrSend } from "react-icons/gr";
+import { HiMail } from "react-icons/hi";
 
 const styles = {
   form: "grid items-start gap-4 ",
@@ -130,7 +131,7 @@ function ProfileForm({
           type="text"
           className="bg-[var(--input-background)] text-[#a0aec0] placeholder-[var(--paragraph)] border-0"
           id="Name"
-          placeholder="Name"
+          placeholder={t("DialogForm.Placeholder.NameInput")}
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
@@ -140,7 +141,7 @@ function ProfileForm({
               <HiOutlineExclamationCircle />
             </span>
 
-            <span className=" text-sm">{t("Contact.PleaseEnterYourName")}</span>
+            <span className=" text-sm">{t("DialogForm.Erros.Name")}</span>
           </div>
         )}
       </div>
@@ -150,7 +151,7 @@ function ProfileForm({
           className="bg-[var(--input-background)] text-[#a0aec0] placeholder-[var(--paragraph)] border-0"
           type="email"
           id="email"
-          placeholder="Email@example.com"
+          placeholder={t("DialogForm.Placeholder.EmailInput")}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -160,9 +161,7 @@ function ProfileForm({
             <span className="text-sm">
               <HiOutlineExclamationCircle />
             </span>
-            <span className="text-red-300 text-sm">
-              {t("Contact.PleaseEnterYourEmail")}
-            </span>
+            <span className=" text-sm">{t("DialogForm.Erros.Email")}</span>
           </div>
         )}
       </div>
@@ -171,7 +170,7 @@ function ProfileForm({
         <Textarea
           className="bg-[var(--input-background)] text-[#a0aec0] placeholder-[var(--paragraph)] border-0"
           id="message"
-          placeholder="Your Message"
+          placeholder={t("DialogForm.Placeholder.MessageTextarea")}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
         />
@@ -181,9 +180,7 @@ function ProfileForm({
             <span className="text-sm">
               <HiOutlineExclamationCircle />
             </span>
-            <span className="text-sm">
-              {t("Contact.PleaseEnterWriteYourMessage")}
-            </span>
+            <span className=" text-sm">{t("DialogForm.Erros.Message")}</span>
           </div>
         )}
       </div>
@@ -191,9 +188,9 @@ function ProfileForm({
       {!loading && (
         <ButtonDefault
           isSubmit
-          text={"Send message"}
+          text={t("Public.Submit")}
           iconPosition="right"
-          icon={GrSend}
+          icon={HiMail}
         />
       )}
 
@@ -221,7 +218,7 @@ export function DrawerDialogDemo() {
   const commonContent = (
     <ButtonDefault
       isSubmit
-      text={"Add message"}
+      text={t("DialogForm.SendMessage")}
       iconPosition="right"
       icon={GrSend}
     />
@@ -241,7 +238,7 @@ export function DrawerDialogDemo() {
         >
           <DialogHeader>
             <DialogTitle className="text-[var(--headline)]">
-              {t("Contact.DialogTitle")}
+              {t("DialogForm.DialogTitle")}
             </DialogTitle>
             <DialogDescription></DialogDescription>
           </DialogHeader>

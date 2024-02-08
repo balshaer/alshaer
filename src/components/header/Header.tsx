@@ -5,11 +5,11 @@ export default function Header() {
   const { t } = useTranslation();
 
   return (
-    <div className="  flex items-start justify-center flex-col w-full gap-5 min-h-[80vh] pb-10 max-md:pb-0">
+    <div className="  flex items-start justify-center flex-col w-full gap-5 min-h-[75vh] pb-10 max-md:pb-0">
       <div>
         <h1 className="text-[var(--headline)] text-5xl font-bold select-none flex flex-col gap-4">
           <span className="max-md:text-3xl max-w-[60%] max-md:max-w-none">
-            Software engineer, technical writer & open-source maintainer
+            {t("Header.Title")}
           </span>
         </h1>
       </div>

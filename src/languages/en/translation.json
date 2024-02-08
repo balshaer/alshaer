@@ -1,47 +1,75 @@
 {
   "Header": {
-    "Name": "Baraa Alshaer",
-    "Job": "Product-focused Software Engineer",
-
-    "Description": "I'm Baraa Alshaer, an experienced frontend developer passionate about learning and building open-source software that is beneficial to developers and the world at large."
+    "Title": "Full stack software engineer with a strong focus in front-end & system design",
+    "Description": "I'm Baraa Alshaer, a dedicated front-end developer passionate about continuously learning, innovating, and building high-quality open-source software projects."
   },
 
-  "Links": {
-    "Note": "I'm a big fan of side-projects. You can find some of my projects below :",
-    "Projects": "Projects",
-    "AboutMe": "About me",
-    "Experience": "Experience"
-  },
-  "Contact": {
-    "Note": "If you have any questions or want to discuss a project, feel free to email me at :",
-    "MessageNote": " Message sent successfully",
-    "PleaseEnterYourName": " Please Enter Your Name",
-    "PleaseEnterYourEmail": " Please Enter Your Email",
-    "PleaseEnterWriteYourMessage": "Please Write Your Message",
+  "DialogForm": {
+    "SendMessage": "Send Message",
     "DialogTitle": "Fill Form please",
-    "Send": "Send",
-    "Cancel": "Cancel"
+
+    "Placeholder": {
+      "NameInput": "Name",
+      "EmailInput": "Email@example.com",
+      "MessageTextarea": "Message"
+    },
+
+    "Erros": {
+      "Name": "Them name input is required.",
+      "Email": "The email input is required.",
+      "Message": "Enter your message please."
+    }
   },
-  "Posts": {
-    "LatestPosts": "Latest Posts :"
+
+  "Public": {
+    "Submit": "Submit",
+    "ExploreAll": "Explore All"
   },
-  "SocialLinks": {
-    "Note": "Find me on :"
-  },
-  "LanguageSelect": {
-    "English": "English",
-    "Arabic": "العربية"
+
+  "Navbar": {
+    "Home": "Home",
+    "About": "About",
+    "Projects": "Projects",
+    "Blog": "Blog",
+
+    "LanguageSelector": {
+      "en": "English",
+      "ar": "Arabic"
+    },
+
+    "Tooltip": {
+      "Github": "Star on this project"
+    }
   },
 
   "Experience": {
-    "WorkExperience": "Work Experience"
+    "Title": "Work experience",
+
+    "Company": {
+      "Name1": "Sustainable Star LLC ",
+      "JobTitle1": "Frontend Developer",
+      "Date1": "Jul 2023 - Oct 2023",
+
+      "Name2": "PTIT",
+      "JobTitle2": "Frontend Developer",
+      "Date2": "Jul 2023 - Sep 2023",
+
+      "Name3": "GEDCO",
+      "JobTitle3": "Software Engineer - Internship",
+      "Date3": "Apr 2022 - Jun 2022"
+    }
   },
 
   "Projects": {
-    "Projects": "Projects"
+    "Project1.Title": "Naj",
+    "Project1.Description": "Dedicated center providing education to all dental students in Saudi Arabia.",
+
+    "Project2.Title": "Gradients ",
+    "Project2.Description": "Collection of CSS gradients"
   },
 
-  "ExperienceDescription": {
-    "Title": "Work Experience"
+  "Blog": {
+    "BlogTitle": "Blog",
+    "BlogDescription": "sharing insights, projects, and noteworthy discoveries, alongside contributions to various esteemed publications. Explore the latest posts below:"
   }
 }

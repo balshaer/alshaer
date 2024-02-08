@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import LanguageSelect from "../languageSelect/LanguageSelect";
+import { t } from "i18next";
 
 export default function NavbarLinks() {
   return (
@@ -8,11 +9,11 @@ export default function NavbarLinks() {
         to="/"
         className="max-md:block hidden text-[var(--nav-item)] text-md hover:text-[var(--link-color)]"
       >
-        Home
+        {t("Navbar.Home")}
       </NavItem>
-      <NavItem to="/about">About</NavItem>
-      <NavItem to="/projects">Projects</NavItem>
-      <NavItem to="/blog">Blog</NavItem>
+      <NavItem to="/about"> {t("Navbar.About")}</NavItem>
+      <NavItem to="/projects"> {t("Navbar.Projects")}</NavItem>
+      <NavItem to="/blog"> {t("Navbar.Blog")}</NavItem>
       <hr className="hidden max-md:block opacity-15 w-full z-50" />
       <li>
         <LanguageSelect />
