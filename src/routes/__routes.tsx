@@ -1,4 +1,5 @@
 import About from "@/pages/About";
+import Blog from "@/pages/Blog";
 import Home from "@/pages/Home";
 import Projects from "@/pages/Projects";
 import React from "react";
@@ -9,7 +10,8 @@ const AppRoutes: React.FC = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="about" element={<About />} />
-      <Route path="Projects" element={<Projects />} />
+      <Route path="projects" element={<Projects />} />
+      <Route path="blog" element={<Blog />} />
     </Routes>
   );
 };

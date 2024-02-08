@@ -3,14 +3,9 @@ import TitleOfSection from "@/components/custom/TitleOfSection";
 import Footer from "@/components/footer/Footer";
 import Navbar from "@/components/navbar/Navbar";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Link } from "react-router-dom";
 
 export default function Projects() {
-  const projects = [
-    { id: 1, title: "Project 1" },
-    { id: 2, title: "Project 2" },
-    // Add more project data as needed
-  ];
+
 
   return (
     <ScrollArea className="h-full w-full ">

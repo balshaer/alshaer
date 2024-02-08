@@ -5,7 +5,7 @@ export default function Contact() {
     <section className="my-8">
       <TitleOfSection title={"Find me on :"} />
 
-      <ul className="text-[var(--paragraph)]  hovered flex gap-4">
+      <ul className="text-[var(--paragraph)] max-md:flex-col items-start  hovered flex gap-4">
         <li>
           <a
             className="flex flex-row-reverse items-center  opacity-60 hover:opacity-100 hovered gap-2 w-full"

@@ -17,6 +17,7 @@ const DarkMode = createGlobalStyle`
     --gradient-color-2: #3a7bd5;
     --input-background:#1f2631;
     --input-border-color: #2D3748;
+    --badge-color: #1f2631;
 
 
   }

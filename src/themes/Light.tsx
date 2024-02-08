@@ -17,6 +17,8 @@ const LightMode = createGlobalStyle`
     --gradient-color-2: #3a7bd5;
     --input-background:#f6f7f9;
     --input-border-color: #E2E8F0;
+    --badge-color: #f6f7f9;
+
 
 
   }

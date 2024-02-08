@@ -1,27 +1,19 @@
-import { t } from "i18next";
-import React, { useEffect, useState } from "react";
-import PostsSkeleton from "../skeleton/PostsSkeleton";
+import { useEffect, useState } from "react";
+import { Badge } from "@/components/ui/badge";
+import { useTranslation } from "react-i18next";
+import { HiNewspaper } from "react-icons/hi2";
 
 interface Post {
   title: string;
   link: string;
   pubDate: string;
+  categories: string[];
 }
 
-interface PostsProps {}
-
-const Posts: React.FC<PostsProps> = () => {
+const Posts: React.FC = () => {
+  const { t } = useTranslation();
   const [posts, setPosts] = useState<Post[]>([]);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-
-    return () => clearTimeout(timeoutId);
-  }, []);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -35,7 +27,14 @@ const Posts: React.FC<PostsProps> = () => {
 
         if (response.ok) {
           const data = await response.json();
-          setPosts(data.items);
+          setPosts(
+            data.items.map((item: any) => ({
+              title: item.title,
+              link: item.link,
+              pubDate: item.pubDate,
+              categories: item.categories,
+            }))
+          );
         }
       } catch (error) {
         console.error(error);
@@ -47,45 +46,58 @@ const Posts: React.FC<PostsProps> = () => {
 
   return (
     <div className="Posts flex items-center flex-col justify-start">
-      <div className="w-full flex  justify-start items-center py-4 text-[var(--headline)] text-2xl font-bold">
-        <h1>{t("Posts.LatestPosts")}</h1>
+      <div className="text-[var(--headline)] flex items-center gap-2 text-base opacity-90 w-full">
+        <span>
+          <HiNewspaper />
+        </span>
+
+        <span>Explore All</span>
       </div>
 
-      <div className="dev-to-posts h-[300px] w-full flex  wf     ">
-        {isLoading ? (
-          <PostsSkeleton />
-        ) : (
-          <div className="post-container flex flex-col w-full   my-5 gap-5  ">
-            {posts.map((post, index) => (
-              <div
-                key={index}
-                className={`post-card  text-[var(--paragraph)] w-[100%] h-[45px] ${
-                  hoveredIndex !== null && hoveredIndex !== index ? "fade" : ""
-                }`}
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
+      <div className="dev-to-posts h-full w-full flex">
+        <div className="post-container flex flex-col w-full my-5 gap-5 h-max">
+          {posts.map((post, index) => (
+            <div
+              key={index}
+              className={`post-card text-[var(--paragraph)] w-[100%] h-[150px] max-md:h-max post border-[#323a4d] hover:border-[#596788] border bg-[var(--card-background)] cursor-pointer hovered max-w-3xl p-4 rounded-lg flex items-start justify-start ${
+                hoveredIndex !== null && hoveredIndex !== index ? "fade" : ""
+              }`}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+            >
+              <a
+                className="post-link w-full"
+                href={post.link}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <a
-                  className="post-link "
-                  href={post.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <div className="postShow flex justify-start w-full gap-8 text-base">
-                    <div className="post-date  opacity-60">
+                <div className="postShow  flex flex-col justify-start w-full gap-8 text-base">
+                  <div>
+                    <div className="post-date opacity-60">
                       {new Date(post.pubDate).toLocaleDateString("en-US", {
                         year: "numeric",
                         month: "short",
                         day: "2-digit",
                       })}
                     </div>
-                    <p className="post-title w-[80%] ">{post.title}</p>
+                    <p className="post-title w-[80%]">{post.title}</p>
                   </div>
-                </a>
-              </div>
-            ))}
-          </div>
-        )}
+
+                  <div>
+                    {post.categories.map((category, categoryIndex) => (
+                      <Badge
+                        key={categoryIndex}
+                        className="m-[5px] cursor-text bg-[var(--badge-color)] text-[var(--paragraph)]"
+                      >
+                        {category.trim()}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+              </a>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
