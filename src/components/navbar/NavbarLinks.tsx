@@ -2,6 +2,12 @@ import { Link } from "react-router-dom";
 import LanguageSelect from "../languageSelect/LanguageSelect";
 import { t } from "i18next";
 
+interface NavItemProps {
+  to: string;
+  children: React.ReactNode;
+  className?: string;
+}
+
 export default function NavbarLinks() {
   return (
     <ul className="flex items-center justify-center gap-4 px-4 font-[600] max-md:flex-col max-md:h-full max-md:w-full max-md:items-start max-md:text-lg max-md:space-y-1 max-md:px-4 max-md:py-6">
@@ -22,7 +28,7 @@ export default function NavbarLinks() {
   );
 }
 
-function NavItem({ to, children, ...rest }) {
+function NavItem({ to, children, ...rest }: NavItemProps) {
   return (
     <li
       className="text-[var(--nav-item)] text-md hover:text-[var(--link-color)]"

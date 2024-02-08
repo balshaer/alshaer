@@ -1,8 +1,20 @@
-import { createContext, useState } from "react";
+import { createContext, useState, ReactNode } from "react";
 
-export const MenuBarContext = createContext();
+interface MenuBarContextProps {
+  isOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-export default function MenuBar({ children }) {
+export const MenuBarContext = createContext<MenuBarContextProps>({
+  isOpen: false,
+  setIsOpen: () => {},
+});
+
+interface MenuBarProps {
+  children: ReactNode;
+}
+
+export default function MenuBar({ children }: MenuBarProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (

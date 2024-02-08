@@ -1,36 +1,38 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from "react";
-import Select from "react-select";
+import Select, { StylesConfig } from "react-select";
 import { useTranslation } from "react-i18next";
 
+interface Option {
+  value: string;
+  label: string;
+}
+
 interface CustomStyles {
-  control: (provided: React.CSSProperties, state: any) => React.CSSProperties;
+  control: (provided: React.CSSProperties) => React.CSSProperties;
   option: (provided: React.CSSProperties, state: any) => React.CSSProperties;
   singleValue: (provided: React.CSSProperties) => React.CSSProperties;
 }
 
 const LanguageSelect: React.FC = () => {
   const { t, i18n } = useTranslation();
-  const [selectedOption, setSelectedOption] = useState<{
-    value: string;
-    label: string;
-  }>({
+  const [selectedOption, setSelectedOption] = useState<Option>({
     value: i18n.language,
     label: t(`Navbar.LanguageSelector.${i18n.language === "en" ? "en" : "ar"}`),
   });
 
-  const changeLanguage = (option: any) => {
+  const changeLanguage = (option: Option) => {
     i18n.changeLanguage(option.value);
     setSelectedOption(option);
   };
 
-  const options = [
+  const options: Option[] = [
     { value: "en", label: t("Navbar.LanguageSelector.en") },
     { value: "ar", label: t("Navbar.LanguageSelector.ar") },
   ];
 
   const customStyles: CustomStyles = {
-    control: (provided, state) => ({
+    control: (provided) => ({
       ...provided,
       border: "1px solid var(--button)",
       borderRadius: "4px",
@@ -64,9 +66,9 @@ const LanguageSelect: React.FC = () => {
     <div>
       <Select
         defaultValue={selectedOption}
-        onChange={changeLanguage}
+        onChange={changeLanguage as any}
         options={options}
-        styles={customStyles}
+        styles={customStyles as unknown as StylesConfig}
         isSearchable={false}
       />
     </div>

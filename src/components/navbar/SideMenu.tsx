@@ -3,10 +3,15 @@ import { HiX } from "react-icons/hi";
 import NavbarLinks from "./NavbarLinks";
 import { useContext, useState } from "react";
 import { MenuBarContext } from "../contact/MenuBar";
-import LanguageSelect from "../languageSelect/LanguageSelect";
+
+// Define the type for MenuBar context value
+interface MenuBarContextProps {
+  isOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
 export default function SideMenu() {
-  const { isOpen, setIsOpen } = useContext(MenuBarContext);
+  const { isOpen, setIsOpen } = useContext<MenuBarContextProps>(MenuBarContext);
   const [isClosing, setIsClosing] = useState(false);
 
   function closeMenu() {
@@ -50,7 +55,6 @@ export default function SideMenu() {
               <hr className="opacity-15  w-full z-50" />
 
               <NavbarLinks />
-           
             </div>
 
             <div className="sticky inset-x-0  w-full py-4">

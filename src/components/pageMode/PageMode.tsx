@@ -14,6 +14,11 @@ import {
 } from "@/components/ui/tooltip";
 import { MenuBarContext } from "../contact/MenuBar";
 
+interface MenuBarContextProps {
+  isOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
 const PageMode: React.FC = () => {
   const [mode, setMode] = useState(() => {
     const savedMode = getPageMode();
@@ -30,7 +35,7 @@ const PageMode: React.FC = () => {
 
   const IconComponent = mode === "light" ? HiOutlineMoon : HiOutlineSun;
 
-  const { isOpen, setIsOpen } = useContext(MenuBarContext);
+  const { setIsOpen } = useContext<MenuBarContextProps>(MenuBarContext);
 
   function openMenu() {
     setIsOpen((prev) => !prev);
