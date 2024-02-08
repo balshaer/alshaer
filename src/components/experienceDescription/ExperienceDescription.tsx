@@ -16,7 +16,7 @@ export default function ExperienceDescription() {
             key={index}
             className="card flex flex-row gap-4 h-[84px] p-2 w-max max-md:w-full"
           >
-            <a target="_blank" href={company.Link}>
+            <a className="cursor-pointer" target="_blank" href={company.Link}>
               <img
                 className="h-16 rounded-lg w-16"
                 src={company.logo}

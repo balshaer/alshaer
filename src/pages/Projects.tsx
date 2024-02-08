@@ -1,7 +1,8 @@
 import DescriptionOfSection from "@/components/custom/DescriptionOfSection";
 import TitleOfSection from "@/components/custom/TitleOfSection";
 import Footer from "@/components/footer/Footer";
-import { ScrollArea } from "@radix-ui/react-scroll-area";
+import Navbar from "@/components/navbar/Navbar";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { t } from "i18next";
 import React from "react";
 
