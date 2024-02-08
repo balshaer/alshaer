@@ -1,5 +1,6 @@
 import { useCompaniesDescription } from "@/data/useCompaniesDescription";
 import { useTranslation } from "react-i18next";
+import TitleOfSection from "../custom/TitleOfSection";
 
 export default function ExperienceDescription() {
   const { t } = useTranslation();
@@ -7,9 +8,7 @@ export default function ExperienceDescription() {
   const companies = useCompaniesDescription();
   return (
     <div className="Description flex items-center flex-col justify-start ">
-      <div className="w-full flex justify-start items-center py-4 text-[var(--headline)] text-2xl font-bold">
-        <h1>{t("ExperienceDescription.Title")}</h1>
-      </div>
+      <TitleOfSection title={t("ExperienceDescription.Title")} />
 
       <div className="cards flex gap-4 flex-wrap w-full">
         {companies.map((company, index) => (
