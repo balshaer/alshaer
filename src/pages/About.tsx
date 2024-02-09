@@ -5,11 +5,8 @@ import Navbar from "@/components/navbar/Navbar";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import i18n from "@/i18n";
 
-
 export default function About() {
-
   const direction = i18n.language === "ar" ? "rtl" : "ltr";
-
 
   return (
     <ScrollArea className="h-screen overflow-y-auto">

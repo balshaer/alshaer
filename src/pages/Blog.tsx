@@ -1,3 +1,4 @@
+import AnimatedComponent from "@/components/animations/AnimatedComponent";
 import DescriptionOfSection from "@/components/custom/DescriptionOfSection";
 import TitleOfSection from "@/components/custom/TitleOfSection";
 import Footer from "@/components/footer/Footer";
@@ -17,14 +18,25 @@ export default function Blog() {
 
         <div dir={direction}>
           <div>
-            <TitleOfSection title={t("BlogSection.Title")} />
+            <AnimatedComponent>
+              <TitleOfSection title={t("BlogSection.Title")} />
+            </AnimatedComponent>
 
-            <DescriptionOfSection description={t("BlogSection.Description")} />
+            <AnimatedComponent>
+              <DescriptionOfSection
+                description={t("BlogSection.Description")}
+              />
+            </AnimatedComponent>
+
             <br />
           </div>
 
           <div>
+          <AnimatedComponent>
+
             <Posts />
+            </AnimatedComponent>
+
           </div>
         </div>
 

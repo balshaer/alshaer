@@ -1,3 +1,4 @@
+import AnimatedComponent from "@/components/animations/AnimatedComponent";
 import DescriptionOfSection from "@/components/custom/DescriptionOfSection";
 import TitleOfSection from "@/components/custom/TitleOfSection";
 import Footer from "@/components/footer/Footer";
@@ -46,27 +47,32 @@ const Projects: React.FC = () => {
         <Navbar />
 
         <div dir={direction}>
-          <TitleOfSection title={t("ProjectsSection.Title")} />
-
-          <DescriptionOfSection
-            description={t("ProjectsSection.Description")}
-          />
-
-          <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8 py-8">
-            <ProjectCard
-              titleKey="Projects.Project1.Title"
-              descriptionKey="Projects.Project1.Description"
-              link="https://naj.shamilapp.com/"
-              logoSrc="https://naj.shamilapp.com/static/media/Logo.db28aec4cb4cdcd75f2cb1cf4be26384.svg"
+          <AnimatedComponent>
+            <TitleOfSection title={t("ProjectsSection.Title")} />
+          </AnimatedComponent>
+          <AnimatedComponent>
+            <DescriptionOfSection
+              description={t("ProjectsSection.Description")}
             />
+          </AnimatedComponent>
 
-            <ProjectCard
-              titleKey="Projects.Project2.Title"
-              descriptionKey="Projects.Project2.Description"
-              link="https://github.com/balshaer/gradients-css"
-              logoSrc="https://img.icons8.com/external-vitaliy-gorbachev-lineal-color-vitaly-gorbachev/60/external-colors-photography-vitaliy-gorbachev-lineal-color-vitaly-gorbachev.png"
-            />
-          </div>
+          <AnimatedComponent>
+            <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8 py-8">
+              <ProjectCard
+                titleKey="Projects.Project1.Title"
+                descriptionKey="Projects.Project1.Description"
+                link="https://naj.shamilapp.com/"
+                logoSrc="https://naj.shamilapp.com/static/media/Logo.db28aec4cb4cdcd75f2cb1cf4be26384.svg"
+              />
+
+              <ProjectCard
+                titleKey="Projects.Project2.Title"
+                descriptionKey="Projects.Project2.Description"
+                link="https://github.com/balshaer/gradients-css"
+                logoSrc="https://img.icons8.com/external-vitaliy-gorbachev-lineal-color-vitaly-gorbachev/60/external-colors-photography-vitaliy-gorbachev-lineal-color-vitaly-gorbachev.png"
+              />
+            </div>
+          </AnimatedComponent>
         </div>
 
         <Footer />

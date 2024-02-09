@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { DrawerDialogDemo } from "../contact/DrawerDialogDemo";
 import i18n from "@/i18n";
+import AnimatedComponent from "../animations/AnimatedComponent";
 
 export default function Header() {
   const { t } = useTranslation();
@@ -11,17 +12,21 @@ export default function Header() {
       className="  flex items-start justify-center flex-col w-full gap-5 min-h-[75vh] pb-10 max-md:pb-0"
     >
       <div>
-        <h1 className="text-[var(--headline)] text-5xl font-bold select-none flex flex-col gap-4 ">
-          <span className="max-md:text-3xl max-w-[60%] max-md:max-w-none leading-tight">
-            {t("Header.Title")}
-          </span>
-        </h1>
+        <AnimatedComponent>
+          <h1 className="text-[var(--headline)] text-5xl font-bold select-none flex flex-col gap-4 ">
+            <span className="max-md:text-3xl max-w-[60%] max-md:max-w-none leading-tight">
+              {t("Header.Title")}
+            </span>
+          </h1>
+        </AnimatedComponent>
       </div>
 
       <div>
-        <p className="text-[var(--paragraph)]  text-xl max-md:text-lg max-md:w-full max-w-[50%] max-md:max-w-none">
-          {t("Header.Description")}
-        </p>
+        <AnimatedComponent>
+          <p className="text-[var(--paragraph)]  text-xl max-md:text-lg max-md:w-full max-w-[50%] max-md:max-w-none">
+            {t("Header.Description")}
+          </p>
+        </AnimatedComponent>
       </div>
 
       <form
