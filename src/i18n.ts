@@ -1,16 +1,16 @@
-// src/i18n.ts
-import i18n from 'i18next';
-import { initReactI18next } from 'react-i18next';
-import Backend from 'i18next-http-backend';
-
-import enTranslation from './languages/en/translation.json';
-import arTranslation from './languages/ar/translation.json';
+import i18n from "i18next";
+import { initReactI18next } from "react-i18next";
+import Backend from "i18next-http-backend";
+import LanguageDetector from "i18next-browser-languagedetector";
+import enTranslation from "./languages/en/translation.json";
+import arTranslation from "./languages/ar/translation.json";
 
 i18n
-.use(Backend)
+  .use(Backend)
   .use(initReactI18next)
+  .use(LanguageDetector)
   .init({
-    fallbackLng: 'en',
+    fallbackLng: "en",
     debug: true,
     interpolation: {
       escapeValue: false,
@@ -24,8 +24,26 @@ i18n
       },
     },
 
-    lng: 'en',
-  
+    backend: {
+      loadPath: "./languages/{{lng}}/translation.json",
+    },
+
+    react: {
+      useSuspense: false,
+    },
+
+    detection: {
+      order: [
+        "querystring",
+        "cookie",
+        "localStorage",
+        "sessionStorage",
+        "navigator",
+        "htmlTag",
+        "path",
+        "subdomain",
+      ],
+    },
   });
 
 export default i18n;

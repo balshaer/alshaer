@@ -1,7 +1,16 @@
-import React, { useState, useEffect, useContext } from "react";
-import { HiOutlineSun, HiOutlineMoon } from "react-icons/hi";
+import React, { useState, useEffect } from "react";
+import { HiOutlineSun, HiOutlineMoon, HiX } from "react-icons/hi";
 import { VscGithubInverted } from "react-icons/vsc";
 import { HiMenu } from "react-icons/hi";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+  SheetClose,
+} from "@/components/ui/sheet";
 
 import { getPageMode, savePageMode } from "@/utils/localStorage";
 import DarkMode from "@/themes/Light";
@@ -12,12 +21,10 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { MenuBarContext } from "../contact/MenuBar";
-
-interface MenuBarContextProps {
-  isOpen: boolean;
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}
+import NavbarLinks from "../navbar/NavbarLinks";
+import Logo from "../logo/Logo";
+import Hr from "../navbar/Hr";
+import { t } from "i18next";
 
 const PageMode: React.FC = () => {
   const [mode, setMode] = useState(() => {
@@ -34,12 +41,6 @@ const PageMode: React.FC = () => {
   }, [mode]);
 
   const IconComponent = mode === "light" ? HiOutlineMoon : HiOutlineSun;
-
-  const { setIsOpen } = useContext<MenuBarContextProps>(MenuBarContext);
-
-  function openMenu() {
-    setIsOpen((prev) => !prev);
-  }
 
   return (
     <div className="pageMode flex items-center justify-center text-[var(--headline)] gap-4 max-md:gap-2">
@@ -60,18 +61,51 @@ const PageMode: React.FC = () => {
               </span>
             </TooltipTrigger>
             <TooltipContent>
-              <p>Star on github</p>
+              <span>{t("Public.StarOnGithub")}</span>
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>
       </a>
 
-      <span className="hidden max-md:block " onClick={openMenu}>
-        <HiMenu
-          className="text-[var(--paragraph)] hover:text-[var(--button)] hovered h-[25px] w-[25px] cursor-pointer"
-          size={25}
-        />
-      </span>
+      <div className="hidden max-md:flex h-full items-center justify-center ">
+        <div className="bg-[var(--background)] h-full flex items-center justify-center">
+          <Sheet>
+            <SheetTrigger className="h-full">
+              <HiMenu
+                className="text-[var(--paragraph)] hover:text-[var(--button)] hovered h-[25px] w-[25px] cursor-pointer"
+                size={25}
+              />
+            </SheetTrigger>
+
+            <SheetContent>
+              <SheetHeader>
+                <div className="flex w-full py-4 px-2 items-center h-max justify-between">
+                  <Logo />
+
+                  <SheetTitle className="h-full flex items-center">
+                    <SheetClose className="h-full">
+                      <button
+                        type="submit"
+                        className="flex items-center justify-center h-full "
+                      >
+                        <HiX
+                          className="text-[var(--paragraph)] hover:text-[var(--button)] hovered h-[25px] w-[25px] cursor-pointer"
+                          size={25}
+                        />
+                      </button>
+                    </SheetClose>
+                  </SheetTitle>
+                </div>
+
+                <SheetDescription>
+                  <NavbarLinks />
+                </SheetDescription>
+              </SheetHeader>
+              <Hr />
+            </SheetContent>
+          </Sheet>
+        </div>
+      </div>
     </div>
   );
 };

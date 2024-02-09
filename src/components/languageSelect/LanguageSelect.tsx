@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useState } from "react";
-import Select, { StylesConfig } from "react-select";
+import React, { useState, useEffect } from "react";
+import Select, { ActionMeta, StylesConfig } from "react-select";
 import { useTranslation } from "react-i18next";
 
 interface Option {
@@ -16,14 +16,21 @@ interface CustomStyles {
 
 const LanguageSelect: React.FC = () => {
   const { t, i18n } = useTranslation();
-  const [selectedOption, setSelectedOption] = useState<Option>({
-    value: i18n.language,
-    label: t(`Navbar.LanguageSelector.${i18n.language === "en" ? "en" : "ar"}`),
+  const [selectedOption, setSelectedOption] = useState<Option>(() => {
+    return {
+      value: i18n.language,
+      label: t(`Navbar.LanguageSelector.${i18n.language}`),
+    };
   });
 
-  const changeLanguage = (option: Option) => {
-    i18n.changeLanguage(option.value);
-    setSelectedOption(option);
+  const changeLanguage = (
+    newValue: unknown,
+    actionMeta: ActionMeta<unknown>
+  ) => {
+    if (actionMeta.action === "select-option") {
+      const option = newValue as Option;
+      setSelectedOption(option);
+    }
   };
 
   const options: Option[] = [
@@ -58,15 +65,19 @@ const LanguageSelect: React.FC = () => {
     }),
     singleValue: (provided) => ({
       ...provided,
-      color: "inherit",
+      color: "var(--button-text)",
     }),
   };
 
+  useEffect(() => {
+    i18n.changeLanguage(selectedOption.value);
+  }, [selectedOption.value, i18n]);
+
   return (
-    <div>
+    <div className="select">
       <Select
         defaultValue={selectedOption}
-        onChange={changeLanguage as any}
+        onChange={changeLanguage}
         options={options}
         styles={customStyles as unknown as StylesConfig}
         isSearchable={false}

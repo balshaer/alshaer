@@ -1,27 +1,20 @@
+import { t } from "i18next";
 import DescriptionOfSection from "../custom/DescriptionOfSection";
 import TitleOfSection from "../custom/TitleOfSection";
 
 export default function AboutMe() {
   return (
     <section className="my-8">
-      <TitleOfSection
-        title={"I'm Baraa Alshaer I live in Gaza, where I build the future. "}
-      />
+      <TitleOfSection title={t("About.Title")} />
 
-      <DescriptionOfSection
-        description={
-          "I am a self-driven, career-oriented software developer specializing in front-end development and open-source. My expertise lies in building interactive web applications on the client side, primarily working with technologies like JavaScript, React.js, and TypeScript."
-        }
-      />
+      <DescriptionOfSection description={t("About.Description")} />
       <br />
 
-      <DescriptionOfSection description="I strongly believe in continuous learning and improving myself, so I try my best to learn in any situation possible, unfavorable or not." />
+      <DescriptionOfSection description={t("About.Description3")} />
       <br />
 
       <p className="text-[var(--paragraph)] text-lg max-md:text-sm max-md:w-full max-w-[50%] max-md:max-w-none">
-        Beyond learning, I enjoy writing technical articles and creating
-        projects that both inspire and benefit fellow developers. You can find
-        my recent posts on
+        {t("About.Description2")}
         <a
           className=" text-[var(--link-color)] hover:underline ps-2"
           href="https://freecodecamp.org/news/author/victoreke/"
@@ -32,7 +25,7 @@ export default function AboutMe() {
           <svg
             stroke="currentColor"
             fill="currentColor"
-            stroke-width="0"
+            strokeWidth="0"
             viewBox="0 0 24 24"
             className="inline"
             aria-hidden="true"

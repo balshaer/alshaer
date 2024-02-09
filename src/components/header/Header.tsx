@@ -1,14 +1,18 @@
 import { useTranslation } from "react-i18next";
 import { DrawerDialogDemo } from "../contact/DrawerDialogDemo";
+import i18n from "@/i18n";
 
 export default function Header() {
   const { t } = useTranslation();
-
+  const direction = i18n.language === "ar" ? "rtl" : "ltr";
   return (
-    <div className="  flex items-start justify-center flex-col w-full gap-5 min-h-[75vh] pb-10 max-md:pb-0">
+    <div
+      dir={direction}
+      className="  flex items-start justify-center flex-col w-full gap-5 min-h-[75vh] pb-10 max-md:pb-0"
+    >
       <div>
-        <h1 className="text-[var(--headline)] text-5xl font-bold select-none flex flex-col gap-4">
-          <span className="max-md:text-3xl max-w-[60%] max-md:max-w-none">
+        <h1 className="text-[var(--headline)] text-5xl font-bold select-none flex flex-col gap-4 ">
+          <span className="max-md:text-3xl max-w-[60%] max-md:max-w-none leading-tight">
             {t("Header.Title")}
           </span>
         </h1>

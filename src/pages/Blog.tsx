@@ -4,22 +4,28 @@ import Footer from "@/components/footer/Footer";
 import Navbar from "@/components/navbar/Navbar";
 import Posts from "@/components/posts/Posts";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import i18n from "@/i18n";
+import { t } from "i18next";
 
 export default function Blog() {
+  const direction = i18n.language === "ar" ? "rtl" : "ltr";
+
   return (
     <ScrollArea className="h-full w-full ">
       <div className="container h-max min-h-[100vh] flex flex-col gap-[1.5rem]   ">
         <Navbar />
 
-        <div>
-          <TitleOfSection title={"Blog"} />
+        <div dir={direction}>
+          <div>
+            <TitleOfSection title={t("BlogSection.Title")} />
 
-          <DescriptionOfSection description="sharing insights, projects, and noteworthy discoveries, alongside contributions to various esteemed publications. Explore the latest posts below:" />
-          <br />
-        </div>
+            <DescriptionOfSection description={t("BlogSection.Description")} />
+            <br />
+          </div>
 
-        <div>
-          <Posts />
+          <div>
+            <Posts />
+          </div>
         </div>
 
         <div>

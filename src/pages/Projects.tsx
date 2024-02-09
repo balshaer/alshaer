@@ -3,6 +3,8 @@ import TitleOfSection from "@/components/custom/TitleOfSection";
 import Footer from "@/components/footer/Footer";
 import Navbar from "@/components/navbar/Navbar";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import i18n from "@/i18n";
+
 import { t } from "i18next";
 import React from "react";
 
@@ -36,15 +38,19 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 );
 
 const Projects: React.FC = () => {
+  const direction = i18n.language === "ar" ? "rtl" : "ltr";
+
   return (
     <ScrollArea className="h-full w-full">
       <div className="container h-max min-h-[100vh] flex flex-col gap-[1.5rem]">
         <Navbar />
 
-        <div>
-          <TitleOfSection title={"Projects"} />
+        <div dir={direction}>
+          <TitleOfSection title={t("ProjectsSection.Title")} />
 
-          <DescriptionOfSection description="I've worked on tons of little projects but these are the ones that I'm proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas on how it can be improved." />
+          <DescriptionOfSection
+            description={t("ProjectsSection.Description")}
+          />
 
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8 py-8">
             <ProjectCard

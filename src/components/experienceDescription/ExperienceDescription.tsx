@@ -1,13 +1,19 @@
 import { useCompaniesDescription } from "@/data/useCompaniesDescription";
 import { useTranslation } from "react-i18next";
 import TitleOfSection from "../custom/TitleOfSection";
+import i18n from "@/i18n";
 
 export default function ExperienceDescription() {
   const { t } = useTranslation();
 
+  const direction = i18n.language === "ar" ? "rtl" : "ltr";
+
   const companies = useCompaniesDescription();
   return (
-    <div className="Description flex items-center flex-col justify-start py-8 ">
+    <div
+      dir={direction}
+      className="Description flex items-center flex-col justify-start py-8 "
+    >
       <TitleOfSection title={t("Experience.Title")} />
 
       <div className="cards flex gap-10 flex-wrap w-full min-h-[100px]">

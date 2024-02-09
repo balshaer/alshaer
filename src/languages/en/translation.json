@@ -1,4 +1,11 @@
 {
+  "Public": {
+    "Submit": "Submit",
+    "ExploreAll": "Explore All",
+    "BuiltWith": "Built With",
+    "StarOnGithub": "Star On Github"
+  },
+
   "Header": {
     "Title": "Full stack software engineer with a strong focus in front-end & system design",
     "Description": "I'm Baraa Alshaer, a dedicated front-end developer passionate about continuously learning, innovating, and building high-quality open-source software projects."
@@ -21,11 +28,6 @@
     }
   },
 
-  "Public": {
-    "Submit": "Submit",
-    "ExploreAll": "Explore All"
-  },
-
   "Navbar": {
     "Home": "Home",
     "About": "About",
@@ -34,7 +36,7 @@
 
     "LanguageSelector": {
       "en": "English",
-      "ar": "Arabic"
+      "ar": "العربية"
     },
 
     "Tooltip": {
@@ -79,5 +81,31 @@
         "Description": "We can't find that page."
       }
     }
+  },
+
+  "Footer": {
+    "CopyRight": "Copyright © Baraa Alshaer 2024 All rights Reserved"
+  },
+
+  "About": {
+    "Title": "I'm Baraa Alshaer I live in Gaza, where I build the future.",
+    "Description": "I am a self-driven, career-oriented software developer specializing in front-end development and open-source. My expertise lies in building interactive web applications on the client side, primarily working with technologies like JavaScript, React.js, and TypeScript.",
+    "Description2": "Beyond learning, I enjoy writing technical articles and creating projects that both inspire and benefit fellow developers. You can find my recent posts on",
+    "Description3": "I strongly believe in continuous learning and improving myself, so I try my best to learn in any situation possible, unfavorable or not.",
+    "Contact": {
+      "FindMe": "Find me on :",
+      "Send": "Sending...",
+      "MessageNote": "Message sent successfully"
+    }
+  },
+
+  "ProjectsSection": {
+    "Title": "Projects",
+    "Description": "I've worked on tons of little projects but these are the ones that I'm proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas on how it can be improved."
+  },
+
+  "BlogSection": {
+    "Title": "Blog",
+    "Description": "sharing insights, projects, and noteworthy discoveries, alongside contributions to various esteemed publications. Explore the latest posts below:"
   }
 }

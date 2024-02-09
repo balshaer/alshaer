@@ -31,6 +31,7 @@ import { t } from "i18next";
 import ButtonDefault from "../custom/ButtonDefault";
 import { GrSend } from "react-icons/gr";
 import { HiMail } from "react-icons/hi";
+import i18n from "@/i18n";
 
 const styles = {
   form: "grid items-start gap-4 ",
@@ -59,17 +60,17 @@ function ProfileForm({
   const [accept, setAccept] = useState(false);
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    setAccept(true);
-
-    if (email === "" || !accept || name === "" || message === "") {
-      flag = false;
-    } else {
-      flag = true;
-      setLoading(true);
-    }
+    setAccept((prevAccept) => {
+      if (email === "" || !prevAccept || name === "" || message === "") {
+        flag = false;
+      } else {
+        setLoading(true);
+      }
+      return prevAccept;
+    });
 
     if (flag) {
+      setLoading(true);
       const form = document.createElement("form");
 
       form.setAttribute("action", "");
@@ -114,17 +115,19 @@ function ProfileForm({
               <HiOutlineCheckCircle />
             </span>
 
-            <span>{t("Contact.MessageNote")}</span>
+            <span>{t("About.Contact.MessageNote")}</span>
           </div>
         );
       }
     }
   };
+  const direction = i18n.language === "ar" ? "rtl" : "ltr";
 
   return (
     <form
       className={cn(styles.form, "bg-[var(--background)]   ", className)}
       onSubmit={handleSubmit}
+      dir={direction}
     >
       <div className={styles.inputGrid}>
         <Input
@@ -200,7 +203,7 @@ function ProfileForm({
           className="bg-[var(--button)] text-[var(--button-text)]  gap-2 "
           type="submit"
         >
-          <span>{t("Contact.Send")}</span>
+          <span>{t("About.Contact.Send")}</span>
 
           <span>
             <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
@@ -236,8 +239,8 @@ export function DrawerDialogDemo() {
         <DialogContent
           className={`${styles.dialogContent} bg-[var(--background)] border-none`}
         >
-          <DialogHeader>
-            <DialogTitle className="text-[var(--headline)]">
+          <DialogHeader className="w-full">
+            <DialogTitle className="text-[var(--headline)] w-full text-center">
               {t("DialogForm.DialogTitle")}
             </DialogTitle>
             <DialogDescription></DialogDescription>
@@ -256,9 +259,7 @@ export function DrawerDialogDemo() {
         </DrawerTrigger>
         <DrawerContent className="bg-[var(--background)]  border-none p-[1rem]">
           <DrawerHeader className={styles.drawerHeader}>
-            <DrawerTitle className="cursor-pointer">
-              {commonContent}
-            </DrawerTitle>
+            <DrawerTitle className="cursor-pointer"></DrawerTitle>
             <DrawerDescription></DrawerDescription>
           </DrawerHeader>
           <ProfileForm closeDialog={closeDialog} />

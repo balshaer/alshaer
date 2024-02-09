@@ -1,9 +1,10 @@
+import { t } from "i18next";
 import TitleOfSection from "../custom/TitleOfSection";
 
 export default function Contact() {
   return (
     <section className="my-8">
-      <TitleOfSection title={"Find me on :"} />
+      <TitleOfSection title={t("About.Contact.FindMe")} />
 
       <ul className="text-[var(--paragraph)] max-md:flex-col items-start  hovered flex gap-4">
         <li>

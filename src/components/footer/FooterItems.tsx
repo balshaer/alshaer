@@ -1,10 +1,11 @@
 import vercelIcon from "@/assets/images/vercel.svg";
+import { t } from "i18next";
 
 export default function FooterItems() {
   return (
     <div className="text-sm flex gap-2 text-[var(--paragraph)] max-md:flex-col max-md:items-center ">
       <div>
-        <span className="text-sm">Built with:</span>
+        <span className="text-sm">{t('Public.BuiltWith')}</span>
       </div>
 
       <div className="flex gap-2 h-full ">

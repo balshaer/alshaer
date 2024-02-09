@@ -58,6 +58,7 @@ const Posts: React.FC = () => {
         <div className="post-container flex flex-col w-full my-5 gap-5 h-max">
           {posts.map((post, index) => (
             <div
+            dir="ltr"
               key={index}
               className={`post-card text-[var(--paragraph)] w-[100%] h-[150px] max-md:h-max post border-[#323a4d] hover:border-[#596788] border bg-[var(--card-background)] cursor-pointer hovered max-w-3xl p-4 rounded-lg flex items-start justify-start ${
                 hoveredIndex !== null && hoveredIndex !== index ? "fade" : ""
