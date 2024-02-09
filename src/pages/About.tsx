@@ -10,7 +10,7 @@ export default function About() {
 
   return (
     <ScrollArea className="h-screen overflow-y-auto">
-      <div className="container h-max min-h-[100vh] mx-auto flex flex-col justify-between ">
+      <div className="container h-max min-h-[100vh] max-w-7xl flex flex-col justify-between ">
         <Navbar />
         <div className="flex-grow" dir={direction}>
           <AboutMe />

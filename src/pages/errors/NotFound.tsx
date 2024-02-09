@@ -8,7 +8,7 @@ interface Props {}
 const NotFound: FunctionComponent<Props> = () => {
   return (
     <ScrollArea className="h-full w-full ">
-      <div className="container h-max min-h-[100vh] flex flex-col gap-[1.5rem]   ">
+      <div className="container h-max min-h-[100vh] max-w-7xl flex flex-col gap-[1.5rem]   ">
         <div>
           <div className="grid h-screen place-content-center bg-[var(--background)] px-4">
             <div className="text-center">

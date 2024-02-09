@@ -12,7 +12,7 @@ export default function Home() {
 
   return (
     <ScrollArea className="h-full w-full ">
-      <div className="container h-max min-h-[100vh] flex flex-col gap-[1.5rem]   ">
+      <div className="container h-max min-h-[100vh] max-w-7xl flex flex-col gap-[1.5rem]   ">
         <Navbar />
 
 
