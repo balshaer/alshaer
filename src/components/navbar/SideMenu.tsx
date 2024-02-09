@@ -4,7 +4,6 @@ import NavbarLinks from "./NavbarLinks";
 import { useContext, useState } from "react";
 import { MenuBarContext } from "../contact/MenuBar";
 
-// Define the type for MenuBar context value
 interface MenuBarContextProps {
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -28,8 +27,7 @@ export default function SideMenu() {
         display: isOpen ? "block" : "none",
         transition: "opacity 0.3s ease, transform 0.3s ease",
       }}
-      className={`flex-col justify-between border-e fixed right-0 bottom-0 top-0 m-auto h-[100vh] bg-[#05050798] w-[100vw] z-50
-     `}
+      className={`flex-col justify-between border-e fixed right-0 bottom-0 top-0 m-auto h-[100vh] bg-[#05050798] w-[100vw] z-50`}
     >
       <div className="relative h-screen w-screen">
         <div className="w-[70vw] h-screen absolute right-0 top-0 bottom-0 m-auto ">
@@ -54,7 +52,7 @@ export default function SideMenu() {
 
               <hr className="opacity-15  w-full z-50" />
 
-              <NavbarLinks />
+              <NavbarLinks closeMenu={closeMenu} />
             </div>
 
             <div className="sticky inset-x-0  w-full py-4">
