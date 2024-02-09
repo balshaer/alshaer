@@ -18,6 +18,7 @@ body {
   transition: all 0.3s ease !important;
 }
 
+
 @keyframes fade-in-right {
   from {
     opacity: 0;

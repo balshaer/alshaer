@@ -2,6 +2,7 @@ import About from "@/pages/About";
 import Blog from "@/pages/Blog";
 import Home from "@/pages/Home";
 import Projects from "@/pages/Projects";
+import NotFound from "@/pages/errors/NotFound";
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
@@ -12,6 +13,7 @@ const AppRoutes: React.FC = () => {
       <Route path="about" element={<About />} />
       <Route path="projects" element={<Projects />} />
       <Route path="blog" element={<Blog />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };

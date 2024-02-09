@@ -71,5 +71,13 @@
   "Blog": {
     "BlogTitle": "Blog",
     "BlogDescription": "sharing insights, projects, and noteworthy discoveries, alongside contributions to various esteemed publications. Explore the latest posts below:"
+  },
+  "Errors": {
+    "Pages": {
+      "NotFound": {
+        "Title": "404 Page Not Found",
+        "Description": "We can't find that page."
+      }
+    }
   }
 }
