@@ -18,6 +18,8 @@ const LightMode = createGlobalStyle`
     --input-background:#f6f7f9;
     --input-border-color: #E2E8F0;
     --badge-color: #f6f7f9;
+    --skeleton-color: #e8ecf3;
+
 
 
 

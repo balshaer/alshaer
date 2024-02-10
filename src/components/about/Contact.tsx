@@ -3,7 +3,6 @@ import AnimatedComponent from "../animations/AnimatedComponent";
 import { useTranslation } from "react-i18next";
 
 export default function Contact() {
-
   const { t } = useTranslation();
 
   return (
@@ -14,7 +13,7 @@ export default function Contact() {
         <ul className="text-[var(--paragraph)] max-md:flex-col items-start  hovered flex gap-4">
           <li>
             <a
-              className="flex flex-row-reverse items-center  opacity-60 hover:opacity-100 hovered gap-2 w-full"
+              className="flex flex-row-reverse items-center  opacity-80 hover:opacity-100 hovered gap-2 w-full"
               target="_blank"
               href="https://www.linkedin.com/in/balshaer/"
             >
@@ -33,7 +32,7 @@ export default function Contact() {
 
           <li>
             <a
-              className="flex flex-row-reverse items-center  opacity-60 hover:opacity-100 hovered gap-2 w-full"
+              className="flex flex-row-reverse items-center  opacity-80 hover:opacity-100 hovered gap-2 w-full"
               target="_blank"
               href="https://github.com/balshaer"
             >
@@ -43,8 +42,8 @@ export default function Contact() {
                 <img
                   width="20"
                   height="20"
-                  src="https://img.icons8.com/officel/16/github.png"
-                  alt="github"
+                  src="https://img.icons8.com/external-tal-revivo-shadow-tal-revivo/24/external-github-community-for-software-building-and-testing-online-logo-shadow-tal-revivo.png"
+                  alt="external-github-community-for-software-building-and-testing-online-logo-shadow-tal-revivo"
                 />
               </span>
             </a>
@@ -52,7 +51,7 @@ export default function Contact() {
 
           <li>
             <a
-              className="flex flex-row-reverse items-center  opacity-60 hover:opacity-100 hovered gap-2 w-full"
+              className="flex flex-row-reverse items-center  opacity-80 hover:opacity-100 hovered gap-2 w-full"
               target="_blank"
               href="https://wa.me/970593493899"
             >
@@ -71,7 +70,7 @@ export default function Contact() {
 
           <li>
             <a
-              className="flex flex-row-reverse items-center  opacity-60 hover:opacity-100 hovered gap-2 w-full"
+              className="flex flex-row-reverse items-center  opacity-80 hover:opacity-100 hovered gap-2 w-full"
               target="_blank"
               href="https://dev.to/baraa"
             >
@@ -90,7 +89,7 @@ export default function Contact() {
 
           <li>
             <a
-              className="flex flex-row-reverse items-center  opacity-60 hover:opacity-100 hovered gap-2 w-full"
+              className="flex flex-row-reverse items-center  opacity-80 hover:opacity-100 hovered gap-2 w-full"
               target="_blank"
               href="https://www.youtube.com/@Codewithbaraa"
             >

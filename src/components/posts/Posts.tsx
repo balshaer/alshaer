@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { useTranslation } from "react-i18next";
 import { HiNewspaper } from "react-icons/hi2";
+import PostLoading from "../loading/PostLoading";
 
 interface Post {
   title: string;
@@ -14,9 +15,11 @@ const Posts: React.FC = () => {
   const { t } = useTranslation();
   const [posts, setPosts] = useState<Post[]>([]);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchPosts = async () => {
+      setIsLoading(true);
       try {
         const rssFeedUrl = "https://dev.to/feed/baraa";
         const response = await fetch(
@@ -38,6 +41,8 @@ const Posts: React.FC = () => {
         }
       } catch (error) {
         console.error(error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -56,9 +61,11 @@ const Posts: React.FC = () => {
 
       <div className="dev-to-posts h-full w-full flex">
         <div className="post-container flex flex-col w-full my-5 gap-5 h-max">
+          {isLoading && <PostLoading />}
+
           {posts.map((post, index) => (
             <div
-            dir="ltr"
+              dir="ltr"
               key={index}
               className={`post-card text-[var(--paragraph)] w-[100%] h-[150px] max-md:h-max post border-[#323a4d] hover:border-[#596788] border bg-[var(--card-background)] cursor-pointer hovered max-w-3xl p-4 rounded-lg flex items-start justify-start ${
                 hoveredIndex !== null && hoveredIndex !== index ? "fade" : ""
