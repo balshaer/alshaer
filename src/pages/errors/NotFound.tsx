@@ -1,4 +1,5 @@
 import NotFoundImage from "@/assets/images/404.png";
+import Navbar from "@/components/navbar/Navbar";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 import { FunctionComponent } from "react";
@@ -9,11 +10,17 @@ interface Props {}
 const NotFound: FunctionComponent<Props> = () => {
   const { t } = useTranslation();
 
+  
+
   return (
-    <ScrollArea className="h-full w-full ">
+    <ScrollArea className="h-full w-full  bg-[var(--background)] ">
       <div className="container h-max min-h-[100vh] max-w-7xl flex flex-col gap-[1.5rem]   ">
+        <div className="hidden">
+          <Navbar />
+        </div>
+
         <div>
-          <div className="grid h-screen place-content-center bg-[var(--background)] px-4">
+          <div className="grid h-screen place-content-center  px-4">
             <div className="text-center">
               <h1 className="mt-6 text-2xl font-bold tracking-tight text-[var(--headline)] sm:text-4xl">
                 {t("Errors.Pages.NotFound.Title")}

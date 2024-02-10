@@ -3,7 +3,8 @@
     "Submit": "إرسال",
     "ExploreAll": "استكشاف الكل",
     "BuiltWith": "بُنيَت بواسطة",
-    "StarOnGithub": "قيم هذا المشروع"
+    "StarOnGithub": "قيم هذا المشروع",
+    "Loading": "... جار التحميل "
   },
 
   "Header": {
@@ -73,13 +74,11 @@
     "Project2.Description": "مجموعة من تدرجات CSS"
   },
 
-  "Blog": {
-    "Errors": {
-      "Pages": {
-        "NotFound": {
-          "Title": "404 الصفحة غير موجودة",
-          "Description": "لا يمكننا العثور على تلك الصفحة."
-        }
+  "Errors": {
+    "Pages": {
+      "NotFound": {
+        "Title": "404 الصفحة غير موجودة",
+        "Description": "لا يمكن العثور على تلك الصفحة."
       }
     }
   },
