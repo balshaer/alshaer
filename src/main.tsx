@@ -11,6 +11,7 @@ import Direction from "./components/contact/Direction.tsx";
 
 ReactDOM.render(
   <React.StrictMode>
+
     <Direction>
       <MenuBar>
         <I18nextProvider i18n={i18n}>
