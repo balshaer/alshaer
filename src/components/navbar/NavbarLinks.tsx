@@ -1,19 +1,13 @@
 // NavbarLinks.tsx
 import { Link } from "react-router-dom";
 import LanguageSelect from "../languageSelect/LanguageSelect";
-import i18n from "@/i18n";
 import { useTranslation } from "react-i18next";
 
 export default function NavbarLinks() {
   const { t } = useTranslation();
 
-  const direction = i18n.language === "ar" ? "rtl" : "ltr";
-
   return (
-    <ul
-      dir={direction}
-      className="flex items-center justify-center gap-4 px-4 font-[600] max-md:flex-col max-md:h-full max-md:w-full max-md:items-start max-md:text-lg max-md:space-y-1 max-md:px-4 max-md:py-6 "
-    >
+    <ul className="flex items-center justify-center gap-4 px-4 font-[600] max-md:flex-col max-md:h-full max-md:w-full max-md:items-start max-md:text-lg max-md:space-y-1 max-md:px-4 max-md:py-6 ">
       <Link
         className="text-[var(--paragraph)] hovered  hover:text-[var(--link-color)]"
         to="/"

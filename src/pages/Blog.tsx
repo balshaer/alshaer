@@ -6,10 +6,13 @@ import Navbar from "@/components/navbar/Navbar";
 import Posts from "@/components/posts/Posts";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import i18n from "@/i18n";
-import { t } from "i18next";
+
+import { useTranslation } from "react-i18next";
 
 export default function Blog() {
   const direction = i18n.language === "ar" ? "rtl" : "ltr";
+  const { t } = useTranslation();
+
 
   return (
     <ScrollArea className="h-full w-full ">

@@ -27,11 +27,12 @@ import { ReloadIcon } from "@radix-ui/react-icons";
 import { toast } from "sonner";
 import { HiOutlineExclamationCircle } from "react-icons/hi2";
 import { HiOutlineCheckCircle } from "react-icons/hi2";
-import { t } from "i18next";
+
 import ButtonDefault from "../custom/ButtonDefault";
 import { GrSend } from "react-icons/gr";
 import { HiMail } from "react-icons/hi";
 import i18n from "@/i18n";
+import { useTranslation } from "react-i18next";
 
 const styles = {
   form: "grid items-start gap-4 ",
@@ -217,6 +218,7 @@ function ProfileForm({
 export function DrawerDialogDemo() {
   const [open, setOpen] = useState(false);
   const isDesktop = useMediaQuery("(min-width: 768px)");
+  const { t } = useTranslation();
 
   const commonContent = (
     <ButtonDefault

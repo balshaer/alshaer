@@ -24,13 +24,15 @@ import {
 import NavbarLinks from "../navbar/NavbarLinks";
 import Logo from "../logo/Logo";
 import Hr from "../navbar/Hr";
-import { t } from "i18next";
+import { useTranslation } from "react-i18next";
+
 
 const PageMode: React.FC = () => {
   const [mode, setMode] = useState(() => {
     const savedMode = getPageMode();
     return savedMode || "dark";
   });
+  const { t } = useTranslation();
 
   const toggleMode = () => {
     setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));

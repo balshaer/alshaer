@@ -1,8 +1,11 @@
-import { t } from "i18next";
 import TitleOfSection from "../custom/TitleOfSection";
 import AnimatedComponent from "../animations/AnimatedComponent";
+import { useTranslation } from "react-i18next";
 
 export default function Contact() {
+
+  const { t } = useTranslation();
+
   return (
     <section className="my-8">
       <AnimatedComponent>

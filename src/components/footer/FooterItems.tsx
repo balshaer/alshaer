@@ -1,7 +1,9 @@
 import vercelIcon from "@/assets/images/vercel.svg";
-import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 
 export default function FooterItems() {
+  const { t } = useTranslation();
+
   return (
     <div className="text-sm flex gap-2 text-[var(--paragraph)] max-md:flex-col max-md:items-center ">
       <div>

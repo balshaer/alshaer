@@ -1,11 +1,14 @@
 import NotFoundImage from "@/assets/images/404.png";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { t } from "i18next";
+
 import { FunctionComponent } from "react";
+import { useTranslation } from "react-i18next";
 
 interface Props {}
 
 const NotFound: FunctionComponent<Props> = () => {
+  const { t } = useTranslation();
+
   return (
     <ScrollArea className="h-full w-full ">
       <div className="container h-max min-h-[100vh] max-w-7xl flex flex-col gap-[1.5rem]   ">

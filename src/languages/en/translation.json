@@ -88,17 +88,18 @@
   },
 
   "About": {
-    "Title": "I'm Baraa Alshaer I live in Gaza, where I build the future.",
-    "Description": "I am a self-driven, career-oriented software developer specializing in front-end development and open-source. My expertise lies in building interactive web applications on the client side, primarily working with technologies like JavaScript, React.js, and TypeScript.",
-    "Description2": "Beyond learning, I enjoy writing technical articles and creating projects that both inspire and benefit fellow developers. You can find my recent posts on",
-    "Description3": "I strongly believe in continuous learning and improving myself, so I try my best to learn in any situation possible, unfavorable or not.",
+    "Title": "Baraa Alshaer.",
+    "Description1": "Software engineer specialized in developing web applications using the latest technologies, graduated from",
+    "Description2": "I have practical experience in building web applications using the latest technologies such as React and Typescript ",
+    "Description3": "If you have any inquiries, feel free to contact me directly via",
+    "CollegeName": "Al-Azhar University,",
+    "Email": "Email",
     "Contact": {
-      "FindMe": "Find me on :",
+      "FindMe": "Social Media:",
       "Send": "Sending...",
-      "MessageNote": "Message sent successfully"
+      "MessageNote": "Message sent"
     }
   },
-
   "ProjectsSection": {
     "Title": "Projects",
     "Description": "I've worked on tons of little projects but these are the ones that I'm proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas on how it can be improved."

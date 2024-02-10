@@ -7,36 +7,34 @@ export default function Header() {
   const { t } = useTranslation();
   const direction = i18n.language === "ar" ? "rtl" : "ltr";
   return (
-    <div
-      dir={direction}
-      className="  flex items-start justify-center flex-col w-full gap-5 min-h-[75vh] pb-10 max-md:pb-0"
-    >
-      <div>
-        <AnimatedComponent>
+    <AnimatedComponent>
+      <div
+        dir={direction}
+        className="  flex items-start justify-center flex-col w-full gap-5 min-h-[75vh] pb-10 max-md:pb-0"
+      >
+        <div>
           <h1 className="text-[var(--headline)] text-5xl font-bold select-none flex flex-col gap-4 ">
             <span className="max-md:text-3xl max-w-[60%] max-md:max-w-none leading-tight">
               {t("Header.Title")}
             </span>
           </h1>
-        </AnimatedComponent>
-      </div>
+        </div>
 
-      <div>
-        <AnimatedComponent>
+        <div>
           <p className="text-[var(--paragraph)]  text-xl max-md:text-lg max-md:w-full max-w-[50%] max-md:max-w-none">
             {t("Header.Description")}
           </p>
-        </AnimatedComponent>
-      </div>
-
-      <form
-        onSubmit={(e) => e.preventDefault()}
-        className="flex gap-4 max-md:flex-col"
-      >
-        <div className="h-full flex items-center w-full">
-          <DrawerDialogDemo />
         </div>
-      </form>
-    </div>
+
+        <form
+          onSubmit={(e) => e.preventDefault()}
+          className="flex gap-4 max-md:flex-col"
+        >
+          <div className="h-full flex items-center w-full">
+            <DrawerDialogDemo />
+          </div>
+        </form>
+      </div>
+    </AnimatedComponent>
   );
 }
