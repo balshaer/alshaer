@@ -13,7 +13,6 @@ export default function Blog() {
   const direction = i18n.language === "ar" ? "rtl" : "ltr";
   const { t } = useTranslation();
 
-
   return (
     <ScrollArea className="h-full w-full ">
       <div className="container h-max min-h-[100vh] max-w-7xl flex flex-col gap-[1.5rem]   ">
@@ -35,11 +34,9 @@ export default function Blog() {
           </div>
 
           <div>
-          <AnimatedComponent>
-
-            <Posts />
+            <AnimatedComponent>
+              <Posts />
             </AnimatedComponent>
-
           </div>
         </div>
 

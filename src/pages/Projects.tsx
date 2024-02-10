@@ -32,7 +32,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           <div className="p-2">
             <img
               src={logoSrc}
-              className="min-h-10 min-w-10 rounded-lg"
+              className="min-h-10 min-w-10 rounded-lg object-contain"
               alt="logo"
               height={50}
               width={50}

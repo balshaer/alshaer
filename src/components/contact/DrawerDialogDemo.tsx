@@ -12,7 +12,6 @@ import {
 } from "@/components/ui/dialog";
 import {
   Drawer,
-  DrawerClose,
   DrawerContent,
   DrawerDescription,
   DrawerFooter,
@@ -266,11 +265,7 @@ export function DrawerDialogDemo() {
             <DrawerDescription></DrawerDescription>
           </DrawerHeader>
           <ProfileForm closeDialog={closeDialog} />
-          <DrawerFooter className={styles.drawerFooter}>
-            <DrawerClose asChild>
-              <span>{t("Contact.Cancel")}</span>
-            </DrawerClose>
-          </DrawerFooter>
+          <DrawerFooter className={styles.drawerFooter}></DrawerFooter>
         </DrawerContent>
       </Drawer>
     </div>
