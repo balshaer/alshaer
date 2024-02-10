@@ -51,6 +51,7 @@ function ProfileForm({
   className?: string;
   closeDialog: () => void;
 }) {
+  const { t } = useTranslation();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
