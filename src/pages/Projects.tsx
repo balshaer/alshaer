@@ -8,6 +8,7 @@ import TitleOfSection from "@/components/custom/TitleOfSection";
 import Footer from "@/components/footer/Footer";
 import Navbar from "@/components/navbar/Navbar";
 import NajLogo from "@/assets/images/logo/naj.jpeg";
+import gradimixLogo from "@/assets/images/logo/gradimix.png";
 import { Badge } from "@/components/ui/badge";
 
 interface ProjectCardProps {
@@ -15,7 +16,7 @@ interface ProjectCardProps {
   descriptionKey: string;
   link: string;
   logoSrc: string;
-  badgeText?: string[]; // Change to accept an array of strings
+  badgeText?: string[];
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -49,7 +50,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             </div>
           </div>
 
-          {/* Map over badgeText array and render Badge component for each badge */}
           {badgeText && (
             <div className="flex gap-2">
               {badgeText.map((badge, index) => (
@@ -98,7 +98,7 @@ const Projects: React.FC = () => {
                 titleKey="Projects.Project2.Title"
                 descriptionKey="Projects.Project2.Description"
                 link="https://github.com/balshaer/gradimix"
-                logoSrc="https://img.icons8.com/external-vitaliy-gorbachev-lineal-color-vitaly-gorbachev/60/external-colors-photography-vitaliy-gorbachev-lineal-color-vitaly-gorbachev.png"
+                logoSrc={gradimixLogo}
                 badgeText={["Next JS", "Typescript"]}
               />
             </div>
