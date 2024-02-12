@@ -1,6 +1,5 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import i18n from "@/i18n";
 import AnimatedComponent from "@/components/animations/AnimatedComponent";
 import DescriptionOfSection from "@/components/custom/DescriptionOfSection";
@@ -73,7 +72,7 @@ const Projects: React.FC = () => {
 
   const direction = i18n.language === "ar" ? "rtl" : "ltr";
   return (
-    <ScrollArea className="h-full w-full">
+    <div className="h-full w-full">
       <div className="container h-max min-h-[100vh]  max-w-7xl flex flex-col gap-[1.5rem]">
         <Navbar />
 
@@ -107,7 +106,7 @@ const Projects: React.FC = () => {
 
         <Footer />
       </div>
-    </ScrollArea>
+    </div>
   );
 };
 

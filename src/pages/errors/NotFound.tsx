@@ -1,6 +1,5 @@
 import NotFoundImage from "@/assets/images/404.png";
 import Navbar from "@/components/navbar/Navbar";
-import { ScrollArea } from "@/components/ui/scroll-area";
 
 import { FunctionComponent } from "react";
 import { useTranslation } from "react-i18next";
@@ -10,10 +9,8 @@ interface Props {}
 const NotFound: FunctionComponent<Props> = () => {
   const { t } = useTranslation();
 
-  
-
   return (
-    <ScrollArea className="h-full w-full  bg-[var(--background)] ">
+    <div className="h-full w-full  bg-[var(--background)] ">
       <div className="container h-max min-h-[100vh] max-w-7xl flex flex-col gap-[1.5rem]   ">
         <div className="hidden">
           <Navbar />
@@ -34,7 +31,7 @@ const NotFound: FunctionComponent<Props> = () => {
           </div>
         </div>
       </div>
-    </ScrollArea>
+    </div>
   );
 };
 
