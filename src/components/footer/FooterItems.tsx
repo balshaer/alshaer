@@ -1,11 +1,12 @@
 import vercelIcon from "@/assets/images/vercel.svg";
 import { useTranslation } from "react-i18next";
+import { direction } from "../languageSelect/Direction";
 
 export default function FooterItems() {
   const { t } = useTranslation();
 
   return (
-    <div className="text-sm flex gap-2 text-[var(--paragraph)] max-md:flex-col max-md:items-center ">
+    <div dir={direction} className="text-sm flex gap-2 text-[var(--paragraph)] max-md:flex-col max-md:items-center ">
       <div>
         <span className="text-sm">{t('Public.BuiltWith')}</span>
       </div>
