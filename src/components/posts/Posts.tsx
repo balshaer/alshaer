@@ -82,7 +82,7 @@ const Posts: React.FC = () => {
                 <div className="postShow  flex flex-col justify-start w-full gap-8 text-base">
                   <div>
                     <div className="post-date opacity-60">
-                      {new Date(post.pubDate).toLocaleDateString("en-US", {
+                      {new Date(post.pubDate).toLocaleDateString("English", {
                         year: "numeric",
                         month: "short",
                         day: "2-digit",
