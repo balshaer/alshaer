@@ -26,7 +26,6 @@ import Logo from "../logo/Logo";
 import Hr from "../navbar/Hr";
 import { useTranslation } from "react-i18next";
 
-
 const PageMode: React.FC = () => {
   const [mode, setMode] = useState(() => {
     const savedMode = getPageMode();
@@ -54,7 +53,11 @@ const PageMode: React.FC = () => {
         />
       </span>
 
-      <a target="_blank" href="https://github.com/balshaer/alshaer">
+      <a
+        className="flex items-center justify-center"
+        target="_blank"
+        href="https://github.com/balshaer/alshaer"
+      >
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger>

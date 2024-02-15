@@ -19,7 +19,12 @@ const LanguageSelect: React.FC = () => {
   const [selectedOption, setSelectedOption] = useState<Option>(() => {
     return {
       value: i18n.language,
-      label: t(`${i18n.language}`),
+      label:
+        i18n.language === "en-US"
+          ? "English"
+          : i18n.language === "ar"
+          ? "العربية"
+          : "!",
     };
   });
 

@@ -1,29 +1,42 @@
 import { createGlobalStyle } from "styled-components";
 
 const LightMode = createGlobalStyle`
-  :root {
-    --background: #ffffff;
-    --headline: #2D3748;
-    --paragraph: #5F718C;
-    --button: #166BFF;
-    --button-hover: #2d7aff;
-    --button-text: #ffffff;
-    --card-background: #ffffff;
-    --link-color: #166BFF; /* Corrected missing # */
-    --nav-item: #47546b;
-    --logo-background: #166BFF;
-    --logo-text-color: #166BFF;
-    --gradient-color-1: #00d2ff;
-    --gradient-color-2: #3a7bd5;
-    --input-background:#f6f7f9;
-    --input-border-color: #E2E8F0;
-    --badge-color: #f6f7f9;
-    --skeleton-color: #e8ecf3;
+:root {
+  /* Primary Colors */
+  --background: #f5f7fa;
+  --navbar-background: #ffffff;
+  --footer-background: #f5f7fa;
+  --banner-background: #f5f7fa;
 
+  /* Text Colors */
+  --navbar-button-text: #ffffff;
+  --secondary-button-text: #ffffff;
+  --third-button-text: #ffffff;
+  --button-text: #ffffff;
+  --navbar-item-text: #52606d;
+  --headline: #000000;
+  --paragraph: #52606d;
+  --footer-items: #9aa5b1;
+  --footer-links: #52606d;
 
+  /* Button Colors */
+  --navbar-button-background: #1f2933;
+  --button-background: #8247ff;
+  --banner-button-background: #8247ff;
+  --secondary-button-background: #1f2933;
+  --third-button-background: #1f2933;
 
+  /* Secondary Colors */
+  --secondary-background: #1f2933;
+  --secondary-headline: #ffffff;
+  --secondary-paragraph: #d5d7d9;
 
-  }
+  /* Tertiary Colors */
+  --third-background: #dfc9c0;
+  --third-headline: #0d0d0c;
+  --third-paragraph: #0d0d0c;
+}
+
 `;
 
 export default LightMode;

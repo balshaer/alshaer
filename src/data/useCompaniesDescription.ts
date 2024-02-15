@@ -24,7 +24,7 @@ export const useCompaniesDescription = () => {
       name: t("Experience.Company.Name3"),
       jobTitle: t("Experience.Company.JobTitle3"),
       date: t("Experience.Company.Date3"),
-      logo: "https://scontent-mrs2-2.xx.fbcdn.net/v/t39.30808-1/347426201_1168901333803601_2781139689308930147_n.png?stp=dst-png_p320x320&_nc_cat=101&ccb=1-7&_nc_sid=596444&_nc_ohc=HnAmeUupOjcAX8L01tb&_nc_ht=scontent-mrs2-2.xx&oh=00_AfCW8SkKNGzaXc7M8Bk1dOJbeOJGEBc4ZnGzmLdBmOAtzQ&oe=65CB2CBE",
+      logo: "https://cdn.dribbble.com/userupload/13065544/file/original-c6fe6cb85d8e1ed4c1f4e7ed1b574757.png?resize=400x400",
       Link: "https://www.facebook.com/Gedcops/?locale=ar_AR",
     },
   ];
