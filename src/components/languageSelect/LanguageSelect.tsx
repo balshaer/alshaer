@@ -24,7 +24,7 @@ const LanguageSelect: React.FC = () => {
           ? "English"
           : i18n.language === "ar"
           ? "العربية"
-          : "!",
+          : "English",
     };
   });
 
