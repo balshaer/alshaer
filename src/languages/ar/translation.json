@@ -71,7 +71,10 @@
     "Project1.Description": "مركز متخصص يوفر التعليم لجميع طلاب طب الأسنان في المملكة العربية السعودية.",
 
     "Project2.Title": "GradiMix",
-    "Project2.Description": "مجموعة من تدرجات CSS"
+    "Project2.Description": "مجموعة من تدرجات CSS",
+
+    "Project3.Title": "Rove ",
+    "Project3.Description": "متجر الكتروني كامل "
   },
 
   "Errors": {

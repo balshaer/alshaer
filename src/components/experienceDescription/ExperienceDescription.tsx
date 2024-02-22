@@ -21,7 +21,7 @@ export default function ExperienceDescription() {
           {companies.map((company, index) => (
             <div
               key={index}
-              className="card flex flex-row gap-4 h-[84px] p-2 w-max max-md:w-full"
+              className="card flex flex-row gap-4 h-[115px] rounded-xl   items-center justify-center w-max max-md:w-full bg-[var(--card-background)] p-10"
             >
               <a className="cursor-pointer" target="_blank" href={company.Link}>
                 <img

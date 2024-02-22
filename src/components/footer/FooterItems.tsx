@@ -1,19 +1,21 @@
-import vercelIcon from "@/assets/images/vercel.svg";
 import { useTranslation } from "react-i18next";
 import { direction } from "../languageSelect/Direction";
 
-export default function FooterItems() {
+const FooterItems = () => {
   const { t } = useTranslation();
 
   return (
-    <div dir={direction} className="text-sm flex gap-2 text-[var(--paragraph)] max-md:flex-col max-md:items-center ">
+    <div
+      dir={direction}
+      className="text-sm flex gap-2 text-[var(--paragraph)] max-md:flex-col max-md:items-center"
+    >
       <div>
-        <span className="text-sm">{t('Public.BuiltWith')}</span>
+        <span className="text-sm">{t("Public.BuiltWith")}</span>
       </div>
 
-      <div className="flex gap-2 h-full ">
+      <div className="flex gap-2 h-full">
         <a
-          className="flex flex-row items-center justify-center gap-2 opacity-65 hoverd hover:opacity-100"
+          className="flex flex-row items-center justify-center gap-2 hoverd hover:opacity-100"
           href="https://react.dev/"
           target="_blank"
         >
@@ -26,23 +28,9 @@ export default function FooterItems() {
             alt="react"
           />
         </a>
-
-        <a
-          className="flex flex-row items-center justify-center gap-2 opacity-65 hoverd hover:opacity-100"
-          href="https://vercel.com/dashboard"
-          target="_blank"
-        >
-          <span>Vercel</span>
-
-          <img
-            width="13"
-            height="13"
-            className="object-contain"
-            src={vercelIcon}
-            alt="react"
-          />
-        </a>
       </div>
     </div>
   );
-}
+};
+
+export default FooterItems;

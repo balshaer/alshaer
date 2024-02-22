@@ -13,22 +13,22 @@ export default function Logo() {
       : ""
   }`;
 
-  const nameClasses = `text-[var(--logo-text-color)] font-[600] text-xl ${
-    isHovered
-      ? "bg-gradient-to-r from-[var(--gradient-color-1)] to-[var(--gradient-color-2)] text-transparent bg-clip-text hoveredLogo"
-      : ""
-  }`;
+  // const nameClasses = `text-[var(--logo-text-color)] font-[600] text-xl ${
+  //   isHovered
+  //     ? "bg-gradient-to-r from-[var(--gradient-color-1)] to-[var(--gradient-color-2)] text-transparent bg-clip-text hoveredLogo"
+  //     : ""
+  // }`;
 
   return (
     <div>
       <Link to={"/"}>
         <div
-          className="flex items-center justify-start gap-2 cursor-pointer hoveredLogo"
+          className="flex items-center justify-start gap-2 cursor-pointer hovered  Logo"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
           <span className={logoClasses}>B</span>
-          <span className={nameClasses}>Baraa</span>
+          {/* <span className={nameClasses}>Baraa</span> */}
         </div>
       </Link>
     </div>

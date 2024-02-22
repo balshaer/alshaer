@@ -95,7 +95,7 @@ const Posts: React.FC = () => {
                     {post.categories.map((category, categoryIndex) => (
                       <Badge
                         key={categoryIndex}
-                        className="m-[5px] cursor-text bg-[var(--badge-color)] text-[var(--paragraph)]"
+                        className="m-[5px] cursor-text bg-[var(--badge-color)] text-[var(--badge-text)]"
                       >
                         {category.trim()}
                       </Badge>

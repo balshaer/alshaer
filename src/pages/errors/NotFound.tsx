@@ -11,7 +11,7 @@ const NotFound: FunctionComponent<Props> = () => {
 
   return (
     <div className="h-full w-full  bg-[var(--background)] ">
-      <div className="container h-max min-h-[100vh] max-w-7xl flex flex-col gap-[1.5rem]   ">
+      <div className="container h-max min-h-[100vh] max-w-6xl flex flex-col gap-[1.5rem]   ">
         <div className="hidden">
           <Navbar />
         </div>

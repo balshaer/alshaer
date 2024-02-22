@@ -9,9 +9,12 @@ export default function About() {
 
   return (
     <div className="h-screen overflow-y-auto">
-      <div className="container h-max min-h-[100vh] max-w-7xl flex flex-col justify-between ">
+      <div className="container h-max min-h-[100vh] max-w-6xl flex flex-col justify-between ">
         <Navbar />
-        <div className="flex-grow" dir={direction}>
+        <div
+          className="flex flex-col justify-start items-start h-full gap-4"
+          dir={direction}
+        >
           <AboutMe />
 
           <Contact />

@@ -65,10 +65,13 @@
 
   "Projects": {
     "Project1.Title": "Naj",
-    "Project1.Description": "Dedicated center providing education to all dental students in Saudi Arabia.",
+    "Project1.Description": "Dedicated center for dental education in Saudi Arabia.",
 
     "Project2.Title": "GradiMix ",
-    "Project2.Description": "Collection of CSS gradients"
+    "Project2.Description": "Collection of CSS gradients",
+
+    "Project3.Title": "Rove ",
+    "Project3.Description": "A Full-Stack Ecommerce Web App"
   },
 
   "Blog": {
