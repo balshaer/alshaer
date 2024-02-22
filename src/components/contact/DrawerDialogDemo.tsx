@@ -28,7 +28,6 @@ import { HiOutlineExclamationCircle } from "react-icons/hi2";
 import { HiOutlineCheckCircle } from "react-icons/hi2";
 
 import ButtonDefault from "../custom/ButtonDefault";
-import { GrSend } from "react-icons/gr";
 import { HiMail } from "react-icons/hi";
 import i18n from "@/i18n";
 import { useTranslation } from "react-i18next";
