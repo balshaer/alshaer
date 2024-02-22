@@ -6,14 +6,14 @@ export default function Contact() {
   const { t } = useTranslation();
 
   return (
-    <section className="my-8">
+    <section className="py-10 " data-aos="fade-up ">
       <AnimatedComponent>
         <TitleOfSection title={t("About.Contact.FindMe")} />
 
         <ul className="text-[var(--paragraph)] max-md:flex-col items-start  hovered flex gap-4">
           <li>
             <a
-              className="flex flex-row-reverse items-center  opacity-80 hover:opacity-100 hovered gap-2 w-full"
+              className="flex flex-row-reverse items-center  hovered gap-2 w-full"
               target="_blank"
               href="https://www.linkedin.com/in/balshaer/"
             >
@@ -32,7 +32,7 @@ export default function Contact() {
 
           <li>
             <a
-              className="flex flex-row-reverse items-center  opacity-80 hover:opacity-100 hovered gap-2 w-full"
+              className="flex flex-row-reverse items-center  hovered gap-2 w-full"
               target="_blank"
               href="https://github.com/balshaer"
             >
@@ -51,7 +51,7 @@ export default function Contact() {
 
           <li>
             <a
-              className="flex flex-row-reverse items-center  opacity-80 hover:opacity-100 hovered gap-2 w-full"
+              className="flex flex-row-reverse items-center  hovered gap-2 w-full"
               target="_blank"
               href="https://wa.me/970593493899"
             >
@@ -70,7 +70,7 @@ export default function Contact() {
 
           <li>
             <a
-              className="flex flex-row-reverse items-center  opacity-80 hover:opacity-100 hovered gap-2 w-full"
+              className="flex flex-row-reverse items-center  hovered gap-2 w-full"
               target="_blank"
               href="https://dev.to/baraa"
             >
@@ -89,7 +89,7 @@ export default function Contact() {
 
           <li>
             <a
-              className="flex flex-row-reverse items-center  opacity-80 hover:opacity-100 hovered gap-2 w-full"
+              className="flex flex-row-reverse items-center  hovered gap-2 w-full"
               target="_blank"
               href="https://www.youtube.com/@Codewithbaraa"
             >

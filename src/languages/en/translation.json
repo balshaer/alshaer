@@ -4,7 +4,11 @@
     "ExploreAll": "Explore All",
     "BuiltWith": "Built With",
     "StarOnGithub": "Star On Github",
-    "Loading": "Loading ..."
+    "Loading": "Loading ...",
+    "ContactVia": "You can contact me via",
+    "or": "or",
+    "Email": " Email",
+    "Linkedin": "Linkedin"
   },
 
   "Header": {
@@ -15,6 +19,8 @@
   "DialogForm": {
     "SendMessage": "Send Message",
     "DialogTitle": "Fill Form please",
+    "Email": " Email",
+    "Linkedin": "Linkedin",
 
     "Placeholder": {
       "NameInput": "Name",

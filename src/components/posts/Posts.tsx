@@ -50,7 +50,7 @@ const Posts: React.FC = () => {
   }, []);
 
   return (
-    <div className="Posts flex items-center flex-col justify-start">
+    <div className="Posts flex items-center flex-col justify-start w-full">
       <div className="text-[var(--headline)] flex items-center gap-2 text-base opacity-90 w-full">
         <span>
           <HiNewspaper />
@@ -60,14 +60,14 @@ const Posts: React.FC = () => {
       </div>
 
       <div className="dev-to-posts h-full w-full flex">
-        <div className="post-container flex flex-col w-full my-5 gap-5 h-max">
+        <div className="cards  max-md:w-full min-h-[100px] flex flex-col gap-5 py-5 w-full">
           {isLoading && <PostLoading />}
 
           {posts.map((post, index) => (
             <div
               dir="ltr"
               key={index}
-              className={`post-card text-[var(--paragraph)] w-[100%] h-[150px] max-md:h-max post border-[#323a4d] hover:border-[#596788] border bg-[var(--card-background)] cursor-pointer hovered max-w-3xl p-4 rounded-lg flex items-start justify-start ${
+              className={`post-card text-[var(--paragraph)]  h-[170px] max-md:h-max post  bg-[var(--card-background)] cursor-pointer hovered  p-4 w-full rounded-lg flex items-start justify-start ${
                 hoveredIndex !== null && hoveredIndex !== index ? "fade" : ""
               }`}
               onMouseEnter={() => setHoveredIndex(index)}

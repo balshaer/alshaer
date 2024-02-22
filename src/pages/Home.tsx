@@ -1,15 +1,15 @@
-import ExperienceDescription from "@/components/experienceDescription/ExperienceDescription";
-import Footer from "@/components/footer/Footer";
-import Header from "@/components/header/Header";
 import Navbar from "@/components/navbar/Navbar";
+
+import Footer from "@/components/footer/Footer";
+import Content from "@/components/content/Content";
 
 export default function Home() {
   return (
-    <div className="h-full w-full ">
-      <div className="container h-max min-h-[100vh] max-w-6xl flex flex-col gap-[1.5rem]   ">
+    <div className="h-full w-full">
+      <div className="container h-max min-h-[100vh] max-w-3xl flex flex-col gap-[1.5rem]">
         <Navbar />
-        <Header />
-        <ExperienceDescription />
+        <Content />
+
         <Footer />
       </div>
     </div>

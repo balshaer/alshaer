@@ -13,15 +13,15 @@ export default function ExperienceDescription() {
   return (
     <div
       dir={direction}
-      className="Description flex items-center flex-col justify-start py-8 "
+      className="Description flex items-center flex-col justify-start py-10 w-full  "
     >
       <TitleOfSection title={t("Experience.Title")} />
       <AnimatedComponent>
-        <div className="cards flex gap-10 flex-wrap w-full min-h-[100px]">
+        <div className="cards  w-full max-md:w-full min-h-[100px] flex flex-col gap-5 ">
           {companies.map((company, index) => (
             <div
               key={index}
-              className="card flex flex-row gap-4 h-[115px] rounded-xl   items-center justify-center w-max max-md:w-full bg-[var(--card-background)] p-10"
+              className="card  max-md:min-w-full flex flex-row gap-4 h-[115px] rounded-xl  items-center justify-start  max-md:w-full bg-[var(--card-background)] p-10 max-md:max-w-full"
             >
               <a className="cursor-pointer" target="_blank" href={company.Link}>
                 <img

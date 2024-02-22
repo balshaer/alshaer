@@ -221,12 +221,27 @@ export function DrawerDialogDemo() {
   const { t } = useTranslation();
 
   const commonContent = (
-    <ButtonDefault
-      isSubmit
-      text={t("DialogForm.SendMessage")}
-      iconPosition="right"
-      icon={GrSend}
-    />
+    <div className="  text-[var(--paragraph)]">
+      <p>
+        {t("Public.ContactVia")}
+        <button
+          type="submit"
+          className=" text-[var(--headline)] underline px-1"
+        >
+          {t("Public.Email")}
+        </button>
+        <span className="px-1">{t("Public.or")}</span>
+        <span>
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/in/balshaer/"
+            className=" text-[var(--headline)] underline ps-1"
+          >
+            {t("Public.Linkedin")}
+          </a>
+        </span>
+      </p>
+    </div>
   );
   const closeDialog = () => {
     setOpen(false);

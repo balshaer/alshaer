@@ -2,18 +2,22 @@ import { useTranslation } from "react-i18next";
 import { DrawerDialogDemo } from "../contact/DrawerDialogDemo";
 import i18n from "@/i18n";
 import AnimatedComponent from "../animations/AnimatedComponent";
+import Contact from "../about/Contact";
+import ExperienceDescription from "../experienceDescription/ExperienceDescription";
+import Projects from "@/pages/Projects";
+import Blog from "@/pages/Blog";
 
-export default function Header() {
+export default function Content() {
   const { t } = useTranslation();
   const direction = i18n.language === "ar" ? "rtl" : "ltr";
   return (
     <AnimatedComponent>
       <div
         dir={direction}
-        className="  flex items-start justify-center flex-col w-full gap-5 min-h-[75vh] pb-10 max-md:pb-0"
+        className="  flex items-start justify-start flex-col w-full gap-5 min-h-[75vh] py-20 max-md:pb-0"
       >
         <div>
-          <h1 className="text-[var(--headline)] text-5xl font-bold select-none flex flex-col gap-4 ">
+          <h1 className="text-[var(--headline)] text-2xl font-bold select-none flex flex-col gap-4 ">
             <span className="max-md:text-3xl max-w-[60%] max-md:max-w-none leading-tight">
               {t("Header.Title")}
             </span>
@@ -21,7 +25,7 @@ export default function Header() {
         </div>
 
         <div>
-          <p className="text-[var(--paragraph)]  text-xl max-md:text-lg max-md:w-full max-w-[50%] max-md:max-w-none">
+          <p className="text-[var(--paragraph)]  text-lg max-md:text-lg max-md:w-full max-md:max-w-none">
             {t("Header.Description")}
           </p>
         </div>
@@ -34,6 +38,11 @@ export default function Header() {
             <DrawerDialogDemo />
           </div>
         </form>
+
+        <Contact />
+        <ExperienceDescription />
+        <Projects />
+        <Blog />
       </div>
     </AnimatedComponent>
   );

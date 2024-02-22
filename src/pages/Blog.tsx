@@ -1,8 +1,4 @@
-import AnimatedComponent from "@/components/animations/AnimatedComponent";
-import DescriptionOfSection from "@/components/custom/DescriptionOfSection";
 import TitleOfSection from "@/components/custom/TitleOfSection";
-import Footer from "@/components/footer/Footer";
-import Navbar from "@/components/navbar/Navbar";
 import Posts from "@/components/posts/Posts";
 import i18n from "@/i18n";
 
@@ -13,35 +9,13 @@ export default function Blog() {
   const { t } = useTranslation();
 
   return (
-    <div className="h-full w-full ">
-      <div className="container h-max min-h-[100vh] max-w-6xl flex flex-col gap-[1.5rem]   ">
-        <Navbar />
+    <div className="w-full py-10" dir={direction} id="blog">
+      <div className="w-full">
+        <TitleOfSection title={t("BlogSection.Title")} />
+      </div>
 
-        <div dir={direction}>
-          <div>
-            <AnimatedComponent>
-              <TitleOfSection title={t("BlogSection.Title")} />
-            </AnimatedComponent>
-
-            <AnimatedComponent>
-              <DescriptionOfSection
-                description={t("BlogSection.Description")}
-              />
-            </AnimatedComponent>
-
-            <br />
-          </div>
-
-          <div>
-            <AnimatedComponent>
-              <Posts />
-            </AnimatedComponent>
-          </div>
-        </div>
-
-        <div>
-          <Footer />
-        </div>
+      <div>
+        <Posts />
       </div>
     </div>
   );
