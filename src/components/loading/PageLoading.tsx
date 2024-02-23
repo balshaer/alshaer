@@ -8,7 +8,7 @@ export default function PageLoading() {
       <div className="text-[var(--headline)] text-base font-semibold flex items-center justify-center gap-4 h-full w-full ">
         <div className=" pb-10 w-full flex items-center justify-center text-center">
           <p className="w-full ps-2 pb-4">{t("Public.Loading")}</p>
-          <div className="loader before:bg-[var(--button)] w-full"></div>
+          {/* <div className="loader before:bg-[var(--button)] w-full"></div> */}
         </div>
       </div>
     </div>
