@@ -59,7 +59,7 @@ const Posts: React.FC = () => {
         <span>{t("Public.ExploreAll")}</span>
       </div>
 
-      <div className="dev-to-posts h-full w-full flex">
+      <div data-aos="fade-up" className="dev-to-posts h-full w-full flex">
         <div className="cards  max-md:w-full min-h-[100px] flex flex-col gap-5 py-5 w-full">
           {isLoading && <PostLoading />}
 

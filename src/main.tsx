@@ -8,10 +8,11 @@ import "../app/globals.css";
 import i18n from "./i18n.ts";
 import MenuBar from "@/components/contact/MenuBar.tsx";
 import Direction from "./components/contact/Direction.tsx";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 ReactDOM.render(
   <React.StrictMode>
-
     <Direction>
       <MenuBar>
         <I18nextProvider i18n={i18n}>
