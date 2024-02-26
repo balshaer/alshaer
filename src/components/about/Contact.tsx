@@ -6,7 +6,7 @@ export default function Contact() {
   const { t } = useTranslation();
 
   return (
-    <section className="py-10 " data-aos="fade-up ">
+    <section className="section" data-aos="fade-up ">
       <AnimatedComponent>
         <TitleOfSection title={t("About.Contact.FindMe")} />
 

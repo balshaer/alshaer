@@ -13,7 +13,7 @@ export default function ExperienceDescription() {
   return (
     <div
       dir={direction}
-      className="Description flex items-center flex-col justify-start py-10 w-full  "
+      className="Description flex items-center flex-col justify-start section  w-full  "
     >
       <TitleOfSection title={t("Experience.Title")} />
       <AnimatedComponent>

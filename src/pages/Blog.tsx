@@ -9,7 +9,7 @@ export default function Blog() {
   const { t } = useTranslation();
 
   return (
-    <div className="w-full py-10" dir={direction} id="blog">
+    <div className="w-full section" dir={direction} id="blog">
       <div className="w-full">
         <TitleOfSection title={t("BlogSection.Title")} />
       </div>

@@ -17,7 +17,7 @@ export default function Content() {
         className="  flex items-start justify-start flex-col w-full gap-5 min-h-[75vh] py-20 max-md:pb-0"
       >
         <div>
-          <h1 className="text-[var(--headline)] text-2xl font-bold select-none flex flex-col gap-4 ">
+          <h1 className="text-[var(--headline)] text-2xl font-bold  flex flex-col gap-4 max-lg:pt-20">
             <span className="max-md:text-3xl max-w-[60%] max-md:max-w-none leading-tight">
               {t("Header.Title")}
             </span>
@@ -27,17 +27,9 @@ export default function Content() {
         <div>
           <p className="text-[var(--paragraph)]  text-lg max-md:text-lg max-md:w-full max-md:max-w-none">
             {t("Header.Description")}
+            <DrawerDialogDemo />
           </p>
         </div>
-
-        <form
-          onSubmit={(e) => e.preventDefault()}
-          className="flex gap-4 max-md:flex-col"
-        >
-          <div className="h-full flex items-center w-full">
-            <DrawerDialogDemo />
-          </div>
-        </form>
 
         <Contact />
         <ExperienceDescription />

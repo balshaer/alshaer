@@ -32,7 +32,6 @@ const PageMode: React.FC = () => {
     return savedMode || "dark";
   });
   const { t } = useTranslation();
-
   const toggleMode = () => {
     setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
   };

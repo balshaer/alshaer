@@ -67,10 +67,13 @@ const Projects: React.FC = () => {
 
   const direction = i18n.language === "ar" ? "rtl" : "ltr";
   return (
-    <div dir={direction}  id="projects" className="py-10 w-full">
+    <div dir={direction} id="projects" className="section  w-full">
       <TitleOfSection title={t("ProjectsSection.Title")} />
 
-      <div data-aos="fade-up" className="cards  w-full max-md:w-full min-h-[100px] flex flex-col gap-5 ">
+      <div
+        data-aos="fade-up"
+        className="cards  w-full max-md:w-full min-h-[100px] flex flex-col gap-5 "
+      >
         <ProjectCard
           titleKey="Projects.Project1.Title"
           descriptionKey="Projects.Project1.Description"
