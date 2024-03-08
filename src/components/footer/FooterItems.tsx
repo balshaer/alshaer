@@ -1,8 +1,9 @@
+import i18n from "@/i18n";
 import { useTranslation } from "react-i18next";
-import { direction } from "../languageSelect/Direction";
 
 const FooterItems = () => {
   const { t } = useTranslation();
+  const direction = i18n.language === "ar" ? "rtl" : "ltr";
 
   return (
     <div
