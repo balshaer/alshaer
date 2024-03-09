@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { useTranslation } from "react-i18next";
@@ -55,20 +56,21 @@ const Posts: React.FC = () => {
         <span>
           <HiNewspaper />
         </span>
-
         <span>{t("Public.ExploreAll")}</span>
       </div>
 
       <div data-aos="fade-up" className="dev-to-posts h-full w-full flex">
-        <div className="cards  max-md:w-full min-h-[100px] flex flex-col gap-5 py-5 w-full">
+        <div className="cards max-md:w-full min-h-[100px] flex flex-col gap-5 py-5 w-full">
           {isLoading && <PostLoading />}
 
           {posts.map((post, index) => (
             <div
               dir="ltr"
               key={index}
-              className={`post-card text-[var(--paragraph)]  h-[170px] max-md:h-max post  bg-[var(--card-background)] cursor-pointer hovered  p-4 w-full rounded-lg flex items-start justify-start ${
-                hoveredIndex !== null && hoveredIndex !== index ? "fade" : ""
+              className={`post-card text-[var(--paragraph)] h-[170px] max-md:h-max post bg-[var(--card-background)] cursor-pointer hovered p-4 w-full rounded-lg flex items-start justify-start ${
+                hoveredIndex !== null && hoveredIndex !== index
+                  ? "opacity-40"
+                  : ""
               }`}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
@@ -79,7 +81,7 @@ const Posts: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <div className="postShow  flex flex-col justify-start w-full gap-8 text-base">
+                <div className="postShow flex flex-col justify-start w-full gap-8 text-base">
                   <div>
                     <div className="post-date opacity-60">
                       {new Date(post.pubDate).toLocaleDateString("English", {

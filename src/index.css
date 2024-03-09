@@ -89,3 +89,15 @@ body {
   padding-top: 20px;
   padding-bottom: 20px;
 }
+
+.hoverd {
+  transition: all 0.3s ease 0s !important;
+}
+
+.project-cards-container a:hover .overed {
+  opacity: 0.4;
+}
+
+.project-cards-container a:not(:hover) .overed {
+  transition: opacity 0.3s ease-in-out;
+}

@@ -19,10 +19,7 @@ const DarkMode = createGlobalStyle`
     --input-border-color: #010101;
     --badge-color: #7f5af0;
     --badge-text:#fffffe;
-
     --skeleton-color: #353f4e;
-
-
   }
 `;
 
