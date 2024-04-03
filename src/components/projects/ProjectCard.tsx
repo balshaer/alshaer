@@ -6,7 +6,6 @@ interface ProjectCardProps {
   titleKey: string;
   descriptionKey: string;
   link: string;
-  logoSrc: string;
   badgeText?: string[];
 }
 
@@ -14,7 +13,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   titleKey,
   descriptionKey,
   link,
-  logoSrc,
   badgeText,
 }) => {
   const { t } = useTranslation();
@@ -38,11 +36,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       <div className="h-[150px] rounded-lg bg-[var(--card-background)] overed cursor-pointer">
         <div className="flex p-4 gap-4 items-start justify-start h-full w-full flex-col">
           <div className="flex items-start justify-start gap-4">
-            {/* <img
-              src={logoSrc}
-              className="h-[50px] w-[50px] rounded-lg object-contain"
-              alt="logo"
-            /> */}
+    
             <div className="flex gap-1  flex-col">
               <span className="text-[var(--headline)] font-bold">
                 {t(titleKey)}
