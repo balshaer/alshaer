@@ -48,11 +48,11 @@ const ExperienceDescription: React.FC<ExperienceDescriptionProps> = () => {
               onMouseLeave={() => handleCardHover(null)}
             >
               <a className="cursor-pointer" target="_blank" href={company.Link}>
-                <img
+                {/* <img
                   className="h-16 rounded-lg w-16"
                   src={company.logo}
                   alt="companyLogo"
-                />
+                /> */}
               </a>
               <div className="flex flex-col items-start">
                 <h2 className="text-[var(--headline)]">{company.name}</h2>

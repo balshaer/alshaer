@@ -2,8 +2,8 @@
   "Public": {
     "Submit": "إرسال",
     "ExploreAll": "استكشاف الكل",
-    "BuiltWith": "بني هذا المشروغ بواسطة :",
-    "StarOnGithub": "قيم هذا المشروع",
+    "BuiltWith": "بني باستخدام:",
+    "StarOnGithub": "ساهم بهذا المشروع",
     "Loading": "... جار التحميل ",
     "ContactVia": "يمكنك التواصل معي عن طريق",
     "or": "أو",
@@ -45,7 +45,7 @@
     },
 
     "Tooltip": {
-      "Github": "قيم هذا المشروع"
+      "Github": "ساهم بهذا المشروع"
     }
   },
 
@@ -54,9 +54,7 @@
 
     "Company": {
       "Name1": "Sustainable Star LLC ",
-
       "JobTitle1": "Frontend Developer",
-
       "Date1": "يوليو 2023 - أكتوبر 2023",
 
       "Name2": "PTIT",
@@ -71,10 +69,11 @@
   },
 
   "Projects": {
+    "Projects": "المشاريع",
     "Project1.Title": "Naj",
     "Project1.Description": "مركز متخصص يوفر التعليم لجميع طلاب طب الأسنان في المملكة العربية السعودية.",
-
-    "Project2.Title": "GradiMix",
+    "ProjectsHeadline": "خلال مسار عملي، ساهمت وأنشأت العديد من المشاريع. فيما يلي بعض المشاريع المفضلة لدي.",
+    "Project2.Title": "Gradimix",
     "Project2.Description": "مجموعة من تدرجات CSS",
 
     "Project3.Title": "Rove ",

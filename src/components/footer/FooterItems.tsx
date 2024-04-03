@@ -14,7 +14,7 @@ const FooterItems = () => {
         <span className="text-sm">{t("Public.BuiltWith")}</span>
       </div>
 
-      <div className="flex gap-2 h-full">
+      <div dir="ltr" className="flex gap-2 h-full">
         <a
           className="flex flex-row items-center justify-center gap-2 hoverd hover:opacity-100"
           href="https://react.dev/"

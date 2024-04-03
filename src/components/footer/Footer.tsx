@@ -7,7 +7,6 @@ export default function Footer() {
       <div>
         <FooterItems />
       </div>
-
       <div>
         <CopyRight />
       </div>

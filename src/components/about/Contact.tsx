@@ -52,11 +52,11 @@ const Contact: React.FC = () => {
       <AnimatedComponent>
         <TitleOfSection title={t("About.Contact.FindMe")} />
 
-        <ul className="text-[var(--paragraph)] max-md:flex-col items-start hovered flex gap-4">
+        <ul className="text-[var(--paragraph)] max-md:flex-col items-start hovered flex gap-4 ">
           {socialMediaLinks.map((link, index) => (
             <li key={index}>
               <a
-                className={`flex flex-row-reverse items-center hovered gap-2 w-full ${
+                className={`flex flex-row-reverse items-center  hovered gap-2 w-full ${
                   hoveredIndex !== null && index !== hoveredIndex
                     ? "opacity-40"
                     : ""
@@ -66,14 +66,14 @@ const Contact: React.FC = () => {
                 onMouseEnter={() => handleLinkHover(index)}
                 onMouseLeave={() => handleLinkHover(null)}
               >
-                <span>{link.name}</span>
+                <span>.{link.name}</span>
                 <span>
-                  <img
+                  {/* <img
                     width="20"
                     height="20"
                     src={link.iconSrc}
                     alt={link.name}
-                  />
+                  /> */}
                 </span>
               </a>
             </li>

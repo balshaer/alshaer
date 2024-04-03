@@ -5,8 +5,8 @@ export default function Logo() {
     <div>
       <Link to={"/"}>
         <div className="flex items-center justify-start gap-2 cursor-pointer  Logo">
-          <span className="text-[var(--paragraph)] hovered hover:text-[var(--link-color)] cursor-pointer font-semibold">
-            Baraa
+          <span className=" text-2xl font-bold hovered text-[var(--link-color)] cursor-pointer ">
+            .b
           </span>
         </div>
       </Link>

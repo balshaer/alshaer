@@ -2,8 +2,8 @@
   "Public": {
     "Submit": "Submit",
     "ExploreAll": "Explore All",
-    "BuiltWith": "Built With",
-    "StarOnGithub": "Star On Github",
+    "BuiltWith": "Built With:",
+    "StarOnGithub": "contribute to this project",
     "Loading": "Loading ...",
     "ContactVia": "You can contact me via",
     "or": "or",
@@ -47,7 +47,7 @@
     },
 
     "Tooltip": {
-      "Github": "Star on this project"
+      "Github": "Contribute to this project"
     }
   },
 
@@ -72,7 +72,7 @@
   "Projects": {
     "Project1.Title": "Naj",
     "Project1.Description": "Dedicated center for dental education in Saudi Arabia.",
-
+    "ProjectsHeadline": "I've worked on tons of little projects over the years but these are the ones that I'm most proud of.",
     "Project2.Title": "GradiMix ",
     "Project2.Description": "Collection of CSS gradients",
 
@@ -94,7 +94,7 @@
   },
 
   "Footer": {
-    "CopyRight": "Copyright © Baraa Alshaer 2024 All rights Reserved"
+    "CopyRight": "Copyright © 2024 All rights Reserved"
   },
 
   "About": {
