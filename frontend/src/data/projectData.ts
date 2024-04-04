@@ -1,4 +1,3 @@
-
 interface ProjectData {
   titleKey: string;
   descriptionKey: string;
@@ -29,6 +28,14 @@ const projectData: ProjectData[] = [
     link: "https://github.com/balshaer/rove",
     badgeText: ["React", "Tailwind CSS", "Laravel", "MYSQL"],
     type: "Fullstack",
+  },
+
+  {
+    titleKey: "Projects.Project4.Title",
+    descriptionKey: "Projects.Project4.Description",
+    link: "https://sustainablestar.com.sa/",
+    badgeText: ["React", "Tailwind CSS", "Material UI"],
+    type: "FrontEnd",
   },
 ];
 

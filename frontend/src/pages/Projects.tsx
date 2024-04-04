@@ -27,7 +27,7 @@ const Projects: React.FC = () => {
 
       <div className="py-5">
         <Link to={"/projects"}>
-          <ButtonDefault text="see more" />
+          <ButtonDefault text={t("Public.SeeMore")} />
         </Link>
       </div>
     </div>

@@ -8,7 +8,9 @@
     "ContactVia": "You can contact me via",
     "or": "or",
     "Email": " Email",
-    "Linkedin": "Linkedin"
+    "Linkedin": "Linkedin",
+    "SeeMore": "see more",
+    "All": "All"
   },
 
   "Header": {
@@ -70,14 +72,16 @@
   },
 
   "Projects": {
+    "NotFound": "Learning progress... Projects coming soon",
     "Project1.Title": "Naj",
     "Project1.Description": "Dedicated center for dental education in Saudi Arabia.",
     "ProjectsHeadline": "I've worked on tons of little projects over the years but these are the ones that I'm most proud of.",
     "Project2.Title": "GradiMix ",
     "Project2.Description": "Collection of CSS gradients",
-
     "Project3.Title": "Rove ",
-    "Project3.Description": "A Full-Stack Ecommerce Web App"
+    "Project3.Description": "A Full-Stack Ecommerce Web App",
+    "Project4.Title": "Sustainable Star ",
+    "Project4.Description": "A website for a sustainable star company."
   },
 
   "Blog": {

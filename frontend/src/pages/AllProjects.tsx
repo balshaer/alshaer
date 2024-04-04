@@ -24,14 +24,16 @@ interface Option {
   label: string;
 }
 
-const projectTypes: Option[] = [
-  { value: "all", label: "All" },
-  { value: "FrontEnd", label: "FrontEnd" },
-  { value: "BackEnd", label: "BackEnd" },
-  { value: "Fullstack", label: "Fullstack" },
-];
-
 export default function AllProjects() {
+  const { t } = useTranslation();
+
+  const projectTypes: Option[] = [
+    { value: "all", label: t("Public.All") },
+    { value: "FrontEnd", label: "FrontEnd" },
+    { value: "BackEnd", label: "BackEnd" },
+    { value: "Fullstack", label: "Fullstack" },
+  ];
+
   const [selectedType, setSelectedType] = useState<string | null>(null);
 
   const handleTypeChange = (selectedOption: Option) => {
@@ -48,7 +50,6 @@ export default function AllProjects() {
     }
   });
 
-  const { t } = useTranslation();
   const direction = i18n.language === "ar" ? "rtl" : "ltr";
 
   return (
@@ -124,9 +125,15 @@ export default function AllProjects() {
               </Breadcrumb>
             </span>
 
-            {filteredProjects.map((project: ProjectData, index: number) => (
-              <ProjectCard key={index} {...project} />
-            ))}
+            {filteredProjects.length === 0 ? (
+              <p className="text-[var(--paragraph)] text-lg max-md:text-lg max-md:w-full max-md:max-w-none">
+                {t("Projects.NotFound")}
+              </p>
+            ) : (
+              filteredProjects.map((project: ProjectData, index: number) => (
+                <ProjectCard key={index} {...project} />
+              ))
+            )}
           </div>
         </AnimatedComponent>
         <Footer />
