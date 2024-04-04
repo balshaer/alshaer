@@ -8,7 +8,7 @@ My personal portfolio website designed to be simplistic and clean while includin
 
 backend:
 
-- [Node.js](https://nodejs.org/en) / TypeScript
+- [Node.js](https://nodejs.org/en) 
 - [Mongoose](https://mongoosejs.com/docs/)(Database)
 - [Express.js](https://expressjs.com/)
 
