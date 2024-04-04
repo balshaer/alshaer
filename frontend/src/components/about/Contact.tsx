@@ -26,12 +26,12 @@ const socialMediaLinks: SocialMediaLink[] = [
     url: "https://wa.me/970593493899",
     iconSrc: "https://img.icons8.com/color/48/whatsapp.png",
   },
-  {
-    name: "Dev.to",
-    url: "https://dev.to/baraa",
-    iconSrc:
-      "https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png",
-  },
+  // {
+  //   name: "Dev.to",
+  //   url: "https://dev.to/baraa",
+  //   iconSrc:
+  //     "https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png",
+  // },
   {
     name: "Youtube",
     url: "https://www.youtube.com/@Codewithbaraa",
