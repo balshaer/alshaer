@@ -5,7 +5,7 @@ import AnimatedComponent from "../animations/AnimatedComponent";
 import Contact from "../about/Contact";
 import ExperienceDescription from "../experienceDescription/ExperienceDescription";
 import Projects from "@/pages/Projects";
-import Blog from "@/pages/Blog";
+// import Blog from "@/pages/Blog";
 
 export default function Content() {
   const { t } = useTranslation();
@@ -34,7 +34,7 @@ export default function Content() {
         <Contact />
         <ExperienceDescription />
         <Projects />
-        <Blog />
+        {/* <Blog /> */}
       </div>
     </AnimatedComponent>
   );

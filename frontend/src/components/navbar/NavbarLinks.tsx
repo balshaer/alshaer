@@ -16,7 +16,7 @@ export default function NavbarLinks() {
     <ul className="flex font-semibold items-center justify-center gap-4 px-4 max-md:flex-col max-md:h-full max-md:w-full max-md:items-start max-md:text-lg max-md:space-y-1 max-md:px-4 max-md:py-6">
       {[
         { to: "projects", label: t("Navbar.Projects") },
-        { to: "blog", label: t("Navbar.Blog") },
+        // { to: "blog", label: t("Navbar.Blog") },
       ].map((link, index) => (
         <li key={index}>
           <ScrollLink
