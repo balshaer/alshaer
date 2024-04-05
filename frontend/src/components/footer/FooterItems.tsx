@@ -20,7 +20,7 @@ const FooterItems = () => {
           href="https://react.dev/"
           target="_blank"
         >
-          <span>React</span>
+          <span>React.JS</span>
           <img
             width="16"
             height="16"

@@ -75,14 +75,14 @@ export default function AllProjects() {
       </div>
       <div className="container h-max min-h-[100vh] max-w-3xl flex flex-col gap-[1.5rem]">
         <AnimatedComponent>
-          <div className="projectCards  flex flex-col  w-full gap-5 min-h-[75vh] max-md:py-32 py-10 max-md:pb-0">
+          <div className="projectCards flex flex-col w-full gap-5 min-h-[75vh] max-md:py-24 py-10 max-md:pb-0">
             <h1 className="text-[var(--headline)] text-2xl font-bold  flex flex-col gap-4 max-md:pt-10">
               <span className="max-md:text-3xl max-w-[60%] max-md:max-w-none leading-tight">
                 {t("ProjectsSection.Title")}
               </span>
             </h1>
 
-            <p className="text-[var(--paragraph)]   text-lg max-md:text-lg max-md:w-full max-md:max-w-none">
+            <p className="text-[var(--paragraph)] text-lg max-md:text-lg max-md:w-full max-md:max-w-none">
               {t("Projects.ProjectsHeadline")}
             </p>
 
