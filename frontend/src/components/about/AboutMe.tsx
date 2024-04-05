@@ -35,7 +35,6 @@ export default function AboutMe() {
             {t("About.Email")}
           </a>
         </p>
-
       </section>
     </AnimatedComponent>
   );
