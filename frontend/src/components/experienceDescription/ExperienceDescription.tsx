@@ -39,9 +39,9 @@ const ExperienceDescription: React.FC<ExperienceDescriptionProps> = () => {
           {companies.map((company, index) => (
             <div
               key={index}
-              className={`card max-md:min-w-full flex flex-row gap-4 cursor-pointer hoverd  h-[115px] rounded-xl items-center justify-start max-md:w-full bg-[var(--card-background)] p-10 max-md:max-w-full ${
+              className={`card max-md:min-w-full flex flex-row gap-4 cursor-pointer hoverd  h-[115px] rounded-xl items-center justify-start max-md:w-full bg-[var(--card-background)] max-md:max-w-full ${
                 hoveredIndex !== null && index !== hoveredIndex
-                  ? "opacity-40"
+                  ? "opacity-60"
                   : ""
               }`}
               onMouseEnter={() => handleCardHover(index)}
@@ -54,8 +54,10 @@ const ExperienceDescription: React.FC<ExperienceDescriptionProps> = () => {
                   alt="companyLogo"
                 /> */}
               </a>
-              <div className="flex flex-col items-start">
-                <h2 className="text-[var(--headline)]">{company.name}</h2>
+              <div className="flex flex-col items-start justify-start">
+                <h2 className="text-[var(--headline)]  font-bold">
+                  {company.name}
+                </h2>
                 <span className="text-[var(--paragraph)]">
                   {company.jobTitle}
                 </span>

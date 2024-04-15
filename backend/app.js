@@ -1,15 +1,26 @@
 const express = require("express");
 const app = express();
 const connectToDatabase = require("./config/connectToDatabase");
+const cors = require("cors");
+const { notFound, errorHandler } = require("./middlewares/error");
 
 const authRoute = require("./routes/auth/authRoute");
 const userRoute = require("./routes/user/userRoute");
-
 const socialLinksShow = require("./routes/socialLink/socialLinksRoute");
 
-const { notFound, errorHandler } = require("./middlewares/error");
+const originUrl = "https://alshaer.vercel.app";
+const devUrl = "http://localhost:5173";
+
 require("dotenv").config();
 connectToDatabase();
+
+// Set up CORS middleware before defining routes
+app.use(
+  cors({
+    origin: ["http://localhost:5173", "https://alshaer.vercel.app"],
+    credentials: true,
+  })
+);
 
 app.use(express.json());
 app.use("/api/auth/", authRoute);
@@ -20,5 +31,5 @@ app.use(notFound);
 app.use(errorHandler);
 
 app.listen(process.env.PORT, () => {
-  console.log("Listen on port " + process.env.PORT);
+  console.log("Listening on port " + process.env.PORT);
 });

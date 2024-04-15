@@ -5,7 +5,6 @@ import AnimatedComponent from "../animations/AnimatedComponent";
 import Contact from "../about/Contact";
 import ExperienceDescription from "../experienceDescription/ExperienceDescription";
 import Projects from "@/pages/Projects";
-// import Blog from "@/pages/Blog";
 
 export default function Content() {
   const { t } = useTranslation();
