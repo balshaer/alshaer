@@ -37,6 +37,14 @@ const projectData: ProjectData[] = [
     badgeText: ["React", "Tailwind CSS", "Material UI"],
     type: "FrontEnd",
   },
+
+  {
+    titleKey: "Projects.Project5.Title",
+    descriptionKey: "Projects.Project5.Description",
+    link: "https://github.com/balshaer/bookstore-api",
+    badgeText: ["Node JS", "Express JS", "Mongoose DB"],
+    type: "BackEnd",
+  },
 ];
 
 export { projectData };
