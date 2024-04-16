@@ -19,7 +19,7 @@ const Contact: React.FC = () => {
 
         <ul className="text-[var(--paragraph)] max-md:flex-col items-start hovered flex gap-4 ">
           {socialMediaLinks.map((item, index) => (
-            <li key={item._id}>
+            <li key={index}>
               <a
                 className={`flex flex-row-reverse items-center  hovered gap-2 w-full ${
                   hoveredIndex !== null && index !== hoveredIndex
@@ -27,6 +27,7 @@ const Contact: React.FC = () => {
                     : ""
                 }`}
                 target="_blank"
+                rel="noopener noreferrer"
                 href={item.link}
                 onMouseEnter={() => handleLinkHover(index)}
                 onMouseLeave={() => handleLinkHover(null)}
