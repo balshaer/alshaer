@@ -1,32 +1,32 @@
 {
   "Public": {
-    "Submit": "Submit",
+    "Send": "Send",
     "ExploreAll": "Explore All",
     "BuiltWith": "Built With:",
     "StarOnGithub": "contribute to this project",
     "Loading": "Loading ...",
-    "ContactVia": "You can contact me via",
+    "ContactVia": "",
     "or": "or",
-    "Email": " Email",
+    "Email": "Get in touch →",
     "Linkedin": "Linkedin",
     "SeeMore": "see more",
     "All": "All"
   },
 
   "Header": {
-    "Title": "Software engineer with a strong focus in front-end & system design",
-    "Description": "I'm Baraa Alshaer, a dedicated front-end developer passionate about continuously learning, innovating, and building high-quality open-source software projects."
+    "Title": "Full-Stack Developer Specializing in the MERN Stack",
+    "Description": "Hi, I'm Baraa. With expertise in both frontend and backend development, I build creative solutions that prioritize exceptional user experiences."
   },
 
   "DialogForm": {
     "SendMessage": "Send Message",
-    "DialogTitle": "Fill Form please",
+    "DialogTitle": "Let's Connect!",
     "Email": " Email",
     "Linkedin": "Linkedin",
 
     "Placeholder": {
       "NameInput": "Name",
-      "EmailInput": "Email@example.com",
+      "EmailInput": "yourname@email.com",
       "MessageTextarea": "Message"
     },
 

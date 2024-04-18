@@ -16,6 +16,8 @@ interface CustomStyles {
 
 const LanguageSelect: React.FC = () => {
   const { t, i18n } = useTranslation();
+  const direction = i18n.language === "ar" ? "rtl" : "ltr";
+
   const [selectedOption, setSelectedOption] = useState<Option>(() => {
     return {
       value: i18n.language,
@@ -48,6 +50,7 @@ const LanguageSelect: React.FC = () => {
       ...provided,
       border: "1px solid var(--button)",
       borderRadius: "4px",
+      cursor: "pointer",
       backgroundColor: "var(--button)",
       color: "var(--button-text)",
       "&:hover": {

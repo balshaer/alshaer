@@ -17,7 +17,7 @@ export default function Content() {
       >
         <div>
           <h1 className="text-[var(--headline)] text-2xl font-bold  flex flex-col gap-4 max-md:pt-10">
-            <span className="max-md:text-3xl max-w-[60%] max-md:max-w-none leading-tight">
+            <span className="max-md:text-3xl max-w-[60%] max-md:max-w-none leading-tight text-wrap">
               {t("Header.Title")}
             </span>
           </h1>

@@ -3,12 +3,12 @@ import { createGlobalStyle } from "styled-components";
 const LightMode = createGlobalStyle`
   :root {
     --background: #fffffe;
-    --headline: #2b2c34;
-    --paragraph: #2b2c34;
+    --headline: #0d0d0d;
+    --paragraph: #2a2a2a;
     --button: #6246ea;
     --button-hover: #6246ea;
     --button-text: #fffffe;
-    --card-background: #d1d1e9;
+    --card-background: #eff0f3;
     --link-color: #6246ea;
     --nav-item: #2b2c34;
     --logo-background: #2b2c34;
@@ -20,8 +20,8 @@ const LightMode = createGlobalStyle`
     --badge-color: #6246ea;
     --badge-text:#fffffe;
     --skeleton-color: #353f4e;
-
-
+    --tertiary-color: #2ea775;
+    --footer-border-color: #b6b6b8;
   }
 `;
 

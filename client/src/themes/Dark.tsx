@@ -20,6 +20,9 @@ const DarkMode = createGlobalStyle`
     --badge-color: #7f5af0;
     --badge-text:#fffffe;
     --skeleton-color: #353f4e;
+    --tertiary-color: #2cb67d;
+    --footer-border-color: #ffffff25;
+
   }
 `;
 

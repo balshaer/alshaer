@@ -19,33 +19,31 @@ const ButtonDefault: React.FC<ButtonDefaultProps> = ({
 }) => {
   const renderIcon = () => {
     if (Icon) {
-      return <Icon className="mr-2" />;
+      return <Icon className="h-full w-5  flex justify-center items-center" />;
     }
     return null;
   };
 
-  if (isSubmit) {
-    return (
-      <button
-        {...rest}
-        type="submit"
-        className="hover:bg-[var(--button-hover)] gap-2 flex items-center justify-center bg-[var(--button)] text-[var(--button-text)] rounded-md cursor-pointer px-6 py-3 transition duration-100 transform"
-      >
-        {iconPosition === "left" && renderIcon()}
-        {text}
-        {iconPosition === "right" && renderIcon()}
-      </button>
-    );
-  }
+  const buttonClassName =
+    "hover:bg-[var(--button-hover)] h-full gap-2 flex items-center justify-center bg-[var(--button)] text-[var(--button-text)] rounded-md cursor-pointer px-6 py-3 transition duration-100 transform";
 
-  return (
-    <Button
+  const renderButton = (isSubmit: boolean) => (
+    <button
       {...rest}
-      className="hover:bg-[var(--button-hover)] flex items-center justify-center bg-[var(--button)] text-[var(--button-text)] rounded-md cursor-pointer px-6 py-3 transition duration-100 transform"
+      type={isSubmit ? "submit" : "button"}
+      className={buttonClassName}
     >
       {iconPosition === "left" && renderIcon()}
       {text}
       {iconPosition === "right" && renderIcon()}
+    </button>
+  );
+
+  return isSubmit ? (
+    renderButton(true)
+  ) : (
+    <Button {...rest} className={buttonClassName}>
+      {text}
     </Button>
   );
 };

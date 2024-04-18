@@ -191,7 +191,7 @@ function ProfileForm({
       {!loading && (
         <ButtonDefault
           isSubmit
-          text={t("Public.Submit")}
+          text={t("Public.send")}
           iconPosition="right"
           icon={HiMail}
         />
@@ -225,11 +225,10 @@ export function DrawerDialogDemo() {
         {t("Public.ContactVia")}
         <button
           type="submit"
-          className=" text-[var(--headline)] underline ps-2 pe-1"
+          className=" text-[var(--tertiary-color)] underline ps-1 pe-1"
         >
           {t("Public.Email")}
         </button>
-        .
       </p>
     </div>
   );

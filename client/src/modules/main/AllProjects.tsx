@@ -82,7 +82,7 @@ export default function AllProjects() {
               </span>
             </h1>
 
-            <p className="text-[var(--paragraph)] text-lg max-md:text-lg max-md:w-full max-md:max-w-none">
+            <p className="text-[var(--paragraph)] text-lg  max-w-[60%] max-md:max-w-none leading-tight text-wrap">
               {t("Projects.ProjectsHeadline")}
             </p>
 

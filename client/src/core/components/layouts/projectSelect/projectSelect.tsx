@@ -39,6 +39,7 @@ const ProjectSelect: React.FC<ProjectSelectProps> = ({
       ...provided,
       border: "1px solid var(--button)",
       width: "150px",
+      cursor: "pointer",
       borderRadius: "4px",
       backgroundColor: "var(--button)",
       color: "var(--button-text)",
