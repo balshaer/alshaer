@@ -3,7 +3,11 @@
     "development"
   ],
   "hints": {
+    "disown-opener": "off",
+    "axe/name-role-value": "off",
+    "compat-api/css": "off",
     "no-inline-styles": "off",
-    "typescript-config/consistent-casing": "off"
+    "typescript-config/consistent-casing": "off",
+    "typescript-config/strict": "off"
   }
 }

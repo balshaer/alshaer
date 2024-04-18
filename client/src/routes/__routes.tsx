@@ -1,6 +1,6 @@
-import AllProjects from "@/pages/AllProjects";
-import Home from "@/pages/Home";
-import NotFound from "@/pages/errors/NotFound";
+import NotFound from "@/modules/errors/NotFound";
+import AllProjects from "@/modules/main/AllProjects";
+import Home from "@/modules/main/Home";
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
@@ -9,7 +9,6 @@ const AppRoutes: React.FC = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/projects" element={<AllProjects />} />
-
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
