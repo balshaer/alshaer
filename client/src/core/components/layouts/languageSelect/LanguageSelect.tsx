@@ -16,7 +16,6 @@ interface CustomStyles {
 
 const LanguageSelect: React.FC = () => {
   const { t, i18n } = useTranslation();
-  const direction = i18n.language === "ar" ? "rtl" : "ltr";
 
   const [selectedOption, setSelectedOption] = useState<Option>(() => {
     return {
