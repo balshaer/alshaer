@@ -13,7 +13,7 @@ export default function Content() {
     <AnimatedComponent>
       <div
         dir={direction}
-        className="  flex items-start justify-start flex-col w-full gap-5 min-h-[75vh] max-md:py-20 py-20 max-md:pb-0"
+        className="  flex items-start justify-start flex-col w-full gap-5 min-h-[75vh]  py-20 max-md:pb-0"
       >
         <div>
           <h1 className="text-[var(--headline)] text-2xl font-bold  flex flex-col gap-4 max-md:pt-10">

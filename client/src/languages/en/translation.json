@@ -1,6 +1,6 @@
 {
   "Public": {
-    "Send": "Send",
+    "send": "Send",
     "ExploreAll": "Explore All",
     "BuiltWith": "Built With:",
     "StarOnGithub": "contribute to this project",

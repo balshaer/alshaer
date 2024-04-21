@@ -225,7 +225,7 @@ export function DrawerDialogDemo() {
         {t("Public.ContactVia")}
         <button
           type="submit"
-          className=" text-[var(--tertiary-color)] underline ps-1 pe-1"
+          className=" text-[var(--tertiary-color)]  ps-1 pe-1 hoverd underline-hover"
         >
           {t("Public.Email")}
         </button>
