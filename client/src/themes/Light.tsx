@@ -20,7 +20,7 @@ const LightMode = createGlobalStyle`
     --badge-color: #6246ea;
     --badge-text:#fffffe;
     --skeleton-color: #353f4e;
-    --tertiary-color: #2ea775;
+    --tertiary-color: #7f5af0;
     --footer-border-color: #b6b6b8;
   }
 `;
