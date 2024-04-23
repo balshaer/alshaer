@@ -17,7 +17,7 @@ const projectData: ProjectData[] = [
   {
     titleKey: "Projects.Project2.Title",
     descriptionKey: "Projects.Project2.Description",
-    link: "https://github.com/balshaer/gradimix",
+    link: "https://github.com/balshaer/gradients-css",
 
     badgeText: ["Next JS", "Typescript"],
     type: "FrontEnd",
