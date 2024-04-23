@@ -51,6 +51,7 @@ const LanguageSelect: React.FC = () => {
       borderRadius: "4px",
       cursor: "pointer",
       backgroundColor: "var(--button)",
+
       color: "var(--button-text)",
       "&:hover": {
         borderColor: "var(--button-hover)",
@@ -67,8 +68,9 @@ const LanguageSelect: React.FC = () => {
     option: (provided, state) => ({
       ...provided,
       backgroundColor: state.isFocused ? "var(--button-hover)" : "transparent",
-      color: state.isFocused ? "var(--button-text)" : "inherit",
+      color: state.isFocused ? "#fff" : "#000",
       cursor: "pointer",
+      transition: "all 0.1s ease 0s",
     }),
     singleValue: (provided) => ({
       ...provided,

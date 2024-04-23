@@ -58,8 +58,9 @@ const ProjectSelect: React.FC<ProjectSelectProps> = ({
     option: (provided, state) => ({
       ...provided,
       backgroundColor: state.isFocused ? "var(--button-hover)" : "transparent",
-      color: state.isFocused ? "var(--button-text)" : "inherit",
+      color: state.isFocused ? "#fff" : "#000",
       cursor: "pointer",
+      transition: "all 0.1s ease 0s",
     }),
     singleValue: (provided) => ({
       ...provided,
