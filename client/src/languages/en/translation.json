@@ -68,7 +68,7 @@
       "Name3": "GEDCO",
       "JobTitle3": "Software Engineer - Internship",
       "Date3": "Apr 2022 - Jun 2022"
-}
+    }
   },
 
   "Projects": {
@@ -76,8 +76,8 @@
     "Project1.Title": "Naj",
     "Project1.Description": "Dedicated center for dental education in Saudi Arabia.",
     "ProjectsHeadline": "I've worked on tons of little projects over the years but these are the ones that I'm most proud of.",
-    "Project2.Title": "gradients-css ",
-    "Project2.Description": "CSS gradients tool , Essential gradients for designers & developers.",
+    "Project2.Title": "Gradients CSS ",
+    "Project2.Description": "A gradients tool for designers & developers.",
     "Project3.Title": "Rove ",
     "Project3.Description": "A Full-Stack Ecommerce Web App",
     "Project4.Title": "Sustainable Star ",
