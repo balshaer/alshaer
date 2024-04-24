@@ -23,8 +23,8 @@ import {
 } from "@/core/components/ui/tooltip";
 import NavbarLinks from "../navbar/NavbarLinks";
 import Logo from "../logo/Logo";
-import Hr from "../navbar/Hr";
 import { useTranslation } from "react-i18next";
+import Line from "../navbar/Line";
 
 const PageMode: React.FC = () => {
   const [mode, setMode] = useState(() => {
@@ -105,7 +105,7 @@ const PageMode: React.FC = () => {
                   <NavbarLinks />
                 </SheetDescription>
               </SheetHeader>
-              <Hr />
+              <Line />
             </SheetContent>
           </Sheet>
         </div>

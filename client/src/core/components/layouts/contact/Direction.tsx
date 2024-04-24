@@ -15,7 +15,7 @@ interface DirectionProps {
 }
 
 export default function Direction({ children }: DirectionProps) {
-  const [isDir, setIsDir] = useState(false); 
+  const [isDir, setIsDir] = useState(false);
 
   return (
     <DirectionContext.Provider value={{ isDir, setIsDir }}>

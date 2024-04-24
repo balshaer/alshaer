@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { DrawerDialogDemo } from "../contact/DrawerDialogDemo";
 import i18n from "@/i18n";
 import AnimatedComponent from "@/core/components/global/animations/AnimatedComponent";
-import Contact from "../about/Contact";
+import Contact from "../contact/Contact";
 import ExperienceDescription from "../experienceDescription/ExperienceDescription";
 import Projects from "@/modules/main/Projects";
 

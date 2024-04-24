@@ -47,13 +47,6 @@ const ExperienceDescription: React.FC<ExperienceDescriptionProps> = () => {
               onMouseEnter={() => handleCardHover(index)}
               onMouseLeave={() => handleCardHover(null)}
             >
-              <a className="cursor-pointer" target="_blank" href={company.Link}>
-                {/* <img
-                  className="h-16 rounded-lg w-16"
-                  src={company.logo}
-                  alt="companyLogo"
-                /> */}
-              </a>
               <div className="flex flex-col items-start justify-start">
                 <h2 className="text-[var(--headline)]  font-bold">
                   {company.name}

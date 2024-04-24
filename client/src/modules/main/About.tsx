@@ -1,5 +1,5 @@
 import AboutMe from "@/core/components/layouts/about/AboutMe";
-import Contact from "@/core/components/layouts/about/Contact";
+import Contact from "@/core/components/layouts/contact/Contact";
 import i18n from "@/i18n";
 
 export default function About() {

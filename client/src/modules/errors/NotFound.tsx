@@ -1,4 +1,3 @@
-import NotFoundImage from "@/core/assets/images/404.png";
 import Navbar from "@/core/components/layouts/navbar/Navbar";
 
 import { FunctionComponent } from "react";
@@ -26,8 +25,6 @@ const NotFound: FunctionComponent<Props> = () => {
                 {t("Errors.Pages.NotFound.Description")}
               </p>
             </div>
-
-            <img src={NotFoundImage} alt="NotFound" />
           </div>
         </div>
       </div>
