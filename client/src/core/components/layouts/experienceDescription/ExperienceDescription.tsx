@@ -39,7 +39,7 @@ const ExperienceDescription: React.FC<ExperienceDescriptionProps> = () => {
           {companies.map((company, index) => (
             <div
               key={index}
-              className={`card max-md:min-w-full flex flex-row gap-4 cursor-pointer hoverd  h-[115px] rounded-xl items-center justify-start max-md:w-full bg-[var(--card-background)] max-md:max-w-full ${
+              className={`card p-4 max-md:min-w-full flex flex-row gap-4 cursor-pointer hoverd  h-[115px] rounded-xl items-center justify-start max-md:w-full bg-[var(--card-background)] max-md:max-w-full ${
                 hoveredIndex !== null && index !== hoveredIndex
                   ? "opacity-60"
                   : ""
