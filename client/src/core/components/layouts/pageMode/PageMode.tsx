@@ -1,30 +1,26 @@
 import React, { useState, useEffect } from "react";
-import { HiOutlineSun, HiOutlineMoon, HiX } from "react-icons/hi";
-import { VscGithubInverted } from "react-icons/vsc";
+import { HiOutlineSun } from "react-icons/hi";
 import { HiMenu } from "react-icons/hi";
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-  SheetClose,
-} from "@/core/components/ui/sheet";
+import { LuMoon } from "react-icons/lu";
 
 import { getPageMode, savePageMode } from "@/utils/localStorage";
 import DarkMode from "@/themes/Light";
 import LightMode from "@/themes/Dark";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/core/components/ui/tooltip";
-import NavbarLinks from "../navbar/NavbarLinks";
-import Logo from "../logo/Logo";
 import { useTranslation } from "react-i18next";
-import Line from "../navbar/Line";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/core/components/ui/dropdown-menu";
+
+import { ArrowRight, Languages } from "lucide-react";
+import { Button } from "../../ui/button";
+import { Link } from "react-router-dom";
+import i18n from "@/i18n";
 
 const PageMode: React.FC = () => {
   const [mode, setMode] = useState(() => {
@@ -40,75 +36,95 @@ const PageMode: React.FC = () => {
     savePageMode(mode);
   }, [mode]);
 
-  const IconComponent = mode === "light" ? HiOutlineMoon : HiOutlineSun;
+  const toggleLanguage = () => {
+    const newLanguage = i18n.language === "en" ? "ar" : "en";
+    i18n.changeLanguage(newLanguage);
+  };
+
+  const modeText = mode === "light" ? t("mode.dark") : t("mode.light");
+  const languageText =
+    i18n.language === "ar"
+      ? t("LanguageSelector.en")
+      : t("LanguageSelector.ar");
+
+  const IconComponent = mode === "light" ? LuMoon : HiOutlineSun;
 
   return (
-    <div className="pageMode flex items-center justify-center text-[var(--headline)] gap-4 max-md:gap-2">
+    <div>
       {mode === "light" ? <DarkMode /> : <LightMode />}
-      <span onClick={toggleMode} className="h-full cursor-pointer">
-        <IconComponent
-          className="text-[var(--paragraph)] hover:text-[var(--button)] hovered h-[25px] w-[25px]"
-          size={25}
-        />
-      </span>
 
-      <a
-        className="flex items-center justify-center"
-        target="_blank"
-        href="https://github.com/balshaer/alshaer"
-      >
-        <TooltipProvider>
-          <Tooltip>
-            <TooltipTrigger>
-              <span className="h-full cursor-pointer max-md:hidden">
-                <VscGithubInverted className="text-[var(--paragraph)] hover:text-[var(--button)] hovered h-[25px] w-[25px]" />
-              </span>
-            </TooltipTrigger>
-            <TooltipContent>
-              <span>{t("Public.StarOnGithub")}</span>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-      </a>
+      <div>
+        <DropdownMenu>
+          <DropdownMenuTrigger
+            className="bg-transparent p-0 text-[var(--menu-color)] outline-none hover:outline-none focus:outline-none border-none hover:bg-transparent opacity-100 hovered cursor-pointer hover:text-[var(--paragraph)]"
+            asChild
+          >
+            <Button variant="outline">
+              <HiMenu className="h-5 w-5" />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent className="w-56  bg-[var(--background)] text-[var(--menu-color)]">
+            <DropdownMenuLabel className="pt-2">
+              {t("Public.Links")}
+            </DropdownMenuLabel>
+            <DropdownMenuSeparator className="opacity-40 h-[1px]" />
+            <DropdownMenuGroup>
+              <Link to={"/projects"}>
+                <DropdownMenuItem className="hoverd hover:ms-2 cursor-pointer ">
+                  <ArrowRight className="mr-2 h-4 w-4" />
+                  <span>Projects</span>
+                </DropdownMenuItem>
+              </Link>
 
-      <div className="hidden max-md:flex h-full items-center justify-center ">
-        <div className="bg-[var(--background)] h-full flex items-center justify-center">
-          <Sheet>
-            <SheetTrigger className="h-full">
-              <HiMenu
-                className="text-[var(--paragraph)] hover:text-[var(--button)] hovered h-[25px] w-[25px] cursor-pointer"
-                size={25}
-              />
-            </SheetTrigger>
+              <Link to={"https://github.com/balshaer/"}>
+                <DropdownMenuItem className="hoverd hover:ms-2 cursor-pointer">
+                  <ArrowRight className="mr-2 h-4 w-4" />
+                  <span>Github</span>
+                </DropdownMenuItem>
+              </Link>
 
-            <SheetContent>
-              <SheetHeader>
-                <div className="flex w-full py-4 px-2 items-center h-max justify-between">
-                  <Logo />
+              <Link to={"https://www.linkedin.com/in/balshaer/"}>
+                <DropdownMenuItem className="hoverd hover:ms-2 cursor-pointer">
+                  <ArrowRight className="mr-2 h-4 w-4" />
+                  <span>Linkedin</span>
+                </DropdownMenuItem>
+              </Link>
 
-                  <SheetTitle className="h-full flex items-center">
-                    <SheetClose className="h-full">
-                      <button
-                        type="submit"
-                        className="flex items-center justify-center h-full "
-                      >
-                        <HiX
-                          className="text-[var(--paragraph)] hover:text-[var(--button)] hovered h-[25px] w-[25px] cursor-pointer"
-                          size={25}
-                        />
-                      </button>
-                    </SheetClose>
-                  </SheetTitle>
-                </div>
+              <Link to={"https://wa.me/970593493899"}>
+                <DropdownMenuItem className="hoverd hover:ms-2 cursor-pointer">
+                  <ArrowRight className="mr-2 h-4 w-4" />
+                  <span>Whatsapp</span>
+                </DropdownMenuItem>
+              </Link>
+            </DropdownMenuGroup>
 
-                <SheetDescription>
-                  <NavbarLinks />
-                </SheetDescription>
-              </SheetHeader>
-              <Line />
-            </SheetContent>
-          </Sheet>
-        </div>
+            <DropdownMenuLabel className="pt-2">
+              {t("Public.Actions")}
+            </DropdownMenuLabel>
+            <DropdownMenuSeparator className="opacity-40 h-[1px]" />
+
+            <DropdownMenuGroup>
+              <DropdownMenuItem
+                onClick={toggleMode}
+                className="hoverd  cursor-pointer"
+              >
+                <span className=" cursor-pointer">
+                  <IconComponent className="mr-2 h-4 w-4" size={25} />
+                </span>
+
+                <span>{modeText}</span>
+              </DropdownMenuItem>
+
+              <DropdownMenuItem
+                className="hoverd  cursor-pointer"
+                onClick={toggleLanguage}
+              >
+                <Languages className="mr-2 h-4 w-4" />
+                <span>{languageText}</span>
+              </DropdownMenuItem>
+            </DropdownMenuGroup>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
     </div>
   );

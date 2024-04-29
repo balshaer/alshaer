@@ -3,15 +3,20 @@ import { useTranslation } from "react-i18next";
 import i18n from "@/i18n";
 import TitleOfSection from "@/core/components/ui/TitleOfSection";
 import ButtonDefault from "@/core/components/ui/ButtonDefault";
-import { Link } from "react-router-dom";
 import { ProjectData, projectData } from "@/core/data/ProjectData";
 import ProjectCard from "@/core/components/layouts/projects/ProjectCard";
+import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
+import { Link } from "react-router-dom";
 
 const Projects: React.FC = () => {
   const { t } = useTranslation();
   const direction = i18n.language === "ar" ? "rtl" : "ltr";
 
   const limitedProjectData: ProjectData[] = projectData.slice(0, 2);
+
+  const scrollToTop = () => {
+    scroll.scrollToTop({ duration: 500, smooth: true });
+  };
 
   return (
     <div dir={direction} id="projects" className="section w-full">
@@ -26,9 +31,17 @@ const Projects: React.FC = () => {
       </div>
 
       <div className="py-5">
-        <Link to={"/projects"}>
-          <ButtonDefault text={t("Public.SeeMore")} />
-        </Link>
+        <ScrollLink
+          to="/projects"
+          spy={true}
+          smooth={true}
+          duration={500}
+          onClick={scrollToTop}
+        >
+          <Link to={"/projects"}>
+            <ButtonDefault text={t("Public.SeeMore")} />
+          </Link>
+        </ScrollLink>
       </div>
     </div>
   );

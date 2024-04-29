@@ -73,7 +73,7 @@ export default function AllProjects() {
           />
         </div>
       </div>
-      <div className="container h-max min-h-[100vh] max-w-3xl flex flex-col gap-[1.5rem]">
+      <div className="container h-max min-h-[100vh] max-w-3xl flex flex-col gap-[1.5rem] pb-10">
         <AnimatedComponent>
           <div className="projectCards flex flex-col w-full gap-5 min-h-[75vh] max-md:py-24 py-10 max-md:pb-0">
             <h1 className="text-[var(--headline)] text-2xl font-bold  flex flex-col gap-4 max-md:pt-10">
@@ -82,7 +82,7 @@ export default function AllProjects() {
               </span>
             </h1>
 
-            <p className="text-[var(--paragraph)] text-lg  max-w-[60%] max-md:max-w-none leading-tight text-wrap">
+            <p className="text-[var(--paragraph)] text-[1rem]  max-w-[60%] max-md:max-w-none leading-tight text-wrap">
               {t("Projects.ProjectsHeadline")}
             </p>
 
@@ -136,8 +136,8 @@ export default function AllProjects() {
             )}
           </div>
         </AnimatedComponent>
-        <Footer />
       </div>
+      <Footer />
     </div>
   );
 }

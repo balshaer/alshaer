@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState, useEffect } from "react";
 import Select, { ActionMeta, StylesConfig } from "react-select";
 import { useTranslation } from "react-i18next";
@@ -47,23 +46,10 @@ const LanguageSelect: React.FC = () => {
   const customStyles: CustomStyles = {
     control: (provided) => ({
       ...provided,
-      border: "1px solid var(--button)",
-      borderRadius: "4px",
       cursor: "pointer",
-      backgroundColor: "var(--button)",
-
-      color: "var(--button-text)",
-      "&:hover": {
-        borderColor: "var(--button-hover)",
-        backgroundColor: "var(--button-hover)",
-        color: "var(--button-text)",
-      },
-      "&:active": {
-        color: "var(--button-text)",
-      },
-      "&:focus": {
-        color: "var(--button-text)",
-      },
+      backgroundColor: "transparent",
+      border: "none",
+      outline: "none",
     }),
     option: (provided, state) => ({
       ...provided,
@@ -80,6 +66,12 @@ const LanguageSelect: React.FC = () => {
 
   useEffect(() => {
     i18n.changeLanguage(selectedOption.value);
+
+    if (selectedOption.value === "en") {
+      document.body.style.fontFamily = "'Jura', sans-serif";
+    } else if (selectedOption.value === "ar") {
+      document.body.style.fontFamily = "'Cairo', sans-serif";
+    }
   }, [selectedOption.value, i18n]);
 
   return (

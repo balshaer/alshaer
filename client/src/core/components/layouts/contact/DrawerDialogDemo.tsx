@@ -134,6 +134,7 @@ function ProfileForm({
           type="text"
           className="bg-[var(--input-background)] text-[#a0aec0] placeholder-[var(--paragraph)] border-0"
           id="Name"
+          required
           placeholder={t("DialogForm.Placeholder.NameInput")}
           value={name}
           onChange={(e) => setName(e.target.value)}
@@ -154,6 +155,7 @@ function ProfileForm({
           className="bg-[var(--input-background)] text-[#a0aec0] placeholder-[var(--paragraph)] border-0"
           type="email"
           id="email"
+          required
           placeholder={t("DialogForm.Placeholder.EmailInput")}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -173,6 +175,7 @@ function ProfileForm({
         <Textarea
           className="bg-[var(--input-background)] text-[#a0aec0] placeholder-[var(--paragraph)] border-0"
           id="message"
+          required
           placeholder={t("DialogForm.Placeholder.MessageTextarea")}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
@@ -225,7 +228,7 @@ export function DrawerDialogDemo() {
         {t("Public.ContactVia")}
         <button
           type="submit"
-          className=" text-[var(--tertiary-color)]  ps-1 pe-1 hoverd underline-hover"
+          className=" text-[var(--tertiary-color)] font-bold text-[1rem] max-md:ps-0  ps-1 pe-1 hoverd underline-hover"
         >
           {t("Public.Email")}
         </button>

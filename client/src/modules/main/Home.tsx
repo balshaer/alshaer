@@ -8,8 +8,9 @@ export default function Home() {
       <Navbar />
       <div className="container h-max min-h-[100vh] max-w-3xl flex flex-col gap-[1.5rem]">
         <Content />
-        <Footer />
       </div>
+
+      <Footer />
     </div>
   );
 }

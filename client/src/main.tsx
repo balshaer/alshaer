@@ -14,12 +14,12 @@ AOS.init();
 ReactDOM.render(
   <React.StrictMode>
     <Direction>
-        <I18nextProvider i18n={i18n}>
-          <BrowserRouter>
-            <SpeedInsights />
-            <App />
-          </BrowserRouter>
-        </I18nextProvider>
+      <I18nextProvider i18n={i18n}>
+        <BrowserRouter>
+          <SpeedInsights />
+          <App />
+        </BrowserRouter>
+      </I18nextProvider>
     </Direction>
   </React.StrictMode>,
   document.getElementById("root")

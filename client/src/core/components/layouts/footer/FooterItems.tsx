@@ -1,34 +1,39 @@
 import i18n from "@/i18n";
-import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 const FooterItems = () => {
-  const { t } = useTranslation();
   const direction = i18n.language === "ar" ? "rtl" : "ltr";
 
   return (
     <div
       dir={direction}
-      className="text-sm flex gap-2 text-[var(--paragraph)] max-md:flex-col max-md:items-center"
+      className="text-sm flex gap-2 uppercase text-[var(--footer-text)] hoverd max-md:flex-col max-md:items-center "
     >
-      <div>
-        <span className="text-sm">{t("Public.BuiltWith")}</span>
-      </div>
-
-      <div dir="ltr" className="flex gap-2 h-full">
-        <a
-          className="flex flex-row items-center justify-center gap-2 hoverd hover:opacity-100"
-          href="https://react.dev/"
-          target="_blank"
+      <div dir={"ltr"} className="flex gap-2 h-full">
+        <Link
+          className=" hover:tracking-widest hoverd"
+          to={"https://www.youtube.com/@Codewithbaraa"}
         >
-          <span>React.JS</span>
-          <img
-            width="16"
-            height="16"
-            className="object-contain"
-            src="https://img.icons8.com/officel/16/react.png"
-            alt="react"
-          />
-        </a>
+          .Youtube
+        </Link>
+
+        <Link
+          className=" hover:tracking-widest hoverd"
+          to={"https://dev.to/baraa"}
+        >
+          .Blog
+        </Link>
+
+        <Link className=" hover:tracking-widest hoverd" to={"/projects"}>
+          .projects
+        </Link>
+
+        <Link
+          className=" hover:tracking-widest hoverd"
+          to={"https://www.linkedin.com/in/balshaer/"}
+        >
+          .Linkedin
+        </Link>
       </div>
     </div>
   );

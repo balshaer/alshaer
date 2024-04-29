@@ -31,7 +31,7 @@ const ExperienceDescription: React.FC<ExperienceDescriptionProps> = () => {
   return (
     <div
       dir={direction}
-      className="Description flex items-center flex-col justify-start section w-full"
+      className="Description flex items-center flex-col justify-start section w-full text-[1rem]"
     >
       <TitleOfSection title={t("Experience.Title")} />
       <AnimatedComponent>
@@ -39,9 +39,9 @@ const ExperienceDescription: React.FC<ExperienceDescriptionProps> = () => {
           {companies.map((company, index) => (
             <div
               key={index}
-              className={`card p-4 max-md:min-w-full flex flex-row gap-4 cursor-pointer hoverd  h-[115px] rounded-xl items-center justify-start max-md:w-full bg-[var(--card-background)] max-md:max-w-full ${
+              className={`card p-4 hover:border-[1px]  hover:border-[var(--border)] max-md:min-w-full flex flex-row gap-4 cursor-pointer hoverd  h-[115px] rounded-xl items-center justify-start max-md:w-full bg-[var(--card-background)] max-md:max-w-full ${
                 hoveredIndex !== null && index !== hoveredIndex
-                  ? "opacity-60"
+                  ? "opacity-[70%] blur-[3px]"
                   : ""
               }`}
               onMouseEnter={() => handleCardHover(index)}
@@ -54,9 +54,7 @@ const ExperienceDescription: React.FC<ExperienceDescriptionProps> = () => {
                 <span className="text-[var(--paragraph)]">
                   {company.jobTitle}
                 </span>
-                <span className="text-[var(--paragraph)] opacity-60">
-                  {company.date}
-                </span>
+                <span className="text-[var(--paragraph)] ">{company.date}</span>
               </div>
             </div>
           ))}

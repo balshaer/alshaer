@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import AnimatedComponent from "@/core/components/global/animations/AnimatedComponent";
 import TitleOfSection from "@/core/components/ui/TitleOfSection";
+import { FiExternalLink } from "react-icons/fi";
 
 const Contact: React.FC = () => {
   const { t } = useTranslation();
@@ -18,11 +19,11 @@ const Contact: React.FC = () => {
       <AnimatedComponent>
         <TitleOfSection title={t("About.Contact.FindMe")} />
 
-        <ul className="text-[var(--paragraph)] max-md:flex-col items-start hovered flex gap-4 ">
+        <ul className="text-[var(--paragraph)] text-[1rem] max-md:flex-col items-start hovered flex gap-4 ">
           {socialMediaLinks.map((item, index) => (
             <li key={index}>
               <a
-                className={`flex flex-row-reverse items-center  hovered gap-2 w-full ${
+                className={`flex flex-row-reverse contact-title uppercase text-[1rem] items-center  hovered gap-2 w-full ${
                   hoveredIndex !== null && index !== hoveredIndex
                     ? "opacity-40"
                     : ""
@@ -33,6 +34,9 @@ const Contact: React.FC = () => {
                 onMouseEnter={() => handleLinkHover(index)}
                 onMouseLeave={() => handleLinkHover(null)}
               >
+                <span className="hidden max-md:block">
+                  <FiExternalLink />
+                </span>
                 <span>.{item.title}</span>
               </a>
             </li>

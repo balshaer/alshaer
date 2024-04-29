@@ -45,7 +45,6 @@ const ProjectSelect: React.FC<ProjectSelectProps> = ({
       color: "var(--button-text)",
       "&:hover": {
         borderColor: "var(--button-hover)",
-        backgroundColor: "var(--button-hover)",
         color: "var(--button-text)",
       },
       "&:active": {

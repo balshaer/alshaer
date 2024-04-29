@@ -12,7 +12,6 @@ export default function About() {
       dir={direction}
     >
       <AboutMe />
-
       <Contact />
     </div>
   );

@@ -33,9 +33,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
   return (
     <a href={link} target="_blank" rel="noopener noreferrer">
-      <div className="h-[150px] rounded-lg bg-[var(--card-background)] overed cursor-pointer">
+      <div className="h-[150px] text-[1rem] rounded-lg bg-[var(--card-background)]  cursor-pointer">
         <div className="flex p-4 gap-4 items-start justify-start h-full w-full flex-col">
-          <div className="flex items-start justify-start gap-4">
+          <div className="flex items-center h-full justify-start gap-4">
             <div className="flex gap-1  flex-col">
               <span className="text-[var(--headline)] font-bold">
                 {t(titleKey)}

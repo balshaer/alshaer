@@ -10,11 +10,22 @@
     "Email": "Get in touch →",
     "Linkedin": "Linkedin",
     "SeeMore": "see more",
-    "All": "All"
+    "All": "All",
+    "UsefulLinks": "Useful Links",
+    "Actions": "Actions",
+    "Links": "Links"
   },
 
   "Header": {
-    "Title": "Full-Stack Developer Specializing in the MERN Stack",
+    "Title": {
+      "Word_1": "Full-Stack",
+      "Word_2": "Developer",
+      "Word_3": "Specializing",
+      "Word_4": "in",
+      "Word_5": "the",
+      "Word_6": "MERN",
+      "Word_7": "Stack"
+    },
     "Description": "Hi, I'm Baraa. With expertise in both frontend and backend development, I build creative solutions that prioritize exceptional user experiences."
   },
 
@@ -42,11 +53,6 @@
     "About": "About",
     "Projects": "Projects",
     "Blog": "Blog",
-
-    "LanguageSelector": {
-      "en": "English",
-      "ar": "العربية"
-    },
 
     "Tooltip": {
       "Github": "Contribute to this project"
@@ -87,10 +93,6 @@
     "Project5.Description": "A bookstore RESTful API manages users, authors, and books."
   },
 
-  "Blog": {
-    "BlogTitle": "Blog",
-    "BlogDescription": "sharing insights, projects, and noteworthy discoveries, alongside contributions to various esteemed publications. Explore the latest posts below:"
-  },
   "Errors": {
     "Pages": {
       "NotFound": {
@@ -114,7 +116,7 @@
     "Contact": {
       "FindMe": "Social Media:",
       "Send": "Sending...",
-      "MessageNote": "Message sent"
+      "MessageNote": "Message sent sucessfully"
     }
   },
   "ProjectsSection": {
@@ -122,8 +124,13 @@
     "Description": "I've worked on tons of little projects but these are the ones that I'm proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas on how it can be improved."
   },
 
-  "BlogSection": {
-    "Title": "Blog",
-    "Description": "sharing insights, projects, and noteworthy discoveries, alongside contributions to various esteemed publications. Explore the latest posts below:"
+  "mode": {
+    "dark": "Dark mode",
+    "light": "Light mode"
+  },
+
+  "LanguageSelector": {
+    "en": "English",
+    "ar": "العربية"
   }
 }

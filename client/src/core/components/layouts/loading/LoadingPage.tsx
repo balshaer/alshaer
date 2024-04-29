@@ -1,5 +1,4 @@
 import { useTranslation } from "react-i18next";
-import "./style.css";
 
 export default function LoadingPage() {
   const { t } = useTranslation();
