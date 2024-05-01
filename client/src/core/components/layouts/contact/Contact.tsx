@@ -23,7 +23,7 @@ const Contact: React.FC = () => {
           {socialMediaLinks.map((item, index) => (
             <li key={index}>
               <a
-                className={`flex flex-row-reverse contact-title uppercase text-[1rem] items-center  hovered gap-2 w-full ${
+                className={`flex flex-row-reverse contact-title uppercase text-[1rem] items-center  hoverd gap-2 w-full ${
                   hoveredIndex !== null && index !== hoveredIndex
                     ? "opacity-40"
                     : ""

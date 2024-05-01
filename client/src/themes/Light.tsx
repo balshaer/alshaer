@@ -15,8 +15,8 @@ const LightMode = createGlobalStyle`
     --card-background: #edf0f1;
     --link-color: #000000;
     --logo-text-color: #000000;
-    --input-background:#eff0f3;
-    --input-border-color: #010101;
+    --input-background:#e6e5e7;
+    --input-border-color: #000;
     --badge-color: #000000;
     --badge-text:#eee;
     --skeleton-color: #353f4e;
