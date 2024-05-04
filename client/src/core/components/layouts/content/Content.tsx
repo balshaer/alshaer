@@ -4,7 +4,7 @@ import i18n from "@/i18n";
 import AnimatedComponent from "@/core/components/global/animations/AnimatedComponent";
 import Contact from "../contact/Contact";
 import ExperienceDescription from "../experienceDescription/ExperienceDescription";
-import Projects from "@/modules/main/Projects";
+import Projects from "@/core/components/layouts/projects/Projects";
 
 export default function Content() {
   const { t } = useTranslation();

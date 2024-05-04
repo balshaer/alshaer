@@ -1,10 +1,8 @@
 import { useState } from "react";
-
 import { HiArrowSmLeft } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import i18n from "@/i18n";
-
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -24,16 +22,8 @@ interface Option {
   label: string;
 }
 
-export default function AllProjects() {
+const AllProjects: React.FC = () => {
   const { t } = useTranslation();
-
-  const projectTypes: Option[] = [
-    { value: "all", label: t("Public.All") },
-    { value: "FrontEnd", label: "FrontEnd" },
-    { value: "BackEnd", label: "BackEnd" },
-    { value: "Fullstack", label: "Fullstack" },
-  ];
-
   const [selectedType, setSelectedType] = useState<string | null>(null);
 
   const handleTypeChange = (selectedOption: Option) => {
@@ -42,14 +32,16 @@ export default function AllProjects() {
     );
   };
 
-  const filteredProjects = projectData.filter((project) => {
-    if (selectedType) {
-      return project.type === selectedType;
-    } else {
-      return true;
-    }
-  });
+  const projectTypes: Option[] = [
+    { value: "all", label: t("Public.All") },
+    { value: "FrontEnd", label: "FrontEnd" },
+    { value: "BackEnd", label: "BackEnd" },
+    { value: "Fullstack", label: "Fullstack" },
+  ];
 
+  const filteredProjects = projectData.filter(
+    (project) => !selectedType || project.type === selectedType
+  );
   const direction = i18n.language === "ar" ? "rtl" : "ltr";
 
   return (
@@ -57,14 +49,14 @@ export default function AllProjects() {
       <div className="hidden">
         <Navbar />
       </div>
-      <div className="Navbar max-w-3xl m-auto py-[20px] flex px-10 flex-row justify-between items-center w-full  max-md:fixed max-md:top-0 max-md:right-0 max-md:left-0 max-md:m-auto max-md:px-8 max-md:z-50  max-md:backdrop-blur-2xl max-md:border-b-[1px] max-md:border-b-[#ffffff20] ">
+
+      <div className="max-w-3xl m-auto py-[20px] flex px-10 flex-row justify-between items-center w-full  max-md:fixed max-md:top-0 max-md:right-0 max-md:left-0 max-md:m-auto max-md:px-8 max-md:z-50  max-md:backdrop-blur-2xl max-md:border-b-[1px] max-md:border-b-[#ffffff20] ">
         <Link
           to={"/"}
           className="text-[var(--paragraph)] text-3xl hoverd hover:text-[var(--link-color)] cursor-pointer"
         >
           <HiArrowSmLeft />
         </Link>
-
         <div>
           <ProjectSelect
             options={projectTypes}
@@ -81,11 +73,9 @@ export default function AllProjects() {
                 {t("ProjectsSection.Title")}
               </span>
             </h1>
-
             <p className="text-[var(--paragraph)] text-[1rem]  max-w-[60%] max-md:max-w-none leading-tight text-wrap">
               {t("Projects.ProjectsHeadline")}
             </p>
-
             <span className="py-5 ">
               <Breadcrumb>
                 <BreadcrumbList>
@@ -98,21 +88,14 @@ export default function AllProjects() {
                     </BreadcrumbLink>
                   </BreadcrumbItem>
                   <div>
-                    {i18n.language === "ar" && (
-                      <>
-                        <BreadcrumbSeparator
-                          style={{ transform: "rotate(180deg)" }}
-                        />
-                      </>
-                    )}
-
-                    {i18n.language === "en" && (
-                      <>
-                        <BreadcrumbSeparator />
-                      </>
+                    {i18n.language === "ar" ? (
+                      <BreadcrumbSeparator
+                        style={{ transform: "rotate(180deg)" }}
+                      />
+                    ) : (
+                      <BreadcrumbSeparator />
                     )}
                   </div>
-
                   <BreadcrumbItem>
                     <BreadcrumbLink
                       className="hover:text-[var(--paragraph)]  hoverd "
@@ -124,7 +107,6 @@ export default function AllProjects() {
                 </BreadcrumbList>
               </Breadcrumb>
             </span>
-
             {filteredProjects.length === 0 ? (
               <p className="text-[var(--paragraph)] text-lg max-md:text-lg max-md:w-full max-md:max-w-none">
                 {t("Projects.NotFound")}
@@ -140,4 +122,6 @@ export default function AllProjects() {
       <Footer />
     </div>
   );
-}
+};
+
+export default AllProjects;

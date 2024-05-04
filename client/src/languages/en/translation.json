@@ -34,6 +34,10 @@
     "DialogTitle": "Let's Connect!",
     "Email": " Email",
     "Linkedin": "Linkedin",
+    "Errors": {
+      "MissingFields": "Please fill in all fields.",
+      "EmailFailed": "Failed to send email. Please try again later."
+    },
 
     "Placeholder": {
       "NameInput": "Name",

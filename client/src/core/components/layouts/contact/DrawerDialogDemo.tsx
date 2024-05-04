@@ -5,7 +5,6 @@ import { Button } from "@/core/components/ui/button";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -13,8 +12,6 @@ import {
 import {
   Drawer,
   DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
@@ -24,18 +21,15 @@ import { useMediaQuery } from "@react-hook/media-query";
 import { Textarea } from "@/core/components/ui/textarea";
 import { ReloadIcon } from "@radix-ui/react-icons";
 import { toast } from "sonner";
-import { HiOutlineExclamationCircle } from "react-icons/hi2";
-import { HiOutlineCheckCircle } from "react-icons/hi2";
-
 import ButtonDefault from "@/core/components/ui/ButtonDefault";
 import { HiMail } from "react-icons/hi";
 import i18n from "@/i18n";
 import { useTranslation } from "react-i18next";
 
 const styles = {
-  form: "grid items-start gap-4 ",
+  form: "grid items-start gap-4",
   inputGrid: "grid gap-2",
-  button: "text-sm focus:outline-none ",
+  button: "text-sm focus:outline-none",
   dialogContent: "sm:max-w-[425px]",
   drawerHeader: "text-left",
   drawerContent: "px-4",
@@ -55,77 +49,38 @@ function ProfileForm({
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
-  let flag = true;
-
-  const [accept, setAccept] = useState(false);
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setAccept((prevAccept) => {
-      if (email === "" || !prevAccept || name === "" || message === "") {
-        flag = false;
-      } else {
-        setLoading(true);
-      }
-      return prevAccept;
-    });
 
-    if (flag) {
-      setLoading(true);
-      const form = document.createElement("form");
+    if (!email || !name || !message) {
+      toast.error(t("DialogForm.Errors.MissingFields"));
+      return;
+    }
 
-      form.setAttribute("action", "");
-      form.setAttribute("method", "post");
+    setLoading(true);
 
-      const nameInput = document.createElement("input");
-      nameInput.setAttribute("type", "hidden");
-      nameInput.setAttribute("name", "name");
-      nameInput.setAttribute("value", name);
-      form.appendChild(nameInput);
-
-      const emailInput = document.createElement("input");
-      emailInput.setAttribute("type", "hidden");
-      emailInput.setAttribute("name", "email");
-      emailInput.setAttribute("value", email);
-      form.appendChild(emailInput);
-
-      const messageInput = document.createElement("input");
-      messageInput.setAttribute("type", "hidden");
-      messageInput.setAttribute("name", "message");
-      messageInput.setAttribute("value", message);
-      form.appendChild(messageInput);
-
-      document.body.appendChild(form);
-
-      try {
-        emailjs.sendForm(
-          "service_vr92r5g",
-          "template_dvr1x78",
-          form,
-          "5J3vip7CH5ZH9OLZv"
-        );
-        console.log("Email sent successfully");
-      } catch (error) {
-        console.error("Error sending email:", error);
-      } finally {
-        document.body.removeChild(form);
-        closeDialog();
-        toast(
-          <div className="flex items-center justify-start gap-1">
-            <span className="">
-              <HiOutlineCheckCircle />
-            </span>
-
-            <span>{t("About.Contact.MessageNote")}</span>
-          </div>
-        );
-      }
+    try {
+      await emailjs.sendForm(
+        "service_vr92r5g",
+        "template_dvr1x78",
+        e.currentTarget,
+        "5J3vip7CH5ZH9OLZv"
+      );
+      toast.success(t("DialogForm.Success.EmailSent"));
+      closeDialog();
+    } catch (error) {
+      console.error("Error sending email:", error);
+      toast.error(t("DialogForm.Errors.EmailFailed"));
+    } finally {
+      setLoading(false);
     }
   };
+
   const direction = i18n.language === "ar" ? "rtl" : "ltr";
 
   return (
     <form
-      className={cn(styles.form, "bg-[var(--background)]   ", className)}
+      className={cn(styles.form, "bg-[var(--background)]", className)}
       onSubmit={handleSubmit}
       dir={direction}
     >
@@ -134,20 +89,11 @@ function ProfileForm({
           type="text"
           className="bg-[var(--input-background)] text-[#a0aec0] placeholder-[var(--paragraph)] border-0"
           id="Name"
-          required
+          
           placeholder={t("DialogForm.Placeholder.NameInput")}
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-        {email === "" && accept && (
-          <div className="text-red-300 flex justify-start items-center gap-1">
-            <span className="text-sm">
-              <HiOutlineExclamationCircle />
-            </span>
-
-            <span className=" text-sm">{t("DialogForm.Erros.Name")}</span>
-          </div>
-        )}
       </div>
 
       <div className={styles.inputGrid}>
@@ -155,40 +101,22 @@ function ProfileForm({
           className="bg-[var(--input-background)] text-[#a0aec0] placeholder-[var(--paragraph)] border-0"
           type="email"
           id="email"
-          required
+          
           placeholder={t("DialogForm.Placeholder.EmailInput")}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-
-        {email === "" && accept && (
-          <div className="text-red-300 flex justify-start items-center gap-1">
-            <span className="text-sm">
-              <HiOutlineExclamationCircle />
-            </span>
-            <span className=" text-sm">{t("DialogForm.Erros.Email")}</span>
-          </div>
-        )}
       </div>
 
       <div className={styles.inputGrid}>
         <Textarea
           className="bg-[var(--input-background)] text-[#a0aec0] placeholder-[var(--paragraph)] border-0"
           id="message"
-          required
+          
           placeholder={t("DialogForm.Placeholder.MessageTextarea")}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
         />
-
-        {email === "" && accept && (
-          <div className="flex items-center justify-start gap-1 w-full text-red-300 ">
-            <span className="text-sm">
-              <HiOutlineExclamationCircle />
-            </span>
-            <span className=" text-sm">{t("DialogForm.Erros.Message")}</span>
-          </div>
-        )}
       </div>
 
       {!loading && (
@@ -207,7 +135,6 @@ function ProfileForm({
           type="submit"
         >
           <span>{t("About.Contact.Send")}</span>
-
           <span>
             <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
           </span>
@@ -235,6 +162,7 @@ export function DrawerDialogDemo() {
       </p>
     </div>
   );
+
   const closeDialog = () => {
     setOpen(false);
   };
@@ -252,7 +180,6 @@ export function DrawerDialogDemo() {
             <DialogTitle className="text-[var(--headline)] w-full text-center">
               {t("DialogForm.DialogTitle")}
             </DialogTitle>
-            <DialogDescription></DialogDescription>
           </DialogHeader>
           <ProfileForm closeDialog={closeDialog} />
         </DialogContent>
@@ -269,10 +196,9 @@ export function DrawerDialogDemo() {
         <DrawerContent className="bg-[var(--background)]  border-none p-[1rem]">
           <DrawerHeader className={styles.drawerHeader}>
             <DrawerTitle className="cursor-pointer"></DrawerTitle>
-            <DrawerDescription></DrawerDescription>
           </DrawerHeader>
           <ProfileForm closeDialog={closeDialog} />
-          <DrawerFooter className={styles.drawerFooter}></DrawerFooter>
+          {/* <DrawerFooter className={styles.drawerFooter}></DrawerFooter> */}
         </DrawerContent>
       </Drawer>
     </div>

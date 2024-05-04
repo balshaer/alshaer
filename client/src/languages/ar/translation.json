@@ -32,6 +32,10 @@
     "SendMessage": "إرسال رسالة",
     "DialogTitle": "يرجى ملء النموذج",
 
+    "Errors": {
+      "MissingFields": "يرجى ملء جميع الحقول.",
+      "EmailFailed": "فشل في إرسال البريد الإلكتروني. يرجى المحاولة مرة أخرى لاحقًا."
+    },
     "Placeholder": {
       "NameInput": "الاسم",
       "EmailInput": "البريد الإلكتروني",
