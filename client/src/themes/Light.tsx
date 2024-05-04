@@ -25,6 +25,7 @@ const LightMode = createGlobalStyle`
     --footer-background : #161818;
     --footer-text: #c1c2c2;
     --menu-color:#000;
+    --input-text: #000;
   }
 `;
 

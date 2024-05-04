@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import { cn } from "@/lib/utils";
-import { Button } from "@/core/components/ui/button";
+
+import { AiOutlineReload } from "react-icons/ai";
+
 import {
   Dialog,
   DialogContent,
@@ -19,7 +21,6 @@ import {
 import { Input } from "@/core/components/ui/input";
 import { useMediaQuery } from "@react-hook/media-query";
 import { Textarea } from "@/core/components/ui/textarea";
-import { ReloadIcon } from "@radix-ui/react-icons";
 import { toast } from "sonner";
 import ButtonDefault from "@/core/components/ui/ButtonDefault";
 import { HiMail } from "react-icons/hi";
@@ -87,9 +88,8 @@ function ProfileForm({
       <div className={styles.inputGrid}>
         <Input
           type="text"
-          className="bg-[var(--input-background)] text-[#a0aec0] placeholder-[var(--paragraph)] border-0"
+          className="bg-[var(--input-background)] text-[var(--input-text)] placeholder-[var(--paragraph)] border-0"
           id="Name"
-          
           placeholder={t("DialogForm.Placeholder.NameInput")}
           value={name}
           onChange={(e) => setName(e.target.value)}
@@ -98,10 +98,9 @@ function ProfileForm({
 
       <div className={styles.inputGrid}>
         <Input
-          className="bg-[var(--input-background)] text-[#a0aec0] placeholder-[var(--paragraph)] border-0"
+          className="bg-[var(--input-background)] text-[var(--input-text)] placeholder-[var(--paragraph)] border-0"
           type="email"
           id="email"
-          
           placeholder={t("DialogForm.Placeholder.EmailInput")}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -110,9 +109,8 @@ function ProfileForm({
 
       <div className={styles.inputGrid}>
         <Textarea
-          className="bg-[var(--input-background)] text-[#a0aec0] placeholder-[var(--paragraph)] border-0"
+          className="bg-[var(--input-background)] text-[var(--input-text)] placeholder-[var(--paragraph)] border-0"
           id="message"
-          
           placeholder={t("DialogForm.Placeholder.MessageTextarea")}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
@@ -129,16 +127,12 @@ function ProfileForm({
       )}
 
       {loading && (
-        <Button
+        <ButtonDefault
           disabled
-          className="bg-[var(--button)] text-[var(--button-text)]  gap-2 "
-          type="submit"
-        >
-          <span>{t("About.Contact.Send")}</span>
-          <span>
-            <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
-          </span>
-        </Button>
+          text={t("About.Contact.Send")}
+          iconPosition="right"
+          icon={AiOutlineReload}
+        />
       )}
     </form>
   );
@@ -198,7 +192,6 @@ export function DrawerDialogDemo() {
             <DrawerTitle className="cursor-pointer"></DrawerTitle>
           </DrawerHeader>
           <ProfileForm closeDialog={closeDialog} />
-          {/* <DrawerFooter className={styles.drawerFooter}></DrawerFooter> */}
         </DrawerContent>
       </Drawer>
     </div>

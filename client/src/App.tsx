@@ -11,7 +11,8 @@ const App: React.FC = () => {
 
   return (
     <div className="App bg-[var(--background)] max-md:text-sm ">
-      <Toaster />
+      <Toaster className="hidden max-md:block " position="top-center" />
+      <Toaster className=" hidden min-[768px]:block" />
       <AppRoutes />
     </div>
   );

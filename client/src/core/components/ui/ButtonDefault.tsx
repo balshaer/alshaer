@@ -25,12 +25,12 @@ const ButtonDefault: React.FC<ButtonDefaultProps> = ({
   };
 
   const buttonClassName =
-    "h-full gap-1 flex max-md:h-[35px] p-8 uppercase font-bold items-center justify-center  rounded-full cursor-pointer px-6 py-3 transition duration-100 transform bg-[var(--button)] border-2 border-[var(--button-border)] text-[var(--button-text)] hoverd hover:bg-[var(--button-hover)] hover:text-[var(--button-text-hover)]";
+    "h-full gap-1 flex max-md:h-[35px] max-md:p-0 p-8 uppercase font-bold items-center justify-center  rounded-full cursor-pointer px-6 py-3 transition duration-100 transform bg-[var(--button)] border-2 border-[var(--button-border)] text-[var(--button-text)] hoverd hover:bg-[var(--button-hover)] hover:text-[var(--button-text-hover)]";
 
   const renderButton = (isSubmit: boolean) => (
     <button
       {...rest}
-      type={isSubmit ? "submit" : "button"} 
+      type={isSubmit ? "submit" : "button"}
       className={buttonClassName}
     >
       {iconPosition === "left" && renderIcon()}

@@ -28,6 +28,8 @@ const DarkMode = createGlobalStyle`
     --footer-border-color: #ffffff25;
     --footer-text :#94a1b2;
     --menu-color:#94a1b2;
+    --input-text: #94a1b2;
+
   }
 `;
 

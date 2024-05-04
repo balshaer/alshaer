@@ -34,6 +34,9 @@
     "DialogTitle": "Let's Connect!",
     "Email": " Email",
     "Linkedin": "Linkedin",
+    "Success": {
+      "EmailSent": "Email sent successfully."
+    },
     "Errors": {
       "MissingFields": "Please fill in all fields.",
       "EmailFailed": "Failed to send email. Please try again later."
