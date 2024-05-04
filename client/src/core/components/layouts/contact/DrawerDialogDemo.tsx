@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import { cn } from "@/lib/utils";
-
+import "animate.css";
 import { AiOutlineReload } from "react-icons/ai";
 
 import {
@@ -49,12 +49,14 @@ function ProfileForm({
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [inputEffect, setInputEffect] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!email || !name || !message) {
       toast.error(t("DialogForm.Errors.MissingFields"));
+      setInputEffect(true);
       return;
     }
 
@@ -88,7 +90,13 @@ function ProfileForm({
       <div className={styles.inputGrid}>
         <Input
           type="text"
-          className="bg-[var(--input-background)] text-[var(--input-text)] placeholder-[var(--paragraph)] border-0"
+          className={cn(
+            "bg-[var(--input-background)] text-[var(--input-text)] placeholder-[var(--paragraph)] border-0",
+            {
+              "animate__shakeX animate__animated border-1 border border-red-400":
+                inputEffect && !name,
+            }
+          )}
           id="Name"
           placeholder={t("DialogForm.Placeholder.NameInput")}
           value={name}
@@ -98,7 +106,13 @@ function ProfileForm({
 
       <div className={styles.inputGrid}>
         <Input
-          className="bg-[var(--input-background)] text-[var(--input-text)] placeholder-[var(--paragraph)] border-0"
+          className={cn(
+            "bg-[var(--input-background)] text-[var(--input-text)] placeholder-[var(--paragraph)] border-0",
+            {
+              "animate__shakeX animate__animated border-1 border border-red-400":
+                inputEffect && !email,
+            }
+          )}
           type="email"
           id="email"
           placeholder={t("DialogForm.Placeholder.EmailInput")}
@@ -109,7 +123,13 @@ function ProfileForm({
 
       <div className={styles.inputGrid}>
         <Textarea
-          className="bg-[var(--input-background)] text-[var(--input-text)] placeholder-[var(--paragraph)] border-0"
+          className={cn(
+            "bg-[var(--input-background)] text-[var(--input-text)] placeholder-[var(--paragraph)] border-0",
+            {
+              "animate__shakeX animate__animated border-1 border border-red-400":
+                inputEffect && !message,
+            }
+          )}
           id="message"
           placeholder={t("DialogForm.Placeholder.MessageTextarea")}
           value={message}
