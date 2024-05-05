@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
 import { cn } from "@/lib/utils";
-import { Button } from "@/core/components/ui/button";
 import "animate.css";
 import { AiOutlineReload } from "react-icons/ai";
 import {
@@ -24,7 +23,6 @@ import {
 import { Input } from "@/core/components/ui/input";
 import { useMediaQuery } from "@react-hook/media-query";
 import { Textarea } from "@/core/components/ui/textarea";
-import { ReloadIcon } from "@radix-ui/react-icons";
 import { toast } from "sonner";
 import { HiOutlineExclamationCircle } from "react-icons/hi2";
 import { HiOutlineCheckCircle } from "react-icons/hi2";

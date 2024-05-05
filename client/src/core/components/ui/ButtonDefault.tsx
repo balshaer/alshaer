@@ -19,9 +19,7 @@ const ButtonDefault: React.FC<ButtonDefaultProps> = ({
 }) => {
   const renderIcon = () => {
     if (Icon) {
-      return (
-        <Icon className="h-full w-5 max-md:hidden  flex justify-center items-center" />
-      );
+      return <Icon className="h-full w-5 flex justify-center items-center" />;
     }
     return null;
   };
