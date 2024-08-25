@@ -1,7 +1,7 @@
 import React from "react";
 import { ButtonHTMLAttributes } from "react";
-import { Button } from "@/core/components/ui/button";
 import { IconType } from "react-icons";
+import { Button } from "./button";
 
 interface ButtonDefaultProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;
@@ -25,7 +25,7 @@ const ButtonDefault: React.FC<ButtonDefaultProps> = ({
   };
 
   const buttonClassName =
-    "h-full gap-1 flex  max-md:h-[35px]   capitalize font-bold items-center justify-center  rounded-full cursor-pointer px-6 py-3 transition duration-100 transform bg-[var(--button)] border-2 border-[var(--button-border)] text-[var(--button-text)] hoverd hover:bg-[var(--button-hover)] hover:text-[var(--button-text-hover)]   ";
+    "h-full gap-1 flex  max-md:h-[35px   capitalize font-bold items-center justify-center  rounded-full cursor-pointer px-6 py-3 transition duration-100 transform bg-[var(--button)] border-2 border-[var(--button-border)] text-[var(--button-text)] hoverd hover:bg-[var(--button-hover)] hover:text-[var(--button-text-hover)] ";
 
   const renderButton = (isSubmit: boolean) => (
     <button

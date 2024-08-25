@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Cairo", sans-serif;
+}
+
+@layer components {
+  .container {
+    @apply max-w-3xl;
+  }
+}
+
+*::selection {
+  background-color: #ff8e3c;
+  color: #0d0d0d;
+}
+
+.link {
+  @apply font-bold underline text-[var(--paragraph)] transition-all;
+}
+
+.link:hover {
+  @apply text-[var(--link-hover)];
+}
+
+.header {
+  @apply pt-[5vh] flex flex-col justify-start items-start;
+}
+
+.header-title {
+  @apply capitalize text-[var(--headline)] text-2xl font-bold flex flex-col gap-4 py-[4px];
+}
+
+.subtitle {
+  @apply text-[var(--headline)] text-[1rem] w-[100%] max-md:max-w-none  opacity-80;
+}
+.section-subtitle {
+  @apply text-[var(--paragraph)] text-[1rem] w-[100%] max-md:max-w-none  pb-[18px];
+}
+
+.section-title {
+  @apply capitalize text-[var(--headline)] text-xl font-bold flex flex-col gap-4 py-[24px];
+}
+
+.description {
+  @apply text-[var(--paragraph)] text-[1rem] w-[100%] max-md:max-w-none py-[8px];
+}
+
+.section {
+  @apply py-[2rem];
+}
+
+.main-navbar {
+  @apply flex rounded-3xl py-3 flex-row justify-between items-center w-full max-md:m-auto max-md:backdrop-blur-2xl max-md:border-b-[1px] max-md:border-[#000] max-md:px-0;
+}
+
+.card {
+  @apply min-h-[150px] text-[1rem] cursor-text rounded-lg bg-[var(--card-background)]   flex flex-col justify-center items-start py-2 px-4;
+}
+
+.card h1 {
+  @apply py-3 text-[var(--card-headline)] font-semibold;
+}
+
+.card p {
+  @apply max-w-[70%] text-wrap pb-3 text-[var(--card-paragraph)];
+}
+
+.badge {
+  @apply cursor-text bg-[var(--badge-color)] text-[var(--badge-text)];
+}

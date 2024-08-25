@@ -13,10 +13,13 @@ const DarkMode = createGlobalStyle`
     --button-text: #fffffe;
     --button-text-hover: #fffffe;
     --card-background: #242629;
+    --card-headline : #fffffe;
+    --card-paragraph : #94a1b2;
     --link-color: #7f5af0;
+    --link-hover:#fff;
     --nav-item: #94a1b2;
-    --logo-background: #fffffe;
-    --logo-text-color: #fff;
+    --Logo-background: #fffffe;
+    --Logo-text-color: #fff;
     --gradient-color-1: #7f5af0;
     --gradient-color-2: #af5af0;
     --input-background:#242629;

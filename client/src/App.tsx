@@ -1,7 +1,7 @@
 import "animate.css";
 import "../app/css/globals.css";
-import AppRoutes from "@/routes/__routes";
-import { Toaster } from "@/core/components/ui/sonner";
+import AppRoutes from "@/__routes";
+import { Toaster } from "@/components/ui/sonner";
 import { inject } from "@vercel/analytics";
 import { useTranslation } from "react-i18next";
 

@@ -13,8 +13,11 @@ const LightMode = createGlobalStyle`
     --button-text: #000000;
     --button-text-hover: #fff;
     --card-background: #edf0f1;
+    --card-headline : #000000;
+    --card-paragraph : #333333;
     --link-color: #000000;
-    --logo-text-color: #000000;
+    --link-hover:#fff;
+    --Logo-text-color: #000000;
     --input-background:#e6e5e7;
     --input-border-color: #000;
     --badge-color: #000000;

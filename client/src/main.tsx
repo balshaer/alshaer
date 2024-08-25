@@ -7,20 +7,18 @@ import "../app/css/globals.css";
 import i18n from "./i18n.ts";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Direction from "./core/components/layouts/contact/Direction.tsx";
 import { SpeedInsights } from "@vercel/speed-insights/react";
+import "./index.css";
 
 AOS.init();
 ReactDOM.render(
   <React.StrictMode>
-    <Direction>
-      <I18nextProvider i18n={i18n}>
-        <BrowserRouter>
-          <SpeedInsights />
-          <App />
-        </BrowserRouter>
-      </I18nextProvider>
-    </Direction>
+    <I18nextProvider i18n={i18n}>
+      <BrowserRouter>
+        <SpeedInsights />
+        <App />
+      </BrowserRouter>
+    </I18nextProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
