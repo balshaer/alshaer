@@ -28,7 +28,7 @@ body {
 }
 
 .header {
-  @apply pt-[5vh] flex flex-col justify-start items-start;
+  @apply pt-[5vh] flex flex-col justify-start items-start max-md:pt-[3vh];
 }
 
 .header-title {
@@ -49,24 +49,23 @@ body {
 .description {
   @apply text-[var(--paragraph)] text-[1rem] w-[100%] max-md:max-w-none py-[8px];
 }
-
-.section {
+f .section {
   @apply py-[2rem];
 }
 
 .main-navbar {
-  @apply flex rounded-3xl py-3 flex-row justify-between items-center w-full max-md:m-auto max-md:backdrop-blur-2xl max-md:border-b-[1px] max-md:border-[#000] max-md:px-0;
+  @apply flex rounded-3xl py-3 flex-row justify-between items-center w-full max-md:m-auto max-md:backdrop-blur-2xl max-md:border-b-[1px] max-md:px-0 max-md:border-none;
 }
 
 .card {
   @apply min-h-[150px] text-[1rem] cursor-text rounded-lg bg-[var(--card-background)]   flex flex-col justify-center items-start py-2 px-4;
 }
 
-.card h1 {
-  @apply py-3 text-[var(--card-headline)] font-semibold;
+.card .title {
+  @apply py-3 text-[var(--card-headline)] font-semibold max-[400px]:pb-0 ;
 }
 
-.card p {
+.card .description {
   @apply max-w-[70%] text-wrap pb-3 text-[var(--card-paragraph)];
 }
 

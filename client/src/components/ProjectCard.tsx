@@ -23,9 +23,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 }) => {
   const { t } = useTranslation();
 
+  const styles = {
+    linkStyle:
+      "flex items-center justify-center gap-1 text-sm text-[var(--headline)] opacity-70 hoverd  hover:opacity-100",
+  };
+
   const renderFooter = () =>
     badgeText && (
-      <div className="flex  my-4 flex-wrap justify-between items-center w-full">
+      <div className="flex  my-4 flex-wrap justify-between items-center w-full max-md:flex-col max-md:items-start ">
         <div className="flex gap-2  flex-wrap max-w-[60%] ">
           {badgeText.map((badge, index) => (
             <Badge key={index} className={"badge"}>
@@ -34,7 +39,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           ))}
         </div>
 
-        <div className="flex gap-4 flex-wrap">
+        <div className="flex gap-4 flex-wrap max-md:mt-5">
           {visitWebsite !== "#" && visitWebsite && (
             <a href={visitWebsite} target="_blank" className={styles.linkStyle}>
               <span>
@@ -56,15 +61,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       </div>
     );
 
-  const styles = {
-    linkStyle:
-      "flex items-center justify-center gap-1 text-sm text-[var(--headline)] opacity-60 hoverd  hover:opacity-100",
-  };
-
   return (
     <div className={"card"}>
-      <h1>{t(titleKey)}</h1>
-      <p className="py-3">{t(descriptionKey)}</p>
+      <h1 className="title">{t(titleKey)}</h1>
+      <p className="py-3 description">{t(descriptionKey)}</p>
+
       {renderFooter()}
     </div>
   );

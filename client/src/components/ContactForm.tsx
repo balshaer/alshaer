@@ -238,7 +238,7 @@ export function ContactForm() {
 
   const commonContent = (
     <div className="text-[var(--paragraph)]">
-      <p className="text-[var(--tertiary-color)] font-bold text-[1rem] max-md:ps-0  ps-1 pe-1 hoverd ">
+      <p className="text-[var(--tertiary-color)] font-bold text-[1rem] max-md:ps-0  ps-1 pe-1 hoverd  py-[8px]">
         {t("Public.Email")}
       </p>
     </div>

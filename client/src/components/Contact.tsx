@@ -36,7 +36,7 @@ const Contact: React.FC = () => {
             onMouseEnter={() => handleLinkHover(index)}
             onMouseLeave={() => handleLinkHover(null)}
           >
-            <span className="hidden max-md:flex h-full  justify-center items-center">
+            <span className="hidden max-md:flex h-full justify-center items-center">
               <FiExternalLink />
             </span>
             <span className="h-full flex justify-center items-center">
