@@ -65,7 +65,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     <div className={"card"}>
       <h1 className="title">{t(titleKey)}</h1>
       <p className="py-3 description">{t(descriptionKey)}</p>
-
       {renderFooter()}
     </div>
   );

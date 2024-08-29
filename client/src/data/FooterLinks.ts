@@ -1,3 +1,5 @@
+import { github, linkedin, youtube } from "./Links";
+
 interface footerLinksType {
   title: string;
   link: string;
@@ -6,11 +8,11 @@ interface footerLinksType {
 const footerLinks: footerLinksType[] = [
   {
     title: "Youtube",
-    link: "https://www.youtube.com/@Codewithbaraa",
+    link: youtube,
   },
   {
-    title: "Blog",
-    link: "https://github.com/balshaer",
+    title: "Github",
+    link: github,
   },
 
   {
@@ -19,7 +21,7 @@ const footerLinks: footerLinksType[] = [
   },
   {
     title: "Linkedin",
-    link: "https://www.linkedin.com/in/balshaer/",
+    link: linkedin,
   },
 ];
 

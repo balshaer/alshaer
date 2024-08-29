@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { HiOutlineSun } from "react-icons/hi";
 import { HiMenu } from "react-icons/hi";
 import { LuMoon } from "react-icons/lu";
-
 import DarkMode from "@/themes/Light";
 import LightMode from "@/themes/Dark";
 import { useTranslation } from "react-i18next";
@@ -21,6 +20,7 @@ import { Button } from "./ui/button";
 import { Link } from "react-router-dom";
 import i18n from "@/i18n";
 import { getPageMode, savePageMode } from "@/lib/localStorage";
+import { email, github, linkedin, whatsapp } from "@/data/Links";
 
 const NavbarMenu: React.FC = () => {
   const [mode, setMode] = useState(() => {
@@ -79,21 +79,21 @@ const NavbarMenu: React.FC = () => {
                 </DropdownMenuItem>
               </Link>
 
-              <Link to={"https://github.com/balshaer/"}>
+              <Link to={github}>
                 <DropdownMenuItem className={styles.linkItem}>
                   <ArrowRight className="mr-2 h-4 w-4" />
                   <span> {t("DropdownMenu.Github")}</span>
                 </DropdownMenuItem>
               </Link>
 
-              <Link to={"https://www.linkedin.com/in/balshaer/"}>
+              <Link to={linkedin}>
                 <DropdownMenuItem className={styles.linkItem}>
                   <ArrowRight className="mr-2 h-4 w-4" />
                   <span> {t("DropdownMenu.Linkedin")}</span>
                 </DropdownMenuItem>
               </Link>
 
-              <Link to={"https://wa.me/970593493899"}>
+              <Link to={whatsapp}>
                 <DropdownMenuItem className={styles.linkItem}>
                   <ArrowRight className="mr-2 h-4 w-4" />
                   <span> {t("DropdownMenu.Whatsapp")}</span>
@@ -109,7 +109,7 @@ const NavbarMenu: React.FC = () => {
             <DropdownMenuGroup>
               <DropdownMenuItem className="hoverd  cursor-pointer">
                 <MessageCircle className="mr-2 h-4 w-4" />
-                <a href={`mailto:${process.env.EMAIL}`} target="_blank">
+                <a href={`mailto:${email}`} target="_blank">
                   {" "}
                   {t("DropdownMenu.SayHi")}
                 </a>

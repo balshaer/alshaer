@@ -1,3 +1,5 @@
+import { github, linkedin, whatsapp, youtube } from "./Links";
+
 export interface SocialMediaLink {
   title: string;
   link: string;
@@ -6,19 +8,19 @@ export interface SocialMediaLink {
 const socialMediaLinks: SocialMediaLink[] = [
   {
     title: "Linkedin",
-    link: "https://www.linkedin.com/in/balshaer/",
+    link: linkedin,
   },
   {
     title: "Github",
-    link: "https://github.com/balshaer",
+    link: github,
   },
   {
     title: "Whatsapp",
-    link: "https://wa.me/970593493899",
+    link: whatsapp,
   },
   {
     title: "Youtube",
-    link: "https://www.youtube.com/@Codewithbaraa",
+    link: youtube,
   },
 ];
 

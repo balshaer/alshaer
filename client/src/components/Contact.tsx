@@ -10,10 +10,6 @@ const Contact: React.FC = () => {
   };
 
   const styles = {
-    socialLinks:
-      "max-md:flex-col items-start hovered flex gap-4  text-[var(--paragraph)] text-[1rem] py-[8px] max-md:w-full pt-[2rem]",
-    socialItems:
-      "max-md:bg-[var(--card-background)] max-md:py-[14px] max-md:w-full max-md:px-[8px] ",
     socialLink:
       "flex contact-title capitalize text-[1rem] items-center  hoverd gap-2  max-md:flex max-md:flex-row h-[100%] w-full",
     socialLinkHover:
@@ -21,9 +17,19 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <ul data-aos="fade-up" className={styles.socialLinks}>
+    <ul
+      data-aos="fade-up"
+      className={
+        "max-md:flex-col items-start hovered flex gap-4  text-[var(--paragraph)] text-[1rem] py-[8px] max-md:w-full pt-[2rem]"
+      }
+    >
       {socialMediaLinks.map((item, index) => (
-        <li className={styles.socialItems} key={index}>
+        <li
+          className={
+            "max-md:bg-[var(--card-background)] max-md:py-[14px] max-md:w-full max-md:px-[8px] "
+          }
+          key={index}
+        >
           <a
             className={` ${
               hoveredIndex !== null && index !== hoveredIndex

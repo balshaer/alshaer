@@ -1,13 +1,9 @@
-import { FunctionComponent } from "react";
 import { useTranslation } from "react-i18next";
 import ExperienceCard from "./ExperienceCard";
 import i18n from "@/i18n";
 
-interface ExperienceProps {}
-
-const Experience: FunctionComponent<ExperienceProps> = () => {
+const Experience = () => {
   const { t } = useTranslation();
-
   const direction = i18n.language === "ar" ? "rtl" : "ltr";
 
   return (

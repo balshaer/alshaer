@@ -62,11 +62,11 @@ f .section {
 }
 
 .card .title {
-  @apply py-3 text-[var(--card-headline)] font-semibold max-[400px]:pb-0 ;
+  @apply py-3 text-[var(--card-headline)] font-semibold max-[400px]:pb-0 max-md:w-full max-md:max-w-none;
 }
 
 .card .description {
-  @apply max-w-[70%] text-wrap pb-3 text-[var(--card-paragraph)];
+  @apply max-w-[70%] text-wrap pb-3 text-[var(--card-paragraph)] max-md:w-full max-md:max-w-none;
 }
 
 .badge {
