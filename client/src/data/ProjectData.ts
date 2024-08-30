@@ -2,7 +2,7 @@ interface ProjectData {
   titleKey: string;
   descriptionKey: string;
   link: string;
-  type: "FrontEnd" | "BackEnd" | "Fullstack";
+  type: "Frontend" | "Backend" | "Fullstack";
   badgeText?: string[];
   visitWebsite: string;
   visitGithub: string;
@@ -16,7 +16,7 @@ const projectData: ProjectData[] = [
     badgeText: ["React JS", "Javascript", "MIUI"],
     visitWebsite: "https://naj.shamilapp.com/",
     visitGithub: "#",
-    type: "FrontEnd",
+    type: "Frontend",
   },
   {
     titleKey: "Projects.Project2.Title",
@@ -25,7 +25,7 @@ const projectData: ProjectData[] = [
     badgeText: ["Next JS", "Typescript"],
     visitWebsite: "gradientscss.vercel.app/",
     visitGithub: "https://github.com/balshaer/gradients-css",
-    type: "FrontEnd",
+    type: "Frontend",
   },
   {
     titleKey: "Projects.Project3.Title",
@@ -44,7 +44,7 @@ const projectData: ProjectData[] = [
     badgeText: ["React", "Tailwind CSS", "Material UI"],
     visitWebsite: "https://sustainablestar.com.sa/",
     visitGithub: "#",
-    type: "FrontEnd",
+    type: "Frontend",
   },
 
   {
@@ -54,7 +54,7 @@ const projectData: ProjectData[] = [
     badgeText: ["Node JS", "Express JS", "Mongoose DB"],
     visitWebsite: "#",
     visitGithub: "https://github.com/balshaer/bookstore-api",
-    type: "BackEnd",
+    type: "Backend",
   },
 ];
 

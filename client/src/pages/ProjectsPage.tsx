@@ -35,8 +35,8 @@ const ProjectsPage: React.FC = () => {
 
   const projectTypes: Option[] = [
     { value: "all", label: t("Public.All") },
-    { value: "FrontEnd", label: "FrontEnd" },
-    { value: "BackEnd", label: "BackEnd" },
+    { value: "Frontend", label: "Frontend" },
+    { value: "Backend", label: "Backend" },
     { value: "Fullstack", label: "Fullstack" },
   ];
 
@@ -73,7 +73,7 @@ const ProjectsPage: React.FC = () => {
       </div>
       <div className="container">
         <div className="projectCards flex flex-col w-full gap-5 min-h-[100vh]  max-md:pb-0">
-        <div className="header">
+          <div className="header">
             <h1 className="header-title">{t("ProjectsSection.Title")}</h1>
             <p className="description max-w-[100%]">
               {t("Projects.ProjectsHeadline")}
