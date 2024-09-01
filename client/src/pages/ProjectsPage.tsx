@@ -14,9 +14,9 @@ import {
 import ProjectSelect from "@/components/ui/projectSelect";
 import Footer from "@/components/Footer";
 import { scrollToTop } from "@/helper";
-import NavbarMenu from "@/components/NavbarMenu";
 import { ProjectData, projectData } from "@/data/ProjectData";
 import ProjectCard from "@/components/ProjectCard";
+import NavbarMenu from "@/components/NavbarMenu";
 
 interface Option {
   value: string;

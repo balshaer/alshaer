@@ -33,6 +33,7 @@ const DarkMode = createGlobalStyle`
     --menu-color:#94a1b2;
     --input-text: #94a1b2;
     --input-border:"#ef4565";
+    --selectBox-border : #7f5af0;
   }
 `;
 

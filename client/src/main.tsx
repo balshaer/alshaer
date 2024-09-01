@@ -9,6 +9,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import "./index.css";
+import "animate.css";
 
 AOS.init();
 ReactDOM.render(

@@ -37,11 +37,12 @@ const ProjectSelect: React.FC<ProjectSelectProps> = ({
   const customStyles: CustomStyles = {
     control: (provided) => ({
       ...provided,
-      border: "1px solid var(--button)",
+      border: "2px solid var(--selectBox-border)",
       width: "150px",
       cursor: "pointer",
-      borderRadius: "4px",
+      borderRadius: "8px",
       backgroundColor: "var(--button)",
+      boxShadow: "none",
       color: "var(--button-text)",
       "&:hover": {
         borderColor: "var(--button-hover)",
@@ -52,12 +53,14 @@ const ProjectSelect: React.FC<ProjectSelectProps> = ({
       },
       "&:focus": {
         color: "var(--button-text)",
+        border: "none",
       },
     }),
+
     option: (provided, state) => ({
       ...provided,
-      backgroundColor: state.isFocused ? "var(--button-hover)" : "transparent",
-      color: state.isFocused ? "#fff" : "#000",
+      backgroundColor: "var(--card-background)",
+      color: state.isFocused ? "var(--card-headline)" : "var(--card-paragraph)",
       cursor: "pointer",
       transition: "all 0.1s ease 0s",
     }),

@@ -49,7 +49,6 @@
   }
 }
 
-
 /* Global Styles */
 * {
   margin: 0;
@@ -371,4 +370,8 @@ html {
     right: 0;
     left: unset;
   }
+}
+
+div#react-select-5-listbox.css-1jj59y3-MenuList2 {
+  padding: 0 !important;
 }

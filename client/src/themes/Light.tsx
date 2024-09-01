@@ -30,6 +30,8 @@ const LightMode = createGlobalStyle`
     --menu-color:#000;
     --input-text: #000;
     --input-border:"#ef4565";
+    --selectBox-border : #000;
+
   }
 `;
 

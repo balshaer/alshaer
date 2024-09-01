@@ -17,7 +17,7 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="App bg-[var(--background)] max-md:text-sm ">
+    <div className="App bg-[var(--background)] ">
       <Toaster className="hidden max-md:block " position="top-center" />
       <Toaster className=" hidden min-[768px]:block" />
       {isloading && <LoadingPage />}
