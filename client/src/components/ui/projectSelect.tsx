@@ -63,6 +63,12 @@ const ProjectSelect: React.FC<ProjectSelectProps> = ({
       color: state.isFocused ? "var(--card-headline)" : "var(--card-paragraph)",
       cursor: "pointer",
       transition: "all 0.1s ease 0s",
+      "&:active": {
+        backgroundColor: "var(--card-background)",
+      },
+      "&:focus": {
+        backgroundColor: "var(--card-background)",
+      },
     }),
     singleValue: (provided) => ({
       ...provided,
@@ -75,7 +81,7 @@ const ProjectSelect: React.FC<ProjectSelectProps> = ({
   }, [selectedOption, onSelect]);
 
   return (
-    <div className="custom-select ">
+    <div className="custom-select">
       <Select
         defaultValue={defaultValue}
         onChange={handleSelect}

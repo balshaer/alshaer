@@ -10,16 +10,25 @@ import "aos/dist/aos.css";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import "./index.css";
 import "animate.css";
+import { MenuProvider } from "./context/MenuContext.tsx";
+import { ModeProvider } from "./context/ModeContext.tsx";
+import { ThemeProvider } from "./context/ThemeContext.tsx";
 
 AOS.init();
 ReactDOM.render(
   <React.StrictMode>
-    <I18nextProvider i18n={i18n}>
-      <BrowserRouter>
-        <SpeedInsights />
-        <App />
-      </BrowserRouter>
-    </I18nextProvider>
+    <ThemeProvider>
+      <ModeProvider>
+        <MenuProvider>
+          <I18nextProvider i18n={i18n}>
+            <BrowserRouter>
+              <SpeedInsights />
+              <App />
+            </BrowserRouter>
+          </I18nextProvider>
+        </MenuProvider>
+      </ModeProvider>
+    </ThemeProvider>
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById("root"),
 );

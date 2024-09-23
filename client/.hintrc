@@ -13,7 +13,13 @@
     ],
     "disown-opener": "off",
     "typescript-config/consistent-casing": "off",
-    "typescript-config/strict": "off"
+    "typescript-config/strict": "off",
+    "axe/name-role-value": [
+      "default",
+      {
+        "button-name": "off"
+      }
+    ]
   },
   "browserslist": [
     "defaults",

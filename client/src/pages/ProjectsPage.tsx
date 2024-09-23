@@ -12,11 +12,12 @@ import {
 } from "@/components/ui/breadcrumb";
 
 import ProjectSelect from "@/components/ui/projectSelect";
-import Footer from "@/components/Footer";
-import { scrollToTop } from "@/helper";
+import { PageTitle, scrollToTop } from "@/helper";
 import { ProjectData, projectData } from "@/data/ProjectData";
-import ProjectCard from "@/components/ProjectCard";
-import NavbarMenu from "@/components/NavbarMenu";
+import ProjectCard from "@/components/layouts/projects/ProjectCard";
+import NavbarMenu from "@/components/layouts/navbar/NavbarMenu";
+import Footer from "@/components/layouts/footer/Footer";
+import { PageTitlesData } from "@/data/PageTitlesData";
 
 interface Option {
   value: string;
@@ -29,7 +30,7 @@ const ProjectsPage: React.FC = () => {
 
   const handleTypeChange = (selectedOption: Option) => {
     setSelectedType(
-      selectedOption.value === "all" ? null : selectedOption.value
+      selectedOption.value === "all" ? null : selectedOption.value,
     );
   };
 
@@ -41,7 +42,7 @@ const ProjectsPage: React.FC = () => {
   ];
 
   const filteredProjects = projectData.filter(
-    (project) => !selectedType || project.type === selectedType
+    (project) => !selectedType || project.type === selectedType,
   );
   const direction = i18n.language === "ar" ? "rtl" : "ltr";
 
@@ -53,6 +54,8 @@ const ProjectsPage: React.FC = () => {
 
   return (
     <div dir={direction} className="min-h-[100dvh] w-full">
+      <PageTitle title={PageTitlesData.projects} />
+
       <div className="hidden">
         <NavbarMenu />
       </div>
@@ -72,7 +75,7 @@ const ProjectsPage: React.FC = () => {
         </div>
       </div>
       <div className="container">
-        <div className="projectCards flex flex-col w-full gap-5 min-h-[100vh]  max-md:pb-0">
+        <div className="projectCards flex min-h-[100vh] w-full flex-col gap-5 max-md:pb-0">
           <div className="header">
             <h1 className="header-title">{t("ProjectsSection.Title")}</h1>
             <p className="description max-w-[100%]">
@@ -107,10 +110,9 @@ const ProjectsPage: React.FC = () => {
               </Breadcrumb>
             </div>
           </div>
-
           <div className="projects-cards flex flex-col gap-[2rem] pb-[4rem]">
             {filteredProjects.length === 0 ? (
-              <p className="text-[var(--paragraph)] text-lg max-md:text-lg max-md:w-full max-md:max-w-none">
+              <p className="text-lg text-[var(--paragraph)] max-md:w-full max-md:max-w-none max-md:text-lg">
                 {t("Projects.NotFound")}
               </p>
             ) : (

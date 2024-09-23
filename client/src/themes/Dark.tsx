@@ -5,7 +5,7 @@ const DarkMode = createGlobalStyle`
     --background: #16161a;
     --headline: #fffffe;
     --paragraph: #94a1b2;
-    --border: #000000;
+    --border: #719dba7a;
     --button: #7f5af0;
     --scroll: #7f5af0;
     --button-border: #7f5af0;
@@ -20,20 +20,25 @@ const DarkMode = createGlobalStyle`
     --nav-item: #94a1b2;
     --Logo-background: #fffffe;
     --Logo-text-color: #fff;
-    --gradient-color-1: #7f5af0;
-    --gradient-color-2: #af5af0;
+    --gradient-color-1: #36264385;
+    --gradient-color-2: #5c149385;
     --input-background:#242629;
-    --input-border-color: #010101;
-    --badge-color: #7f5af0;
+    --input-border-color: #7575755e;
+    --badge-background: #7f5af0;
     --badge-text:#fffffe;
     --skeleton-color: #353f4e;
     --tertiary-color: #7f5af0;
     --footer-border-color: #ffffff25;
     --footer-text :#94a1b2;
     --menu-color:#94a1b2;
-    --input-text: #94a1b2;
+    --input-text: #fff;
     --input-border:"#ef4565";
     --selectBox-border : #7f5af0;
+    --outline-button-text :#cbbaff;
+    --mark: #000;
+    --active : #fff;
+    --active-text : #000;
+    
   }
 `;
 

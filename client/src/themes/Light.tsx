@@ -20,7 +20,7 @@ const LightMode = createGlobalStyle`
     --Logo-text-color: #000000;
     --input-background:#e6e5e7;
     --input-border-color: #000;
-    --badge-color: #000000;
+    --badge-background: #000000;
     --badge-text:#eee;
     --skeleton-color: #353f4e;
     --tertiary-color: #000000;
@@ -31,6 +31,9 @@ const LightMode = createGlobalStyle`
     --input-text: #000;
     --input-border:"#ef4565";
     --selectBox-border : #000;
+    --outline-button-text :#000 ;
+    --mark: #7f5af0;
+
 
   }
 `;
