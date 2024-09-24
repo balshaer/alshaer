@@ -18,9 +18,8 @@ const ContactSection: React.FC = () => {
 
   return (
     <ul
-      data-aos="fade-up"
       className={
-        "hovered flex items-start gap-4 py-[8px] pt-[2rem] text-[1rem] text-[var(--paragraph)] max-md:w-full max-md:flex-col"
+        "hovered section flex items-start gap-4 py-[8px] text-[1rem] text-[var(--paragraph)] max-md:w-full max-md:flex-col"
       }
     >
       {socialMediaLinks.map((item, index) => (

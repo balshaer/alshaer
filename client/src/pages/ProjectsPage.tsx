@@ -110,7 +110,7 @@ const ProjectsPage: React.FC = () => {
               </Breadcrumb>
             </div>
           </div>
-          <div className="projects-cards flex flex-col gap-[2rem] pb-[4rem]">
+          <div className="projects-cards flex flex-col gap-8 pb-16">
             {filteredProjects.length === 0 ? (
               <p className="text-lg text-[var(--paragraph)] max-md:w-full max-md:max-w-none max-md:text-lg">
                 {t("Projects.NotFound")}

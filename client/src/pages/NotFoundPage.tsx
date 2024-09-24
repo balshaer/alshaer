@@ -13,7 +13,7 @@ const NotFoundPage: FunctionComponent<Props> = () => {
     <div className="h-full w-full bg-[var(--background)]">
       <PageTitle title={PageTitlesData.notFound} />
 
-      <div className="container flex h-max min-h-[100vh] flex-col gap-[1.5rem]">
+      <div className="container flex h-max min-h-[100vh] flex-col gap-6">
         <div className="hidden">
           <Navbar />
         </div>

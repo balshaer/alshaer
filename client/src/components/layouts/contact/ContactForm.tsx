@@ -264,7 +264,7 @@ export function ContactForm() {
         <DrawerTrigger asChild>
           <span className="cursor-pointer">{commonContent}</span>
         </DrawerTrigger>
-        <DrawerContent className="border-none bg-[var(--background)] p-[1rem]">
+        <DrawerContent className="border-none bg-[var(--background)] p-4">
           <DrawerHeader className={"text-left"}>
             <DrawerTitle className="cursor-pointer"></DrawerTitle>
             <DrawerDescription></DrawerDescription>
