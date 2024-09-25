@@ -59,13 +59,13 @@ const ProjectsAdminPage = () => {
 
         <div className="flex gap-2">
           <Link to={"/admin/project/add"}>
-            <Plus className="adminSectionIcon" />
+            <Plus className="sectionIcon" />
           </Link>
 
           <Dialog>
             <DialogTrigger asChild>
               <button type="submit">
-                <Trash2 className="adminSectionIcon" />
+                <Trash2 className="sectionIcon" />
               </button>
             </DialogTrigger>
             <DialogContent className="border-none bg-[var(--card-background)] text-center sm:max-w-[425px]">
@@ -85,9 +85,6 @@ const ProjectsAdminPage = () => {
                   <DialogTitle className="py-4 text-center text-[var(--headline)]">
                     Delete all projects
                   </DialogTitle>
-                  <DialogDescription className="text-center">
-                    Write verify code
-                  </DialogDescription>
                 </DialogHeader>
               )}
 
@@ -106,23 +103,19 @@ const ProjectsAdminPage = () => {
 
               {OTP == false && (
                 <div className="flex w-full items-center justify-center gap-4 py-4">
-                  <Button onClick={showOTP} variant={"outline"}>
-                    yes delete them
-                  </Button>
-
-                  <DialogClose asChild>
-                    <Button> cancel</Button>
+                  <DialogClose className="w-full">
+                    <Button onClick={showOTP} className="w-full">
+                      yes delete them
+                    </Button>
                   </DialogClose>
                 </div>
               )}
               {OTP && (
                 <div className="flex w-full items-center justify-center gap-4 py-4">
-                  <Button onClick={showOTP} variant={"outline"}>
-                    Delet all projects
-                  </Button>
-
-                  <DialogClose asChild>
-                    <Button> cancel</Button>
+                  <DialogClose className="w-full">
+                    <Button onClick={showOTP} className="w-full">
+                      Delet all projects
+                    </Button>
                   </DialogClose>
                 </div>
               )}
@@ -131,8 +124,288 @@ const ProjectsAdminPage = () => {
         </div>
       </header>
 
-      <div className="cardGroups">
-        <Card className="w-2/6">
+      <div className="cardGroup">
+        <Card>
+          <CardHeader>
+            <CardTitle>project name</CardTitle>
+
+            <DropdownMenu>
+              <DropdownMenuTrigger>
+                <span className="flex h-full items-center justify-center text-[var(--headline)]">
+                  <MoreHorizontal className="h-4 w-4 cursor-pointer" />
+                </span>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuSeparator />
+
+                <Link to={"/admin/project/edit"}>
+                  <DropdownMenuItem className={styles.dropdownMenuItem}>
+                    <span>Edit</span>
+                    <EditIcon className="h-4 w-4" />
+                  </DropdownMenuItem>
+                </Link>
+                <DropdownMenuItem className={styles.dropdownMenuItem}>
+                  <span>Romove</span>
+                  <Trash2 className="h-4 w-4" />
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </CardHeader>
+
+          <CardContent>
+            <CardDescription>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis
+              fugiat ratione unde possimus itaque. Quisquam sit minima, autem
+              magni hic sint consectetur ut ipsa tempore asperiores labore error
+              id eum.
+            </CardDescription>
+          </CardContent>
+
+          <CardFooter className="flex-col">
+            <div className="links text-md flex flex-col gap-2 py-4 text-[var(--paragraph)]">
+              <div className={styles.linkStyle}>
+                <ImGithub className="h-4 w-4" />
+
+                <div>https://github.com</div>
+              </div>
+              <div className={styles.linkStyle}>
+                <Globe className="h-4 w-4" />
+                <div>https://website.com</div>
+              </div>
+            </div>
+
+            <div className="flex gap-4">
+              <Badge>t213</Badge>
+              <Badge>t</Badge>
+              <Badge>t</Badge>
+            </div>
+          </CardFooter>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle>project name</CardTitle>
+
+            <DropdownMenu>
+              <DropdownMenuTrigger>
+                <span className="flex h-full items-center justify-center text-[var(--headline)]">
+                  <MoreHorizontal className="h-4 w-4 cursor-pointer" />
+                </span>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuSeparator />
+
+                <Link to={"/admin/project/edit"}>
+                  <DropdownMenuItem className={styles.dropdownMenuItem}>
+                    <span>Edit</span>
+                    <EditIcon className="h-4 w-4" />
+                  </DropdownMenuItem>
+                </Link>
+                <DropdownMenuItem className={styles.dropdownMenuItem}>
+                  <span>Romove</span>
+                  <Trash2 className="h-4 w-4" />
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </CardHeader>
+
+          <CardContent>
+            <CardDescription>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis
+              fugiat ratione unde possimus itaque. Quisquam sit minima, autem
+              magni hic sint consectetur ut ipsa tempore asperiores labore error
+              id eum.
+            </CardDescription>
+          </CardContent>
+
+          <CardFooter className="flex-col">
+            <div className="links text-md flex flex-col gap-2 py-4 text-[var(--paragraph)]">
+              <div className={styles.linkStyle}>
+                <ImGithub className="h-4 w-4" />
+
+                <div>https://github.com</div>
+              </div>
+              <div className={styles.linkStyle}>
+                <Globe className="h-4 w-4" />
+                <div>https://website.com</div>
+              </div>
+            </div>
+
+            <div className="flex gap-4">
+              <Badge>t213</Badge>
+              <Badge>t</Badge>
+              <Badge>t</Badge>
+            </div>
+          </CardFooter>
+        </Card>{" "}
+        <Card>
+          <CardHeader>
+            <CardTitle>project name</CardTitle>
+
+            <DropdownMenu>
+              <DropdownMenuTrigger>
+                <span className="flex h-full items-center justify-center text-[var(--headline)]">
+                  <MoreHorizontal className="h-4 w-4 cursor-pointer" />
+                </span>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuSeparator />
+
+                <Link to={"/admin/project/edit"}>
+                  <DropdownMenuItem className={styles.dropdownMenuItem}>
+                    <span>Edit</span>
+                    <EditIcon className="h-4 w-4" />
+                  </DropdownMenuItem>
+                </Link>
+                <DropdownMenuItem className={styles.dropdownMenuItem}>
+                  <span>Romove</span>
+                  <Trash2 className="h-4 w-4" />
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </CardHeader>
+
+          <CardContent>
+            <CardDescription>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis
+              fugiat ratione unde possimus itaque. Quisquam sit minima, autem
+              magni hic sint consectetur ut ipsa tempore asperiores labore error
+              id eum.
+            </CardDescription>
+          </CardContent>
+
+          <CardFooter className="flex-col">
+            <div className="links text-md flex flex-col gap-2 py-4 text-[var(--paragraph)]">
+              <div className={styles.linkStyle}>
+                <ImGithub className="h-4 w-4" />
+
+                <div>https://github.com</div>
+              </div>
+              <div className={styles.linkStyle}>
+                <Globe className="h-4 w-4" />
+                <div>https://website.com</div>
+              </div>
+            </div>
+
+            <div className="flex gap-4">
+              <Badge>t213</Badge>
+              <Badge>t</Badge>
+              <Badge>t</Badge>
+            </div>
+          </CardFooter>
+        </Card>{" "}
+        <Card>
+          <CardHeader>
+            <CardTitle>project name</CardTitle>
+
+            <DropdownMenu>
+              <DropdownMenuTrigger>
+                <span className="flex h-full items-center justify-center text-[var(--headline)]">
+                  <MoreHorizontal className="h-4 w-4 cursor-pointer" />
+                </span>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuSeparator />
+
+                <Link to={"/admin/project/edit"}>
+                  <DropdownMenuItem className={styles.dropdownMenuItem}>
+                    <span>Edit</span>
+                    <EditIcon className="h-4 w-4" />
+                  </DropdownMenuItem>
+                </Link>
+                <DropdownMenuItem className={styles.dropdownMenuItem}>
+                  <span>Romove</span>
+                  <Trash2 className="h-4 w-4" />
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </CardHeader>
+
+          <CardContent>
+            <CardDescription>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis
+              fugiat ratione unde possimus itaque. Quisquam sit minima, autem
+              magni hic sint consectetur ut ipsa tempore asperiores labore error
+              id eum.
+            </CardDescription>
+          </CardContent>
+
+          <CardFooter className="flex-col">
+            <div className="links text-md flex flex-col gap-2 py-4 text-[var(--paragraph)]">
+              <div className={styles.linkStyle}>
+                <ImGithub className="h-4 w-4" />
+
+                <div>https://github.com</div>
+              </div>
+              <div className={styles.linkStyle}>
+                <Globe className="h-4 w-4" />
+                <div>https://website.com</div>
+              </div>
+            </div>
+
+            <div className="flex gap-4">
+              <Badge>t213</Badge>
+              <Badge>t</Badge>
+              <Badge>t</Badge>
+            </div>
+          </CardFooter>
+        </Card>{" "}
+        <Card>
+          <CardHeader>
+            <CardTitle>project name</CardTitle>
+
+            <DropdownMenu>
+              <DropdownMenuTrigger>
+                <span className="flex h-full items-center justify-center text-[var(--headline)]">
+                  <MoreHorizontal className="h-4 w-4 cursor-pointer" />
+                </span>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuSeparator />
+
+                <Link to={"/admin/project/edit"}>
+                  <DropdownMenuItem className={styles.dropdownMenuItem}>
+                    <span>Edit</span>
+                    <EditIcon className="h-4 w-4" />
+                  </DropdownMenuItem>
+                </Link>
+                <DropdownMenuItem className={styles.dropdownMenuItem}>
+                  <span>Romove</span>
+                  <Trash2 className="h-4 w-4" />
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </CardHeader>
+
+          <CardContent>
+            <CardDescription>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis
+              fugiat ratione unde possimus itaque. Quisquam sit minima, autem
+              magni hic sint consectetur ut ipsa tempore asperiores labore error
+              id eum.
+            </CardDescription>
+          </CardContent>
+
+          <CardFooter className="flex-col">
+            <div className="links text-md flex flex-col gap-2 py-4 text-[var(--paragraph)]">
+              <div className={styles.linkStyle}>
+                <ImGithub className="h-4 w-4" />
+
+                <div>https://github.com</div>
+              </div>
+              <div className={styles.linkStyle}>
+                <Globe className="h-4 w-4" />
+                <div>https://website.com</div>
+              </div>
+            </div>
+
+            <div className="flex gap-4">
+              <Badge>t213</Badge>
+              <Badge>t</Badge>
+              <Badge>t</Badge>
+            </div>
+          </CardFooter>
+        </Card>{" "}
+        <Card>
           <CardHeader>
             <CardTitle>project name</CardTitle>
 

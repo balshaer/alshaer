@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import DarkMode from "@/themes/Dark";
 import LightMode from "@/themes/Light";
 import React, {

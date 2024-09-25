@@ -35,6 +35,7 @@ interface Mail {
   labels: string[];
   starred: boolean;
   favorite: boolean;
+  value: any;
 }
 
 import { AnimatePresence, motion } from "framer-motion";
@@ -188,7 +189,10 @@ export default function MailsAdminPage() {
                   </div>
                 </div>
 
-                <Tabs defaultValue="all" className="w-full">
+                <Tabs
+                  defaultValue="all"
+                  className="w-full max-md:overflow-y-scroll"
+                >
                   <TabsList className="flex w-full items-start justify-start gap-8">
                     <TabsTrigger
                       value="compose"
@@ -233,7 +237,7 @@ export default function MailsAdminPage() {
                     <TabsTrigger
                       value="deleted"
                       onClick={() => setMailFilter("deleted")}
-                      className="flex items-center justify-center bg-red-200"
+                      className="flex items-center justify-center"
                     >
                       <Trash2 className="mr-2 h-4 w-4" />
                       Deleted
@@ -248,16 +252,24 @@ export default function MailsAdminPage() {
                       {deletedMails.map((mail) => (
                         <div
                           key={mail.id}
-                          className="flex items-center rounded-lg p-2"
+                          className="flex cursor-pointer items-center rounded-lg p-2"
                         >
                           <div className="flex flex-col items-start">
-                            <div className="font-semibold">{mail.name}</div>
-                            <div className="text-xs text-muted-foreground">
+                            <div className="font-semibold text-[var(--headline)]">
+                              {mail.name}
+                            </div>
+                            <div className="text-xs text-[var(--paragraph)]">
                               {mail.subject}
                             </div>
                           </div>
                         </div>
                       ))}
+
+                      {deletedMails == 0 && (
+                        <p className="py-40 text-center text-[var(--paragraph)]">
+                          no messages here
+                        </p>
+                      )}
 
                       <Button onClick={clearDeletedMails}>Clear All</Button>
                     </>
@@ -318,15 +330,13 @@ export default function MailsAdminPage() {
                             </div>
                           </div>
                         </div>
-                        <Button
-                          variant="ghost"
-                          size="icon"
-                          className="hover:bg-none"
+                        <div
+                          className="bg-none px-2"
                           onClick={() => deleteMail(mail.id)}
                         >
                           <Trash2 className="h-4 w-4 text-muted-foreground" />
                           <span className="sr-only">Delete</span>
-                        </Button>
+                        </div>
                       </div>
                     ))
                   )}
@@ -349,7 +359,7 @@ export default function MailsAdminPage() {
                 <header className="pb-8">
                   <ArrowLeft
                     onClick={() => setOpenMailView(false)}
-                    className="adminSectionIcon"
+                    className="sectionIcon"
                   />
                 </header>
 

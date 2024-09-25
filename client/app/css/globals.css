@@ -65,7 +65,7 @@
 
 @layer components {
   .hoverd {
-    @apply transition-all duration-300 ease-in-out;
+    transition: all 0.3s ease 0s;
   }
 
   .cardsGroup {
@@ -144,12 +144,8 @@
     @apply bg-gradient-to-r from-[#4e1ecf] to-[#e52d5b];
   }
 
-  .cardGroups {
-    @apply flex flex-col gap-4;
-  }
-
   .cardGroup {
-    @apply flex h-max w-full items-center justify-between gap-4 max-md:flex-col;
+    @apply grid grid-cols-3 gap-4 max-md:grid-cols-1;
   }
 
   .cardContainer {
@@ -168,7 +164,7 @@
     @apply relative max-md:hidden;
   }
 
-  .adminSectionIcon {
+  .sectionIcon {
     @apply h-8 w-8 cursor-pointer rounded-md bg-[var(--card-background)] p-2 text-[var(--headline)];
   }
 }

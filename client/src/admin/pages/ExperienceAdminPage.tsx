@@ -47,13 +47,13 @@ const ExperienceAdminPage = () => {
 
         <div className="flex gap-2">
           <Link to={"/admin/experience/add"}>
-            <Plus className="adminSectionIcon" />
+            <Plus className="sectionIcon" />
           </Link>
 
           <Dialog>
             <DialogTrigger asChild>
               <button type="submit">
-                <Trash2 className="adminSectionIcon" />
+                <Trash2 className="sectionIcon" />
               </button>
             </DialogTrigger>
             <DialogContent className="border-none bg-[var(--card-background)] text-center sm:max-w-[425px]">
@@ -80,8 +80,253 @@ const ExperienceAdminPage = () => {
         </div>
       </header>
 
-      <div>
-        <Card className="w-2/6">
+      <div className="cardGroup">
+        <Card>
+          <CardHeader>
+            <CardTitle>experience role</CardTitle>
+
+            <DropdownMenu>
+              <DropdownMenuTrigger>
+                <span className="flex h-full items-center justify-center text-[var(--headline)]">
+                  <MoreHorizontal className="h-4 w-4 cursor-pointer" />
+                </span>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuSeparator />
+                <Link to={"/admin/experience/edit"}>
+                  <DropdownMenuItem className={styles.dropdownMenuItem}>
+                    <span>Edit</span>
+                    <EditIcon className="h-4 w-4" />
+                  </DropdownMenuItem>
+                </Link>
+                <DropdownMenuItem className={styles.dropdownMenuItem}>
+                  <span>Romove</span>
+                  <Trash2 className="h-4 w-4" />
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </CardHeader>
+
+          <CardContent>
+            <CardDescription>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia,
+              hic libero sint et fugit qui tempora minus aspernatur quo
+              assumenda sequi maiores aut saepe ut error enim, cumque obcaecati
+              quaerat?
+            </CardDescription>
+          </CardContent>
+
+          <CardFooter className="flex flex-col gap-4 py-4">
+            <div>
+              <Badge className="w-max rounded-sm bg-[var(--mark)]">
+                2020/2/2
+              </Badge>
+            </div>
+
+            <div className="flex gap-2">
+              <Badge>t213</Badge>
+              <Badge>t</Badge>
+              <Badge>t</Badge>
+            </div>
+          </CardFooter>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle>experience role</CardTitle>
+
+            <DropdownMenu>
+              <DropdownMenuTrigger>
+                <span className="flex h-full items-center justify-center text-[var(--headline)]">
+                  <MoreHorizontal className="h-4 w-4 cursor-pointer" />
+                </span>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuSeparator />
+                <Link to={"/admin/experience/edit"}>
+                  <DropdownMenuItem className={styles.dropdownMenuItem}>
+                    <span>Edit</span>
+                    <EditIcon className="h-4 w-4" />
+                  </DropdownMenuItem>
+                </Link>
+                <DropdownMenuItem className={styles.dropdownMenuItem}>
+                  <span>Romove</span>
+                  <Trash2 className="h-4 w-4" />
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </CardHeader>
+
+          <CardContent>
+            <CardDescription>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia,
+              hic libero sint et fugit qui tempora minus aspernatur quo
+              assumenda sequi maiores aut saepe ut error enim, cumque obcaecati
+              quaerat?
+            </CardDescription>
+          </CardContent>
+
+          <CardFooter className="flex flex-col gap-4 py-4">
+            <div>
+              <Badge className="w-max rounded-sm bg-[var(--mark)]">
+                2020/2/2
+              </Badge>
+            </div>
+
+            <div className="flex gap-2">
+              <Badge>t213</Badge>
+              <Badge>t</Badge>
+              <Badge>t</Badge>
+            </div>
+          </CardFooter>
+        </Card>{" "}
+        <Card>
+          <CardHeader>
+            <CardTitle>experience role</CardTitle>
+
+            <DropdownMenu>
+              <DropdownMenuTrigger>
+                <span className="flex h-full items-center justify-center text-[var(--headline)]">
+                  <MoreHorizontal className="h-4 w-4 cursor-pointer" />
+                </span>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuSeparator />
+                <Link to={"/admin/experience/edit"}>
+                  <DropdownMenuItem className={styles.dropdownMenuItem}>
+                    <span>Edit</span>
+                    <EditIcon className="h-4 w-4" />
+                  </DropdownMenuItem>
+                </Link>
+                <DropdownMenuItem className={styles.dropdownMenuItem}>
+                  <span>Romove</span>
+                  <Trash2 className="h-4 w-4" />
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </CardHeader>
+
+          <CardContent>
+            <CardDescription>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia,
+              hic libero sint et fugit qui tempora minus aspernatur quo
+              assumenda sequi maiores aut saepe ut error enim, cumque obcaecati
+              quaerat?
+            </CardDescription>
+          </CardContent>
+
+          <CardFooter className="flex flex-col gap-4 py-4">
+            <div>
+              <Badge className="w-max rounded-sm bg-[var(--mark)]">
+                2020/2/2
+              </Badge>
+            </div>
+
+            <div className="flex gap-2">
+              <Badge>t213</Badge>
+              <Badge>t</Badge>
+              <Badge>t</Badge>
+            </div>
+          </CardFooter>
+        </Card>{" "}
+        <Card>
+          <CardHeader>
+            <CardTitle>experience role</CardTitle>
+
+            <DropdownMenu>
+              <DropdownMenuTrigger>
+                <span className="flex h-full items-center justify-center text-[var(--headline)]">
+                  <MoreHorizontal className="h-4 w-4 cursor-pointer" />
+                </span>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuSeparator />
+                <Link to={"/admin/experience/edit"}>
+                  <DropdownMenuItem className={styles.dropdownMenuItem}>
+                    <span>Edit</span>
+                    <EditIcon className="h-4 w-4" />
+                  </DropdownMenuItem>
+                </Link>
+                <DropdownMenuItem className={styles.dropdownMenuItem}>
+                  <span>Romove</span>
+                  <Trash2 className="h-4 w-4" />
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </CardHeader>
+
+          <CardContent>
+            <CardDescription>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia,
+              hic libero sint et fugit qui tempora minus aspernatur quo
+              assumenda sequi maiores aut saepe ut error enim, cumque obcaecati
+              quaerat?
+            </CardDescription>
+          </CardContent>
+
+          <CardFooter className="flex flex-col gap-4 py-4">
+            <div>
+              <Badge className="w-max rounded-sm bg-[var(--mark)]">
+                2020/2/2
+              </Badge>
+            </div>
+
+            <div className="flex gap-2">
+              <Badge>t213</Badge>
+              <Badge>t</Badge>
+              <Badge>t</Badge>
+            </div>
+          </CardFooter>
+        </Card>{" "}
+        <Card>
+          <CardHeader>
+            <CardTitle>experience role</CardTitle>
+
+            <DropdownMenu>
+              <DropdownMenuTrigger>
+                <span className="flex h-full items-center justify-center text-[var(--headline)]">
+                  <MoreHorizontal className="h-4 w-4 cursor-pointer" />
+                </span>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuSeparator />
+                <Link to={"/admin/experience/edit"}>
+                  <DropdownMenuItem className={styles.dropdownMenuItem}>
+                    <span>Edit</span>
+                    <EditIcon className="h-4 w-4" />
+                  </DropdownMenuItem>
+                </Link>
+                <DropdownMenuItem className={styles.dropdownMenuItem}>
+                  <span>Romove</span>
+                  <Trash2 className="h-4 w-4" />
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </CardHeader>
+
+          <CardContent>
+            <CardDescription>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia,
+              hic libero sint et fugit qui tempora minus aspernatur quo
+              assumenda sequi maiores aut saepe ut error enim, cumque obcaecati
+              quaerat?
+            </CardDescription>
+          </CardContent>
+
+          <CardFooter className="flex flex-col gap-4 py-4">
+            <div>
+              <Badge className="w-max rounded-sm bg-[var(--mark)]">
+                2020/2/2
+              </Badge>
+            </div>
+
+            <div className="flex gap-2">
+              <Badge>t213</Badge>
+              <Badge>t</Badge>
+              <Badge>t</Badge>
+            </div>
+          </CardFooter>
+        </Card>{" "}
+        <Card>
           <CardHeader>
             <CardTitle>experience role</CardTitle>
 

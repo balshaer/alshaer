@@ -6,7 +6,15 @@ import { PageTitlesData } from "@/data/PageTitlesData";
 import { PageTitle } from "@/helper";
 import { Plus } from "lucide-react";
 import { motion } from "framer-motion";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogHeader,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { DialogTitle } from "@radix-ui/react-dialog";
 
 const ThemesAdminPage = () => {
   return (
@@ -16,9 +24,13 @@ const ThemesAdminPage = () => {
       <Tabs defaultValue="dark" className="w-full">
         <div className="mb-4 flex w-full items-center justify-between">
           <h1 className="section-title">Themes</h1>
-          <TabsList className="flex gap-4 bg-[var(--card-background)]">
-            <TabsTrigger value="dark">Dark mode</TabsTrigger>
-            <TabsTrigger value="light">Light mode</TabsTrigger>
+          <TabsList className="flex gap-4">
+            <TabsTrigger className="p-2" value="dark">
+              Dark mode
+            </TabsTrigger>
+            <TabsTrigger className="p-2" value="light">
+              Light mode
+            </TabsTrigger>
           </TabsList>
         </div>
 
@@ -47,10 +59,21 @@ const ThemeForm = ({ mode }: { mode: "Dark" | "Light" }) => {
         </h2>
         <Dialog>
           <DialogTrigger asChild>
-            <Plus className="adminSectionIcon" />
+            <Plus className="sectionIcon" />
           </DialogTrigger>
+
           <DialogContent>
-            <Input placeholder="Enter new color name" />
+            <DialogHeader>
+              <DialogTitle className="text-center font-bold text-[var(--headline)]">
+                Add theme color
+              </DialogTitle>
+            </DialogHeader>
+            <Input placeholder="color name" />
+            <Input placeholder="#000000" />
+
+            <DialogClose className="w-full">
+              <Button className="w-full">Add color</Button>
+            </DialogClose>
           </DialogContent>
         </Dialog>
       </header>

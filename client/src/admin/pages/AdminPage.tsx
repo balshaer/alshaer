@@ -16,6 +16,7 @@ import { HiDocument } from "react-icons/hi2";
 import { Badge } from "@/components/ui/badge";
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogHeader,
@@ -23,6 +24,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 export default function AdminPage() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -150,13 +152,9 @@ export default function AdminPage() {
 
           <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
             <DialogTrigger asChild>
-              <Button
-                variant="outline"
-                size="icon"
-                className="adminSectionIcon z-50"
-              >
+              <div className="sectionIcon">
                 <Plus className="h-4 w-4" />
-              </Button>
+              </div>
             </DialogTrigger>
             <DialogContent>
               <DialogHeader>
@@ -165,7 +163,14 @@ export default function AdminPage() {
                   Enter a new skill to add to your profile.
                 </DialogDescription>
               </DialogHeader>
-              {/* Add form elements here for adding a new skill */}
+
+              <div>
+                <Input placeholder="Enter skill name" />
+              </div>
+
+              <DialogClose className="w-full">
+                <Button className="w-full">Add</Button>
+              </DialogClose>
             </DialogContent>
           </Dialog>
         </CardHeader>

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import i18n from "@/i18n";
 import { Outlet } from "react-router";
 import Sidebar from "./Sidebar";
@@ -15,7 +16,7 @@ export default function AdminLayout() {
 
   return (
     <div className="flex min-h-screen w-full">
-      <div className="fixed left-0 top-0 max-md:z-50 h-full w-full max-md:hidden">
+      <div className="fixed left-0 top-0 h-full w-full max-md:z-50 max-md:hidden">
         <Sidebar />
       </div>
 
