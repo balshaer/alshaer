@@ -25,6 +25,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { AdminChart } from "../components/layouts/AdminChart";
 
 export default function AdminPage() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -182,6 +183,8 @@ export default function AdminPage() {
           </CardFooter>
         </CardContent>
       </Card>
+
+      <AdminChart />
     </div>
   );
 }

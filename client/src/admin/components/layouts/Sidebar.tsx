@@ -5,6 +5,7 @@ import { MenuContext } from "@/context/MenuContext";
 import { sidebarLinks } from "@/data/admin/SidebarLinks";
 import { Link, useLocation } from "react-router-dom";
 import { HiXMark } from "react-icons/hi2";
+import { LuLogOut } from "react-icons/lu";
 
 export default function Sidebar() {
   const context = useContext(MenuContext);
@@ -25,7 +26,6 @@ export default function Sidebar() {
   };
 
   return (
-    
     <div className="flex h-[100vh] w-1/5 flex-col justify-between bg-[var(--card-background)] p-4 text-[var(--headline)] max-md:fixed max-md:inset-0 max-md:z-50 max-md:w-full">
       <header className="relative flex items-center justify-center py-4 max-md:justify-end">
         <div className="max-md:hidden">
@@ -57,7 +57,7 @@ export default function Sidebar() {
       </div>
 
       <footer className="w-full py-4">
-        <Button onClick={handelLogout} className="w-full">
+        <Button icon={<LuLogOut />} onClick={handelLogout} className="w-full">
           Logout
         </Button>
       </footer>

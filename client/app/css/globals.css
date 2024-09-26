@@ -63,11 +63,11 @@
   }
 }
 
-@layer components {
-  .hoverd {
-    transition: all 0.3s ease 0s;
-  }
+.hoverd {
+  transition: all 0.3s ease 0s !important;
+}
 
+@layer components {
   .cardsGroup {
     @apply flex min-h-[100px] w-full flex-col gap-5 max-md:w-full;
   }

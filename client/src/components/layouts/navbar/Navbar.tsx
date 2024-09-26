@@ -6,6 +6,7 @@ export default function Navbar() {
     <div className="container">
       <div className={"main-navbar"}>
         <Logo />
+
         <div className="flex flex-row-reverse items-center justify-center gap-2">
           <NavbarMenu />
         </div>
