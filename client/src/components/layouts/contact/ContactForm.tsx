@@ -136,8 +136,7 @@ function ProfileForm({
         <Input
           type="text"
           className={cn({
-            "animate__shakeX border-1 border border-red-400":
-              inputEffect && !name,
+            "input-error": inputEffect && !name,
           })}
           id="Name"
           placeholder={t("DialogForm.Placeholder.NameInput")}
@@ -158,8 +157,7 @@ function ProfileForm({
       <div className={styles.inputGrid}>
         <Input
           className={cn({
-            "animate__shakeX border-1 border border-red-400":
-              inputEffect && !name,
+            "input-error": inputEffect && !name,
           })}
           type="email"
           id="email"
@@ -181,8 +179,7 @@ function ProfileForm({
       <div className={styles.inputGrid}>
         <Textarea
           className={cn({
-            "animate__shakeX border-1 border border-red-400":
-              inputEffect && !name,
+            "input-error": inputEffect && !name,
           })}
           id="message"
           placeholder={t("DialogForm.Placeholder.MessageTextarea")}

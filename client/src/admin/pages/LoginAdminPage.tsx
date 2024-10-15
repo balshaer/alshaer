@@ -6,6 +6,7 @@ import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
 import { endpoints } from "@/API/API";
+import { cn } from "@/lib/utils";
 
 interface FormData {
   email: string;
@@ -15,6 +16,8 @@ interface FormData {
 const LoginAdminPage = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
+  const [inputEffect, setInputEffect] = useState(false);
+
   const { token, setToken } = useAuth();
   const navigate = useNavigate();
 
@@ -37,7 +40,7 @@ const LoginAdminPage = () => {
       setError(null);
 
       if (!formData.email || !formData.password) {
-        setError("Please fill in all fields");
+        setInputEffect(true);
         setLoading(false);
         return;
       }
@@ -63,7 +66,7 @@ const LoginAdminPage = () => {
         setLoading(false);
       }
     },
-    [formData],
+    [formData, navigate, setToken, token],
   );
 
   return (
@@ -83,7 +86,9 @@ const LoginAdminPage = () => {
             onChange={handleFormChange}
             type="email"
             placeholder="Email"
-            required
+            className={cn({
+              "input-error": inputEffect && !formData.email,
+            })}
           />
           <Input
             name="password"
@@ -91,7 +96,9 @@ const LoginAdminPage = () => {
             onChange={handleFormChange}
             type="password"
             placeholder="Password"
-            required
+            className={cn({
+              "input-error": inputEffect && !formData.password,
+            })}
           />
           {error && <p className="text-sm text-red-500">{error}</p>}
           <Button className="my-4 w-full" disabled={loading}>
