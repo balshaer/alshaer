@@ -1,7 +1,14 @@
 import { Badge } from "@/components/ui/badge";
 import { PageTitlesData } from "@/data/PageTitlesData";
 import { PageTitle } from "@/helper";
-import { EditIcon, Globe, MoreHorizontal, Plus, Trash2 } from "lucide-react";
+import {
+  EditIcon,
+  Globe,
+  MoreHorizontal,
+  Plus,
+  Settings,
+  Trash2,
+} from "lucide-react";
 import { ImGithub } from "react-icons/im";
 import { Link } from "react-router-dom";
 
@@ -28,7 +35,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Card,
   CardContent,
@@ -37,12 +44,72 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import axios from "axios";
+import { endpoints } from "@/API/API";
+import { toast } from "sonner";
+
+interface ProjectData {
+  _id: string;
+  title: string;
+  description: string;
+  badge?: string[];
+  visitWebsite?: string;
+  visitGithub?: string;
+  links?: { website: string; github: string }[];
+}
 
 const ProjectsAdminPage = () => {
   const [OTP, setOTP] = useState(false);
+  const [projects, setProjects] = useState<ProjectData[]>([]);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  // Function to delete a single project
+  const deleteProject = async (_id: string) => {
+    try {
+      const response = await axios.delete(
+        `${endpoints.deleteProject.replace(":id", _id)}`,
+      );
+      if (response.status === 200) {
+        setProjects((prevProjects) =>
+          prevProjects.filter((project) => project._id !== _id),
+        );
+        toast.success("Project deleted successfully");
+      } else {
+        toast.error("Failed to delete project");
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error("An error occurred while deleting the project");
+    }
+  };
+
+  useEffect(() => {
+    axios
+      .get(endpoints.getAllProjects)
+      .then((response) => setProjects(response.data));
+  }, []);
 
   const showOTP = () => {
     setOTP(true);
+  };
+
+  // Function to delete all projects
+  const deleteAllProjects = async () => {
+    setIsDeleting(true);
+    try {
+      const response = await axios.delete(endpoints.deleteAllProjects);
+      if (response.status === 200) {
+        setProjects([]);
+        toast.success("All projects deleted successfully");
+      } else {
+        toast.error("Failed to delete projects");
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error("Error deleting projects");
+    } finally {
+      setIsDeleting(false);
+    }
   };
 
   const styles = {
@@ -50,6 +117,9 @@ const ProjectsAdminPage = () => {
     linkStyle:
       "hoverd flex cursor-pointer items-center gap-2 hover:text-[var(--headline)] text-sm",
   };
+
+  const openDeleteDialog = () => {};
+
   return (
     <div>
       <PageTitle title={PageTitlesData.adminProjects} />
@@ -58,409 +128,171 @@ const ProjectsAdminPage = () => {
         <h1 className="section-title">Projects</h1>
 
         <div className="flex gap-2">
-          <Link to={"/admin/project/add"}>
-            <Plus className="sectionIcon" />
-          </Link>
+          <DropdownMenu>
+            <DropdownMenuTrigger>
+              <span className="flex h-full items-center justify-center text-[var(--headline)]">
+                <Settings className="sectionIcon" />
+              </span>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuSeparator />
+              <Link to={"/admin/project/add"}>
+                <DropdownMenuItem className={styles.dropdownMenuItem}>
+                  <span>Add a new project</span>
 
-          <Dialog>
-            <DialogTrigger asChild>
-              <button type="submit">
-                <Trash2 className="sectionIcon" />
-              </button>
-            </DialogTrigger>
-            <DialogContent className="border-none bg-[var(--card-background)] text-center sm:max-w-[425px]">
-              {OTP == false && (
-                <DialogHeader>
-                  <DialogTitle className="py-4 text-center text-[var(--headline)]">
-                    Delete All Projects
-                  </DialogTitle>
-                  <DialogDescription className="text-center">
-                    Are you sure you want delete all projects !
-                  </DialogDescription>
-                </DialogHeader>
-              )}
+                  <div className="dropdownMenuItemIcon">
+                    <Plus className="h-4 w-4" />
+                  </div>
+                </DropdownMenuItem>
+              </Link>
+              <DropdownMenuItem
+                onClick={openDeleteDialog}
+                className={styles.dropdownMenuItem}
+              >
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <button onClick={openDeleteDialog} type="submit">
+                      <Trash2 className="sectionIcon" />
+                    </button>
+                  </DialogTrigger>
+                  <DialogContent className="border-none bg-[var(--card-background)] text-center sm:max-w-[425px]">
+                    {OTP === false && (
+                      <DialogHeader>
+                        <DialogTitle className="py-4 text-center text-[var(--headline)]">
+                          Delete All Projects
+                        </DialogTitle>
+                        <DialogDescription className="text-center">
+                          Are you sure you want to delete all projects?
+                        </DialogDescription>
+                      </DialogHeader>
+                    )}
 
-              {OTP && (
-                <DialogHeader>
-                  <DialogTitle className="py-4 text-center text-[var(--headline)]">
-                    Delete all projects
-                  </DialogTitle>
-                </DialogHeader>
-              )}
+                    {OTP && (
+                      <DialogHeader>
+                        <DialogTitle className="py-4 text-center text-[var(--headline)]">
+                          Delete all projects
+                        </DialogTitle>
+                      </DialogHeader>
+                    )}
 
-              {OTP && (
-                <div className="flex w-full items-center justify-center">
-                  <InputOTP maxLength={6}>
-                    <InputOTPGroup>
-                      <InputOTPSlot index={0} />
-                      <InputOTPSlot index={1} />
-                      <InputOTPSlot index={2} />
-                      <InputOTPSlot index={3} />
-                    </InputOTPGroup>
-                  </InputOTP>
-                </div>
-              )}
+                    {OTP && (
+                      <div className="flex w-full items-center justify-center">
+                        <InputOTP maxLength={6}>
+                          <InputOTPGroup>
+                            <InputOTPSlot index={0} />
+                            <InputOTPSlot index={1} />
+                            <InputOTPSlot index={2} />
+                            <InputOTPSlot index={3} />
+                          </InputOTPGroup>
+                        </InputOTP>
+                      </div>
+                    )}
 
-              {OTP == false && (
-                <div className="flex w-full items-center justify-center gap-4 py-4">
-                  <DialogClose className="w-full">
-                    <Button onClick={showOTP} className="w-full">
-                      yes delete them
-                    </Button>
-                  </DialogClose>
-                </div>
-              )}
-              {OTP && (
-                <div className="flex w-full items-center justify-center gap-4 py-4">
-                  <DialogClose className="w-full">
-                    <Button onClick={showOTP} className="w-full">
-                      Delet all projects
-                    </Button>
-                  </DialogClose>
-                </div>
-              )}
-            </DialogContent>
-          </Dialog>
+                    {OTP === false && (
+                      <div className="flex w-full items-center justify-center gap-4 py-4">
+                        <Button onClick={showOTP} className="w-full">
+                          Yes, delete them
+                        </Button>
+                      </div>
+                    )}
+
+                    {OTP && (
+                      <div className="flex w-full items-center justify-center gap-4 py-4">
+                        <DialogClose className="w-full">
+                          <Button
+                            onClick={deleteAllProjects}
+                            className="w-full"
+                            disabled={isDeleting}
+                          >
+                            {isDeleting ? "Deleting..." : "Delete all projects"}
+                          </Button>
+                        </DialogClose>
+                      </div>
+                    )}
+                  </DialogContent>
+                </Dialog>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </header>
 
       <div className="cardGroup">
-        <Card>
-          <CardHeader>
-            <CardTitle>project name</CardTitle>
+        {projects.map((project: ProjectData) => (
+          <div>
+            {projects.length === 0 && <p>No projects found</p>}
 
-            <DropdownMenu>
-              <DropdownMenuTrigger>
-                <span className="flex h-full items-center justify-center text-[var(--headline)]">
-                  <MoreHorizontal className="h-4 w-4 cursor-pointer" />
-                </span>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuSeparator />
+            <Card key={project._id}>
+              <CardHeader>
+                <CardTitle>{project.title}</CardTitle>
+                <DropdownMenu>
+                  <DropdownMenuTrigger>
+                    <span className="flex h-full items-center justify-center text-[var(--headline)]">
+                      <MoreHorizontal className="h-4 w-4 cursor-pointer" />
+                    </span>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent>
+                    <DropdownMenuSeparator />
 
-                <Link to={"/admin/project/edit"}>
-                  <DropdownMenuItem className={styles.dropdownMenuItem}>
-                    <span>Edit</span>
-                    <EditIcon className="h-4 w-4" />
-                  </DropdownMenuItem>
-                </Link>
-                <DropdownMenuItem className={styles.dropdownMenuItem}>
-                  <span>Romove</span>
-                  <Trash2 className="h-4 w-4" />
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </CardHeader>
+                    <Link to={`/admin/project/edit/${project._id}`}>
+                      <DropdownMenuItem className={styles.dropdownMenuItem}>
+                        <span>Edit</span>
+                        <EditIcon className="h-4 w-4" />
+                      </DropdownMenuItem>
+                    </Link>
+                    <DropdownMenuItem
+                      onClick={() => deleteProject(project._id)}
+                      className={styles.dropdownMenuItem}
+                    >
+                      <span>Remove</span>
+                      <Trash2 className="h-4 w-4" />
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </CardHeader>
 
-          <CardContent>
-            <CardDescription>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis
-              fugiat ratione unde possimus itaque. Quisquam sit minima, autem
-              magni hic sint consectetur ut ipsa tempore asperiores labore error
-              id eum.
-            </CardDescription>
-          </CardContent>
+              <CardContent>
+                <CardDescription>{project.description}</CardDescription>
+              </CardContent>
+              <CardFooter className="my-4 flex w-full flex-wrap items-center justify-between max-md:flex-col max-md:items-start">
+                <div className="flex max-w-[60%] flex-wrap gap-2">
+                  {project.badge &&
+                    project.badge.map((badge, index) => (
+                      <Badge key={index}>{badge}</Badge>
+                    ))}
+                </div>
 
-          <CardFooter className="flex-col">
-            <div className="links text-md flex flex-col gap-2 py-4 text-[var(--paragraph)]">
-              <div className={styles.linkStyle}>
-                <ImGithub className="h-4 w-4" />
+                <div className="flex flex-wrap gap-4 max-md:mt-5">
+                  {project.links?.website && (
+                    <a
+                      href={project.links.website}
+                      target="_blank"
+                      className={styles.linkStyle}
+                    >
+                      <span>
+                        <Globe className="h-4 w-4" />
+                      </span>
+                      <span>Visit Website</span>
+                    </a>
+                  )}
 
-                <div>https://github.com</div>
-              </div>
-              <div className={styles.linkStyle}>
-                <Globe className="h-4 w-4" />
-                <div>https://website.com</div>
-              </div>
-            </div>
-
-            <div className="flex gap-4">
-              <Badge>t213</Badge>
-              <Badge>t</Badge>
-              <Badge>t</Badge>
-            </div>
-          </CardFooter>
-        </Card>
-        <Card>
-          <CardHeader>
-            <CardTitle>project name</CardTitle>
-
-            <DropdownMenu>
-              <DropdownMenuTrigger>
-                <span className="flex h-full items-center justify-center text-[var(--headline)]">
-                  <MoreHorizontal className="h-4 w-4 cursor-pointer" />
-                </span>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuSeparator />
-
-                <Link to={"/admin/project/edit"}>
-                  <DropdownMenuItem className={styles.dropdownMenuItem}>
-                    <span>Edit</span>
-                    <EditIcon className="h-4 w-4" />
-                  </DropdownMenuItem>
-                </Link>
-                <DropdownMenuItem className={styles.dropdownMenuItem}>
-                  <span>Romove</span>
-                  <Trash2 className="h-4 w-4" />
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </CardHeader>
-
-          <CardContent>
-            <CardDescription>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis
-              fugiat ratione unde possimus itaque. Quisquam sit minima, autem
-              magni hic sint consectetur ut ipsa tempore asperiores labore error
-              id eum.
-            </CardDescription>
-          </CardContent>
-
-          <CardFooter className="flex-col">
-            <div className="links text-md flex flex-col gap-2 py-4 text-[var(--paragraph)]">
-              <div className={styles.linkStyle}>
-                <ImGithub className="h-4 w-4" />
-
-                <div>https://github.com</div>
-              </div>
-              <div className={styles.linkStyle}>
-                <Globe className="h-4 w-4" />
-                <div>https://website.com</div>
-              </div>
-            </div>
-
-            <div className="flex gap-4">
-              <Badge>t213</Badge>
-              <Badge>t</Badge>
-              <Badge>t</Badge>
-            </div>
-          </CardFooter>
-        </Card>{" "}
-        <Card>
-          <CardHeader>
-            <CardTitle>project name</CardTitle>
-
-            <DropdownMenu>
-              <DropdownMenuTrigger>
-                <span className="flex h-full items-center justify-center text-[var(--headline)]">
-                  <MoreHorizontal className="h-4 w-4 cursor-pointer" />
-                </span>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuSeparator />
-
-                <Link to={"/admin/project/edit"}>
-                  <DropdownMenuItem className={styles.dropdownMenuItem}>
-                    <span>Edit</span>
-                    <EditIcon className="h-4 w-4" />
-                  </DropdownMenuItem>
-                </Link>
-                <DropdownMenuItem className={styles.dropdownMenuItem}>
-                  <span>Romove</span>
-                  <Trash2 className="h-4 w-4" />
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </CardHeader>
-
-          <CardContent>
-            <CardDescription>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis
-              fugiat ratione unde possimus itaque. Quisquam sit minima, autem
-              magni hic sint consectetur ut ipsa tempore asperiores labore error
-              id eum.
-            </CardDescription>
-          </CardContent>
-
-          <CardFooter className="flex-col">
-            <div className="links text-md flex flex-col gap-2 py-4 text-[var(--paragraph)]">
-              <div className={styles.linkStyle}>
-                <ImGithub className="h-4 w-4" />
-
-                <div>https://github.com</div>
-              </div>
-              <div className={styles.linkStyle}>
-                <Globe className="h-4 w-4" />
-                <div>https://website.com</div>
-              </div>
-            </div>
-
-            <div className="flex gap-4">
-              <Badge>t213</Badge>
-              <Badge>t</Badge>
-              <Badge>t</Badge>
-            </div>
-          </CardFooter>
-        </Card>{" "}
-        <Card>
-          <CardHeader>
-            <CardTitle>project name</CardTitle>
-
-            <DropdownMenu>
-              <DropdownMenuTrigger>
-                <span className="flex h-full items-center justify-center text-[var(--headline)]">
-                  <MoreHorizontal className="h-4 w-4 cursor-pointer" />
-                </span>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuSeparator />
-
-                <Link to={"/admin/project/edit"}>
-                  <DropdownMenuItem className={styles.dropdownMenuItem}>
-                    <span>Edit</span>
-                    <EditIcon className="h-4 w-4" />
-                  </DropdownMenuItem>
-                </Link>
-                <DropdownMenuItem className={styles.dropdownMenuItem}>
-                  <span>Romove</span>
-                  <Trash2 className="h-4 w-4" />
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </CardHeader>
-
-          <CardContent>
-            <CardDescription>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis
-              fugiat ratione unde possimus itaque. Quisquam sit minima, autem
-              magni hic sint consectetur ut ipsa tempore asperiores labore error
-              id eum.
-            </CardDescription>
-          </CardContent>
-
-          <CardFooter className="flex-col">
-            <div className="links text-md flex flex-col gap-2 py-4 text-[var(--paragraph)]">
-              <div className={styles.linkStyle}>
-                <ImGithub className="h-4 w-4" />
-
-                <div>https://github.com</div>
-              </div>
-              <div className={styles.linkStyle}>
-                <Globe className="h-4 w-4" />
-                <div>https://website.com</div>
-              </div>
-            </div>
-
-            <div className="flex gap-4">
-              <Badge>t213</Badge>
-              <Badge>t</Badge>
-              <Badge>t</Badge>
-            </div>
-          </CardFooter>
-        </Card>{" "}
-        <Card>
-          <CardHeader>
-            <CardTitle>project name</CardTitle>
-
-            <DropdownMenu>
-              <DropdownMenuTrigger>
-                <span className="flex h-full items-center justify-center text-[var(--headline)]">
-                  <MoreHorizontal className="h-4 w-4 cursor-pointer" />
-                </span>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuSeparator />
-
-                <Link to={"/admin/project/edit"}>
-                  <DropdownMenuItem className={styles.dropdownMenuItem}>
-                    <span>Edit</span>
-                    <EditIcon className="h-4 w-4" />
-                  </DropdownMenuItem>
-                </Link>
-                <DropdownMenuItem className={styles.dropdownMenuItem}>
-                  <span>Romove</span>
-                  <Trash2 className="h-4 w-4" />
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </CardHeader>
-
-          <CardContent>
-            <CardDescription>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis
-              fugiat ratione unde possimus itaque. Quisquam sit minima, autem
-              magni hic sint consectetur ut ipsa tempore asperiores labore error
-              id eum.
-            </CardDescription>
-          </CardContent>
-
-          <CardFooter className="flex-col">
-            <div className="links text-md flex flex-col gap-2 py-4 text-[var(--paragraph)]">
-              <div className={styles.linkStyle}>
-                <ImGithub className="h-4 w-4" />
-
-                <div>https://github.com</div>
-              </div>
-              <div className={styles.linkStyle}>
-                <Globe className="h-4 w-4" />
-                <div>https://website.com</div>
-              </div>
-            </div>
-
-            <div className="flex gap-4">
-              <Badge>t213</Badge>
-              <Badge>t</Badge>
-              <Badge>t</Badge>
-            </div>
-          </CardFooter>
-        </Card>{" "}
-        <Card>
-          <CardHeader>
-            <CardTitle>project name</CardTitle>
-
-            <DropdownMenu>
-              <DropdownMenuTrigger>
-                <span className="flex h-full items-center justify-center text-[var(--headline)]">
-                  <MoreHorizontal className="h-4 w-4 cursor-pointer" />
-                </span>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuSeparator />
-
-                <Link to={"/admin/project/edit"}>
-                  <DropdownMenuItem className={styles.dropdownMenuItem}>
-                    <span>Edit</span>
-                    <EditIcon className="h-4 w-4" />
-                  </DropdownMenuItem>
-                </Link>
-                <DropdownMenuItem className={styles.dropdownMenuItem}>
-                  <span>Romove</span>
-                  <Trash2 className="h-4 w-4" />
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </CardHeader>
-
-          <CardContent>
-            <CardDescription>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis
-              fugiat ratione unde possimus itaque. Quisquam sit minima, autem
-              magni hic sint consectetur ut ipsa tempore asperiores labore error
-              id eum.
-            </CardDescription>
-          </CardContent>
-
-          <CardFooter className="flex-col">
-            <div className="links text-md flex flex-col gap-2 py-4 text-[var(--paragraph)]">
-              <div className={styles.linkStyle}>
-                <ImGithub className="h-4 w-4" />
-
-                <div>https://github.com</div>
-              </div>
-              <div className={styles.linkStyle}>
-                <Globe className="h-4 w-4" />
-                <div>https://website.com</div>
-              </div>
-            </div>
-
-            <div className="flex gap-4">
-              <Badge>t213</Badge>
-              <Badge>t</Badge>
-              <Badge>t</Badge>
-            </div>
-          </CardFooter>
-        </Card>
+                  {project.links?.github && (
+                    <a
+                      href={project.links.github}
+                      target="_blank"
+                      className={styles.linkStyle}
+                    >
+                      <span>
+                        <ImGithub className="h-4 w-4" />
+                      </span>
+                      <span>Visit Github</span>
+                    </a>
+                  )}
+                </div>
+              </CardFooter>
+            </Card>
+          </div>
+        ))}
       </div>
     </div>
   );

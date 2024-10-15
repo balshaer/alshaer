@@ -9,7 +9,7 @@ const badgeVariants = cva(
     variants: {
       variant: {
         default:
-          "flex items-center justify-center gap-2 border-transparent bg-[var(--badge-background)] text-[var(--badge-text)] hover:bg-primary/80",
+          "flex items-center justify-center gap-2 border-transparent bg-[var(--badge-background)] text-[var(--badge-text)] ",
         secondary:
           "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
         destructive:

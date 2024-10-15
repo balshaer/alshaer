@@ -201,7 +201,7 @@ function ProfileForm({
       </div>
 
       {!loading && (
-        <Button variant={"outline"} type="submit">
+        <Button type="submit">
           <span>{t("Public.send")}</span>
           <span>
             <HiMail />

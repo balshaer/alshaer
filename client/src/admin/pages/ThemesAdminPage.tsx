@@ -1,5 +1,3 @@
-"use client";
-
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { PageTitlesData } from "@/data/PageTitlesData";
@@ -18,7 +16,7 @@ import { DialogTitle } from "@radix-ui/react-dialog";
 
 const ThemesAdminPage = () => {
   return (
-    <div className="">
+    <div>
       <PageTitle title={PageTitlesData.adminThemes} />
 
       <Tabs defaultValue="dark" className="w-full">

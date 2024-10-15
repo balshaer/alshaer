@@ -5,6 +5,7 @@ import {
   Pencil,
   Search,
   Send,
+  SendIcon,
   Star,
   Trash2,
 } from "lucide-react";
@@ -35,7 +36,6 @@ interface Mail {
   labels: string[];
   starred: boolean;
   favorite: boolean;
-  value: any;
 }
 
 import { AnimatePresence, motion } from "framer-motion";
@@ -193,7 +193,7 @@ export default function MailsAdminPage() {
                   defaultValue="all"
                   className="w-full max-md:overflow-y-scroll"
                 >
-                  <TabsList className="flex w-full items-start justify-start gap-8">
+                  <TabsList className="flex w-full items-start justify-start gap-4">
                     <TabsTrigger
                       value="compose"
                       onClick={() => setComposeOpen(true)}
@@ -427,7 +427,7 @@ export default function MailsAdminPage() {
             <Input type="email" placeholder="mail@gmail.com" />
             <Textarea placeholder="message" />
 
-            <Button variant={"outline"}>Submit</Button>
+            <Button  icon={<SendIcon className="h-4 w-4"/>}>Submit</Button>
           </form>
         </DialogContent>
       </Dialog>
@@ -445,7 +445,7 @@ export default function MailsAdminPage() {
             <Input type="email" placeholder="mail@gmail.com" />
             <Textarea placeholder="message" />
 
-            <Button variant={"outline"}>Submit</Button>
+            <Button  icon={<SendIcon className="h-4 w-4"/>}>Submit</Button>
           </form>
         </DialogContent>
       </Dialog>

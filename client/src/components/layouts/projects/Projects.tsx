@@ -1,18 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import i18n from "@/i18n";
-
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 import { Link } from "react-router-dom";
-import ProjectCard from "./ProjectCard";
-import { ProjectData, projectData } from "@/data/ProjectData";
+
 import { Button } from "@/components/ui/button";
+
+interface ProjectData {
+  id: number; // Assuming an ID field for each project
+  title: string;
+  description: string;
+  badge?: string[];
+  visitWebsite?: string;
+  visitGithub?: string;
+  links?: { url: string }[];
+}
 
 const ProjectsSection: React.FC = () => {
   const { t } = useTranslation();
   const direction = i18n.language === "ar" ? "rtl" : "ltr";
 
-  const limitedProjectData: ProjectData[] = projectData.slice(0, 2);
+  const [projects, setProjects] = useState<ProjectData[]>([]);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const response = await fetch("API_ENDPOINT_HERE");
+        const data: ProjectData[] = await response.json();
+        setProjects(data);
+      } catch (error) {
+        console.error("Error fetching projects:", error);
+      }
+    };
+
+    fetchProjects();
+  }, []);
 
   const scrollToTop = () => {
     scroll.scrollToTop({ duration: 500, smooth: true });
@@ -21,15 +43,6 @@ const ProjectsSection: React.FC = () => {
   return (
     <div dir={direction} id="projects" className="section w-full">
       <h1 className="section-title">{t("Projects.ProjectsTitle")}</h1>
-
-      <div
-        data-aos="fade-up"
-        className="cards flex min-h-[100px] w-full flex-col gap-5 max-md:w-full"
-      >
-        {limitedProjectData.map((project, index) => (
-          <ProjectCard key={index} {...project} />
-        ))}
-      </div>
 
       <div className="py-5">
         <ScrollLink

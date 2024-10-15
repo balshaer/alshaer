@@ -1,17 +1,19 @@
-import React, { createContext, useState, ReactNode, FC } from "react";
+import React, { createContext, useState, ReactNode } from "react";
 
 interface MenuContextType {
   isOpen: boolean;
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsOpen: (isOpen: boolean) => void;
 }
 
-const MenuContext = createContext<MenuContextType | undefined>(undefined);
+export const MenuContext = createContext<MenuContextType | undefined>(
+  undefined,
+);
 
 interface MenuProviderProps {
   children: ReactNode;
 }
 
-export const MenuProvider: FC<MenuProviderProps> = ({ children }) => {
+export const MenuProvider: React.FC<MenuProviderProps> = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -20,5 +22,3 @@ export const MenuProvider: FC<MenuProviderProps> = ({ children }) => {
     </MenuContext.Provider>
   );
 };
-
-export { MenuContext };

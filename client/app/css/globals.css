@@ -230,3 +230,11 @@
     @apply absolute bottom-0 left-[-5px] top-0 z-[9999] m-auto h-[90%] w-[2px] rounded-lg bg-[var(--headline)] content-[''];
   }
 }
+
+.page {
+  @apply min-h-[100dvh] w-full;
+}
+
+.dropdownMenuItemIcon {
+  @apply bg-[var(--card-background)] text-[var(--card-headline)] rounded-sm p-[3px] mx-2;
+}

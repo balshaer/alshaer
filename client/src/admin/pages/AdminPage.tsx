@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import { PageTitlesData } from "@/data/PageTitlesData";
 import { PageTitle } from "@/helper";
@@ -25,7 +23,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { AdminChart } from "../components/layouts/AdminChart";
+import { AdminChart } from "@/components/admin/layouts/AdminChart";
 
 export default function AdminPage() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);

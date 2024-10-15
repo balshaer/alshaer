@@ -13,22 +13,25 @@ import "animate.css";
 import { MenuProvider } from "./context/MenuContext.tsx";
 import { ModeProvider } from "./context/ModeContext.tsx";
 import { ThemeProvider } from "./context/ThemeContext.tsx";
+import { AuthProvider } from "./context/AuthContext.tsx";
 
 AOS.init();
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider>
-      <ModeProvider>
-        <MenuProvider>
-          <I18nextProvider i18n={i18n}>
-            <BrowserRouter>
-              <SpeedInsights />
-              <App />
-            </BrowserRouter>
-          </I18nextProvider>
-        </MenuProvider>
-      </ModeProvider>
-    </ThemeProvider>
+    <MenuProvider>
+      <AuthProvider>
+        <ThemeProvider>
+          <ModeProvider>
+            <I18nextProvider i18n={i18n}>
+              <BrowserRouter>
+                <SpeedInsights />
+                <App />
+              </BrowserRouter>
+            </I18nextProvider>
+          </ModeProvider>
+        </ThemeProvider>
+      </AuthProvider>
+    </MenuProvider>
   </React.StrictMode>,
   document.getElementById("root"),
 );

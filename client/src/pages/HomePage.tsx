@@ -6,7 +6,7 @@ import Projects from "@/components/layouts/projects/Projects";
 
 export default function HomePage() {
   return (
-    <div className="min-h-[100dvh] w-full">
+    <div className="page">
       <Navbar />
       <div className="container">
         <Header />
