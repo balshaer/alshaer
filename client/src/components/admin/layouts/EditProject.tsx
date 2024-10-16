@@ -20,19 +20,33 @@ import { useEffect, useState } from "react";
 import axios from "axios"; // Import Axios
 import { endpoints } from "@/API/API";
 
+interface Project {
+  title: string;
+  description: string;
+
+  links: {
+    website: string;
+    github: string;
+  }[];
+  badges: string[];
+}
+
 const EditProject = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
-  const [project, setProject] = useState({});
+  const [project, setProject] = useState<Project>({
+    title: "",
+    description: "",
+    links: [{ website: "", github: "" }],
+    badges: [],
+  });
 
   useEffect(() => {
     axios
       .get(endpoints.getProjectById + id)
       .then((response) => setProject(response.data));
   }, [id]);
-
-  console.log(project);
 
   const [newBadge, setNewBadge] = useState("");
 
@@ -43,7 +57,7 @@ const EditProject = () => {
         const fetchedProject = response.data;
 
         setProject({
-          name: fetchedProject.title,
+          title: fetchedProject.title,
           description: fetchedProject.description,
           links: fetchedProject.links || [{ website: "", github: "" }],
           badges: Array.isArray(fetchedProject.badge)
@@ -97,14 +111,14 @@ const EditProject = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!project.name.trim() || !project.description.trim()) {
+    if (!project.title.trim() || !project.description.trim()) {
       console.error("Name and description are required.");
       return;
     }
 
     const validBadges = project.badges.filter((badge) => badge.trim() !== "");
     const dataToSubmit = {
-      title: project.name.trim(),
+      title: project.title.trim(),
       description: project.description.trim(),
       links: project.links.map((link) => ({
         website: link.website.trim(),
@@ -142,18 +156,18 @@ const EditProject = () => {
 
       <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
         <Input
-          name="name"
-          value={project.name}
+          name="title"
+          value={project.title}
           onChange={handleInputChange}
           placeholder="Project Name"
         />
+
         <Textarea
           name="description"
           value={project.description}
           onChange={handleInputChange}
           placeholder="Project Description"
         />
-
         {project.links.map((link, index) => (
           <div key={index} className="flex gap-4">
             <div className="inputWithIcon">

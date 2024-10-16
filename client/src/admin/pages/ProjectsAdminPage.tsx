@@ -113,7 +113,7 @@ const ProjectsAdminPage = () => {
   };
 
   const styles = {
-    dropdownMenuItem: "flex items-center justify-between cursor-pointer",
+    dropdownMenuItem: "flex items-center justify-end gap-2 cursor-pointer ",
     linkStyle:
       "hoverd flex cursor-pointer items-center gap-2 hover:text-[var(--headline)] text-sm",
   };
@@ -134,9 +134,8 @@ const ProjectsAdminPage = () => {
                 <Settings className="sectionIcon" />
               </span>
             </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              <DropdownMenuSeparator />
-              <Link to={"/admin/project/add"}>
+            <DropdownMenuContent className="bg-[var(--card-background)] text-[var(--headline)]">
+              <Link className="w-full" to={"/admin/project/add"}>
                 <DropdownMenuItem className={styles.dropdownMenuItem}>
                   <span>Add a new project</span>
 
@@ -145,14 +144,20 @@ const ProjectsAdminPage = () => {
                   </div>
                 </DropdownMenuItem>
               </Link>
+
               <DropdownMenuItem
                 onClick={openDeleteDialog}
                 className={styles.dropdownMenuItem}
               >
                 <Dialog>
                   <DialogTrigger asChild>
-                    <button onClick={openDeleteDialog} type="submit">
-                      <Trash2 className="sectionIcon" />
+                    <button
+                      onClick={openDeleteDialog}
+                      className="flex items-center gap-2"
+                      type="submit"
+                    >
+                      <Trash2 className="dropdownMenuItemIcon" />
+                      <span>Delete all projects</span>
                     </button>
                   </DialogTrigger>
                   <DialogContent className="border-none bg-[var(--card-background)] text-center sm:max-w-[425px]">
@@ -231,9 +236,7 @@ const ProjectsAdminPage = () => {
                       <MoreHorizontal className="h-4 w-4 cursor-pointer" />
                     </span>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent>
-                    <DropdownMenuSeparator />
-
+                  <DropdownMenuContent className="bg-[var(--background)] text-[var(--headline)]">
                     <Link to={`/admin/project/edit/${project._id}`}>
                       <DropdownMenuItem className={styles.dropdownMenuItem}>
                         <span>Edit</span>
@@ -244,7 +247,8 @@ const ProjectsAdminPage = () => {
                       onClick={() => deleteProject(project._id)}
                       className={styles.dropdownMenuItem}
                     >
-                      <span>Remove</span>
+                      <span>Delete </span>
+
                       <Trash2 className="h-4 w-4" />
                     </DropdownMenuItem>
                   </DropdownMenuContent>

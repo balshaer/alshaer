@@ -6,14 +6,15 @@ import Projects from "@/components/layouts/projects/Projects";
 
 export default function HomePage() {
   return (
-    <div className="page">
-      <Navbar />
-      <div className="container">
+    <>
+      <div className="page ">
+        <Navbar />
+
         <Header />
         <Experience />
         <Projects />
       </div>
       <Footer />
-    </div>
+    </>
   );
 }

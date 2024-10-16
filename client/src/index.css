@@ -18,3 +18,11 @@ body {
   background-color: #2cb67d;
   color: #000;
 }
+
+.dropdowntoggle {
+  background-color: red !important;
+}
+
+.page{
+  @apply container pt-2 max-md:pt-4 px-4
+}

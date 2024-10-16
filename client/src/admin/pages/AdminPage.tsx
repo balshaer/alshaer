@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PageTitlesData } from "@/data/PageTitlesData";
 import { PageTitle } from "@/helper";
 import { Code, Eye, Plus } from "lucide-react";
@@ -24,9 +24,15 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { AdminChart } from "@/components/admin/layouts/AdminChart";
+import axios from "axios";
+import { endpoints } from "@/API/API";
+import { motion } from "framer-motion";
+import MotionNumber from "motion-number";
 
 export default function AdminPage() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  const [projectsCount, setProjectsCount] = useState("");
 
   const data = {
     name: "Baraa Alshaer",
@@ -102,6 +108,12 @@ export default function AdminPage() {
     card: "border-[var(--border)] mb-4 border-b-[0.5px] rounded-none px-0",
   };
 
+  useEffect(() => {
+    axios.get(endpoints.projectsCount).then((res) => {
+      setProjectsCount(res.data);
+    });
+  }, []);
+
   return (
     <div>
       <PageTitle title={PageTitlesData.adminPage} />
@@ -137,7 +149,13 @@ export default function AdminPage() {
             <Code className={styles.cardIcon} />
           </CardHeader>
           <CardContent>
-            <CardTitle>{data.projects.length}</CardTitle>
+            <CardTitle>
+              <MotionNumber
+                value={projectsCount}
+                format={{ notation: "compact" }}
+                locales="en-US"
+              />
+            </CardTitle>
             <CardDescription className="text-xs">
               Showcased projects
             </CardDescription>

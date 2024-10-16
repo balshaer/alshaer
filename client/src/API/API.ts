@@ -12,4 +12,5 @@ export const endpoints = {
   deleteAllProjects: `${baseUrl}/projects/`,
   getProjectById: `${baseUrl}/project/`, // :id from params
   updateProject: `${baseUrl}/project`,
+  projectsCount: `${baseUrl}/projects/count`,
 };

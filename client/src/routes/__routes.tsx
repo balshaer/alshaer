@@ -16,12 +16,14 @@ import EditExperience from "@/components/admin/layouts/EditExperience";
 import MailsAdminPage from "@/admin/pages/MailsAdminPage";
 import ContentAdminPage from "@/admin/pages/ContentAdminPage";
 import Requireauth from "@/components/featuers/Requireauth";
+import WorkPage from "@/pages/WorkPage";
 
 const AppRoutes: React.FC = () => {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/projects" element={<ProjectsPage />} />
+      <Route path="/work" element={<WorkPage />} />
 
       {/* admin */}
       <Route element={<Requireauth />}>

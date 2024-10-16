@@ -212,6 +212,23 @@ const updateProject = asyncHandler(async (req, res) => {
   res.status(200).send(updatedProject);
 });
 
+/**
+ * -------------------------------------------------
+ *@desc   : update project
+ *@router : /api/project/:id
+ *@method : PUT
+ *@access : PRIVATE
+ *-------------------------------------------------
+ **/
+const projectsCount = asyncHandler(async (req, res) => {
+  const projects = await Project.countDocuments();
+
+  if (!projects) {
+    return res.status(404).json({ message: "No projects found" });
+  }
+  res.status(200).json(projects);
+});
+
 module.exports = {
   addProject,
   getProjects,
@@ -222,4 +239,5 @@ module.exports = {
   updateProject,
   deleteAllProjects,
   deleteProject,
+  projectsCount,
 };

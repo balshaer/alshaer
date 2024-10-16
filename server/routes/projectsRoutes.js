@@ -6,6 +6,7 @@ const {
   getProjectsById,
   archiveProject,
   archiveAllProject,
+  projectsCount,
 } = require("../controllers/projectsController");
 const {
   verifyDeleteAllProjects,
@@ -31,5 +32,8 @@ router.post(
 
 // update project
 router.put("/project/:id", updateProject);
+
+//projects count
+router.get("/projects/count", projectsCount);
 
 module.exports = router;

@@ -236,9 +236,11 @@
 }
 
 .dropdownMenuItemIcon {
-  @apply mx-2 rounded-sm bg-[var(--card-background)] p-[3px] text-[var(--card-headline)];
+  @apply rounded-sm bg-[var(--card-background)] p-[3px] text-[var(--card-headline)];
 }
 
 .input-error {
   @apply border border-red-400;
 }
+
+
