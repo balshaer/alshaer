@@ -3,11 +3,18 @@ const mongoose = require("mongoose");
 
 const AdminSchema = new mongoose.Schema(
   {
+    name: {
+      type: String,
+      minLength: 2,
+      maxLength: 255,
+    },
+
     email: {
       type: String,
       required: true,
       minLength: 5,
       maxLength: 255,
+      unique: true,
     },
     password: {
       type: String,
@@ -17,10 +24,15 @@ const AdminSchema = new mongoose.Schema(
     },
 
     otp: {
-      type: Number,
-      maxLength: 4,
+      type: String,
       required: true,
-      trim: true,
+    },
+    profilePhoto: {
+      type: Object,
+      default: {
+        url: "https://img.icons8.com/fluency/48/user-male-circle--v1.png",
+        publicId: null,
+      },
     },
   },
   { timestamps: true }
@@ -29,9 +41,10 @@ const AdminSchema = new mongoose.Schema(
 // Validation
 function authValidation(obj) {
   const schema = Joi.object({
+    name: Joi.string().min(2).max(255).trim(),
     email: Joi.string().required().min(5).max(255).trim().email(),
     password: Joi.string().required().min(8).max(255),
-    otp: Joi.number().required().max(4).trim(),
+    otp: Joi.string().max(4).optional(),
   });
 
   return schema.validate(obj);

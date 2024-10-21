@@ -1,4 +1,3 @@
-import { experienceData } from "@/data/ExperienceData";
 import { Badge } from "../../ui/badge";
 import { useTranslation } from "react-i18next";
 import {
@@ -9,13 +8,14 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { workData } from "@/data/WorkData";
 
-const ExperienceCard = () => {
+const WorkCard = () => {
   const { t } = useTranslation();
 
   return (
     <div className="cardsGroup">
-      {experienceData.map((item, index) => (
+      {workData.map((item, index) => (
         <Card key={index}>
           <CardHeader>
             <CardTitle>
@@ -44,4 +44,4 @@ const ExperienceCard = () => {
   );
 };
 
-export default ExperienceCard;
+export default WorkCard;

@@ -65,6 +65,7 @@
     "About": "About",
     "Projects": "Projects",
     "Blog": "Blog",
+    "Work": "Work",
 
     "Tooltip": {
       "Github": "Contribute to this project"
@@ -91,11 +92,14 @@
     }
   },
 
+  "links": {
+    "visitWebsite": "visit website",
+    "visitGithub": "visit github"
+  },
+
   "Projects": {
     "NotFound": "Not Found Projects ...",
     "ProjectsTitle": "Projects",
-    "visitWebsite": "visit website",
-    "visitGithub": "visit github",
     "ProjectsSubtitle": "",
     "Project1.Title": "Naj training center",
     "Project1.Description": "Dedicated center for dental education in Saudi Arabia.",
@@ -145,6 +149,10 @@
   "mode": {
     "dark": "Dark mode",
     "light": "Light mode"
+  },
+
+  "toast": {
+    "switch": "language change to ُEnglish "
   },
 
   "LanguageSelector": {

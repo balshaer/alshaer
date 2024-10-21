@@ -35,9 +35,9 @@ export default function Sidebar() {
   return (
     <div className="flex h-[100vh] w-1/5 flex-col justify-between bg-[var(--card-background)] p-4 text-[var(--headline)] max-md:fixed max-md:inset-0 max-md:z-50 max-md:w-full">
       <header className="relative flex items-center justify-center py-4 max-md:justify-end">
-        <div className="max-md:hidden">
+        <Link to={"/admin/profile"} className="max-md:hidden">
           <Logo />
-        </div>
+        </Link>
 
         {isOpen && (
           <HiXMark

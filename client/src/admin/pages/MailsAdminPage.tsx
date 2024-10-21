@@ -26,17 +26,17 @@ import {
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
 
-interface Mail {
-  id: string;
-  name: string;
-  subject: string;
-  text: string;
-  date: string;
-  read: boolean;
-  labels: string[];
-  starred: boolean;
-  favorite: boolean;
-}
+// interface Mail {
+//   id: string;
+//   name: string;
+//   subject: string;
+//   text: string;
+//   date: string;
+//   read: boolean;
+//   labels: string[];
+//   starred: boolean;
+//   favorite: boolean;
+// }
 
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -104,7 +104,7 @@ export default function MailsAdminPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [composeOpen, setComposeOpen] = useState(false);
   const [replyOpen, setReplyOpen] = useState(false);
-  const [deletedMails, setDeletedMails] = useState<Mail[]>([]);
+  const [deletedMails, setDeletedMails] = useState<any>([]);
 
   const filteredMails = mails.filter((mail) => {
     if (mailFilter === "starred" && !mail.starred) return false;
@@ -120,7 +120,7 @@ export default function MailsAdminPage() {
     return true;
   });
 
-  const toggleStar = (id) => {
+  const toggleStar = (id: string) => {
     setMails(
       mails.map((mail) =>
         mail.id === id ? { ...mail, starred: !mail.starred } : mail,
@@ -128,7 +128,7 @@ export default function MailsAdminPage() {
     );
   };
 
-  const toggleRead = (id) => {
+  const toggleRead = (id: string) => {
     setMails(
       mails.map((mail) =>
         mail.id === id ? { ...mail, read: !mail.read } : mail,
@@ -136,7 +136,7 @@ export default function MailsAdminPage() {
     );
   };
 
-  const deleteMail = (id) => {
+  const deleteMail = (id: string) => {
     const mailToDelete = mails.find((mail) => mail.id === id);
     setDeletedMails([...deletedMails, mailToDelete]);
     setMails(mails.filter((mail) => mail.id !== id));
@@ -149,7 +149,7 @@ export default function MailsAdminPage() {
     setDeletedMails([]);
   };
 
-  const formatDate = (dateString) => {
+  const formatDate = (dateString: string | number | Date) => {
     const date = new Date(dateString);
     return date.toLocaleString("en-US", {
       month: "short",
@@ -249,7 +249,7 @@ export default function MailsAdminPage() {
                 <nav className="grid items-start text-sm font-medium">
                   {mailFilter === "deleted" ? (
                     <>
-                      {deletedMails.map((mail) => (
+                      {deletedMails.map((mail: any) => (
                         <div
                           key={mail.id}
                           className="flex cursor-pointer items-center rounded-lg p-2"
@@ -427,7 +427,7 @@ export default function MailsAdminPage() {
             <Input type="email" placeholder="mail@gmail.com" />
             <Textarea placeholder="message" />
 
-            <Button  icon={<SendIcon className="h-4 w-4"/>}>Submit</Button>
+            <Button icon={<SendIcon className="h-4 w-4" />}>Submit</Button>
           </form>
         </DialogContent>
       </Dialog>
@@ -445,7 +445,7 @@ export default function MailsAdminPage() {
             <Input type="email" placeholder="mail@gmail.com" />
             <Textarea placeholder="message" />
 
-            <Button  icon={<SendIcon className="h-4 w-4"/>}>Submit</Button>
+            <Button icon={<SendIcon className="h-4 w-4" />}>Submit</Button>
           </form>
         </DialogContent>
       </Dialog>

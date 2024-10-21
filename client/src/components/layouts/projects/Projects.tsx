@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 interface ProjectData {
-  id: number; // Assuming an ID field for each project
+  id: number;
   title: string;
   description: string;
   badge?: string[];
@@ -20,7 +20,7 @@ const ProjectsSection: React.FC = () => {
   const { t } = useTranslation();
   const direction = i18n.language === "ar" ? "rtl" : "ltr";
 
-  const [projects, setProjects] = useState<ProjectData[]>([]);
+  const [setProjects] = useState<any>([]);
 
   useEffect(() => {
     const fetchProjects = async () => {

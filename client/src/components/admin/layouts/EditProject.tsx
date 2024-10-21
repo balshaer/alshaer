@@ -23,7 +23,6 @@ import { endpoints } from "@/API/API";
 interface Project {
   title: string;
   description: string;
-
   links: {
     website: string;
     github: string;
@@ -42,27 +41,18 @@ const EditProject = () => {
     badges: [],
   });
 
-  useEffect(() => {
-    axios
-      .get(endpoints.getProjectById + id)
-      .then((response) => setProject(response.data));
-  }, [id]);
-
   const [newBadge, setNewBadge] = useState("");
 
+  // Fetch project data
   useEffect(() => {
     const fetchProject = async () => {
       try {
-        const response = await axios.get(`/api/projects/${id}`);
-        const fetchedProject = response.data;
-
+        const response = await axios.get(`${endpoints.getProjectById}${id}`);
         setProject({
-          title: fetchedProject.title,
-          description: fetchedProject.description,
-          links: fetchedProject.links || [{ website: "", github: "" }],
-          badges: Array.isArray(fetchedProject.badge)
-            ? fetchedProject.badge
-            : [],
+          title: response.data.title,
+          description: response.data.description,
+          links: response.data.links || [{ website: "", github: "" }],
+          badges: Array.isArray(response.data.badge) ? response.data.badge : [],
         });
       } catch (error) {
         console.error("Failed to fetch project:", error);
@@ -129,9 +119,11 @@ const EditProject = () => {
 
     try {
       const response = await axios.put(
-        `${endpoints.updateProject}/${id}`,
+        `http://localhost:5000/api/project/${id}`,
         dataToSubmit,
       );
+
+      console.log("Project updated successfully", response.data);
       if (response.status === 200) {
         navigate("/admin/projects");
       } else {
@@ -168,12 +160,13 @@ const EditProject = () => {
           onChange={handleInputChange}
           placeholder="Project Description"
         />
+
         {project.links.map((link, index) => (
           <div key={index} className="flex gap-4">
             <div className="inputWithIcon">
               <Globe className="h-5 w-5" />
               <Input
-                className="border-none"
+                className="w-max min-w-80 border-none"
                 name="website"
                 value={link.website}
                 onChange={(e) => handleLinksChange(index, e)}
@@ -228,7 +221,9 @@ const EditProject = () => {
                 </Badge>
               ))
             ) : (
-              <span>No badges added</span>
+              <span className="text-sm text-[var(--paragraph)]">
+                No badges added
+              </span>
             )}
           </div>
         </div>

@@ -1,13 +1,13 @@
+// middlewares/error.js
 const notFound = (req, res, next) => {
-  const error = new Error(`Not Found: ${req.originalUrl}`);
-  res.status(404);
-  next(error);
+  res.status(404).json({ message: "Resource not found" });
 };
 
 const errorHandler = (err, req, res, next) => {
-  const statusCode = res.statusCode === 200 ? 500 : res.statusCode;
-  res.status(statusCode).json({ message: err.message });
-  next();
+  console.error(err); // Log error details for debugging
+  res.status(err.statusCode || 500).json({
+    message: err.message || "Internal Server Error",
+  });
 };
 
 module.exports = { notFound, errorHandler };

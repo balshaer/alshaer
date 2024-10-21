@@ -4,7 +4,7 @@ import { HiMenu, HiOutlineSun } from "react-icons/hi";
 import { LuMoon } from "react-icons/lu";
 import DarkMode from "@/themes/Light";
 import LightMode from "@/themes/Dark";
-import { Languages } from "lucide-react"; // Ensure you have this package installed
+import { Languages } from "lucide-react"; 
 import i18n from "@/i18n";
 import { useMode } from "@/context/ModeContext";
 import { useTheme } from "@/context/ThemeContext";

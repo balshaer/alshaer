@@ -31,8 +31,13 @@ const ProjectsSchema = new Schema({
   },
   options: {
     type: [String],
-    enum: ["website", "desktop", "mobile", "tools"],
+    enum: ["website", "desktop", "mobile", "other"],
     default: [],
+  },
+  order: { type: Number, required: true, default: 0 },
+  archived: {
+    type: Boolean,
+    default: false,
   },
 });
 
@@ -50,9 +55,14 @@ function projectValidation(obj) {
       )
       .default([]),
     option: Joi.array()
-      .items(Joi.string().valid("website", "desktop", "mobile", "tools")) 
+      .items(
+        Joi.string()
+          .valid("website", "desktop", "mobile", "others")
+          .default("others")
+      )
       .default([]),
     badge: Joi.array().items(Joi.string()).default([]),
+    archived: Joi.boolean().default(false),
   });
   return schema.validate(obj);
 }

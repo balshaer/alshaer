@@ -3,18 +3,18 @@ const {
   createAdminController,
   getAdminsController,
   getAdminsDashboard,
+  getCurrentAdmin,
+  uploadProfilePhoto,
 } = require("../controllers/adminController");
-const {
-  addProject,
-  getProjects,
-} = require("../controllers/projectsController");
-const { verifyToken } = require("../middlewares/verifyToken");
+const photoUpload = require("../middlewares/uploadImage");
 
 const router = require("express").Router();
 
 router.post("/login", loginController);
-router.post("/create", verifyToken, createAdminController);
-router.get("/", getAdminsController);
-router.get("/dashboard", verifyToken, getAdminsDashboard);
+router.post("/create", createAdminController);
+router.get("/admins", getAdminsController);
+router.get("/:id", getCurrentAdmin);
+router.get("/dashboard", getAdminsDashboard);
 
+router.post("/profile-photo/", photoUpload.single("image"), uploadProfilePhoto);
 module.exports = router;

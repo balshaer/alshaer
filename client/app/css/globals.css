@@ -243,4 +243,17 @@
   @apply border border-red-400;
 }
 
-
+.gradient-avatar {
+  background-color: #ff99f1;
+  background-image: radial-gradient(
+      at 29% 95%,
+      hsla(41, 92%, 71%, 1) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 41% 58%, hsla(81, 60%, 60%, 1) 0px, transparent 50%),
+    radial-gradient(at 85% 33%, hsla(110, 90%, 73%, 1) 0px, transparent 50%),
+    radial-gradient(at 17% 25%, hsla(15, 68%, 72%, 1) 0px, transparent 50%),
+    radial-gradient(at 98% 91%, hsla(247, 97%, 62%, 1) 0px, transparent 50%),
+    radial-gradient(at 16% 32%, hsla(350, 91%, 60%, 1) 0px, transparent 50%),
+    radial-gradient(at 0% 21%, hsla(323, 94%, 70%, 1) 0px, transparent 50%);
+}

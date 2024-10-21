@@ -1,8 +1,8 @@
 import { useTranslation } from "react-i18next";
-import ExperienceCard from "./ExperienceCard";
+import ExperienceCard from "./WorkCard";
 import i18n from "@/i18n";
 
-const ExperienceSection = () => {
+const WorkSection = () => {
   const { t } = useTranslation();
   const direction = i18n.language === "ar" ? "rtl" : "ltr";
 
@@ -14,4 +14,4 @@ const ExperienceSection = () => {
   );
 };
 
-export default ExperienceSection;
+export default WorkSection;

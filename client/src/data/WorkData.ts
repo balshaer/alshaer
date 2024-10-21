@@ -1,6 +1,6 @@
 import { companies } from "./Links";
 
-interface experienceDataType {
+interface workDataType {
   companyName: string;
   jobTitle: string;
   jobDate: string;
@@ -9,7 +9,7 @@ interface experienceDataType {
   skills: string[];
 }
 
-const experienceData: experienceDataType[] = [
+const workData: workDataType[] = [
   {
     companyName: "Experience.Company.Name1",
     jobTitle: "Experience.Company.JobTitle1",
@@ -45,5 +45,5 @@ const experienceData: experienceDataType[] = [
   },
 ];
 
-export { experienceData };
-export type { experienceDataType };
+export { workData };
+export type { workDataType };

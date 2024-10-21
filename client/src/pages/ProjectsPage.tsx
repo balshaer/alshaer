@@ -1,5 +1,3 @@
-import { HiArrowSmLeft } from "react-icons/hi";
-import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import i18n from "@/i18n";
 import {
@@ -9,8 +7,6 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-
-import { scrollToTop } from "@/helper";
 
 import Footer from "@/components/layouts/footer/Footer";
 import React, { useEffect, useState } from "react";
@@ -30,6 +26,7 @@ import { endpoints } from "@/API/API";
 import Navbar from "@/components/layouts/navbar/Navbar";
 
 interface ProjectCardProps {
+  _id: string;
   title: string;
   description: string;
   links: {
@@ -37,15 +34,19 @@ interface ProjectCardProps {
     github: string;
   }[];
   badge?: string[];
+  order: number;
 }
 
 const ProjectsPage: React.FC = () => {
   const [projects, setProjects] = useState<ProjectCardProps[]>([]);
 
   useEffect(() => {
-    axios
-      .get(endpoints.getAllProjects)
-      .then((response) => setProjects(response.data));
+    axios.get(endpoints.getUnArchivedProjects).then((response) => {
+      const sortedProjects = response.data.sort(
+        (a: ProjectCardProps, b: ProjectCardProps) => a.order - b.order,
+      );
+      setProjects(sortedProjects);
+    });
   }, []);
 
   const { t } = useTranslation();
@@ -61,106 +62,108 @@ const ProjectsPage: React.FC = () => {
   };
 
   return (
-    <div dir={direction} className="page">
-      <Navbar />
-      <div className="projectCards flex min-h-[100vh] w-full flex-col gap-5 max-md:pb-0">
-        <div className="header">
-          <h1 className="header-title">{t("ProjectsSection.Title")}</h1>
-          <p className="description max-w-[100%]">
-            {t("Projects.ProjectsHeadline")}
-          </p>
-          <div className="py-5">
-            <Breadcrumb>
-              <BreadcrumbList>
-                <BreadcrumbItem>
-                  <BreadcrumbLink className={styles.breadcrumbLink} href="/">
-                    {t("Navbar.Home")}
-                  </BreadcrumbLink>
-                </BreadcrumbItem>
-                <div>
-                  {i18n.language === "ar" ? (
-                    <BreadcrumbSeparator
-                      style={{ transform: "rotate(180deg)" }}
-                    />
-                  ) : (
-                    <BreadcrumbSeparator />
-                  )}
-                </div>
-                <BreadcrumbItem>
-                  <BreadcrumbLink
-                    className={styles.breadcrumbLink}
-                    href="/projects"
-                  >
-                    {t("Navbar.Projects")}
-                  </BreadcrumbLink>
-                </BreadcrumbItem>
-              </BreadcrumbList>
-            </Breadcrumb>
-          </div>
-        </div>
-
-        <div className="projects-cards flex flex-col gap-8 pb-16">
-          {projects.length === 0 && (
-            <p className="text-lg text-[var(--paragraph)] max-md:w-full max-md:max-w-none max-md:text-lg">
-              {t("Projects.NotFound")}
+    <>
+      <div dir={direction} className="page">
+        <Navbar />
+        <div className="projectCards flex min-h-[100vh] w-full flex-col gap-5 max-md:pb-0">
+          <div className="header">
+            <h1 className="header-title">{t("ProjectsSection.Title")}</h1>
+            <p className="description max-w-[100%]">
+              {t("Projects.ProjectsHeadline")}
             </p>
-          )}
-
-          {projects.map((project) => (
-            <Card key={project.title}>
-              <CardHeader>
-                <CardTitle>{project.title}</CardTitle>
-              </CardHeader>
-
-              <CardContent>
-                <CardDescription>{project.description}</CardDescription>
-              </CardContent>
-
-              <CardFooter className="my-4 flex w-full flex-wrap items-center justify-between max-md:flex-col max-md:items-start">
-                <div className="flex max-w-[60%] flex-wrap gap-2">
-                  {project.badge &&
-                    project.badge.map((badge, index) => (
-                      <Badge key={index}>{badge}</Badge>
-                    ))}
-                </div>
-
-                <div className="flex flex-wrap gap-4 max-md:mt-5">
-                  {project.links.length > 0 && project.links[0].website && (
-                    <a
-                      href={project.links[0].website}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.linkStyle}
+            <div className="py-5">
+              <Breadcrumb>
+                <BreadcrumbList>
+                  <BreadcrumbItem>
+                    <BreadcrumbLink className={styles.breadcrumbLink} href="/">
+                      {t("Navbar.Home")}
+                    </BreadcrumbLink>
+                  </BreadcrumbItem>
+                  <div>
+                    {i18n.language === "ar" ? (
+                      <BreadcrumbSeparator
+                        style={{ transform: "rotate(180deg)" }}
+                      />
+                    ) : (
+                      <BreadcrumbSeparator />
+                    )}
+                  </div>
+                  <BreadcrumbItem>
+                    <BreadcrumbLink
+                      className={styles.breadcrumbLink}
+                      href="/projects"
                     >
-                      <span>
-                        <Globe className="h-4 w-4" />
-                      </span>
-                      <span>{t("Projects.visitWebsite")}</span>
-                    </a>
-                  )}
+                      {t("Navbar.Projects")}
+                    </BreadcrumbLink>
+                  </BreadcrumbItem>
+                </BreadcrumbList>
+              </Breadcrumb>
+            </div>
+          </div>
 
-                  {project.links.length > 0 && project.links[0].github && (
-                    <a
-                      href={project.links[0].github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.linkStyle}
-                    >
-                      <span>
-                        <ImGithub className="h-4 w-4" />
-                      </span>
-                      <span>{t("Projects.visitGithub")}</span>
-                    </a>
-                  )}
-                </div>
-              </CardFooter>
-            </Card>
-          ))}
+          <div className="projects-cards flex flex-col gap-8 pb-16">
+            {projects.length === 0 && (
+              <p className="text-lg text-[var(--paragraph)] max-md:w-full max-md:max-w-none max-md:text-lg">
+                {t("Projects.NotFound")}
+              </p>
+            )}
+
+            {projects.map((project) => (
+              <Card key={project._id}>
+                <CardHeader>
+                  <CardTitle>{project.title}</CardTitle>
+                </CardHeader>
+
+                <CardContent>
+                  <CardDescription>{project.description}</CardDescription>
+                </CardContent>
+
+                <CardFooter className="my-4 flex w-full flex-wrap items-center justify-between max-md:flex-col max-md:items-start">
+                  <div className="flex max-w-[60%] flex-wrap gap-2">
+                    {project.badge &&
+                      project.badge.map((badge, index) => (
+                        <Badge key={index}>{badge}</Badge>
+                      ))}
+                  </div>
+
+                  <div className="flex flex-wrap gap-4 max-md:mt-5">
+                    {project.links.length > 0 && project.links[0].website && (
+                      <a
+                        href={project.links[0].website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.linkStyle}
+                      >
+                        <span>
+                          <Globe className="h-4 w-4" />
+                        </span>
+                        <span>{t("links.visitWebsite")}</span>
+                      </a>
+                    )}
+
+                    {project.links.length > 0 && project.links[0].github && (
+                      <a
+                        href={project.links[0].github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.linkStyle}
+                      >
+                        <span>
+                          <ImGithub className="h-4 w-4" />
+                        </span>
+                        <span>{t("links.visitGithub")}</span>
+                      </a>
+                    )}
+                  </div>
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
         </div>
       </div>
 
       <Footer />
-    </div>
+    </>
   );
 };
 

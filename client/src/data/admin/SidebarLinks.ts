@@ -34,7 +34,7 @@ const sidebarLinks: SidebarLinksTypes[] = [
   },
   {
     name: "Work experience",
-    link: "/admin/experience",
+    link: "/admin/works",
     icon: FaBriefcase,
   },
   {
@@ -51,6 +51,11 @@ const sidebarLinks: SidebarLinksTypes[] = [
   {
     name: "Content",
     link: "/admin/content",
+    icon: FaPage4,
+  },
+  {
+    name: "Deleted items",
+    link: "/admin/deletedItems",
     icon: FaPage4,
   },
 ];

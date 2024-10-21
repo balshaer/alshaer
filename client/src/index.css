@@ -23,6 +23,6 @@ body {
   background-color: red !important;
 }
 
-.page{
-  @apply container pt-2 max-md:pt-4 px-4
+.page {
+  @apply container px-4 pt-2 max-md:pt-4;
 }

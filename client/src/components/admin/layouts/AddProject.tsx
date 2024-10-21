@@ -47,6 +47,7 @@ const AddProject = () => {
       try {
         const response = await axios.get(endpoints.getProjectOptions);
         setOptions(response.data);
+        console.log(response.data);
       } catch (error) {
         toast.error("Failed to fetch options.");
       }
@@ -57,10 +58,7 @@ const AddProject = () => {
 
   const addProject = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (badges.length === 0) {
-      toast.error("Please add at least one badge before submitting.");
-      return;
-    }
+
     try {
       const res = await axios.post(endpoints.addProject, {
         title: projectName,
@@ -84,7 +82,7 @@ const AddProject = () => {
 
         toast.success("Project added successfully");
       }
-    } catch (error) {
+    } catch (error:any) {
       toast.error(error.response.data.message);
     }
   };
@@ -158,7 +156,7 @@ const AddProject = () => {
           </SelectContent>
         </Select>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 flex-wrap">
           <Dialog>
             <DialogTrigger asChild>
               <div className="flex cursor-pointer items-center justify-center gap-3 rounded-md bg-[var(--card-background)] p-2 text-center text-xs text-[var(--headline)]">
@@ -195,7 +193,7 @@ const AddProject = () => {
             </DialogContent>
           </Dialog>
 
-          <div className="flex gap-2 text-white">
+          <div className="flex gap-2 flex-wrap text-white">
             {badges.map((badge, index) => (
               <Badge key={index}>
                 <span>{badge}</span>

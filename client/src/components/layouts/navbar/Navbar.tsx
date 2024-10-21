@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router-dom";
@@ -11,6 +9,7 @@ import { useTheme } from "@/context/ThemeContext";
 import i18n from "@/i18n";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 
 const styles = {
   link: "text-[var(--paragraph)] hoverd  hover:text-[var(--headline)] flex rounded-md text-sm font-medium items-center py-2",
@@ -60,6 +59,7 @@ export default function Navbar() {
   const toggleLanguage = () => {
     const newLanguage = i18n.language === "en" ? "ar" : "en";
     i18n.changeLanguage(newLanguage);
+    toast(t("Language changed"));
   };
 
   const languageText =
@@ -74,7 +74,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="flex items-center justify-between gap-5 rounded-3xl border border-zinc-700/40 bg-zinc-800 px-5 text-base max-md:px-3 sm:px-6">
+    <nav className="flex items-center justify-between gap-5 rounded-3xl border border-zinc-700/40 bg-[var(--card-background)] px-5 text-base max-md:px-3 sm:px-6">
       <div className="container mx-auto px-0">
         <div className="flex h-14 items-center justify-between">
           <div className="flex-shrink-0">
@@ -160,7 +160,7 @@ export default function Navbar() {
                 <nav className="absolute left-0 right-0 top-3 m-auto mt-2 flex h-14 w-full items-center justify-end px-8 text-[var(--headline)]">
                   <X
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="h-5 w-5"
+                    className="h-5 w-5 cursor-pointer"
                   />
                 </nav>
 
@@ -177,7 +177,9 @@ export default function Navbar() {
                   ))}
 
                   <Button
-                    className={"w-full flex justify-start text-center items-center rounded-sm"}
+                    className={
+                      "flex w-full items-center justify-start rounded-sm text-center"
+                    }
                     onClick={() => {
                       toggleMode();
                       setIsMobileMenuOpen(false);
@@ -189,7 +191,9 @@ export default function Navbar() {
                   </Button>
                   <Button
                     variant={"outline"}
-                    className={"flex w-full justify-start items-center text-center rounded-sm"}
+                    className={
+                      "flex w-full items-center justify-start rounded-sm text-center"
+                    }
                     onClick={() => {
                       toggleLanguage();
                       setIsMobileMenuOpen(false);

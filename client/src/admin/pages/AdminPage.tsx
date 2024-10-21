@@ -26,8 +26,7 @@ import { Input } from "@/components/ui/input";
 import { AdminChart } from "@/components/admin/layouts/AdminChart";
 import axios from "axios";
 import { endpoints } from "@/API/API";
-import { motion } from "framer-motion";
-import MotionNumber from "motion-number";
+import CompactNumber from "@/components/featuers/CompactNumber";
 
 export default function AdminPage() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -35,7 +34,7 @@ export default function AdminPage() {
   const [projectsCount, setProjectsCount] = useState("");
 
   const data = {
-    name: "Baraa Alshaer",
+    name: "Good evening 🌃",
     title: "Software Developer",
     location: "Palestine",
     specialization: "Full-Stack Developer",
@@ -67,28 +66,7 @@ export default function AdminPage() {
         skills: ["PHP", "MySQL", "Bootstrap"],
       },
     ],
-    projects: [
-      {
-        name: "Naj training center",
-        description: "Dedicated center for dental education in Saudi Arabia.",
-        technologies: ["React JS", "Javascript", "MIUI"],
-        websiteUrl: "#",
-      },
-      {
-        name: "Gradients CSS",
-        description:
-          "A sophisticated gradient tool designed for both designers and developers.",
-        technologies: ["Next JS", "Typescript"],
-        websiteUrl: "#",
-        githubUrl: "#",
-      },
-      {
-        name: "Rove",
-        description: "A comprehensive full-stack e-commerce web application.",
-        technologies: ["React", "Tailwind CSS", "Laravel", "MYSQL"],
-        githubUrl: "#",
-      },
-    ],
+
     skills: [
       "React",
       "JavaScript",
@@ -109,7 +87,7 @@ export default function AdminPage() {
   };
 
   useEffect(() => {
-    axios.get(endpoints.projectsCount).then((res) => {
+    axios.get(endpoints.projectsArchiveCount).then((res) => {
       setProjectsCount(res.data);
     });
   }, []);
@@ -149,12 +127,8 @@ export default function AdminPage() {
             <Code className={styles.cardIcon} />
           </CardHeader>
           <CardContent>
-            <CardTitle>
-              <MotionNumber
-                value={projectsCount}
-                format={{ notation: "compact" }}
-                locales="en-US"
-              />
+            <CardTitle className="flex items-start justify-start">
+              <CompactNumber value={projectsCount} />
             </CardTitle>
             <CardDescription className="text-xs">
               Showcased projects

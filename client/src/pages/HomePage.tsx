@@ -1,4 +1,4 @@
-import Experience from "@/components/layouts/experiences/ExperienceSection";
+import Experience from "@/components/layouts/experiences/WorkSection";
 import Footer from "@/components/layouts/footer/Footer";
 import Header from "@/components/layouts/header/Header";
 import Navbar from "@/components/layouts/navbar/Navbar";
