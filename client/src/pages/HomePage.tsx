@@ -7,9 +7,8 @@ import Projects from "@/components/layouts/projects/Projects";
 export default function HomePage() {
   return (
     <>
-      <div className="page ">
+      <div className="page">
         <Navbar />
-
         <Header />
         <Experience />
         <Projects />

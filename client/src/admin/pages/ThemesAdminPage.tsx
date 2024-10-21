@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { PageTitlesData } from "@/data/PageTitlesData";
@@ -44,6 +45,28 @@ const ThemesAdminPage = () => {
 };
 
 const ThemeForm = ({ mode }: { mode: "Dark" | "Light" }) => {
+  const [colorValues, setColorValues] = useState({
+    headline: "#fffffe",
+    subheadline: "#94a1b2",
+    bodyText: "#94a1b2",
+    primary: "#7f5af0",
+    secondary: "#5b36cc",
+    accent: "#fffffe",
+    background: mode === "Dark" ? "#16161a" : "#f9f9f9",
+    cardBackground: mode === "Dark" ? "#242629" : "#edf0f1",
+    border: mode === "Dark" ? "#719dba7a" : "#000000",
+  });
+
+  const [newColor, setNewColor] = useState({ name: "", value: "#000000" });
+
+  const handleAddColor = () => {
+    setColorValues((prev) => ({
+      ...prev,
+      [newColor.name]: newColor.value,
+    }));
+    setNewColor({ name: "", value: "#000000" }); // Reset
+  };
+
   return (
     <motion.form
       initial={{ opacity: 0 }}
@@ -66,32 +89,48 @@ const ThemeForm = ({ mode }: { mode: "Dark" | "Light" }) => {
                 Add theme color
               </DialogTitle>
             </DialogHeader>
-            <Input placeholder="color name" />
-            <Input placeholder="#000000" />
-
+            <Input
+              placeholder="Color name"
+              value={newColor.name}
+              onChange={(e) => setNewColor({ ...newColor, name: e.target.value })}
+            />
+            <Input
+              type="color"
+              value={newColor.value}
+              onChange={(e) => setNewColor({ ...newColor, value: e.target.value })}
+            />
             <DialogClose className="w-full">
-              <Button className="w-full">Add color</Button>
+              <Button className="w-full" onClick={handleAddColor}>
+                Add color
+              </Button>
             </DialogClose>
           </DialogContent>
         </Dialog>
       </header>
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-        <ColorInput label="Headline" />
-        <ColorInput label="Subheadline" />
-        <ColorInput label="Body Text" />
-        <ColorInput label="Primary" />
-        <ColorInput label="Secondary" />
-        <ColorInput label="Accent" />
-        <ColorInput label="Background" />
-        <ColorInput label="Card Background" />
-        <ColorInput label="Border" />
+        {Object.entries(colorValues).map(([key, value]) => (
+          <ColorInput
+            key={key}
+            label={key.charAt(0).toUpperCase() + key.slice(1)}
+            value={value}
+            onChange={(newColorValue) => setColorValues((prev) => ({ ...prev, [key]: newColorValue }))}
+          />
+        ))}
       </div>
     </motion.form>
   );
 };
 
-const ColorInput = ({ label }: { label: string }) => {
+const ColorInput = ({
+  label,
+  value,
+  onChange,
+}: {
+  label: string;
+  value: string;
+  onChange: (color: string) => void;
+}) => {
   return (
     <div className="flex flex-col space-y-1.5">
       <label
@@ -102,8 +141,9 @@ const ColorInput = ({ label }: { label: string }) => {
       </label>
       <Input
         id={label.toLowerCase().replace(" ", "-")}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
         placeholder="Color value"
-        defaultValue="#000000"
       />
     </div>
   );

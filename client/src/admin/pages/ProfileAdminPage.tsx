@@ -1,9 +1,8 @@
-
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { SaveIcon } from "lucide-react";
 import { baseUrl } from "@/API/API";
 import Cookies from "js-cookie";
@@ -18,16 +17,8 @@ const api = axios.create({
 });
 
 const getAdminProfile = (id: string) => api.get(`/admin/${id}`);
-
-const updateAdminProfile = (
-  id: string,
-  data: {
-    name?: string;
-    email?: string;
-    password?: string;
-    otp?: string;
-  },
-) => api.put(`/admin/${id}`, data);
+const updateAdminProfile = (id: string, data: AdminData) =>
+  api.put(`/admin/${id}`, data);
 
 interface AdminData {
   name: string;
@@ -43,6 +34,7 @@ export default function ProfileAdminPage() {
     password: "",
     otp: "",
   });
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
@@ -50,45 +42,42 @@ export default function ProfileAdminPage() {
 
   useEffect(() => {
     const token = Cookies.get("Bearer");
-    if (!token) {
-      <Navigate to={"/admin/login"} replace={true} />;
+    if (!token) return <Navigate to={"/admin/login"} replace={true} />;
 
-      return;
+    const decodedToken = decodeToken(token) as { id: string } | null;
+    if (isExpired(token) || !decodedToken) {
+      return <Navigate to={"/admin/login"} replace={true} />;
     }
 
-    try {
-      const decodedToken = decodeToken(token) as { id: string } | null;
-      const isTokenExpired = isExpired(token);
-      if (isTokenExpired || !decodedToken) {
-        throw new Error("Token is expired or invalid");
-      }
-
-      setId(decodedToken.id);
-      const fetchAdminData = async () => {
-        try {
-          const { data } = await getAdminProfile(decodedToken.id);
-          setAdminData((prevData) => ({
-            ...prevData,
-            name: data.name,
-            email: data.email,
-          }));
-          setLoading(false);
-        } catch (err) {
-          setError("Failed to load admin data.");
-          setLoading(false);
-        }
-      };
-
-      fetchAdminData();
-    } catch (err) {
-      console.error("Invalid token:", err);
-      <Navigate to={"/admin/login"} replace={true} />;
-    }
+    setId(decodedToken.id);
+    fetchAdminData(decodedToken.id);
   }, []);
+
+  const fetchAdminData = async (adminId: string) => {
+    try {
+      const { data } = await getAdminProfile(adminId);
+      setAdminData({
+        name: data.name,
+        email: data.email,
+        password: "",
+        otp: "",
+      });
+    } catch {
+      setError("Failed to load admin data.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
     setAdminData((prevData) => ({ ...prevData, [id]: value }));
+  };
+
+  const clearForm = () => {
+    setAdminData({ name: "", email: "", password: "", otp: "" });
+    setError("");
+    setSuccess("");
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -96,25 +85,26 @@ export default function ProfileAdminPage() {
     setLoading(true);
     setError("");
     setSuccess("");
+
     try {
       await updateAdminProfile(id, adminData);
       setSuccess("Profile updated successfully!");
-    } catch (err) {
+      clearForm(); // Clear form after successful submission
+    } catch {
       setError("Failed to update profile.");
     } finally {
       setLoading(false);
     }
   };
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  if (loading) return <div>Loading...</div>;
 
   return (
     <div className="section">
       <form className="form" onSubmit={handleSubmit}>
         <div className="flex items-center space-x-4">
-          <Avatar className="gradient-avatar h-20 w-20">
+          <Avatar>
+            <AvatarImage src="https://github.com/shadcn.png" />
             <AvatarFallback>AD</AvatarFallback>
           </Avatar>
         </div>

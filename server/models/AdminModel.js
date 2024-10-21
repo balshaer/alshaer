@@ -30,7 +30,7 @@ const AdminSchema = new mongoose.Schema(
     profilePhoto: {
       type: Object,
       default: {
-        url: "https://img.icons8.com/fluency/48/user-male-circle--v1.png",
+        url: "https://vercel.com/api/www/avatar/SA7kRQYuUGOPuPmxWAQycgXZ?s=64",
         publicId: null,
       },
     },

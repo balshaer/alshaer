@@ -77,9 +77,9 @@ export default function Navbar() {
     <nav className="flex items-center justify-between gap-5 rounded-3xl border border-zinc-700/40 bg-[var(--card-background)] px-5 text-base max-md:px-3 sm:px-6">
       <div className="container mx-auto px-0">
         <div className="flex h-14 items-center justify-between">
-          <div className="flex-shrink-0">
+          <Link to={"/"} className="flex-shrink-0">
             <Logo />
-          </div>
+          </Link>
           <div className="hidden h-full items-center justify-center md:flex">
             <div className="ml-6 flex h-full items-center justify-center gap-8">
               <AnimatePresence>

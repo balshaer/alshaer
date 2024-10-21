@@ -179,7 +179,7 @@ export default function AddWork() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div >
       <PageTitle title={PageTitlesData.addExperience} />
 
       <span dir="ltr" onClick={() => navigate(-1)}>
