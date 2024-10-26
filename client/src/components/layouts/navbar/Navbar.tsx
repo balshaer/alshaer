@@ -3,20 +3,19 @@ import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router-dom";
 import { HiOutlineSun } from "react-icons/hi";
 import { LuMoon } from "react-icons/lu";
-import { Menu, X, Home, Briefcase, FolderGit2, Languages } from "lucide-react";
+import { Menu, X, Home, Briefcase, FolderGit2 } from "lucide-react";
 import Logo from "../../ui/Logo";
 import { useTheme } from "@/context/ThemeContext";
-import i18n from "@/i18n";
 import { motion, AnimatePresence } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { toast } from "sonner";
+import LanguageMode from "../languageMode/LanguageMode";
 
 const styles = {
-  link: "text-[var(--paragraph)] hoverd  hover:text-[var(--headline)] flex rounded-md text-sm font-medium items-center py-2",
+  link: "text-[var(--paragraph)] hover:text-[var(--headline)] flex rounded-md text-sm font-medium items-center py-2",
   icon: "mr-2 h-4 w-4",
   dropdownItem:
-    "flex items-center w-full p-2 text-[var(--headline)] justify-center text-center rounded-md",
-  navMenu: "text-[var(--headline)] cursor-pointer",
+    "flex items-center w-full h-full flex  p-2 text-[var(--headline)] justify-center text-center rounded-md",
+  navMenu:
+    "text-[var(--headline)] cursor-pointer h-full flex justify-center item-center",
   activeIndicator:
     "absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-zinc-400/0 via-zinc-400/40 to-zinc-400/0",
 };
@@ -56,36 +55,30 @@ export default function Navbar() {
   const IconComponent = theme === "light" ? LuMoon : HiOutlineSun;
   const modeText = theme === "light" ? "Dark Mode" : "Light Mode";
 
-  const toggleLanguage = () => {
-    const newLanguage = i18n.language === "en" ? "ar" : "en";
-    i18n.changeLanguage(newLanguage);
-    toast(t("Language changed"));
-  };
-
-  const languageText =
-    i18n.language === "ar"
-      ? t("LanguageSelector.en")
-      : t("LanguageSelector.ar");
-
   const navItems = [
-    { name: "Home", path: "/", icon: Home },
-    { name: "Work", path: "/work", icon: Briefcase },
-    { name: "Projects", path: "/projects", icon: FolderGit2 },
+    { name: t("Navbar.Home"), path: "/", icon: Home },
+    { name: t("Navbar.Work"), path: "/work", icon: Briefcase },
+    { name: t("Navbar.Projects"), path: "/projects", icon: FolderGit2 },
   ];
-
   return (
-    <nav className="flex items-center justify-between gap-5 rounded-3xl border border-zinc-700/40 bg-[var(--card-background)] px-5 text-base max-md:px-3 sm:px-6">
+    <nav
+      dir="ltr"
+      className="flex items-center justify-between gap-5 rounded-3xl border border-zinc-700/40 bg-[var(--card-background)] px-5 text-base max-md:px-3 sm:px-6"
+    >
       <div className="container mx-auto px-0">
         <div className="flex h-14 items-center justify-between">
           <div className="flex-shrink-0">
             <Logo />
           </div>
           <div className="hidden h-full items-center justify-center md:flex">
-            <div className="ml-6 flex h-full items-center justify-center gap-8">
+            <div
+              dir="ltr"
+              className="ml-6 flex h-full items-center justify-center gap-8"
+            >
               <AnimatePresence>
                 {navItems.map((item) => (
                   <div
-                    className="relative flex h-full items-center justify-center"
+                    className="relative flex h-full items-center justify-center max-md:hidden"
                     key={item.name}
                   >
                     <Link
@@ -97,7 +90,7 @@ export default function Navbar() {
                       }`}
                     >
                       <item.icon className={styles.icon} />
-                      <span>{item.name}</span>
+                      <span>{t(item.name)}</span>
                     </Link>
                     {location.pathname === item.path && (
                       <motion.div
@@ -113,25 +106,20 @@ export default function Navbar() {
               </AnimatePresence>
             </div>
           </div>
-          <div className="flex gap-2 max-md:hidden">
+          <div className="flex h-full items-center justify-center max-md:hidden max-md:gap-2">
             <motion.div
-              className={styles.navMenu}
+              className={
+                styles.navMenu + "flex h-full items-center justify-center"
+              }
               onClick={toggleMode}
               whileTap="animate"
+              variants={iconAnimationVariants}
             >
-              <motion.div variants={iconAnimationVariants} initial="initial">
-                <IconComponent className={styles.icon} />
-              </motion.div>
+              <IconComponent className={styles.icon} />
+              <span className="sr-only">{modeText}</span>
             </motion.div>
-            <motion.div
-              className={styles.navMenu}
-              onClick={toggleLanguage}
-              whileTap="animate"
-            >
-              <motion.div variants={iconAnimationVariants} initial="initial">
-                <Languages className={styles.icon} />
-              </motion.div>
-            </motion.div>
+
+            <LanguageMode />
           </div>
 
           {/* Mobile menu toggle */}
@@ -141,8 +129,24 @@ export default function Navbar() {
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               whileTap="animate"
             >
-              <motion.div variants={iconAnimationVariants} initial="initial">
-                {!isMobileMenuOpen && <Menu className="h-5 w-5" />}
+              <motion.div
+                className="flex items-center justify-center gap-4 max-md:gap-2"
+                variants={iconAnimationVariants}
+                initial="initial"
+              >
+                <div
+                  className="flex w-full items-center justify-start rounded-sm text-center"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    toggleMode();
+                  }}
+                >
+                  <IconComponent className="h-4 w-4" />
+                </div>
+
+                <div className="flex w-full items-center justify-start rounded-sm text-center">
+                  <Menu className="h-4 w-4" />
+                </div>
               </motion.div>
             </motion.button>
           </div>
@@ -169,40 +173,16 @@ export default function Navbar() {
                     <Link
                       key={item.name}
                       to={item.path}
-                      className={styles.dropdownItem}
+                      className={
+                        "hidden h-full w-full items-center justify-center rounded-md p-2 text-center text-[var(--headline)] max-md:flex"
+                      }
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
-                      <span>{item.name}</span>
+                      <span>{t(item.name)}</span>
                     </Link>
                   ))}
 
-                  <Button
-                    className={
-                      "flex w-full items-center justify-start rounded-sm text-center"
-                    }
-                    onClick={() => {
-                      toggleMode();
-                      setIsMobileMenuOpen(false);
-                    }}
-                  >
-                    <IconComponent />
-
-                    <span>{modeText}</span>
-                  </Button>
-                  <Button
-                    variant={"outline"}
-                    className={
-                      "flex w-full items-center justify-start rounded-sm text-center"
-                    }
-                    onClick={() => {
-                      toggleLanguage();
-                      setIsMobileMenuOpen(false);
-                    }}
-                  >
-                    <Languages className="h-4 w-4" />
-
-                    <span>{languageText}</span>
-                  </Button>
+                  <LanguageMode className="mx-auto" />
                 </div>
               </motion.div>
             )}

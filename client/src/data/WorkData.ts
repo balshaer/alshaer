@@ -1,21 +1,21 @@
-import { companies } from "./Links";
+// data/workData.ts
 
-interface workDataType {
-  companyName: string;
-  jobTitle: string;
-  jobDate: string;
-  Link: string;
-  jobDescription: string;
-  skills: string[];
+export interface WorkExperience {
+  id: string;
+  title: string;
+  company: string;
+  date: string;
+  description: string;
+  skills: string[]; // Change to an array of strings
 }
 
-const workData: workDataType[] = [
+export const workData: WorkExperience[] = [
   {
-    companyName: "Experience.Company.Name1",
-    jobTitle: "Experience.Company.JobTitle1",
-    jobDate: "Experience.Company.Date1",
-    Link: companies.sustainablestar,
-    jobDescription: "Experience.Company.Description1",
+    id: "frontend-developer-sustainable-star",
+    title: "WorkExperience.FrontendDeveloperSustainableStar.Title",
+    company: "Sustainable Star LLC",
+    date: "WorkExperience.FrontendDeveloperSustainableStar.Date",
+    description: "WorkExperience.FrontendDeveloperSustainableStar.Description",
     skills: [
       "React js",
       "Typescript",
@@ -25,25 +25,20 @@ const workData: workDataType[] = [
       "RESTful APIs",
     ],
   },
-
   {
-    companyName: "Experience.Company.Name2",
-    jobTitle: "Experience.Company.JobTitle2",
-    jobDate: "Experience.Company.Date2",
-    Link: companies.ptit,
-    jobDescription: "Experience.Company.Description2",
+    id: "frontend-developer-ptit",
+    title: "WorkExperience.FrontendDeveloperPTIT.Title",
+    company: "PTIT",
+    date: "WorkExperience.FrontendDeveloperPTIT.Date",
+    description: "WorkExperience.FrontendDeveloperPTIT.Description",
     skills: ["React js", "Javascript", "Tailwind CSS", "Github", "Git"],
   },
-
   {
-    companyName: "Experience.Company.Name3",
-    jobTitle: "Experience.Company.JobTitle3",
-    jobDate: "Experience.Company.Date3",
-    Link: companies.gedco,
-    jobDescription: "Experience.Company.Description3",
+    id: "software-engineer-intern-gedco",
+    title: "WorkExperience.SoftwareEngineerGEDCO.Title",
+    company: "GEDCO",
+    date: "WorkExperience.SoftwareEngineerGEDCO.Date",
+    description: "WorkExperience.SoftwareEngineerGEDCO.Description",
     skills: ["PHP", "MySQL", "Bootstrap"],
   },
 ];
-
-export { workData };
-export type { workDataType };

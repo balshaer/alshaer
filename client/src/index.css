@@ -15,12 +15,8 @@ body {
 }
 
 *::selection {
-  background-color: #2cb67d;
+  background-color: #4fb9d656;
   color: #000;
-}
-
-.dropdowntoggle {
-  background-color: red !important;
 }
 
 .page {

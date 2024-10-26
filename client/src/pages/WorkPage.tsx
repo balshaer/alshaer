@@ -9,8 +9,7 @@ import {
 } from "@/components/ui/breadcrumb";
 
 import Footer from "@/components/layouts/footer/Footer";
-import React, { useEffect, useState } from "react";
-import { Globe } from "lucide-react";
+import React from "react";
 import {
   Card,
   CardContent,
@@ -20,44 +19,21 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import axios from "axios";
-import { endpoints } from "@/API/API";
 import Navbar from "@/components/layouts/navbar/Navbar";
-
-interface ProjectCardProps {
-  _id: string;
-  title: string;
-  description: string;
-  links: {
-    website: string;
-    github: string;
-  }[];
-  badge?: string[];
-  order: number;
-}
+import { workData } from "@/data/workData";
 
 const WorkPage: React.FC = () => {
-  const [works, setWorks] = useState<ProjectCardProps[]>([]);
-
-  useEffect(() => {
-    axios.get(endpoints.getUnArchivedWorks).then((response) => {
-      const sortedWorks = response.data.sort(
-        (a: ProjectCardProps, b: ProjectCardProps) => a.order - b.order,
-      );
-      setWorks(sortedWorks);
-    });
-  }, []);
-
   const { t } = useTranslation();
+  const { language } = i18n;
 
-  const direction = i18n.language === "ar" ? "rtl" : "ltr";
+  const direction = language === "ar" ? "rtl" : "ltr";
 
   const styles = {
-    breadcrumbLink: "hover:text-[var(--paragraph)]  hoverd ",
+    breadcrumbLink: "hover:text-[var(--paragraph)] hoverd",
     arrowIcon:
       "text-[var(--paragraph)] text-3xl hoverd hover:text-[var(--link-color)] cursor-pointer ml-[-16px] max-md:ml-[-8px]",
     linkStyle:
-      "flex items-center justify-center gap-1 text-sm text-[var(--headline)] opacity-70 hoverd  hover:opacity-100",
+      "flex items-center justify-center gap-1 text-sm text-[var(--headline)] opacity-70 hoverd hover:opacity-100",
   };
 
   return (
@@ -66,8 +42,10 @@ const WorkPage: React.FC = () => {
         <Navbar />
         <div className="projectCards flex min-h-[100vh] w-full flex-col gap-5 max-md:pb-0">
           <div className="header">
-            <h1 className="header-title">{t("Experience.Title")}</h1>
-            <p className="description max-w-xl">{t("Experience.Subtitle")}</p>
+            <h1 className="header-title">{t("WorkExperience.Title")}</h1>
+            <p className="description max-w-[100%]">
+              {t("WorkExperience.Description")}
+            </p>
             <div className="py-5">
               <Breadcrumb>
                 <BreadcrumbList>
@@ -77,7 +55,7 @@ const WorkPage: React.FC = () => {
                     </BreadcrumbLink>
                   </BreadcrumbItem>
                   <div>
-                    {i18n.language === "ar" ? (
+                    {language === "ar" ? (
                       <BreadcrumbSeparator
                         style={{ transform: "rotate(180deg)" }}
                       />
@@ -99,44 +77,22 @@ const WorkPage: React.FC = () => {
           </div>
 
           <div className="works-cards flex flex-col gap-8 pb-16">
-            {works.length === 0 && (
-              <p className="text-lg text-[var(--paragraph)] max-md:w-full max-md:max-w-none max-md:text-lg">
-                {t("works.NotFound")}
-              </p>
-            )}
-
-            {works.map((project) => (
-              <Card key={project._id}>
-                <CardHeader>
-                  <CardTitle>{project.title}</CardTitle>
+            {workData.map((experience) => (
+              <Card key={experience.id}>
+                <CardHeader className="max-md:flex-wrap">
+                  <CardTitle>{t(experience.title)}</CardTitle>
+                  <CardDescription>{t(experience.date)}</CardDescription>
                 </CardHeader>
 
                 <CardContent>
-                  <CardDescription>{project.description}</CardDescription>
+                  <CardDescription>{t(experience.description)}</CardDescription>
                 </CardContent>
 
                 <CardFooter className="my-4 flex w-full flex-wrap items-center justify-between max-md:flex-col max-md:items-start">
-                  <div className="flex max-w-[60%] flex-wrap gap-2">
-                    {project.badge &&
-                      project.badge.map((badge, index) => (
-                        <Badge key={index}>{badge}</Badge>
-                      ))}
-                  </div>
-
-                  <div className="flex flex-wrap gap-4 max-md:mt-5">
-                    {project.links.length > 0 && project.links[0].website && (
-                      <a
-                        href={project.links[0].website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.linkStyle}
-                      >
-                        <span>
-                          <Globe className="h-4 w-4" />
-                        </span>
-                        <span>{t("links.visitWebsite")}</span>
-                      </a>
-                    )}
+                  <div className="flex max-w-[60%] flex-wrap gap-2 max-md:max-w-full">
+                    {experience.skills.map((skill, index) => (
+                      <Badge key={index}>{skill}</Badge>
+                    ))}
                   </div>
                 </CardFooter>
               </Card>

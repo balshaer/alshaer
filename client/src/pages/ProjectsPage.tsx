@@ -7,9 +7,8 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-
 import Footer from "@/components/layouts/footer/Footer";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Globe } from "lucide-react";
 import { ImGithub } from "react-icons/im";
 import {
@@ -21,44 +20,21 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import axios from "axios";
-import { endpoints } from "@/API/API";
 import Navbar from "@/components/layouts/navbar/Navbar";
-
-interface ProjectCardProps {
-  _id: string;
-  title: string;
-  description: string;
-  links: {
-    website: string;
-    github: string;
-  }[];
-  badge?: string[];
-  order: number;
-}
+import { projectsData } from "@/data/projectsData";
 
 const ProjectsPage: React.FC = () => {
-  const [projects, setProjects] = useState<ProjectCardProps[]>([]);
-
-  useEffect(() => {
-    axios.get(endpoints.getUnArchivedProjects).then((response) => {
-      const sortedProjects = response.data.sort(
-        (a: ProjectCardProps, b: ProjectCardProps) => a.order - b.order,
-      );
-      setProjects(sortedProjects);
-    });
-  }, []);
-
   const { t } = useTranslation();
+  const { language } = i18n;
 
-  const direction = i18n.language === "ar" ? "rtl" : "ltr";
+  const direction = language === "ar" ? "rtl" : "ltr";
 
   const styles = {
-    breadcrumbLink: "hover:text-[var(--paragraph)]  hoverd ",
+    breadcrumbLink: "hover:text-[var(--paragraph)] hoverd",
     arrowIcon:
       "text-[var(--paragraph)] text-3xl hoverd hover:text-[var(--link-color)] cursor-pointer ml-[-16px] max-md:ml-[-8px]",
     linkStyle:
-      "flex items-center justify-center gap-1 text-sm text-[var(--headline)] opacity-70 hoverd  hover:opacity-100",
+      "flex items-center justify-center gap-1 text-sm text-[var(--headline)] opacity-70 hoverd hover:opacity-100",
   };
 
   return (
@@ -67,9 +43,9 @@ const ProjectsPage: React.FC = () => {
         <Navbar />
         <div className="projectCards flex min-h-[100vh] w-full flex-col gap-5 max-md:pb-0">
           <div className="header">
-            <h1 className="header-title">{t("ProjectsSection.Title")}</h1>
+            <h1 className="header-title">{t("Projects.Title")}</h1>
             <p className="description max-w-[100%]">
-              {t("Projects.ProjectsHeadline")}
+              {t("Projects.Description")}
             </p>
             <div className="py-5">
               <Breadcrumb>
@@ -80,7 +56,7 @@ const ProjectsPage: React.FC = () => {
                     </BreadcrumbLink>
                   </BreadcrumbItem>
                   <div>
-                    {i18n.language === "ar" ? (
+                    {language === "ar" ? (
                       <BreadcrumbSeparator
                         style={{ transform: "rotate(180deg)" }}
                       />
@@ -102,34 +78,27 @@ const ProjectsPage: React.FC = () => {
           </div>
 
           <div className="projects-cards flex flex-col gap-8 pb-16">
-            {projects.length === 0 && (
-              <p className="text-lg text-[var(--paragraph)] max-md:w-full max-md:max-w-none max-md:text-lg">
-                {t("Projects.NotFound")}
-              </p>
-            )}
-
-            {projects.map((project) => (
-              <Card key={project._id}>
+            {projectsData.map((project) => (
+              <Card key={project.id}>
                 <CardHeader>
-                  <CardTitle>{project.title}</CardTitle>
+                  <CardTitle>{t(project.titleKey)}</CardTitle>
                 </CardHeader>
 
                 <CardContent>
-                  <CardDescription>{project.description}</CardDescription>
+                  <CardDescription>{t(project.descriptionKey)}</CardDescription>
                 </CardContent>
 
                 <CardFooter className="my-4 flex w-full flex-wrap items-center justify-between max-md:flex-col max-md:items-start">
-                  <div className="flex max-w-[60%] flex-wrap gap-2">
-                    {project.badge &&
-                      project.badge.map((badge, index) => (
-                        <Badge key={index}>{badge}</Badge>
-                      ))}
+                  <div className="flex max-w-[60%] flex-wrap gap-2 max-md:max-w-full">
+                    {project.skills.map((skill, index) => (
+                      <Badge key={index}>{skill}</Badge>
+                    ))}
                   </div>
 
                   <div className="flex flex-wrap gap-4 max-md:mt-5">
-                    {project.links.length > 0 && project.links[0].website && (
+                    {project.links.website && (
                       <a
-                        href={project.links[0].website}
+                        href={project.links.website}
                         target="_blank"
                         rel="noopener noreferrer"
                         className={styles.linkStyle}
@@ -141,9 +110,9 @@ const ProjectsPage: React.FC = () => {
                       </a>
                     )}
 
-                    {project.links.length > 0 && project.links[0].github && (
+                    {project.links.github && (
                       <a
-                        href={project.links[0].github}
+                        href={project.links.github}
                         target="_blank"
                         rel="noopener noreferrer"
                         className={styles.linkStyle}
