@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Cairo", sans-serif;
+}
+
+@layer components {
+  .container {
+    @apply max-w-4xl;
+  }
+}
+
+*::selection {
+  background-color: #4fb9d656;
+  color: #000;
+}
+
+.page {
+  @apply container px-4 pt-2 max-md:pt-4;
+}

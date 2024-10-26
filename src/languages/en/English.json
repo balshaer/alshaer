@@ -1,0 +1,194 @@
+{
+  "Public": {
+    "send": "Send",
+    "ExploreAll": "Explore All",
+    "BuiltWith": "Built With:",
+    "StarOnGithub": "Contribute to this project",
+    "Loading": "Loading ...",
+    "or": "or",
+    "Email": "Get in touch →",
+    "Linkedin": "LinkedIn",
+    "SeeMore": "See more",
+    "All": "All",
+    "Links": "Links",
+    "At": "at"
+  },
+
+  "Language": {
+    "change": "Language change to English"
+  },
+
+  "DropdownMenu": {
+    "Links": "Links",
+    "Projects": "Projects",
+    "Github": "GitHub",
+    "Linkedin": "LinkedIn",
+    "Whatsapp": "WhatsApp",
+    "Actions": "Actions",
+    "SayHi": "Say hi"
+  },
+  "Header": {
+    "Title": "Baraa Alshaer",
+    "Subtitle": "Software Developer",
+    "Description1": "I am a Full-Stack Developer from Palestine, with a deep passion for backend development. I specialize in building seamless and efficient web applications across both the front-end and back-end.",
+    "Description2": "I approach each project with a focus on delivering high-quality solutions, combining my skills in frontend development, backend systems, and overall project design. My aim is to create user-centric applications that not only meet client needs but also drive innovation.",
+    "Description3": "I am dedicated to staying current with industry trends and continuously improving my craft. My work reflects a commitment to excellence and a drive to contribute meaningfully to the tech community."
+  },
+  "DialogForm": {
+    "SendMessage": "Send Message",
+    "DialogTitle": "Let's Connect!",
+    "Email": "Email",
+    "Linkedin": "LinkedIn",
+    "Success": {
+      "EmailSent": "Email sent successfully."
+    },
+    "Placeholder": {
+      "NameInput": "Name",
+      "EmailInput": "example@email.com",
+      "MessageTextarea": "Your message"
+    },
+    "Errors": {
+      "Name": "Name input is required.",
+      "Email": "Email input is required.",
+      "Message": "Please enter your message.",
+      "MissingFields": "Please fill in all fields.",
+      "EmailFailed": "Failed to send email. Please try again later."
+    }
+  },
+  "Navbar": {
+    "Home": "Home",
+    "About": "About",
+    "Projects": "Projects ",
+    "Blog": "Blog",
+    "Work": "Work"
+  },
+  "projects": {
+    "samtax": {
+      "title": "SamTax",
+      "description": "Developed a dynamic, multi-language website for a service company, enhancing accessibility and user engagement."
+    },
+    "gradientsCss": {
+      "title": "Gradients CSS",
+      "description": "A sophisticated gradient tool designed for both designers and developers."
+    },
+    "najTrainingCenter": {
+      "title": "Naj Training Center",
+      "description": "Dedicated center for dental education in Saudi Arabia."
+    },
+
+    "rove": {
+      "title": "Rove",
+      "description": "A comprehensive full-stack e-commerce web application featuring a suite of functionalities for managing products, processing transactions, and providing an engaging user experience."
+    },
+    "sustainableStar": {
+      "title": "Sustainable Star",
+      "description": "A dynamic website developed for Sustainable Star, a startup focused on sustainability, designed to effectively communicate their mission and engage their audience."
+    },
+    "bookstoreApi": {
+      "title": "Bookstore API",
+      "description": "A RESTful API for a bookstore that efficiently manages users, authors, and books, offering robust endpoints for comprehensive data handling and integration."
+    },
+
+    "frontendDeveloperSustainableStar": {
+      "title": "Frontend Developer at Sustainable Star",
+      "description": "Developed user-friendly interfaces and optimized the website for performance and usability, utilizing modern web technologies."
+    }
+  },
+  "WorkExperience": {
+    "Title": "Work Experience",
+    "Description": "This title conveys a formal tone and clearly indicates that it encompasses your work experiences.",
+    "FrontendDeveloperSustainableStar": {
+      "Title": "Frontend Developer at Sustainable Star LLC",
+      "Date": "July 2023 - October 2023",
+      "Description": "Worked as a frontend developer using React, responsible for developing the main website for Sustainable Star LLC and significantly contributing to the SFB project."
+    },
+    "FrontendDeveloperPTIT": {
+      "Title": "Frontend Developer at PTIT",
+      "Date": "July 2023 - September 2023",
+      "Description": "Worked as a React developer, responsible for rebuilding and updating several projects, as well as developing new projects."
+    },
+    "SoftwareEngineerGEDCO": {
+      "Title": "Software Engineer Intern at GEDCO",
+      "Date": "April 2022 - June 2022",
+      "Description": "Completed an internship at GEDCO as a software engineer through my college."
+    }
+  },
+  "Projects": {
+    "Title": "Projects",
+    "Description": "I have worked on a variety of projects; here are some of the ones I'm particularly proud of.",
+    "NajTrainingCenter": {
+      "Title": "Naj Training Center",
+      "Description": "A dedicated center for dental education in Saudi Arabia.",
+      "Skills": ["React JS", "JavaScript", "MIUI"],
+      "VisitWebsite": "Visit website"
+    },
+    "GradientsCSS": {
+      "Title": "Gradients CSS",
+      "Description": "A sophisticated gradient tool designed for both designers and developers.",
+      "Skills": ["Next JS", "TypeScript"],
+      "VisitWebsite": "Visit website",
+      "VisitGithub": "Visit GitHub"
+    },
+    "Rove": {
+      "Title": "Rove",
+      "Description": "A comprehensive full-stack e-commerce web application featuring a complete suite of functionalities for managing products, processing transactions, and providing an engaging user experience.",
+      "Skills": ["React", "Tailwind CSS", "Laravel", "MySQL"],
+      "VisitGithub": "Visit GitHub"
+    },
+    "SustainableStar": {
+      "Title": "Sustainable Star",
+      "Description": "A dynamic website developed for Sustainable Star, a startup focused on sustainability, designed to effectively communicate their mission and engage their audience.",
+      "Skills": ["React", "Tailwind CSS", "Material UI"],
+      "VisitWebsite": "Visit website"
+    },
+    "BookstoreAPI": {
+      "Title": "Bookstore API",
+      "Description": "A RESTful API for a bookstore that efficiently manages users, authors, and books, offering robust endpoints for comprehensive data handling and integration.",
+      "Skills": ["Node JS", "Express JS", "Mongoose DB"],
+      "VisitGithub": "Visit GitHub"
+    },
+    "SamTax": {
+      "Title": "SamTax",
+      "Description": "Developed a dynamic, multi-language website for a service company, enhancing accessibility and user engagement.",
+      "Skills": ["React", "Tailwind CSS", "Shadcn UI"],
+      "VisitWebsite": "Visit website"
+    }
+  },
+  "links": {
+    "visitWebsite": "Visit website",
+    "visitGithub": "Visit GitHub"
+  },
+  "Errors": {
+    "Pages": {
+      "NotFound": {
+        "Title": "404 Page Not Found",
+        "Description": "This page does not exist."
+      }
+    }
+  },
+  "Footer": {
+    "CopyRight": "© All rights reserved"
+  },
+  "About": {
+    "Title": "Baraa Alshaer,",
+    "Description1": "Software engineer specialized in developing web applications using the latest technologies, graduated from",
+    "Description2": "I have practical experience in building web applications using the latest technologies such as React and TypeScript.",
+    "Description3": "If you have any inquiries, feel free to contact me directly via",
+    "CollegeName": "Al-Azhar University,",
+    "Email": "Email",
+    "Contact": {
+      "FindMe": "Social Media",
+      "Send": "Sending...",
+      "MessageNote": "Message sent successfully"
+    }
+  },
+  "ProjectsSection": {
+    "Title": "Projects",
+    "Description": "I've worked on many projects, but these are the ones I'm proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and feel free to contribute!"
+  },
+  "Blog": {
+    "Title": "My Blog",
+    "Description": "I write about various topics related to software development, technology trends, and personal insights. Feel free to explore my articles!",
+    "ReadMore": "Read more"
+  }
+}

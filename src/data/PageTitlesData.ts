@@ -1,0 +1,16 @@
+export const PageTitlesData = {
+  projects: "Baraa Alshaer - Projects",
+  notFound: "404 - page not found",
+  adminPage: "Baraa - Admin",
+  adminMails: "Baraa - Inbox",
+  adminProjects: "Baraa - Projects ",
+  adminExperience: "Baraa - Experience",
+  adminThemes: "Baraa - Themes",
+  adminSocialLinks: "Baraa - Social links",
+  adminSetting: "Baraa - Setting",
+  addProject: "Add a new project",
+  addExperience: "Add a new experience",
+  editProject: "edit project",
+  editExperience: "edit experience",
+  adminContent: "Baraa - Content",
+};
