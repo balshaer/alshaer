@@ -10,12 +10,12 @@ export default function Footer() {
 
   return (
     <footer className="w-full border-t-[0.5px] border-[var(--footer-border-color)] bg-[var(--footer-background)]">
-      <div className="container flex items-center justify-between py-10 max-md:p-0 max-md:py-14  max-md:flex-col max-md:gap-4">
+      <div className="container flex items-center justify-between py-10 max-md:flex-col max-md:gap-4 max-md:p-0 max-md:py-14">
         <div
           dir={direction}
           className="hoverd flex gap-2 text-sm capitalize text-[var(--footer-text)] max-md:flex-col max-md:items-center"
         >
-          <div dir={"ltr"} className="flex h-full gap-2">
+          <div dir={direction} className="flex h-full gap-2">
             {footerLinks.map((item, index) => (
               <div
                 key={index}

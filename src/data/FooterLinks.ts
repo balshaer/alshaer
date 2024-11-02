@@ -1,3 +1,4 @@
+import { t } from "i18next";
 import { github, linkedin, youtube } from "./Links";
 
 interface footerLinksType {
@@ -7,20 +8,20 @@ interface footerLinksType {
 
 const footerLinks: footerLinksType[] = [
   {
-    title: "Youtube",
+    title: t("FooterLinks.youtube"),
     link: youtube,
   },
   {
-    title: "Github",
+    title: t("FooterLinks.github"),
     link: github,
   },
 
   {
-    title: "Projects",
+    title: t("FooterLinks.projects"),
     link: "/projects",
   },
   {
-    title: "Linkedin",
+    title: t("FooterLinks.linkedin"),
     link: linkedin,
   },
 ];

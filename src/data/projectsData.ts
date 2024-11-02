@@ -1,8 +1,7 @@
-
 export interface Project {
   id: string;
   titleKey: string;
-  descriptionKey: string; 
+  descriptionKey: string;
   skills: string[];
   links: {
     website?: string;
@@ -25,19 +24,36 @@ export const projectsData: Project[] = [
     id: "gradients-css",
     titleKey: "projects.gradientsCss.title",
     descriptionKey: "projects.gradientsCss.description",
-    skills: ["Next JS", "Typescript"],
+    skills: [
+      "React JS",
+      "Typescript",
+      "Tailwind CSS",
+      "Github",
+      "Git",
+      "RESTful APIs",
+    ],
     links: {
-      website: "https://example.com/gradients-css",
-      github: "https://github.com/example/gradients-css",
+      website: "https://gradients.vercel.app",
+      github: "https://github.com/balshaer/gradients-css",
     },
   },
+  {
+    id: "raouf-zadi",
+    titleKey: "projects.raoufzadi.title",
+    descriptionKey: "projects.raoufzadi.description",
+    skills: ["React JS", "Typescript", "Tailwind CSS", "Github", "Git"],
+    links: {
+      website: "https://raoufzadi.vercel.app",
+    },
+  },
+
   {
     id: "naj-training-center",
     titleKey: "projects.najTrainingCenter.title",
     descriptionKey: "projects.najTrainingCenter.description",
     skills: ["React JS", "Javascript", "MIUI"],
     links: {
-      website: "https://example.com/naj-training-center",
+      website: "https://naj.shamilapp.com/",
     },
   },
   {
@@ -46,7 +62,7 @@ export const projectsData: Project[] = [
     descriptionKey: "projects.rove.description",
     skills: ["React", "Tailwind CSS", "Laravel", "MYSQL"],
     links: {
-      github: "https://github.com/example/rove",
+      github: "https://github.com/balshaer/rove",
     },
   },
   {
@@ -64,7 +80,7 @@ export const projectsData: Project[] = [
     descriptionKey: "projects.bookstoreApi.description",
     skills: ["Node JS", "Express JS", "Mongoose DB"],
     links: {
-      github: "https://github.com/example/bookstore-api",
+      github: "https://github.com/balshaer/bookstore-api",
     },
   },
 

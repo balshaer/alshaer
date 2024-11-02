@@ -6,7 +6,7 @@
     "StarOnGithub": "ساهم في هذا المشروع",
     "Loading": "جارٍ التحميل ...",
     "or": "أو",
-    "Email": "تواصل معنا →",
+    "Email": "تواصل معي",
     "Linkedin": "لينكد إن",
     "SeeMore": "المزيد",
     "All": "الكل",
@@ -62,27 +62,27 @@
   },
   "projects": {
     "najTrainingCenter": {
-      "title": "مركز التدريب نج",
+      "title": "Naj Training Center",
       "description": "مركز متخصص في تعليم طب الأسنان في المملكة العربية السعودية."
     },
     "gradientsCss": {
-      "title": "تدرجات CSS",
+      "title": "Gradients CSS",
       "description": "أداة متقدمة للتدرجات مصممة للمصممين والمطورين."
     },
     "rove": {
-      "title": "روف",
+      "title": "Rove",
       "description": "تطبيق تجارة إلكترونية متكامل، يوفر مجموعة كاملة من الميزات لإدارة المنتجات ومعالجة المعاملات وتوفير تجربة مستخدم تفاعلية."
     },
     "sustainableStar": {
-      "title": "نجم مستدام",
+      "title": "Sustainable Star",
       "description": "موقع ديناميكي تم تطويره لشركة ناشئة تركز على الاستدامة، مصمم لتوصيل رسالتهم بفعالية وجذب جمهورهم."
     },
     "bookstoreApi": {
-      "title": "واجهة برمجة التطبيقات لمتجر الكتب",
+      "title": "Bookstore API",
       "description": "واجهة برمجة تطبيقات لمتجر الكتب تدير المستخدمين والمؤلفين والكتب بكفاءة، وتوفر نقاط نهاية قوية للتعامل الشامل مع البيانات والتكامل."
     },
     "samtax": {
-      "title": "سام تاكس",
+      "title": "SamTax",
       "description": "تم تطوير موقع ديناميكي متعدد اللغات لشركة خدمات، مما يعزز إمكانية الوصول ومشاركة المستخدم."
     },
     "frontendDeveloperSustainableStar": {
@@ -117,6 +117,10 @@
       "Description": "مركز مخصص للتعليم في طب الأسنان في السعودية.",
       "Skills": ["React JS", "JavaScript", "MIUI"],
       "VisitWebsite": "زيارة الموقع"
+    },
+    "raoufzadi": {
+      "title": "Raouf Zadi",
+      "description": "موقع لمدرب حلاقة"
     },
     "GradientsCSS": {
       "Title": "Gradients CSS",
@@ -186,5 +190,18 @@
     "Title": "مدونتي",
     "Description": "أكتب حول مواضيع متنوعة تتعلق بتطوير البرمجيات، توجهات التكنولوجيا، وأفكار شخصية. تفضلوا بقراءة مقالاتي!",
     "ReadMore": "اقرأ المزيد"
+  },
+  "PageTitlesData": {
+    "main": "براء الشاعر",
+    "projects": "براء - المشاريع",
+    "work": "براء - الخبرة العمليه",
+    "notFound": "404 - لم يتم العثور على هذه الصفحة"
+  },
+  "FooterLinks": {
+    "youtube": "يوتيوب",
+    "github": "جيثب",
+    "projects": "المشاريع",
+    "linkedin": "لينكدان",
+    "whatsapp": "واتساب"
   }
 }

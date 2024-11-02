@@ -6,7 +6,7 @@
     "StarOnGithub": "Contribute to this project",
     "Loading": "Loading ...",
     "or": "or",
-    "Email": "Get in touch →",
+    "Email": "Get in touch",
     "Linkedin": "LinkedIn",
     "SeeMore": "See more",
     "All": "All",
@@ -67,6 +67,11 @@
       "title": "SamTax",
       "description": "Developed a dynamic, multi-language website for a service company, enhancing accessibility and user engagement."
     },
+    "raoufzadi": {
+      "title": "Raouf Zadi",
+      "description": "Raouf Zadi - Barber website"
+    },
+
     "gradientsCss": {
       "title": "Gradients CSS",
       "description": "A sophisticated gradient tool designed for both designers and developers."
@@ -119,39 +124,32 @@
     "NajTrainingCenter": {
       "Title": "Naj Training Center",
       "Description": "A dedicated center for dental education in Saudi Arabia.",
-      "Skills": ["React JS", "JavaScript", "MIUI"],
-      "VisitWebsite": "Visit website"
+      "Skills": ["React JS", "JavaScript", "MIUI"]
     },
     "GradientsCSS": {
       "Title": "Gradients CSS",
       "Description": "A sophisticated gradient tool designed for both designers and developers.",
-      "Skills": ["Next JS", "TypeScript"],
-      "VisitWebsite": "Visit website",
-      "VisitGithub": "Visit GitHub"
+      "Skills": ["React js", "TypeScript"]
     },
     "Rove": {
       "Title": "Rove",
       "Description": "A comprehensive full-stack e-commerce web application featuring a complete suite of functionalities for managing products, processing transactions, and providing an engaging user experience.",
-      "Skills": ["React", "Tailwind CSS", "Laravel", "MySQL"],
-      "VisitGithub": "Visit GitHub"
+      "Skills": ["React", "Tailwind CSS", "Laravel", "MySQL"]
     },
     "SustainableStar": {
       "Title": "Sustainable Star",
       "Description": "A dynamic website developed for Sustainable Star, a startup focused on sustainability, designed to effectively communicate their mission and engage their audience.",
-      "Skills": ["React", "Tailwind CSS", "Material UI"],
-      "VisitWebsite": "Visit website"
+      "Skills": ["React", "Tailwind CSS", "Material UI"]
     },
     "BookstoreAPI": {
       "Title": "Bookstore API",
       "Description": "A RESTful API for a bookstore that efficiently manages users, authors, and books, offering robust endpoints for comprehensive data handling and integration.",
-      "Skills": ["Node JS", "Express JS", "Mongoose DB"],
-      "VisitGithub": "Visit GitHub"
+      "Skills": ["Node JS", "Express JS", "Mongoose DB"]
     },
     "SamTax": {
       "Title": "SamTax",
       "Description": "Developed a dynamic, multi-language website for a service company, enhancing accessibility and user engagement.",
-      "Skills": ["React", "Tailwind CSS", "Shadcn UI"],
-      "VisitWebsite": "Visit website"
+      "Skills": ["React", "Tailwind CSS", "Shadcn UI"]
     }
   },
   "links": {
@@ -190,5 +188,18 @@
     "Title": "My Blog",
     "Description": "I write about various topics related to software development, technology trends, and personal insights. Feel free to explore my articles!",
     "ReadMore": "Read more"
+  },
+  "PageTitlesData": {
+    "main": "Baraa Alshaer",
+    "projects": "Baraa Alshaer - Projects",
+    "work": "Baraa Alshaer - Work",
+    "notFound": "404 - Not found this page"
+  },
+  "FooterLinks": {
+    "youtube": "Youtube",
+    "github": "Github",
+    "projects": "Projects",
+    "linkedin": "Linkedin",
+    "whatsapp": "WhatsApp"
   }
 }

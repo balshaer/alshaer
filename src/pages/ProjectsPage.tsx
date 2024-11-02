@@ -22,6 +22,10 @@ import {
 import { Badge } from "@/components/ui/badge";
 import Navbar from "@/components/layouts/navbar/Navbar";
 import { projectsData } from "@/data/projectsData";
+import { PageTitle } from "@/helper";
+import { PageTitlesData } from "@/data/PageTitlesData";
+
+import { motion } from "framer-motion";
 
 const ProjectsPage: React.FC = () => {
   const { t } = useTranslation();
@@ -40,8 +44,15 @@ const ProjectsPage: React.FC = () => {
   return (
     <>
       <div dir={direction} className="page">
+        <PageTitle title={PageTitlesData.projects} />
+
         <Navbar />
-        <div className="projectCards flex min-h-[100vh] w-full flex-col gap-5 max-md:pb-0">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 100 }}
+          transition={{ duration: 0.5 }}
+          className="projectCards flex min-h-[100vh] w-full flex-col gap-5 max-md:pb-0"
+        >
           <div className="header">
             <h1 className="header-title">{t("Projects.Title")}</h1>
             <p className="description max-w-[100%]">
@@ -79,17 +90,19 @@ const ProjectsPage: React.FC = () => {
 
           <div className="projects-cards flex flex-col gap-8 pb-16">
             {projectsData.map((project) => (
-              <Card key={project.id}>
+              <Card className="pb-4 pt-2" dir={direction} key={project.id}>
                 <CardHeader>
                   <CardTitle>{t(project.titleKey)}</CardTitle>
                 </CardHeader>
 
                 <CardContent>
-                  <CardDescription>{t(project.descriptionKey)}</CardDescription>
+                  <CardDescription className="mb-6 mt-0 max-w-xl">
+                    {t(project.descriptionKey)}
+                  </CardDescription>
                 </CardContent>
 
-                <CardFooter className="my-4 flex w-full flex-wrap items-center justify-between max-md:flex-col max-md:items-start">
-                  <div className="flex max-w-[60%] flex-wrap gap-2 max-md:max-w-full">
+                <CardFooter className="mt-4 flex w-full flex-wrap items-center justify-between max-md:flex-col max-md:items-start">
+                  <div className="flex max-w-[60%] flex-wrap gap-2 max-md:mb-0 max-md:mt-4 max-md:max-w-full">
                     {project.skills.map((skill, index) => (
                       <Badge key={index}>{skill}</Badge>
                     ))}
@@ -128,7 +141,7 @@ const ProjectsPage: React.FC = () => {
               </Card>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
 
       <Footer />

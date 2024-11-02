@@ -1,3 +1,4 @@
+import { t } from "i18next";
 import { github, linkedin, whatsapp, youtube } from "./Links";
 
 export interface SocialMediaLink {
@@ -7,19 +8,19 @@ export interface SocialMediaLink {
 
 const socialMediaLinks: SocialMediaLink[] = [
   {
-    title: "Linkedin",
+    title: t("FooterLinks.linkedin"),
     link: linkedin,
   },
   {
-    title: "Github",
+    title: t("FooterLinks.github"),
     link: github,
   },
   {
-    title: "Whatsapp",
+    title: t("FooterLinks.whatsapp"),
     link: whatsapp,
   },
   {
-    title: "Youtube",
+    title: t("FooterLinks.youtube"),
     link: youtube,
   },
 ];

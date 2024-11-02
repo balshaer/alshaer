@@ -12,16 +12,24 @@ import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import i18n from "@/i18n";
+import { scrollToTop } from "@/helper";
 
 const ProjectsCard: React.FC = () => {
   const { t } = useTranslation();
   const [showAll] = useState(false);
   const navigate = useNavigate();
-
+  const { language } = i18n;
+  const direction = language === "ar" ? "rtl" : "ltr";
   const displayedProjects = showAll ? projectsData : projectsData.slice(0, 3);
 
+  function navigateTo() {
+    navigate("/projects");
+    scrollToTop();
+  }
+
   return (
-    <section className="section">
+    <section dir={direction} className="section">
       <h1 className="section-title">{t("Projects.Title")}</h1>
 
       <div className="cardsGroup">
@@ -38,7 +46,7 @@ const ProjectsCard: React.FC = () => {
             </CardContent>
 
             <CardFooter className="my-4 flex w-full flex-wrap items-center justify-between max-md:flex-col max-md:items-start">
-              <div className="flex max-w-[60%] flex-wrap gap-2 max-md:max-w-full">
+              <div className="flex max-w-[60%] flex-wrap gap-2 max-md:mb-0 max-md:mt-4 max-md:max-w-full">
                 {project.skills.map((skill, index) => (
                   <Badge key={index}>{skill}</Badge>
                 ))}
@@ -52,7 +60,7 @@ const ProjectsCard: React.FC = () => {
           <Button
             className="mb-10 w-max"
             variant={"default"}
-            onClick={() => navigate("/projects")}
+            onClick={navigateTo}
           >
             {t("Public.SeeMore")}
           </Button>

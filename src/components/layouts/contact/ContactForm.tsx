@@ -234,10 +234,12 @@ export function ContactForm() {
     setOpen(false);
   };
 
+  const { language } = i18n;
+  const direction = language === "ar" ? "ltr" : "rtl";
   if (isDesktop) {
     return (
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogTrigger asChild>
+        <DialogTrigger dir={direction} asChild>
           <span className="cursor-pointer">{commonContent}</span>
         </DialogTrigger>
         <DialogContent
