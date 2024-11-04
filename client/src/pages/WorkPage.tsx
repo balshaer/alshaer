@@ -11,7 +11,7 @@ import {
 import Footer from "@/components/common/Footer";
 import React from "react";
 import { Badge } from "@/components/ui/badge";
-import { workData } from "@/data/workData";
+import { workData } from "../data/workData";
 import { PageTitle } from "@/helper";
 import { PageTitlesData } from "@/data/PageTitlesData";
 

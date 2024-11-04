@@ -15,7 +15,7 @@ import { Badge } from "@/components/ui/badge";
 
 import { motion } from "framer-motion";
 import ReusableCard from "@/components/common/ReusableCard";
-import { workData } from "@/data/workData";
+import { workData } from "../data/workData";
 
 export default function HomePage() {
   const { t } = useTranslation();
