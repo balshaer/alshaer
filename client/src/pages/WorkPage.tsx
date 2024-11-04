@@ -11,13 +11,49 @@ import {
 import Footer from "@/components/common/Footer";
 import React from "react";
 import { Badge } from "@/components/ui/badge";
-import { workData } from "../data/workData";
 import { PageTitle } from "@/helper";
 import { PageTitlesData } from "@/data/PageTitlesData";
 
 import { motion } from "framer-motion";
 import Navbar from "@/components/common/Navbar";
 import ReusableCard from "@/components/common/ReusableCard";
+
+
+
+export const workData = [
+  {
+    id: "frontend-developer-sustainable-star",
+    title: "WorkExperience.FrontendDeveloperSustainableStar.Title",
+    company: "Sustainable Star LLC",
+    date: "WorkExperience.FrontendDeveloperSustainableStar.Date",
+    description: "WorkExperience.FrontendDeveloperSustainableStar.Description",
+    skills: [
+      "React js",
+      "Typescript",
+      "Tailwind CSS",
+      "Github",
+      "Git",
+      "RESTful APIs",
+    ],
+  },
+  {
+    id: "frontend-developer-ptit",
+    title: "WorkExperience.FrontendDeveloperPTIT.Title",
+    company: "PTIT",
+    date: "WorkExperience.FrontendDeveloperPTIT.Date",
+    description: "WorkExperience.FrontendDeveloperPTIT.Description",
+    skills: ["React js", "Javascript", "Tailwind CSS", "Github", "Git"],
+  },
+  {
+    id: "software-engineer-intern-gedco",
+    title: "WorkExperience.SoftwareEngineerGEDCO.Title",
+    company: "GEDCO",
+    date: "WorkExperience.SoftwareEngineerGEDCO.Date",
+    description: "WorkExperience.SoftwareEngineerGEDCO.Description",
+    skills: ["PHP", "MySQL", "Bootstrap"],
+  },
+];
+
 
 const WorkPage: React.FC = () => {
   const { t } = useTranslation();
