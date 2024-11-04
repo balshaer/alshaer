@@ -245,8 +245,8 @@ export function ContactForm() {
         <DialogContent
           className={`${styles.dialogContent} border-none bg-[var(--background)]`}
         >
-          <DialogHeader  className="w-full">
-            <DialogTitle  className="w-full text-center text-[var(--headline)]">
+          <DialogHeader className="w-full">
+            <DialogTitle className="w-full text-center text-[var(--headline)]">
               {t("DialogForm.DialogTitle")}
             </DialogTitle>
             <DialogDescription></DialogDescription>

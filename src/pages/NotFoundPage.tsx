@@ -1,4 +1,4 @@
-import Navbar from "@/components/layouts/navbar/Navbar";
+import Navbar from "@/components/common/Navbar";
 import { PageTitlesData } from "@/data/PageTitlesData";
 import { PageTitle } from "@/helper";
 import { FunctionComponent } from "react";

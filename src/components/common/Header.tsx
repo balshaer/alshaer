@@ -1,8 +1,8 @@
 import { useTranslation } from "react-i18next";
 
 import i18n from "@/i18n";
-import { ContactForm } from "../contact/ContactForm";
-import ContactSection from "../contact/ContactSection";
+import { ContactForm } from "./ContactForm";
+import ContactSection from "./ContactSection";
 
 export default function Header() {
   const { t } = useTranslation();

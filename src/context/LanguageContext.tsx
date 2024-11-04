@@ -1,5 +1,3 @@
-"use client";
-
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
@@ -33,7 +31,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({
     if (savedLanguage) {
       i18n.changeLanguage(savedLanguage);
     }
-  }, []); // Only run on mount
+  }, []);
 
   return (
     <LanguageContext.Provider value={{ currentLanguage, changeLanguage }}>

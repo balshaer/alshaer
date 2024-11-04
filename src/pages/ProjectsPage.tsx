@@ -7,25 +7,16 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import Footer from "@/components/layouts/footer/Footer";
+import Footer from "@/components/common/Footer";
 import React from "react";
-import { Globe } from "lucide-react";
-import { ImGithub } from "react-icons/im";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Globe, Github } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import Navbar from "@/components/layouts/navbar/Navbar";
 import { projectsData } from "@/data/projectsData";
 import { PageTitle } from "@/helper";
 import { PageTitlesData } from "@/data/PageTitlesData";
-
 import { motion } from "framer-motion";
+import Navbar from "@/components/common/Navbar";
+import ReusableCard from "@/components/common/ReusableCard";
 
 const ProjectsPage: React.FC = () => {
   const { t } = useTranslation();
@@ -90,55 +81,55 @@ const ProjectsPage: React.FC = () => {
 
           <div className="projects-cards flex flex-col gap-8 pb-16">
             {projectsData.map((project) => (
-              <Card className="pb-4 pt-2" dir={direction} key={project.id}>
-                <CardHeader>
-                  <CardTitle>{t(project.titleKey)}</CardTitle>
-                </CardHeader>
+              <ReusableCard
+                key={project.id}
+                id={project.id}
+                title={t(project.titleKey)}
+                description={t(project.descriptionKey)}
+                skills={project.skills}
+                websiteLink={project.links.website}
+                githubLink={project.links.github}
+                t={t}
+                linkStyle={styles.linkStyle}
+                className="pb-4 pt-2"
+                dir={direction}
+              >
+                <div className="flex max-w-[60%] flex-wrap gap-2 max-md:mb-0 max-md:mt-4 max-md:max-w-full">
+                  {project.skills.map((skill, index) => (
+                    <Badge key={index}>{skill}</Badge>
+                  ))}
+                </div>
 
-                <CardContent>
-                  <CardDescription className="mb-6 mt-0 max-w-xl">
-                    {t(project.descriptionKey)}
-                  </CardDescription>
-                </CardContent>
+                <div className="flex flex-wrap gap-4 max-md:mt-5">
+                  {project.links.website && (
+                    <a
+                      href={project.links.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.linkStyle}
+                    >
+                      <span>
+                        <Globe className="h-4 w-4" />
+                      </span>
+                      <span>{t("links.visitWebsite")}</span>
+                    </a>
+                  )}
 
-                <CardFooter className="mt-4 flex w-full flex-wrap items-center justify-between max-md:flex-col max-md:items-start">
-                  <div className="flex max-w-[60%] flex-wrap gap-2 max-md:mb-0 max-md:mt-4 max-md:max-w-full">
-                    {project.skills.map((skill, index) => (
-                      <Badge key={index}>{skill}</Badge>
-                    ))}
-                  </div>
-
-                  <div className="flex flex-wrap gap-4 max-md:mt-5">
-                    {project.links.website && (
-                      <a
-                        href={project.links.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.linkStyle}
-                      >
-                        <span>
-                          <Globe className="h-4 w-4" />
-                        </span>
-                        <span>{t("links.visitWebsite")}</span>
-                      </a>
-                    )}
-
-                    {project.links.github && (
-                      <a
-                        href={project.links.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.linkStyle}
-                      >
-                        <span>
-                          <ImGithub className="h-4 w-4" />
-                        </span>
-                        <span>{t("links.visitGithub")}</span>
-                      </a>
-                    )}
-                  </div>
-                </CardFooter>
-              </Card>
+                  {project.links.github && (
+                    <a
+                      href={project.links.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.linkStyle}
+                    >
+                      <span>
+                        <Github className="h-4 w-4" />
+                      </span>
+                      <span>{t("links.visitGithub")}</span>
+                    </a>
+                  )}
+                </div>
+              </ReusableCard>
             ))}
           </div>
         </motion.div>

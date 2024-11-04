@@ -9,7 +9,6 @@ import {
 } from "@/components/ui/select";
 import { useLanguage } from "@/context/LanguageContext";
 
-// Define the props type for SelectLanguage component
 interface SelectLanguageProps {
   currentLanguage: string;
   onChange: (lng: string) => void;

@@ -1,15 +1,6 @@
 // data/workData.ts
 
-export interface WorkExperience {
-  id: string;
-  title: string;
-  company: string;
-  date: string;
-  description: string;
-  skills: string[]; // Change to an array of strings
-}
-
-export const workData: WorkExperience[] = [
+export const workData = [
   {
     id: "frontend-developer-sustainable-star",
     title: "WorkExperience.FrontendDeveloperSustainableStar.Title",

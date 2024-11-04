@@ -1,12 +1,39 @@
-import footerLinks from "@/data/FooterLinks";
 import { scrollToTop } from "@/helper";
 import i18n from "@/i18n";
-import { t } from "i18next";
 import { Link } from "react-router-dom";
+
+import { t } from "i18next";
+import { github, linkedin, youtube } from "@/data/Links";
+
+interface footerLinksType {
+  title: string;
+  link: string;
+}
+
 export default function Footer() {
   const linkStyle = "hover:tracking-widest hoverd";
   const currentYear = new Date().getFullYear();
   const direction = i18n.language === "ar" ? "rtl" : "ltr";
+
+  const footerLinks: footerLinksType[] = [
+    {
+      title: t("FooterLinks.youtube"),
+      link: youtube,
+    },
+    {
+      title: t("FooterLinks.github"),
+      link: github,
+    },
+
+    {
+      title: t("FooterLinks.projects"),
+      link: "/projects",
+    },
+    {
+      title: t("FooterLinks.linkedin"),
+      link: linkedin,
+    },
+  ];
 
   return (
     <footer className="w-full border-t-[0.5px] border-[var(--footer-border-color)] bg-[var(--footer-background)]">

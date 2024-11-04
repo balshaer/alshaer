@@ -4,10 +4,10 @@ import { Link, useLocation } from "react-router-dom";
 import { HiOutlineSun } from "react-icons/hi";
 import { LuMoon } from "react-icons/lu";
 import { Menu, X, Home, Briefcase, FolderGit2 } from "lucide-react";
-import Logo from "../../ui/Logo";
 import { useTheme } from "@/context/ThemeContext";
 import { motion, AnimatePresence } from "framer-motion";
-import SelectLanguage from "../SelectLanguage/SelectLanguage";
+import Logo from "../ui/Logo";
+import SelectLanguage from "./SelectLanguage";
 
 const styles = {
   link: "text-[var(--paragraph)] hover:text-[var(--headline)] flex rounded-md text-sm font-medium items-center py-2",
