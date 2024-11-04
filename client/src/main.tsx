@@ -13,21 +13,24 @@ import "animate.css";
 import { MenuProvider } from "./context/MenuContext.tsx";
 import { ModeProvider } from "./context/ModeContext.tsx";
 import { ThemeProvider } from "./context/ThemeContext.tsx";
+import { LanguageProvider } from "./context/LanguageContext.tsx";
 
 AOS.init();
 ReactDOM.render(
   <React.StrictMode>
     <MenuProvider>
-      <ThemeProvider>
-        <ModeProvider>
-          <I18nextProvider i18n={i18n}>
-            <BrowserRouter>
-              <SpeedInsights />
-              <App />
-            </BrowserRouter>
-          </I18nextProvider>
-        </ModeProvider>
-      </ThemeProvider>
+      <LanguageProvider>
+        <ThemeProvider>
+          <ModeProvider>
+            <I18nextProvider i18n={i18n}>
+              <BrowserRouter>
+                <SpeedInsights />
+                <App />
+              </BrowserRouter>
+            </I18nextProvider>
+          </ModeProvider>
+        </ThemeProvider>
+      </LanguageProvider>
     </MenuProvider>
   </React.StrictMode>,
   document.getElementById("root"),

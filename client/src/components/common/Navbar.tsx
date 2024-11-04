@@ -1,13 +1,13 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router-dom";
 import { HiOutlineSun } from "react-icons/hi";
 import { LuMoon } from "react-icons/lu";
 import { Menu, X, Home, Briefcase, FolderGit2 } from "lucide-react";
-import Logo from "../../ui/Logo";
 import { useTheme } from "@/context/ThemeContext";
 import { motion, AnimatePresence } from "framer-motion";
-import LanguageMode from "../languageMode/LanguageMode";
+import Logo from "../ui/Logo";
+import SelectLanguage from "./SelectLanguage";
 
 const styles = {
   link: "text-[var(--paragraph)] hover:text-[var(--headline)] flex rounded-md text-sm font-medium items-center py-2",
@@ -52,6 +52,10 @@ export default function Navbar() {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
 
+  const [currentLanguage, setCurrentLanguage] = React.useState<string>(() => {
+    return localStorage.getItem("selectedLanguage") || "en";
+  });
+
   const IconComponent = theme === "light" ? LuMoon : HiOutlineSun;
   const modeText = theme === "light" ? "Dark Mode" : "Light Mode";
 
@@ -63,49 +67,49 @@ export default function Navbar() {
   return (
     <nav
       dir="ltr"
-      className="flex items-center justify-between gap-5 rounded-3xl border border-zinc-700/40 bg-[var(--card-background)] px-5 text-base max-md:px-3 sm:px-6"
+      className="flex z-50 items-center justify-between gap-5 rounded-3xl border border-zinc-700/40 bg-[var(--card-background)] px-5 text-base max-md:fixed max-md:left-0 max-md:right-0 max-md:top-0 max-md:w-full max-md:rounded-none max-md:px-3 sm:px-6"
     >
       <div className="container mx-auto px-0">
         <div className="flex h-14 items-center justify-between">
-          <div className="flex-shrink-0">
+          <Link to={"/"} className="flex-shrink-0">
             <Logo />
-          </div>
+          </Link>
+
           <div className="hidden h-full items-center justify-center md:flex">
             <div
               dir="ltr"
               className="ml-6 flex h-full items-center justify-center gap-8"
             >
-              <AnimatePresence>
-                {navItems.map((item) => (
-                  <div
-                    className="relative flex h-full items-center justify-center max-md:hidden"
-                    key={item.name}
+              {navItems.map((item) => (
+                <div
+                  className="relative flex h-full items-center justify-center max-md:hidden"
+                  key={item.name}
+                >
+                  <Link
+                    to={item.path}
+                    className={`${styles.link} ${
+                      location.pathname === item.path
+                        ? "text-[var(--headline)]"
+                        : ""
+                    }`}
                   >
-                    <Link
-                      to={item.path}
-                      className={`${styles.link} ${
-                        location.pathname === item.path
-                          ? "text-[var(--headline)]"
-                          : ""
-                      }`}
-                    >
-                      <item.icon className={styles.icon} />
-                      <span>{t(item.name)}</span>
-                    </Link>
-                    {location.pathname === item.path && (
-                      <motion.div
-                        className={styles.activeIndicator}
-                        layoutId="activeIndicator"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                      />
-                    )}
-                  </div>
-                ))}
-              </AnimatePresence>
+                    <item.icon className={styles.icon} />
+                    <span>{t(item.name)}</span>
+                  </Link>
+                  {location.pathname === item.path && (
+                    <motion.div
+                      className={styles.activeIndicator}
+                      layoutId="activeIndicator"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                    />
+                  )}
+                </div>
+              ))}
             </div>
           </div>
+
           <div className="flex h-full items-center justify-center max-md:hidden max-md:gap-2">
             <motion.div
               className={
@@ -119,7 +123,10 @@ export default function Navbar() {
               <span className="sr-only">{modeText}</span>
             </motion.div>
 
-            <LanguageMode />
+            <SelectLanguage
+              currentLanguage={currentLanguage}
+              onChange={setCurrentLanguage}
+            />
           </div>
 
           {/* Mobile menu toggle */}
@@ -182,7 +189,10 @@ export default function Navbar() {
                     </Link>
                   ))}
 
-                  <LanguageMode className="mx-auto" />
+                  <SelectLanguage
+                    currentLanguage={currentLanguage}
+                    onChange={setCurrentLanguage}
+                  />
                 </div>
               </motion.div>
             )}

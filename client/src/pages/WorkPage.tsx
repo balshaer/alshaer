@@ -8,19 +8,16 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 
-import Footer from "@/components/layouts/footer/Footer";
+import Footer from "@/components/common/Footer";
 import React from "react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import Navbar from "@/components/layouts/navbar/Navbar";
 import { workData } from "@/data/workData";
+import { PageTitle } from "@/helper";
+import { PageTitlesData } from "@/data/PageTitlesData";
+
+import { motion } from "framer-motion";
+import Navbar from "@/components/common/Navbar";
+import ReusableCard from "@/components/common/ReusableCard";
 
 const WorkPage: React.FC = () => {
   const { t } = useTranslation();
@@ -38,9 +35,16 @@ const WorkPage: React.FC = () => {
 
   return (
     <>
+      <PageTitle title={PageTitlesData.work} />
+
       <div dir={direction} className="page">
         <Navbar />
-        <div className="projectCards flex min-h-[100vh] w-full flex-col gap-5 max-md:pb-0">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 100 }}
+          transition={{ duration: 0.5 }}
+          className="projectCards flex min-h-[100vh] w-full flex-col gap-5 max-md:pb-0"
+        >
           <div className="header">
             <h1 className="header-title">{t("WorkExperience.Title")}</h1>
             <p className="description max-w-[100%]">
@@ -78,27 +82,25 @@ const WorkPage: React.FC = () => {
 
           <div className="works-cards flex flex-col gap-8 pb-16">
             {workData.map((experience) => (
-              <Card key={experience.id}>
-                <CardHeader className="max-md:flex-wrap">
-                  <CardTitle>{t(experience.title)}</CardTitle>
-                  <CardDescription>{t(experience.date)}</CardDescription>
-                </CardHeader>
-
-                <CardContent>
-                  <CardDescription>{t(experience.description)}</CardDescription>
-                </CardContent>
-
-                <CardFooter className="my-4 flex w-full flex-wrap items-center justify-between max-md:flex-col max-md:items-start">
-                  <div className="flex max-w-[60%] flex-wrap gap-2 max-md:max-w-full">
-                    {experience.skills.map((skill, index) => (
-                      <Badge key={index}>{skill}</Badge>
-                    ))}
-                  </div>
-                </CardFooter>
-              </Card>
+              <ReusableCard
+                key={experience.id}
+                id={experience.id}
+                title={t(experience.title)}
+                date={t(experience.date)}
+                description={t(experience.description)}
+                skills={experience.skills}
+                className="pb-4 pt-2"
+                dir={direction}
+              >
+                <div className="flex max-w-[60%] flex-wrap gap-2 max-md:mb-0 max-md:mt-4 max-md:max-w-full">
+                  {experience.skills.map((skill, index) => (
+                    <Badge key={index}>{skill}</Badge>
+                  ))}
+                </div>
+              </ReusableCard>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
 
       <Footer />

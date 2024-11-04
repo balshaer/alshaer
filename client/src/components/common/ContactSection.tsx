@@ -1,6 +1,12 @@
-import socialMediaLinks from "@/data/SocialMediaLink";
 import React, { useState } from "react";
 import { FiExternalLink } from "react-icons/fi";
+import { t } from "i18next";
+import { github, linkedin, whatsapp, youtube } from "@/data/Links";
+
+export interface SocialMediaLink {
+  title: string;
+  link: string;
+}
 
 const ContactSection: React.FC = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -15,6 +21,25 @@ const ContactSection: React.FC = () => {
     socialLinkHover:
       "flex contact-title capitalize text-[1rem] items-center  hoverd gap-2  max-md:flex max-md:flex-row h-[100%] w-full opacity-40",
   };
+
+  const socialMediaLinks: SocialMediaLink[] = [
+    {
+      title: t("FooterLinks.linkedin"),
+      link: linkedin,
+    },
+    {
+      title: t("FooterLinks.github"),
+      link: github,
+    },
+    {
+      title: t("FooterLinks.whatsapp"),
+      link: whatsapp,
+    },
+    {
+      title: t("FooterLinks.youtube"),
+      link: youtube,
+    },
+  ];
 
   return (
     <ul

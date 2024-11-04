@@ -15,10 +15,10 @@ body {
 }
 
 *::selection {
-  background-color: #4fb9d656;
+  background-color: #3dd5ff;
   color: #000;
 }
 
 .page {
-  @apply container px-4 pt-2 max-md:pt-4;
+  @apply container px-4 pt-2 max-md:pt-16;
 }
