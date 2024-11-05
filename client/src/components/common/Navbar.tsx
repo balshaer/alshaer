@@ -11,7 +11,7 @@ import SelectLanguage from "./SelectLanguage";
 import i18n from "@/i18n";
 
 const styles = {
-  link: "text-[var(--paragraph)] hover:text-[var(--headline)] flex gap-2 rounded-md  text-sm font-medium items-center py-2",
+  link: "text-[var(--paragraph)] hover:text-[var(--headline)] flex gap-2 rounded-md  text-sm font-medium items-center py-2 hoverd",
   icon: " h-4 w-4",
   dropdownItem:
     "flex items-center w-full h-full flex  p-2 text-[var(--headline)] justify-center text-center rounded-md",

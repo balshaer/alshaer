@@ -15,6 +15,7 @@ import { Badge } from "@/components/ui/badge";
 
 import { motion } from "framer-motion";
 import ReusableCard from "@/components/common/ReusableCard";
+import { Github, Globe } from "lucide-react";
 
 export const workData = [
   {
@@ -49,6 +50,16 @@ export const workData = [
     skills: ["PHP", "MySQL", "Bootstrap"],
   },
 ];
+
+
+const styles = {
+  breadcrumbLink: "hover:text-[var(--paragraph)] hoverd",
+  arrowIcon:
+    "text-[var(--paragraph)] text-3xl hoverd hover:text-[var(--link-color)] cursor-pointer ml-[-16px] max-md:ml-[-8px]",
+  linkStyle:
+    "flex items-center justify-center gap-1 text-sm text-[var(--headline)] opacity-70 hoverd hover:opacity-100",
+};
+
 
 export default function HomePage() {
   const { t } = useTranslation();
@@ -116,20 +127,55 @@ export default function HomePage() {
 
             <div className="cardsGroup">
               {displayedProjects.map((project) => (
-                <ReusableCard
-                  key={project.id}
-                  id={project.id}
-                  title={t(project.titleKey)}
-                  description={t(project.descriptionKey)}
-                  skills={project.skills}
-                  dir={direction}
-                >
-                  <div className="flex max-w-[60%] flex-wrap gap-2 max-md:mb-0 max-md:mt-4 max-md:max-w-full">
-                    {project.skills.map((skill, index) => (
-                      <Badge key={index}>{skill}</Badge>
-                    ))}
-                  </div>
-                </ReusableCard>
+       <ReusableCard
+       key={project.id}
+       id={project.id}
+       title={t(project.titleKey)}
+       description={t(project.descriptionKey)}
+       skills={project.skills}
+       websiteLink={project.links.website}
+       githubLink={project.links.github}
+       t={t}
+       linkStyle={styles.linkStyle}
+       className="pb-4 pt-2"
+       dir={direction}
+     >
+       <div className="flex max-w-[60%] flex-wrap gap-2 max-md:mb-0 max-md:mt-4 max-md:max-w-full">
+         {project.skills.map((skill, index) => (
+           <Badge key={index}>{skill}</Badge>
+         ))}
+       </div>
+
+       <div className="flex flex-wrap gap-4 max-md:mt-5">
+         {project.links.website && (
+           <a
+             href={project.links.website}
+             target="_blank"
+             rel="noopener noreferrer"
+             className={styles.linkStyle}
+           >
+             <span>
+               <Globe className="h-4 w-4" />
+             </span>
+             <span>{t("links.visitWebsite")}</span>
+           </a>
+         )}
+
+         {project.links.github && (
+           <a
+             href={project.links.github}
+             target="_blank"
+             rel="noopener noreferrer"
+             className={styles.linkStyle}
+           >
+             <span>
+               <Github className="h-4 w-4" />
+             </span>
+             <span>{t("links.visitGithub")}</span>
+           </a>
+         )}
+       </div>
+     </ReusableCard>
               ))}
 
               {!showAll && projectsData.length > 3 && (

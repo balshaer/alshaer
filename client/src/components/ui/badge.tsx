@@ -11,9 +11,9 @@ const badgeVariants = cva(
         default:
           "flex items-center justify-center gap-2 border-transparent bg-[var(--badge-background)]  text-[var(--badge-text)] ",
         secondary:
-          "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
+          "border-transparent bg-secondary text-secondary-foreground bg-[var(--badge-background)] text-[var(--badge-text)]  ",
         destructive:
-          "border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80",
+          "border-transparent bg-destructive text-destructive-foreground  hover:bg-destructive/80",
         outline: "text-foreground",
       },
     },

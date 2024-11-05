@@ -12,6 +12,7 @@
     "format:check": "prettier --check ."
   },
   "dependencies": {
+    "@motionone/utils": "^10.18.0",
     "@radix-ui/react-alert-dialog": "^1.0.5",
     "@radix-ui/react-avatar": "^1.1.1",
     "@radix-ui/react-checkbox": "^1.1.2",
@@ -41,7 +42,7 @@
     "clsx": "^2.0.0",
     "dotenv": "^16.4.5",
     "emailjs-com": "^3.2.0",
-    "framer-motion": "^11.5.4",
+    "framer-motion": "^11.11.11",
     "i18next": "^23.7.11",
     "i18next-browser-languagedetector": "^7.2.0",
     "i18next-http-backend": "^2.4.3",

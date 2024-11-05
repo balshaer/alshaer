@@ -41,7 +41,13 @@ const ReusableCard = React.forwardRef<HTMLDivElement, ReusableCardProps>(
     ref,
   ) => {
     return (
-      <Card ref={ref} className={cn("pb-4 pt-2", className)} {...props}>
+      <Card
+        data-aos="fade-up"
+        data-aos-easing="ease-in-out"
+        ref={ref}
+        className={cn("pb-4 pt-2", className)}
+        {...props}
+      >
         <CardHeader className="flex items-center justify-between py-2 max-md:flex-col max-md:items-start">
           {title && (
             <CardTitle className="text-base font-semibold leading-6 tracking-tight text-[var(--headline)]">
@@ -65,9 +71,9 @@ const ReusableCard = React.forwardRef<HTMLDivElement, ReusableCardProps>(
 
         <CardFooter className="mt-4 flex w-full flex-wrap items-center justify-between max-md:flex-col max-md:items-start">
           {skills.length > 0 && (
-            <div className="flex max-w-[60%]  flex-wrap gap-2 max-md:mb-0 max-md:mt-4 max-md:max-w-full">
+            <div className="flex max-w-[60%] flex-wrap gap-2 max-md:mb-0 max-md:mt-4 max-md:max-w-full">
               {skills.map((skill, index) => (
-                <Badge  key={index} variant="secondary">
+                <Badge key={index} variant="secondary">
                   {skill}
                 </Badge>
               ))}
