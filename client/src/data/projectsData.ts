@@ -71,7 +71,7 @@ export const projectsData: Project[] = [
     descriptionKey: "projects.sustainableStar.description",
     skills: ["React", "Tailwind CSS", "Material UI"],
     links: {
-      website: "https://sustainablestar.sa",
+      website: "https://sustainablestar.com.sa/",
     },
   },
   {

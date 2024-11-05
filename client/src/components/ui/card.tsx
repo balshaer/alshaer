@@ -20,7 +20,10 @@ const CardHeader = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("flex items-center justify-between py-2 max-md:flex-col max-md:items-start", className)}
+    className={cn(
+      "flex items-center justify-between py-2 max-md:flex-col max-md:items-start",
+      className,
+    )}
     {...props}
   />
 ));
@@ -47,7 +50,10 @@ const CardDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <p
     ref={ref}
-    className={cn("text-sm text-[var(--paragraph)] max-md:mb-0 max-md:mt-1", className)}
+    className={cn(
+      "text-sm text-[var(--paragraph)] max-md:mb-0 max-md:mt-1",
+      className,
+    )}
     {...props}
   />
 ));
@@ -67,7 +73,10 @@ const CardFooter = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("flex flex-wrap items-start gap-2 pt-2 max-md:p-0 max-md:mt-2", className)}
+    className={cn(
+      "flex flex-wrap items-start gap-2 pt-2 max-md:mt-2 max-md:p-0",
+      className,
+    )}
     {...props}
   />
 ));

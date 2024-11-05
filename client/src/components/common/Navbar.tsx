@@ -8,10 +8,11 @@ import { useTheme } from "@/context/ThemeContext";
 import { motion, AnimatePresence } from "framer-motion";
 import Logo from "../ui/Logo";
 import SelectLanguage from "./SelectLanguage";
+import i18n from "@/i18n";
 
 const styles = {
-  link: "text-[var(--paragraph)] hover:text-[var(--headline)] flex rounded-md text-sm font-medium items-center py-2",
-  icon: "mr-2 h-4 w-4",
+  link: "text-[var(--paragraph)] hover:text-[var(--headline)] flex gap-2 rounded-md  text-sm font-medium items-center py-2",
+  icon: " h-4 w-4",
   dropdownItem:
     "flex items-center w-full h-full flex  p-2 text-[var(--headline)] justify-center text-center rounded-md",
   navMenu:
@@ -64,10 +65,14 @@ export default function Navbar() {
     { name: t("Navbar.Work"), path: "/work", icon: Briefcase },
     { name: t("Navbar.Projects"), path: "/projects", icon: FolderGit2 },
   ];
+  const { language } = i18n;
+
+  const direction = language === "ar" ? "rtl" : "ltr";
+
   return (
     <nav
       dir="ltr"
-      className="flex z-50 items-center justify-between gap-5 rounded-3xl border border-zinc-700/40 bg-[var(--card-background)] px-5 text-base max-md:fixed max-md:left-0 max-md:right-0 max-md:top-0 max-md:w-full max-md:rounded-none max-md:px-3 sm:px-6"
+      className="z-50 flex items-center justify-between gap-5 rounded-3xl border border-zinc-700/40 bg-[var(--card-background)] px-5 text-base max-md:fixed max-md:left-0 max-md:right-0 max-md:top-0 max-md:w-full max-md:rounded-none max-md:px-3 sm:px-6"
     >
       <div className="container mx-auto px-0">
         <div className="flex h-14 items-center justify-between">
@@ -77,7 +82,7 @@ export default function Navbar() {
 
           <div className="hidden h-full items-center justify-center md:flex">
             <div
-              dir="ltr"
+              dir={direction}
               className="ml-6 flex h-full items-center justify-center gap-8"
             >
               {navItems.map((item) => (
@@ -113,13 +118,13 @@ export default function Navbar() {
           <div className="flex h-full items-center justify-center max-md:hidden max-md:gap-2">
             <motion.div
               className={
-                styles.navMenu + "flex h-full items-center justify-center"
+                styles.navMenu + "flex h-full items-center justify-center mr-[14px]"
               }
               onClick={toggleMode}
               whileTap="animate"
               variants={iconAnimationVariants}
             >
-              <IconComponent className={styles.icon} />
+              <IconComponent className={"h-4 w-4"} />
               <span className="sr-only">{modeText}</span>
             </motion.div>
 

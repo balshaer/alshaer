@@ -65,9 +65,9 @@ const ReusableCard = React.forwardRef<HTMLDivElement, ReusableCardProps>(
 
         <CardFooter className="mt-4 flex w-full flex-wrap items-center justify-between max-md:flex-col max-md:items-start">
           {skills.length > 0 && (
-            <div className="flex max-w-[60%] flex-wrap gap-2 max-md:mb-0 max-md:mt-4 max-md:max-w-full">
+            <div className="flex max-w-[60%]  flex-wrap gap-2 max-md:mb-0 max-md:mt-4 max-md:max-w-full">
               {skills.map((skill, index) => (
-                <Badge key={index} variant="secondary">
+                <Badge  key={index} variant="secondary">
                   {skill}
                 </Badge>
               ))}
