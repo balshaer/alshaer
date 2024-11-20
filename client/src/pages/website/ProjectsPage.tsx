@@ -7,22 +7,44 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import Footer from "@/components/common/Footer";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Globe, Github } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { projectsData } from "@/data/projectsData";
 import { PageTitle } from "@/helper";
 import { PageTitlesData } from "@/data/PageTitlesData";
 import { motion } from "framer-motion";
-import Navbar from "@/components/common/Navbar";
-import ReusableCard from "@/components/common/ReusableCard";
+import ReusableCard from "@/components/custom/ReusableCard";
+import Navbar from "@/components/website/Navbar";
+import Footer from "@/components/website/Footer";
+import axios from "axios";
+import { endpoints } from "@/API/API";
+
+
+
+interface Project {
+  _id: string;
+  title: string;
+  description: string;
+  badge: string[];
+  links?: any;
+}
 
 const ProjectsPage: React.FC = () => {
   const { t } = useTranslation();
-  const { language } = i18n;
+  const [projects, setProjects] = useState<Project[]>([]);
 
-  const direction = language === "ar" ? "rtl" : "ltr";
+  useEffect(() => {
+    axios
+      .get(endpoints.getUnArchivedProjects)
+      .then((res) => {
+        console.log(res.data);
+        setProjects(res.data || []);
+      })
+      .catch((error) => console.error("Failed to fetch projects:", error));
+  }, []);
+
+  const { language } = i18n;
+  const direction: "ltr" | "rtl" = language === "ar" ? "rtl" : "ltr";
 
   const styles = {
     breadcrumbLink: "hover:text-[var(--paragraph)] hoverd",
@@ -32,15 +54,19 @@ const ProjectsPage: React.FC = () => {
       "flex items-center justify-center gap-1 text-sm text-[var(--headline)] opacity-70 hoverd hover:opacity-100",
   };
 
+  const isValidLink = (link: string | undefined) => {
+    return link && link.trim() !== "" && link !== "#";
+  };
+
   return (
     <>
       <div dir={direction} className="page">
         <PageTitle title={PageTitlesData.projects} />
-
         <Navbar />
+
         <motion.div
           initial={{ opacity: 0 }}
-          animate={{ opacity: 100 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
           className="projectCards flex min-h-[100vh] w-full flex-col gap-5 max-md:pb-0"
         >
@@ -80,30 +106,31 @@ const ProjectsPage: React.FC = () => {
           </div>
 
           <div className="projects-cards flex flex-col gap-8 pb-16">
-            {projectsData.map((project) => (
+            {projects.map((project) => (
               <ReusableCard
-                key={project.id}
-                id={project.id}
-                title={t(project.titleKey)}
-                description={t(project.descriptionKey)}
-                skills={project.skills}
-                websiteLink={project.links.website}
-                githubLink={project.links.github}
+                key={project._id}
+                id={project._id}
+                title={project.title || "Untitled Project"}
+                description={project.description || "No description available"}
+                skills={project.badge || []}
+                websiteLink={project.links?.[0]?.website || ""}
+                githubLink={project.links?.[0]?.github || ""}
                 t={t}
                 linkStyle={styles.linkStyle}
                 className="pb-4 pt-2"
                 dir={direction}
               >
                 <div className="flex max-w-[60%] flex-wrap gap-2 max-md:mb-0 max-md:mt-4 max-md:max-w-full">
-                  {project.skills.map((skill, index) => (
+                  {(project.badge || []).map((skill, index) => (
                     <Badge key={index}>{skill}</Badge>
                   ))}
                 </div>
 
                 <div className="flex flex-wrap gap-4 max-md:mt-5">
-                  {project.links.website && (
+                  {/* Conditionally render the Visit Website button */}
+                  {isValidLink(project.links?.[0]?.website) && (
                     <a
-                      href={project.links.website}
+                      href={project.links[0].website}
                       target="_blank"
                       rel="noopener noreferrer"
                       className={styles.linkStyle}
@@ -115,9 +142,10 @@ const ProjectsPage: React.FC = () => {
                     </a>
                   )}
 
-                  {project.links.github && (
+                  {/* Conditionally render the Visit Github button */}
+                  {isValidLink(project.links?.[0]?.github) && (
                     <a
-                      href={project.links.github}
+                      href={project.links[0].github}
                       target="_blank"
                       rel="noopener noreferrer"
                       className={styles.linkStyle}

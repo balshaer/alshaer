@@ -38,7 +38,7 @@ const DarkMode = createGlobalStyle`
     --mark: #000;
     --active : #fff;
     --active-text : #000;
-    
+    --mobile-nav : #16161aa6;
   }
 `;
 

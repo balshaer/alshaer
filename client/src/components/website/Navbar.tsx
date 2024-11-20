@@ -6,9 +6,9 @@ import { LuMoon } from "react-icons/lu";
 import { Menu, X, Home, Briefcase, FolderGit2 } from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
 import { motion, AnimatePresence } from "framer-motion";
-import Logo from "../ui/Logo";
-import SelectLanguage from "./SelectLanguage";
+import Logo from "../custom/Logo";
 import i18n from "@/i18n";
+import SelectLanguage from "../custom/SelectLanguage";
 
 const styles = {
   link: "text-[var(--paragraph)] hover:text-[var(--headline)] flex gap-2 rounded-md  text-sm font-medium items-center py-2 hoverd",
@@ -72,7 +72,7 @@ export default function Navbar() {
   return (
     <nav
       dir="ltr"
-      className="z-50 flex items-center justify-between gap-5 rounded-3xl border border-zinc-700/40 bg-[var(--card-background)] px-5 text-base max-md:fixed max-md:left-0 max-md:right-0 max-md:top-0 max-md:w-full max-md:rounded-none max-md:px-3 sm:px-6"
+      className="z-50 flex items-center justify-between gap-5 rounded-3xl border border-zinc-700/40 bg-[var(--mobile-nav)] px-5 text-base backdrop-blur-lg max-md:fixed max-md:left-0 max-md:right-0 max-md:top-0 max-md:w-full max-md:rounded-none max-md:px-3 sm:px-6"
     >
       <div className="container mx-auto px-0">
         <div className="flex h-14 items-center justify-between">
@@ -83,7 +83,7 @@ export default function Navbar() {
           <div className="hidden h-full items-center justify-center md:flex">
             <div
               dir={direction}
-              className="ml-6 flex h-full items-center justify-center gap-8"
+              className="mr-[-100px] flex h-full items-center justify-center gap-8"
             >
               {navItems.map((item) => (
                 <div
@@ -115,16 +115,17 @@ export default function Navbar() {
             </div>
           </div>
 
-          <div className="flex h-full items-center justify-center max-md:hidden max-md:gap-2">
+          <div className="flex h-full items-center justify-center gap-4 max-md:hidden max-md:gap-2">
             <motion.div
               className={
-                styles.navMenu + "flex h-full items-center justify-center mr-[14px]"
+                styles.navMenu +
+                "mr-[14px] flex h-full items-center justify-center"
               }
               onClick={toggleMode}
               whileTap="animate"
               variants={iconAnimationVariants}
             >
-              <IconComponent className={"h-4 w-4"} />
+              <IconComponent className={"h-5 w-5"} />
               <span className="sr-only">{modeText}</span>
             </motion.div>
 
@@ -142,7 +143,7 @@ export default function Navbar() {
               whileTap="animate"
             >
               <motion.div
-                className="flex items-center justify-center gap-4 max-md:gap-2"
+                className="flex items-center justify-center gap-4 max-md:gap-3"
                 variants={iconAnimationVariants}
                 initial="initial"
               >
@@ -153,11 +154,11 @@ export default function Navbar() {
                     toggleMode();
                   }}
                 >
-                  <IconComponent className="h-4 w-4" />
+                  <IconComponent className="h-4 w-4 max-md:h-5 max-md:w-5" />
                 </div>
 
                 <div className="flex w-full items-center justify-start rounded-sm text-center">
-                  <Menu className="h-4 w-4" />
+                  <Menu className="h-4 w-4 max-md:h-5 max-md:w-5" />
                 </div>
               </motion.div>
             </motion.button>
@@ -167,13 +168,13 @@ export default function Navbar() {
           <AnimatePresence>
             {isMobileMenuOpen && (
               <motion.div
-                className="fixed inset-y-0 right-0 z-50 flex w-full items-center justify-center bg-[var(--background)] p-3 shadow-lg"
+                className="fixed inset-0 m-0 flex h-[100vh] w-full flex-col items-center justify-center bg-[var(--background)]"
                 initial="closed"
                 animate="open"
                 exit="closed"
                 variants={mobileMenuVariants}
               >
-                <nav className="absolute left-0 right-0 top-3 m-auto mt-2 flex h-14 w-full items-center justify-end px-8 text-[var(--headline)]">
+                <nav className="absolute left-0 right-[-40px] top-[-9px] m-auto mt-2 flex h-14 w-full items-center justify-end px-8 text-[var(--headline)]">
                   <X
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="h-5 w-5 cursor-pointer"

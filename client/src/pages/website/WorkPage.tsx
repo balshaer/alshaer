@@ -8,52 +8,17 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 
-import Footer from "@/components/common/Footer";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { PageTitle } from "@/helper";
 import { PageTitlesData } from "@/data/PageTitlesData";
 
 import { motion } from "framer-motion";
-import Navbar from "@/components/common/Navbar";
-import ReusableCard from "@/components/common/ReusableCard";
-
-
-
-export const workData = [
-  {
-    id: "frontend-developer-sustainable-star",
-    title: "WorkExperience.FrontendDeveloperSustainableStar.Title",
-    company: "Sustainable Star LLC",
-    date: "WorkExperience.FrontendDeveloperSustainableStar.Date",
-    description: "WorkExperience.FrontendDeveloperSustainableStar.Description",
-    skills: [
-      "React js",
-      "Typescript",
-      "Tailwind CSS",
-      "Github",
-      "Git",
-      "RESTful APIs",
-    ],
-  },
-  {
-    id: "frontend-developer-ptit",
-    title: "WorkExperience.FrontendDeveloperPTIT.Title",
-    company: "PTIT",
-    date: "WorkExperience.FrontendDeveloperPTIT.Date",
-    description: "WorkExperience.FrontendDeveloperPTIT.Description",
-    skills: ["React js", "Javascript", "Tailwind CSS", "Github", "Git"],
-  },
-  {
-    id: "software-engineer-intern-gedco",
-    title: "WorkExperience.SoftwareEngineerGEDCO.Title",
-    company: "GEDCO",
-    date: "WorkExperience.SoftwareEngineerGEDCO.Date",
-    description: "WorkExperience.SoftwareEngineerGEDCO.Description",
-    skills: ["PHP", "MySQL", "Bootstrap"],
-  },
-];
-
+import ReusableCard from "@/components/custom/ReusableCard";
+import Footer from "@/components/website/Footer";
+import Navbar from "@/components/website/Navbar";
+import axios from "axios";
+import { endpoints } from "@/API/API";
 
 const WorkPage: React.FC = () => {
   const { t } = useTranslation();
@@ -68,6 +33,18 @@ const WorkPage: React.FC = () => {
     linkStyle:
       "flex items-center justify-center gap-1 text-sm text-[var(--headline)] opacity-70 hoverd hover:opacity-100",
   };
+
+  const [work, setWork] = useState<any[]>([]);
+
+  useEffect(() => {
+    axios
+      .get(endpoints.getUnArchivedWorks)
+      .then((res) => {
+        console.log(res.data);
+        setWork(res.data || []);
+      })
+      .catch((error) => console.error("Failed to fetch work data:", error));
+  }, []);
 
   return (
     <>
@@ -116,25 +93,35 @@ const WorkPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="works-cards flex flex-col gap-8 pb-16">
-            {workData.map((experience) => (
-              <ReusableCard
-                key={experience.id}
-                id={experience.id}
-                title={t(experience.title)}
-                date={t(experience.date)}
-                description={t(experience.description)}
-                skills={experience.skills}
-                className="pb-4 pt-2"
-                dir={direction}
-              >
-                <div className="flex max-w-[60%] flex-wrap gap-2 max-md:mb-0 max-md:mt-4 max-md:max-w-full">
-                  {experience.skills.map((skill, index) => (
-                    <Badge key={index}>{skill}</Badge>
-                  ))}
-                </div>
-              </ReusableCard>
-            ))}
+          <div className="works-cards relative flex min-h-[60vh] flex-col gap-8 pb-16">
+            {work.length > 0 ? (
+              work.map((experience) => (
+                <ReusableCard
+                  key={experience._id}
+                  id={experience._id}
+                  title={experience.title}
+                  date={`${new Date(experience.date[0].startDate).toLocaleDateString()} - ${new Date(experience.date[0].endDate).toLocaleDateString()}`}
+                  description={experience.description}
+                  className="pb-4 pt-2"
+                  dir={direction}
+                >
+                  {/* Ensure badges array is properly rendered */}
+                  <div className="flex max-w-[60%] flex-wrap gap-2 max-md:mb-0 max-md:mt-4 max-md:max-w-full">
+                    {experience.badge && experience.badge.length > 0 ? (
+                      experience.badge.map((skill: string, index: number) => (
+                        <Badge key={index}>{skill}</Badge>
+                      ))
+                    ) : (
+                      <span>{t("WorkExperience.NoSkills")}</span>
+                    )}
+                  </div>
+                </ReusableCard>
+              ))
+            ) : (
+              <h1 className="absolute inset-0 m-auto h-max text-center text-base text-[var(--headline)] opacity-70">
+                <span>No experience add yet</span>
+              </h1>
+            )}
           </div>
         </motion.div>
       </div>

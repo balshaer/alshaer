@@ -48,6 +48,7 @@ const SelectLanguage: React.FC<SelectLanguageProps> = () => {
       </Select>
     </div>
   );
-};
+};  
+
 
 export default SelectLanguage;
