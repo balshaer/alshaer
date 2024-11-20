@@ -15,7 +15,7 @@ const port = process.env.PORT || 5000;
 dbConnect();
 
 const corsOptions = {
-  origin: ["http://localhost:3000"],
+  origin: ["https://baraa-6soc.onrender.com/"],
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE"],
 };
