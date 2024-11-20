@@ -58,7 +58,7 @@ const LoginAdminPage = () => {
         Cookies.set("Bearer", response.data.token);
         setToken(response.data.token);
 
-        navigate("/admin");
+        navigate("/admin/profile");
       } catch (error) {
         console.error("Failed to login with error:", error);
         setError(

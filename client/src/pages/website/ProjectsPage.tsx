@@ -10,14 +10,13 @@ import {
 import React, { useEffect, useState } from "react";
 import { Globe, Github } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { PageTitle } from "@/helper";
-import { PageTitlesData } from "@/data/PageTitlesData";
 import { motion } from "framer-motion";
 import ReusableCard from "@/components/custom/ReusableCard";
 import Navbar from "@/components/website/Navbar";
 import Footer from "@/components/website/Footer";
 import axios from "axios";
 import { endpoints } from "@/API/API";
+import SEO from "@/SEO";
 
 
 
@@ -60,8 +59,15 @@ const ProjectsPage: React.FC = () => {
 
   return (
     <>
+
+<SEO
+        title="Projects - Baraa Alshaer"
+        description="Explore the portfolio of web development projects by Baraa Alshaer, showcasing expertise in full-stack development, responsive design, and innovative solutions."
+        keywords={["Baraa Alshaer", "Web Projects", "Full Stack Development", "Portfolio", "براء الشاعر مشاريع"]}
+      />
+
+
       <div dir={direction} className="page">
-        <PageTitle title={PageTitlesData.projects} />
         <Navbar />
 
         <motion.div

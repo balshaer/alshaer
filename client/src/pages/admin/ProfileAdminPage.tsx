@@ -110,13 +110,14 @@ export default function ProfileAdminPage() {
 
   if (loading) {
     return (
-      <div className="h-[70vh] w-full text-[var(--headline)] flex justify-center items-center flex-col">
+      <div className="flex h-[70vh] w-full flex-col items-center justify-center text-[var(--headline)]">
         <span>Loading ...</span>
       </div>
     );
   }
 
   const name = adminData.name;
+  Cookies.set(name, "admin_name");
 
   const avatarName = name[0] + name[1];
 

@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/card";
 import { useNotifications } from "@/context/NotificationContext";
 import { Button } from "@/components/ui/button";
+import Cookies from "js-cookie";
 
 const styles = {
   cardIcon: "h-4 w-4 text-[var(--paragraph)]",
@@ -51,6 +52,8 @@ export default function AdminPage() {
   const [greeting, setGreeting] = useState("");
   const { addNotification } = useNotifications();
 
+  const adminName = Cookies.get("admin_name");
+  console.log([adminName])
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -69,8 +72,8 @@ export default function AdminPage() {
 
     // Set greeting based on time of day
     const hour = new Date().getHours();
-    if (hour < 12) setGreeting("Good morning 🌅");
-    else if (hour < 18) setGreeting("Good afternoon ☀️");
+    if (hour < 12) setGreeting("Good morning" + adminName);
+    else if (hour < 18) setGreeting("Good afternoon" + adminName);
     else setGreeting("Good evening 🌃");
   }, []);
 

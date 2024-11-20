@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "install-server": "cd server && npm install",
+    "install-server": "cd server && npm install --force",
     "start-server": "cd server && npm run dev",
-    "install-client": "cd client && npm install",
+    "install-client": "cd client && npm install --force",
     "build-client": "cd client && npm run build",
     "start-client": "cd client && npm run dev"
   },

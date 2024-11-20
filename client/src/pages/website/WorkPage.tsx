@@ -10,15 +10,13 @@ import {
 
 import React, { useEffect, useState } from "react";
 import { Badge } from "@/components/ui/badge";
-import { PageTitle } from "@/helper";
-import { PageTitlesData } from "@/data/PageTitlesData";
-
 import { motion } from "framer-motion";
 import ReusableCard from "@/components/custom/ReusableCard";
 import Footer from "@/components/website/Footer";
 import Navbar from "@/components/website/Navbar";
 import axios from "axios";
 import { endpoints } from "@/API/API";
+import SEO from "@/SEO";
 
 const WorkPage: React.FC = () => {
   const { t } = useTranslation();
@@ -48,7 +46,13 @@ const WorkPage: React.FC = () => {
 
   return (
     <>
-      <PageTitle title={PageTitlesData.work} />
+
+<SEO
+        title="Work Experience - Baraa Alshaer"
+        description="Discover Baraa Alshaer's professional journey in web development, including roles, projects, and achievements in full-stack development and software engineering."
+        keywords={["Baraa Alshaer", "Work Experience", "Full Stack Developer", "Software Engineer", "براء الشاعر خبرة عمل"]}
+      />
+
 
       <div dir={direction} className="page">
         <Navbar />
