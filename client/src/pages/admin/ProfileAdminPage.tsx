@@ -109,7 +109,11 @@ export default function ProfileAdminPage() {
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="h-[70vh] w-full text-[var(--headline)] flex justify-center items-center flex-col">
+        <span>Loading ...</span>
+      </div>
+    );
   }
 
   const name = adminData.name;
