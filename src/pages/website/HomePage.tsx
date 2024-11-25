@@ -6,8 +6,8 @@ import { motion } from "framer-motion";
 import ReusableCard from "@/components/custom/ReusableCard";
 import { Github, Globe } from "lucide-react";
 import Header from "@/components/website/Header";
-import { workData } from "@/data/WorkData";
-import { projectsData } from "@/data/ProjectsData";
+import { workData } from "@/data/workData";
+import { projectsData } from "@/data/projectsData";
 import SEO from "@/components/featuers/SEO";
 
 const styles = {

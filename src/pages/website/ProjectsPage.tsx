@@ -11,7 +11,7 @@ import { Globe, Github } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
 import ReusableCard from "@/components/custom/ReusableCard";
-import { projectsData } from "@/data/ProjectsData";
+import { projectsData } from "@/data/projectsData";
 import SEO from "@/components/featuers/SEO";
 
 export default function ProjectsPage() {

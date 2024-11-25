@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import { motion } from "framer-motion";
 import ReusableCard from "@/components/custom/ReusableCard";
-import { workData } from "@/data/WorkData";
+import { workData } from "@/data/workData";
 import SEO from "@/components/featuers/SEO";
 
 export default function WorkPage() {
