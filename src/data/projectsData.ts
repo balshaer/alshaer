@@ -71,7 +71,7 @@ export const projectsData: Project[] = [
     descriptionKey: "projects.sustainableStar.description",
     skills: ["React", "Tailwind CSS", "Material UI"],
     links: {
-      website: "https://sustainablestar.sa",
+      website: "https://sustainablestar.com.sa/",
     },
   },
   {
@@ -82,22 +82,5 @@ export const projectsData: Project[] = [
     links: {
       github: "https://github.com/balshaer/bookstore-api",
     },
-  },
-
-  {
-    id: "frontend-developer-sustainable-star",
-    titleKey: "projects.frontendDeveloperSustainableStar.title",
-    descriptionKey: "projects.frontendDeveloperSustainableStar.description",
-    skills: [
-      "React JS",
-      "Typescript",
-      "Tailwind CSS",
-      "Github",
-      "Git",
-      "RESTful APIs",
-    ],
-    links: {
-      website: "https://example.com/sustainable-star",
-    },
-  },
+  }
 ];

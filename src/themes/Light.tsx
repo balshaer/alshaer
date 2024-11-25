@@ -33,8 +33,7 @@ const LightMode = createGlobalStyle`
     --selectBox-border : #000;
     --outline-button-text :#000 ;
     --mark: #7f5af0;
-
-
+    --mobile-nav : #f9f9f921;
   }
 `;
 

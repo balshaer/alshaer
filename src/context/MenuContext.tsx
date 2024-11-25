@@ -1,11 +1,11 @@
 import React, { createContext, useState, ReactNode } from "react";
 
 interface MenuContextType {
-  isOpen: boolean;
-  setIsOpen: (isOpen: boolean) => void;
+  isOpen: any;
+  setIsOpen: any;
 }
 
-export const MenuContext = createContext<MenuContextType | undefined>(
+export const MenuContext = createContext<MenuContextType | any>(
   undefined,
 );
 

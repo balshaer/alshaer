@@ -1,4 +1,3 @@
-import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import { I18nextProvider } from "react-i18next";
@@ -14,24 +13,33 @@ import { MenuProvider } from "./context/MenuContext.tsx";
 import { ModeProvider } from "./context/ModeContext.tsx";
 import { ThemeProvider } from "./context/ThemeContext.tsx";
 import { LanguageProvider } from "./context/LanguageContext.tsx";
+import { ToastProvider, ToastViewport } from "@/components/ui/toast";
+import React from "react";
+import { HelmetProvider } from "react-helmet-async";
 
 AOS.init();
+
 ReactDOM.render(
   <React.StrictMode>
-    <MenuProvider>
-      <LanguageProvider>
-        <ThemeProvider>
-          <ModeProvider>
-            <I18nextProvider i18n={i18n}>
-              <BrowserRouter>
-                <SpeedInsights />
-                <App />
-              </BrowserRouter>
-            </I18nextProvider>
-          </ModeProvider>
-        </ThemeProvider>
-      </LanguageProvider>
-    </MenuProvider>
+    <HelmetProvider>
+      <MenuProvider>
+        <LanguageProvider>
+          <ThemeProvider>
+            <ModeProvider>
+              <ToastProvider>
+                <I18nextProvider i18n={i18n}>
+                  <BrowserRouter>
+                    <SpeedInsights />
+                    <App />
+                    <ToastViewport />
+                  </BrowserRouter>
+                </I18nextProvider>
+              </ToastProvider>
+            </ModeProvider>
+          </ThemeProvider>
+        </LanguageProvider>
+      </MenuProvider>
+    </HelmetProvider>
   </React.StrictMode>,
   document.getElementById("root"),
 );

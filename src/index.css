@@ -22,3 +22,32 @@ body {
 .page {
   @apply container px-4 pt-2 max-md:pt-16;
 }
+
+.badge-hover:hover > :not(:hover) {
+  filter: blur(5px);
+  opacity: 0.5;
+  transition: all 0.3s ease 0s;
+}
+
+.input-error {
+  @apply border-2 border-red-400;
+}
+
+
+
+/* for testing  */
+
+.test1 {
+  @apply border-2 border-black bg-green-300 text-black;
+}
+
+.test2 {
+  @apply border-2 border-black bg-red-300 text-black;
+}
+
+.test3 {
+  @apply border-2 border-black bg-blue-300 text-black;
+}
+.test4 {
+  @apply border-2 border-black bg-yellow-300 text-black;
+}

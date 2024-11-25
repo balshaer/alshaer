@@ -225,7 +225,7 @@ export function ContactForm() {
 
   const commonContent = (
     <div className="text-[var(--paragraph)]">
-      <p className="hoverd py-[8px] pe-1 ps-1 text-[1rem] font-bold text-[var(--tertiary-color)] max-md:ps-0">
+      <p className="hoverd py-[8px] ps-1 text-[1rem] font-bold text-[var(--tertiary-color)] max-md:ps-0">
         {t("Public.Email")}
       </p>
     </div>
@@ -240,7 +240,9 @@ export function ContactForm() {
     return (
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger dir={direction} asChild>
-          <span className="cursor-pointer">{commonContent}</span>
+          <div className="float-start m-auto cursor-pointer">
+            {commonContent}
+          </div>
         </DialogTrigger>
         <DialogContent
           className={`${styles.dialogContent} border-none bg-[var(--background)]`}

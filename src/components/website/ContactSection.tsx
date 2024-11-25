@@ -50,7 +50,7 @@ const ContactSection: React.FC = () => {
       {socialMediaLinks.map((item, index) => (
         <li
           className={
-            "max-md:w-full max-md:bg-[var(--card-background)] max-md:px-[8px] max-md:py-[14px]"
+            "max-md:w-full max-md:bg-[var(--card-background)] max-md:px-[8px] max-md:py-[14px] rounded-lg"
           }
           key={index}
         >

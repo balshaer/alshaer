@@ -49,6 +49,15 @@
   }
 }
 
+body {
+  font-family: "Cairo", sans-serif;
+  overscroll-behavior: none;
+}
+
+html {
+  overscroll-behavior: none;
+}
+
 @layer base {
   * {
     @apply m-0 box-border p-0;
@@ -70,14 +79,6 @@
 @layer components {
   .cardsGroup {
     @apply flex min-h-[100px] w-full flex-col gap-5 max-md:w-full;
-  }
-
-  .loader {
-    @apply relative block h-[4px] w-[130px] rounded-[30px] bg-black/20;
-  }
-
-  .loader::before {
-    @apply absolute left-0 top-0 h-full w-0 rounded-[30px] bg-[var(--button)] content-[''];
   }
 
   .section {
@@ -138,10 +139,6 @@
 
   .main-navbar {
     @apply flex w-full flex-row items-center justify-between rounded-3xl py-3 max-md:m-auto max-md:border-b max-md:border-none max-md:px-0 max-md:backdrop-blur-2xl;
-  }
-
-  .gradients-bg {
-    @apply bg-gradient-to-r from-[#4e1ecf] to-[#e52d5b];
   }
 
   .cardGroup {
@@ -241,13 +238,4 @@
 
 .input-error {
   @apply border border-red-400;
-}
-
-body {
-  font-family: "Cairo", sans-serif;
-  overscroll-behavior: none;
-}
-
-html {
-  overscroll-behavior: none;
 }

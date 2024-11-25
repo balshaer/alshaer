@@ -41,7 +41,13 @@ const ReusableCard = React.forwardRef<HTMLDivElement, ReusableCardProps>(
     ref,
   ) => {
     return (
-      <Card ref={ref} className={cn("pb-4 pt-2", className)} {...props}>
+      <Card
+        data-aos="fade-up"
+        data-aos-easing="ease-in-out"
+        ref={ref}
+        className={cn("pb-4 pt-2", className)}
+        {...props}
+      >
         <CardHeader className="flex items-center justify-between py-2 max-md:flex-col max-md:items-start">
           {title && (
             <CardTitle className="text-base font-semibold leading-6 tracking-tight text-[var(--headline)]">
