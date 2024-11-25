@@ -9,7 +9,7 @@ export interface Project {
   };
 }
 
-export const projectsData: Project[] = [
+export const ProjectsData: Project[] = [
   {
     id: "samtax",
     titleKey: "projects.samtax.title",

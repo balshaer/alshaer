@@ -6,8 +6,8 @@ import { motion } from "framer-motion";
 import ReusableCard from "@/components/custom/ReusableCard";
 import { Github, Globe } from "lucide-react";
 import Header from "@/components/website/Header";
-import { workData } from "@/data/workData";
-import { projectsData } from "@/data/projectsData";
+import { WorkData } from "@/data/WorkData";
+import { ProjectsData } from "@/data/ProjectsData";
 import SEO from "@/components/featuers/SEO";
 
 const styles = {
@@ -23,8 +23,8 @@ export default function HomePage() {
   const navigate = useNavigate();
   const direction = i18n.language === "ar" ? "rtl" : "ltr";
 
-  const displayedProjects = projectsData.slice(0, 3);
-  const displayedWorkExperiences = workData.slice(0, 3);
+  const displayedProjects = ProjectsData.slice(0, 3);
+  const displayedWorkExperiences = WorkData.slice(0, 3);
 
   function navigateTo(path: string): void {
     navigate(path);
@@ -79,7 +79,7 @@ export default function HomePage() {
               </ReusableCard>
             ))}
 
-            {workData.length > 3 && (
+            {WorkData.length > 3 && (
               <Button
                 className="w-max"
                 variant="default"
@@ -146,7 +146,7 @@ export default function HomePage() {
               </ReusableCard>
             ))}
 
-            {projectsData.length > 3 && (
+            {ProjectsData.length > 3 && (
               <Button
                 className="mb-10 w-max"
                 variant="default"

@@ -11,7 +11,7 @@ import { Globe, Github } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
 import ReusableCard from "@/components/custom/ReusableCard";
-import { projectsData } from "@/data/projectsData";
+import { ProjectsData } from "@/data/ProjectsData";
 import SEO from "@/components/featuers/SEO";
 
 export default function ProjectsPage() {
@@ -87,7 +87,7 @@ export default function ProjectsPage() {
         </div>
 
         <div className="projects-cards flex flex-col gap-8 pb-16">
-          {projectsData.map((project) => (
+          {ProjectsData.map((project) => (
             <ReusableCard
               key={project.id}
               id={project.id}

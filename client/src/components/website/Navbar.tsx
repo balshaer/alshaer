@@ -72,7 +72,7 @@ export default function Navbar() {
   return (
     <nav
       dir="ltr"
-      className="z-50 flex items-center justify-between gap-5 rounded-3xl border border-zinc-700/40 bg-[var(--mobile-nav)] px-5 text-base backdrop-blur-lg max-md:fixed max-md:left-0 max-md:right-0 max-md:top-0 max-md:w-full max-md:rounded-none max-md:px-3 sm:px-6"
+      className="z-50 md:mb-[-20px] flex items-center justify-between gap-5 rounded-3xl border border-zinc-700/40 bg-[var(--mobile-nav)] px-5 text-base backdrop-blur-lg max-md:fixed max-md:left-0 max-md:right-0 max-md:top-0 max-md:w-full max-md:rounded-none max-md:px-3 sm:px-6"
     >
       <div className="container mx-auto px-0">
         <div className="flex h-14 items-center justify-between">

@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import { motion } from "framer-motion";
 import ReusableCard from "@/components/custom/ReusableCard";
-import { workData } from "@/data/workData";
+import { WorkData } from "@/data/WorkData";
 import SEO from "@/components/featuers/SEO";
 
 export default function WorkPage() {
@@ -81,8 +81,8 @@ export default function WorkPage() {
         </div>
 
         <div className="works-cards relative flex min-h-[60vh] flex-col gap-8 pb-16">
-          {workData.length > 0 ? (
-            workData.map((experience) => (
+          {WorkData.length > 0 ? (
+            WorkData.map((experience) => (
               <ReusableCard
                 key={experience.id}
                 id={experience.id}
