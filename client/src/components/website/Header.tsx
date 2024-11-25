@@ -14,6 +14,7 @@ export default function Header() {
       <div className="header-content">
         <h1 className="header-title">{t("Header.Title")}</h1>
         <RandomizedTextEffect
+        
           text={t("Header.Subtitle")}
           className="subtitle italic"
         />
