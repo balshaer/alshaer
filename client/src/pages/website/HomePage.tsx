@@ -6,9 +6,9 @@ import { motion } from "framer-motion";
 import ReusableCard from "@/components/custom/ReusableCard";
 import { Github, Globe } from "lucide-react";
 import Header from "@/components/website/Header";
-import { WorkData } from "@/data/WorkData";
-import { ProjectsData } from "@/data/ProjectsData";
 import SEO from "@/components/featuers/SEO";
+import { ProjectsData } from "@/data/ProjectsData";
+import { WorkData } from "@/data/WorkData";
 
 const styles = {
   breadcrumbLink: "hover:text-[var(--paragraph)] hoverd",
