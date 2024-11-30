@@ -7,8 +7,8 @@ import ReusableCard from "@/components/custom/ReusableCard";
 import { Github, Globe } from "lucide-react";
 import Header from "@/components/website/Header";
 import SEO from "@/components/featuers/SEO";
-import { ProjectsData } from "@/data/ProjectsData";
-import { WorkData } from "@/data/WorkData";
+import { workData } from "@/data/workData";
+import { projectsData } from "@/data/projectsData";
 
 const styles = {
   breadcrumbLink: "hover:text-[var(--paragraph)] hoverd",
@@ -23,8 +23,8 @@ export default function HomePage() {
   const navigate = useNavigate();
   const direction = i18n.language === "ar" ? "rtl" : "ltr";
 
-  const displayedProjects = ProjectsData.slice(0, 3);
-  const displayedWorkExperiences = WorkData.slice(0, 3);
+  const displayedProjects = projectsData.slice(0, 3);
+  const displayedWorkExperiences = workData.slice(0, 3);
 
   function navigateTo(path: string): void {
     navigate(path);
@@ -79,7 +79,7 @@ export default function HomePage() {
               </ReusableCard>
             ))}
 
-            {WorkData.length > 3 && (
+            {workData.length > 3 && (
               <Button
                 className="w-max"
                 variant="default"
@@ -146,7 +146,7 @@ export default function HomePage() {
               </ReusableCard>
             ))}
 
-            {ProjectsData.length > 3 && (
+            {projectsData.length > 3 && (
               <Button
                 className="mb-10 w-max"
                 variant="default"

@@ -1,4 +1,4 @@
-export interface Project {
+export interface project {
   id: string;
   titleKey: string;
   descriptionKey: string;
@@ -9,7 +9,7 @@ export interface Project {
   };
 }
 
-export const ProjectsData: Project[] = [
+export const projectsData: project[] = [
   {
     id: "samtax",
     titleKey: "projects.samtax.title",

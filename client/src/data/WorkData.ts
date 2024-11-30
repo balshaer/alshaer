@@ -1,6 +1,6 @@
 // data/workData.ts
 
-export const WorkData = [
+export const workData = [
   {
     id: "frontend-developer-sustainable-star",
     title: "WorkExperience.FrontendDeveloperSustainableStar.Title",
