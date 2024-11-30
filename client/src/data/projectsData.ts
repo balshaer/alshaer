@@ -82,5 +82,5 @@ export const ProjectsData: Project[] = [
     links: {
       github: "https://github.com/balshaer/bookstore-api",
     },
-  }
+  },
 ];
