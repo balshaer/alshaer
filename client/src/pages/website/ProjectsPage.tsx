@@ -12,7 +12,39 @@ import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
 import ReusableCard from "@/components/custom/ReusableCard";
 import SEO from "@/components/featuers/SEO";
-import { projectsData } from "../../data/projectsData";
+
+const projectsData = [
+  {
+    id: "project-1",
+    titleKey: "Projects.Project1.Title",
+    descriptionKey: "Projects.Project1.Description",
+    skills: ["React", "Node.js", "MongoDB"],
+    links: {
+      website: "https://project1.com",
+      github: "https://github.com/username/project1",
+    },
+  },
+  {
+    id: "project-2",
+    titleKey: "Projects.Project2.Title",
+    descriptionKey: "Projects.Project2.Description",
+    skills: ["Vue.js", "Express", "PostgreSQL"],
+    links: {
+      website: "https://project2.com",
+      github: "https://github.com/username/project2",
+    },
+  },
+  {
+    id: "project-3",
+    titleKey: "Projects.Project3.Title",
+    descriptionKey: "Projects.Project3.Description",
+    skills: ["Angular", "Django", "MySQL"],
+    links: {
+      website: "https://project3.com",
+      github: "https://github.com/username/project3",
+    },
+  },
+];
 
 export default function ProjectsPage() {
   const { t, i18n } = useTranslation();

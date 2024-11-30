@@ -4,12 +4,69 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
 import ReusableCard from "@/components/custom/ReusableCard";
-import { Github, Globe } from "lucide-react";
+import { Github, Globe } from 'lucide-react';
 import Header from "@/components/website/Header";
 import SEO from "@/components/featuers/SEO";
 
-import { workData } from "../../data/workData";
-import { projectsData } from "../../data/projectsData";
+const workData = [
+  {
+    id: "frontend-developer-sustainable-star",
+    title: "WorkExperience.FrontendDeveloperSustainableStar.Title",
+    company: "Sustainable Star LLC",
+    date: "WorkExperience.FrontendDeveloperSustainableStar.Date",
+    description: "WorkExperience.FrontendDeveloperSustainableStar.Description",
+    skills: ["React js", "Typescript", "Tailwind CSS", "Github", "Git", "RESTful APIs"],
+  },
+  {
+    id: "frontend-developer-ptit",
+    title: "WorkExperience.FrontendDeveloperPTIT.Title",
+    company: "PTIT",
+    date: "WorkExperience.FrontendDeveloperPTIT.Date",
+    description: "WorkExperience.FrontendDeveloperPTIT.Description",
+    skills: ["React js", "Javascript", "Tailwind CSS", "Github", "Git"],
+  },
+  {
+    id: "software-engineer-intern-gedco",
+    title: "WorkExperience.SoftwareEngineerGEDCO.Title",
+    company: "GEDCO",
+    date: "WorkExperience.SoftwareEngineerGEDCO.Date",
+    description: "WorkExperience.SoftwareEngineerGEDCO.Description",
+    skills: ["PHP", "MySQL", "Bootstrap"],
+  },
+];
+
+const projectsData = [
+  {
+    id: "project-1",
+    titleKey: "Projects.Project1.Title",
+    descriptionKey: "Projects.Project1.Description",
+    skills: ["React", "Node.js", "MongoDB"],
+    links: {
+      website: "https://project1.com",
+      github: "https://github.com/username/project1",
+    },
+  },
+  {
+    id: "project-2",
+    titleKey: "Projects.Project2.Title",
+    descriptionKey: "Projects.Project2.Description",
+    skills: ["Vue.js", "Express", "PostgreSQL"],
+    links: {
+      website: "https://project2.com",
+      github: "https://github.com/username/project2",
+    },
+  },
+  {
+    id: "project-3",
+    titleKey: "Projects.Project3.Title",
+    descriptionKey: "Projects.Project3.Description",
+    skills: ["Angular", "Django", "MySQL"],
+    links: {
+      website: "https://project3.com",
+      github: "https://github.com/username/project3",
+    },
+  },
+];
 
 const styles = {
   breadcrumbLink: "hover:text-[var(--paragraph)] hoverd",
@@ -162,3 +219,4 @@ export default function HomePage() {
     </>
   );
 }
+
