@@ -12,36 +12,78 @@ import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
 import ReusableCard from "@/components/custom/ReusableCard";
 import SEO from "@/components/featuers/SEO";
-
 const projectsData = [
   {
-    id: "project-1",
-    titleKey: "Projects.Project1.Title",
-    descriptionKey: "Projects.Project1.Description",
-    skills: ["React", "Node.js", "MongoDB"],
+    id: "samtax",
+    titleKey: "projects.samtax.title",
+    descriptionKey: "projects.samtax.description",
+    skills: ["React", "Tailwind CSS", "Shadcn UI"],
     links: {
-      website: "https://project1.com",
-      github: "https://github.com/username/project1",
+      website: "https://sam-tax.com",
+    },
+  },
+
+  {
+    id: "gradients-css",
+    titleKey: "projects.gradientsCss.title",
+    descriptionKey: "projects.gradientsCss.description",
+    skills: [
+      "React JS",
+      "Typescript",
+      "Tailwind CSS",
+      "Github",
+      "Git",
+      "RESTful APIs",
+    ],
+    links: {
+      website: "https://gradients.vercel.app",
+      github: "https://github.com/balshaer/gradients-css",
     },
   },
   {
-    id: "project-2",
-    titleKey: "Projects.Project2.Title",
-    descriptionKey: "Projects.Project2.Description",
-    skills: ["Vue.js", "Express", "PostgreSQL"],
+    id: "raouf-zadi",
+    titleKey: "projects.raoufzadi.title",
+    descriptionKey: "projects.raoufzadi.description",
+    skills: ["React JS", "Typescript", "Tailwind CSS", "Github", "Git"],
     links: {
-      website: "https://project2.com",
-      github: "https://github.com/username/project2",
+      website: "https://raoufzadi.vercel.app",
+    },
+  },
+
+  {
+    id: "naj-training-center",
+    titleKey: "projects.najTrainingCenter.title",
+    descriptionKey: "projects.najTrainingCenter.description",
+    skills: ["React JS", "Javascript", "MIUI"],
+    links: {
+      website: "https://naj.shamilapp.com/",
     },
   },
   {
-    id: "project-3",
-    titleKey: "Projects.Project3.Title",
-    descriptionKey: "Projects.Project3.Description",
-    skills: ["Angular", "Django", "MySQL"],
+    id: "rove",
+    titleKey: "projects.rove.title",
+    descriptionKey: "projects.rove.description",
+    skills: ["React", "Tailwind CSS", "Laravel", "MYSQL"],
     links: {
-      website: "https://project3.com",
-      github: "https://github.com/username/project3",
+      github: "https://github.com/balshaer/rove",
+    },
+  },
+  {
+    id: "sustainable-star",
+    titleKey: "projects.sustainableStar.title",
+    descriptionKey: "projects.sustainableStar.description",
+    skills: ["React", "Tailwind CSS", "Material UI"],
+    links: {
+      website: "https://sustainablestar.com.sa/",
+    },
+  },
+  {
+    id: "bookstore-api",
+    titleKey: "projects.bookstoreApi.title",
+    descriptionKey: "projects.bookstoreApi.description",
+    skills: ["Node JS", "Express JS", "Mongoose DB"],
+    links: {
+      github: "https://github.com/balshaer/bookstore-api",
     },
   },
 ];
