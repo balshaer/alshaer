@@ -1,5 +1,3 @@
-// data/workData.ts
-
 export const workData = [
   {
     id: "frontend-developer-sustainable-star",
