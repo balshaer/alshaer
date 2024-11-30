@@ -10,7 +10,9 @@ import {
 import { motion } from "framer-motion";
 import ReusableCard from "@/components/custom/ReusableCard";
 import SEO from "@/components/featuers/SEO";
-import { workData } from "@/data/workData";
+import { workData } from "../../data/workData";
+
+
 
 export default function WorkPage() {
   const { t, i18n } = useTranslation();

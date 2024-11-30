@@ -12,7 +12,7 @@ import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
 import ReusableCard from "@/components/custom/ReusableCard";
 import SEO from "@/components/featuers/SEO";
-import { projectsData } from "@/data/projectsData";
+import { projectsData } from "../../data/projectsData";
 
 export default function ProjectsPage() {
   const { t, i18n } = useTranslation();

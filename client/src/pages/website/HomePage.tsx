@@ -7,8 +7,9 @@ import ReusableCard from "@/components/custom/ReusableCard";
 import { Github, Globe } from "lucide-react";
 import Header from "@/components/website/Header";
 import SEO from "@/components/featuers/SEO";
-import { workData } from "@/data/workData";
-import { projectsData } from "@/data/projectsData";
+
+import { workData } from "../../data/workData";
+import { projectsData } from "../../data/projectsData";
 
 const styles = {
   breadcrumbLink: "hover:text-[var(--paragraph)] hoverd",

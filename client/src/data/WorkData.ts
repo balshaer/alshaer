@@ -31,3 +31,4 @@ export const workData = [
     skills: ["PHP", "MySQL", "Bootstrap"],
   },
 ];
+
