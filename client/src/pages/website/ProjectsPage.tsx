@@ -36,7 +36,7 @@ const projectsData = [
       "RESTful APIs",
     ],
     links: {
-      website: "https://gradients.vercel.app",
+      website: "https://gradientscss.vercel.app",
       github: "https://github.com/balshaer/gradients-css",
     },
   },
@@ -124,7 +124,7 @@ export default function ProjectsPage() {
         transition={{ duration: 0.5 }}
         className="projectCards flex min-h-[100vh] w-full flex-col gap-5 max-md:pb-0"
       >
-        <div className="header">
+        <header dir={direction} className="header">
           <h1 className="header-title">{t("Projects.Title")}</h1>
           <p className="description max-w-[100%]">
             {t("Projects.Description")}
@@ -158,7 +158,7 @@ export default function ProjectsPage() {
               </BreadcrumbList>
             </Breadcrumb>
           </div>
-        </div>
+        </header>
 
         <div className="projects-cards flex flex-col gap-8 pb-16">
           {projectsData.map((project) => (

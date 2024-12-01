@@ -96,7 +96,8 @@
   },
   "WorkExperience": {
     "Title": "الخبرات العملية",
-    "Description": "هذا العنوان يعبر عن الطابع الرسمي ويشير بوضوح إلى تجاربك العملية.",
+
+    "Description": "فيما يلي موجز الخبرات العملية التي عملت بها.",
     "FrontendDeveloperSustainableStar": {
       "Title": "مطور واجهات أمامية في Sustainable Star LLC",
       "Date": "يوليو 2023 - أكتوبر 2023",

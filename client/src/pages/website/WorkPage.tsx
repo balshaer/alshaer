@@ -50,7 +50,7 @@ export default function WorkPage() {
   const direction = i18n.language === "ar" ? "rtl" : "ltr";
 
   const styles = {
-    breadcrumbLink: "hover:text-[var(--paragraph)] hoverd",
+    breadcrumbLink: "hover:text-[var(--paragraph)] hoverd ",
     arrowIcon:
       "text-[var(--paragraph)] text-3xl hoverd hover:text-[var(--link-color)] cursor-pointer ml-[-16px] max-md:ml-[-8px]",
     linkStyle:
@@ -77,7 +77,7 @@ export default function WorkPage() {
         transition={{ duration: 0.5 }}
         className="projectCards flex min-h-[100vh] w-full flex-col gap-5 max-md:pb-0"
       >
-        <div className="header">
+        <header dir={direction} className="header">
           <h1 className="header-title">{t("WorkExperience.Title")}</h1>
           <p className="description max-w-[100%]">
             {t("WorkExperience.Description")}
@@ -111,7 +111,7 @@ export default function WorkPage() {
               </BreadcrumbList>
             </Breadcrumb>
           </div>
-        </div>
+        </header>
 
         <div className="works-cards relative flex min-h-[60vh] flex-col gap-8 pb-16">
           {workData.length > 0 ? (

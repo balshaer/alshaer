@@ -59,7 +59,7 @@ const projectsData = [
       "RESTful APIs",
     ],
     links: {
-      website: "https://gradients.vercel.app",
+      website: "https://gradientscss.vercel.app",
       github: "https://github.com/balshaer/gradients-css",
     },
   },
