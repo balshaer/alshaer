@@ -12,9 +12,8 @@ export default function Header() {
   return (
     <div className="header" dir={direction}>
       <div className="header-content">
-        <h1 className="header-title">{t("Header.Title")}</h1>
+        <h1 className="header-title max-md:mt-14">{t("Header.Title")}</h1>
         <RandomizedTextEffect
-        
           text={t("Header.Subtitle")}
           className="subtitle italic"
         />
