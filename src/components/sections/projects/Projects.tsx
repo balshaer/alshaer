@@ -26,6 +26,7 @@ interface Project {
 }
 
 const projectsData: Project[] = [
+
   {
     id: "proj_1",
     title: "sam-tax.com",
@@ -121,6 +122,29 @@ const projectsData: Project[] = [
     created: "2023-07-01",
     updated: "2023-08-01",
     logoFileName: "barber.svg",
+  },
+    {
+    id: "proj_6",
+    title: "4CV - AI Resume Analyzer",
+    description:
+      "Transform your hiring process with AI-powered resume analysis. Built an advanced platform that provides instant, comprehensive candidate insights using Gemini AI. Streamlines recruitment workflows and delivers actionable hiring recommendations in seconds.",
+    type: "AI Platform",
+    website: "http://4cv.vercel.app/",
+    technologies: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Gemini AI API",
+      "AI Integration",
+      "Resume Processing",
+      "Machine Learning",
+    ],
+    status: "Published",
+    featured: true,
+    created: "2024-12-01",
+    updated: "2025-01-13",
+    logoFileName: "4cv.svg",
   },
   // ...you can bring back your other commented-out projects here
 ];
@@ -282,20 +306,20 @@ const Projects = () => {
                       <span>
                         {project.created
                           ? new Date(project.created).toLocaleDateString("en-US", {
-                              year: "numeric",
-                              month: "2-digit",
-                            })
+                            year: "numeric",
+                            month: "2-digit",
+                          })
                           : "Unknown"}
                       </span>
                       <span className="font-mono">—</span>
                       {project.status === "Published" && project.updated === ""
                         ? "Present"
                         : project.updated
-                        ? new Date(project.updated).toLocaleDateString("en-US", {
+                          ? new Date(project.updated).toLocaleDateString("en-US", {
                             year: "numeric",
                             month: "2-digit",
                           })
-                        : "Unknown"}
+                          : "Unknown"}
                     </dd>
                   </dl>
                 </div>
@@ -342,11 +366,10 @@ const Projects = () => {
                     strokeWidth={2}
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className={`lucide ${
-                      openProjectId === project.id
+                    className={`lucide ${openProjectId === project.id
                         ? "lucide-chevrons-down-up"
                         : "lucide-chevrons-up-down"
-                    } size-4`}
+                      } size-4`}
                     aria-hidden="true"
                     style={{ stroke: "var(--paragraph)" }}
                   >
@@ -421,7 +444,7 @@ const Projects = () => {
           className="font-bold text-lg underline"
           style={{ color: "var(--link-color)" }}
         >
-          Explore more on GitHub 
+          Explore more on GitHub
         </a>
       </div>
       {/* ==== END: Explore More on GitHub ==== */}

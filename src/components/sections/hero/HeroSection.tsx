@@ -19,6 +19,7 @@ const iconsMap = {
   youtube: AiFillYoutube,
   twitter: AiFillTwitterCircle,
   email: AiOutlineMail,
+  envelope: AiOutlineMail,
   whatsapp: AiOutlineWhatsApp,
   facebook: FaFacebook,
 };
